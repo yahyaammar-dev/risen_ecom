@@ -7821,3 +7821,15 @@ html[dir="rtl"] #onetrust-consent-sdk #onetrust-pc-sdk h3 {
     position: relative;
     overflow: hidden;
 }
+
+.css-euj0yn{
+    cursor: pointer;
+}
+
+#erroralert, #successalert {
+    position: absolute;
+    z-index: 9999;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0px);
+}

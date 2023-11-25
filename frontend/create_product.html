@@ -61,14 +61,6 @@
 
 <body>
 
-
-
-
-
-
-
-
-
     <!-- Admin Dashboard -->
     <div class="bg-gray-100 xl:h-screen dark:bg-gray-800">
         <div class="body-content" x-data="{ open: true }">
@@ -104,8 +96,8 @@
                     <div class="pb-6 mt-4 overflow-x-hidden overflow-y-auto ">
                         <ul class="mb-8 text-sm">
                             <li>
-                                <a href="#"
-                                    class="flex items-center px-8 py-4 text-gray-100 bg-blue-600 dark:text-gray-200 dark:bg-blue-500 dark:hover:bg-gray-700 hover:bg-blue-500">
+                                <a href="dashboard.html"
+                                    class="flex items-center px-8 py-4 text-gray-700 group dark:text-gray-400 dark:hover:bg-gray-700 hover:bg-gray-100">
                                     <span class="inline-block mr-3">
                                         <svg class="w-5 h-5 group-" viewBox="0 0 18 18" fill="none"
                                             xmlns="http://www.w3.org/2000/svg" data-config-id="auto-svg-2-1">
@@ -115,6 +107,67 @@
                                         </svg>
                                     </span>
                                     <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="read_order.html"
+                                    class="flex items-center px-8 py-4 text-gray-700 dark:text-gray-400 group dark:hover:bg-gray-700 hover:bg-gray-100">
+                                    <span class="inline-block mr-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="w-5 h-5 group-" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+                                            <path
+                                                d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
+                                        </svg>
+                                    </span>
+                                    <span> Orders </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="create_categories.html"
+                                    class="flex items-center px-8 py-4 text-gray-700 group dark:text-gray-400 dark:hover:bg-gray-700 hover:bg-gray-100">
+
+                                    <span class="inline-block mr-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="w-5 h-5 group-" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+                                            <path
+                                                d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
+                                        </svg>
+                                    </span>
+                                    <span> Create Categories </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="create_product.html"
+                                    class="flex items-center px-8 py-4 text-gray-100 bg-blue-600 dark:text-gray-200 dark:bg-blue-500 dark:hover:bg-gray-700 hover:bg-blue-500">
+                                    <span class="inline-block mr-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="w-5 h-5 group-" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+                                            <path
+                                                d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
+                                        </svg>
+                                    </span>
+                                    <span> Create Products </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="upload_products.html"
+                                    class="flex items-center px-8 py-4 text-gray-700 group dark:text-gray-400 dark:hover:bg-gray-700 hover:bg-gray-100">
+                                    <span class="inline-block mr-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="w-5 h-5 group-" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+                                            <path
+                                                d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
+                                        </svg>
+                                    </span>
+                                    <span> Upload Products </span>
                                 </a>
                             </li>
                             <li x-data="{ open: false }">
@@ -269,21 +322,7 @@
                                     <span> Category </span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="#"
-                                    class="flex items-center px-8 py-4 text-gray-700 dark:text-gray-400 group dark:hover:bg-gray-700 hover:bg-gray-100">
-                                    <span class="inline-block mr-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="w-5 h-5 group-" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
-                                            <path
-                                                d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
-                                        </svg>
-                                    </span>
-                                    <span> Blog </span>
-                                </a>
-                            </li>
+
                         </ul>
                     </div>
                 </nav>
@@ -419,106 +458,60 @@
                             class="max-w-4xl px-4 py-4 mx-auto bg-white border shadow-sm dark:border-gray-900 dark:bg-gray-900 lg:py-4 md:px-6">
                             <div class="mb-10 ">
                                 <h2 class="pb-2 mb-2 text-xl font-bold text-gray-800 md:text-3xl dark:text-gray-300">
-                                    Basic Info
+                                    Create Categories
                                 </h2>
                                 <p class="text-sm dark:text-gray-400">
                                     Lorem ipsum dor amet ispicusus isopiros amet ispis lorem
                                 </p>
                             </div>
-                            <form action="#" class="">
                                 <div class="mb-6">
                                     <label for="" class="block mb-2 text-sm font-medium dark:text-gray-400">Full
                                         Name</label>
                                     <input type="text"
+                                        id="name"
                                         class="block w-full px-4 py-3 mb-2 text-sm bg-gray-100 border rounded dark:placeholder-gray-400 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800"
-                                        placeholder="Full name...." required>
+                                        name="name" placeholder="Full name...." required>
                                 </div>
                                 <div class="mb-6">
                                     <label for=""
-                                        class="block mb-2 text-sm font-medium dark:text-gray-400">Email</label>
-                                    <input type="email" placeholder="abc@gmail.com" required
+                                        class="block mb-2 text-sm font-medium dark:text-gray-400">Amount</label>
+                                    <input type="text" placeholder="90" required name="amount"
+                                        id="amount"
                                         class="block w-full px-4 py-3 mb-3 leading-tight placeholder-gray-400 bg-gray-100 border rounded ark:border-gray-800 dark:bg-gray-800 dark:placeholder-gray-500 dark:text-gray-400 dark:border-gray-800 ">
                                 </div>
                                 <div class="mb-6">
                                     <label for=""
-                                        class="block mb-2 text-sm font-medium dark:text-gray-400">Message</label>
-                                    <textarea type="message" placeholder="Message.." required
+                                        class="block mb-2 text-sm font-medium dark:text-gray-400">BarcodeId</label>
+                                    <input type="text" placeholder="123456789012" required name="barcodeid" id="barcode"
+                                        class="block w-full px-4 py-3 mb-3 leading-tight placeholder-gray-400 bg-gray-100 border rounded ark:border-gray-800 dark:bg-gray-800 dark:placeholder-gray-500 dark:text-gray-400 dark:border-gray-800 ">
+                                </div>
+                                <div class="mb-6">
+                                    <label for="category"
+                                        class="block mb-2 text-sm font-medium dark:text-gray-400">Category</label>
+                                    <select id="category" name="category"
+                                        class="block w-full px-4 py-3 mb-3 leading-tight bg-gray-100 border rounded ark:border-gray-800 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-800">
+                                        <option value="electronics">Electronics</option>
+                                        <option value="clothing">Clothing</option>
+                                        <option value="furniture">Home and Furniture</option>
+                                    </select>
+                                </div>
+                                <div class="mb-6">
+                                    <label for="images"
+                                        class="block mb-2 text-sm font-medium dark:text-gray-400">Images</label>
+                                    <input type="file" id="images" name="images" accept="image/*" multiple
+                                        class="block w-full px-4 py-3 mb-3 leading-tight bg-gray-100 border rounded ark:border-gray-800 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-800">
+                                </div>
+                                <div class="mb-6">
+                                    <label for=""
+                                        class="block mb-2 text-sm font-medium dark:text-gray-400">Description</label>
+                                    <textarea type="message" id="description" name="message" placeholder="Message.." required
                                         class="block w-full px-4 py-6 leading-tight placeholder-gray-400 bg-gray-100 border rounded dark:placeholder-gray-400 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 "></textarea>
                                 </div>
-                                <div class="mb-8 ">
-                                    <label class="mr-2 dark:text-gray-400">
-                                        <input type="radio" name="inline-radio" value="option 1"
-                                            class="checked:bg-gray-600 " checked="">
-                                        <span class="ml-2">Male</span>
-                                    </label>
-                                    <label class="dark:text-gray-400">
-                                        <input type="radio" name="inline-radio" value="option 2">
-                                        <span class="ml-2">Female</span>
-                                    </label>
-                                </div>
-                                <div class="mb-8 ">
-                                    <h2 class="mb-4 text-sm font-semibold text-gray-700 dark:text-gray-400">Choose
-                                        your proffession?
-                                    </h2>
-                                    <div class="flex flex-wrap items-center gap-6 ">
-                                        <div class="flex items-center ">
-                                            <input type="checkbox"
-                                                class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:border-gray-600">
-                                            <label for=""
-                                                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400">IT</label>
-                                        </div>
-                                        <div class="flex items-center ">
-                                            <input type="checkbox"
-                                                class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:border-gray-600">
-                                            <label for=""
-                                                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400">Networking</label>
-                                        </div>
-                                        <div class="flex items-center ">
-                                            <input type="checkbox"
-                                                class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:border-gray-600">
-                                            <label for=""
-                                                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400">Database</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-6 ">
-                                    <label for=""
-                                        class="block mb-2 text-sm font-medium dark:text-gray-400">Position</label>
-                                    <div class="relative">
-                                        <select name="select-name"
-                                            class="block w-full px-4 py-3 mb-2 text-sm text-gray-500 placeholder-gray-400 bg-gray-100 border rounded appearance-none dark:text-gray-400 dark:bg-gray-800 dark:border-gray-800 ">
-                                            <option value="">Manager</option>
-                                            <option value="">Chairman</option>
-                                            <option value="">CEO</option>
-                                        </select>
-                                        <div class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-600 ">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd"
-                                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-6 ">
-                                    <label for=""
-                                        class="block mb-2 text-sm font-medium dark:text-gray-400">Placeholder</label>
-                                    <div class="py-2 shrink-0">
-                                        <img src="https://i.postimg.cc/rF6G0Dh9/pexels-emmy-e-2381069.jpg" alt=""
-                                            class="object-cover rounded-full w-11 h-11" />
-                                    </div>
-                                    <label for="" class="block pt-2">
-                                        <input type="file" class="block w-full text-sm text-slate-500 " />
-                                    </label>
-                                </div>
-                                <button
-                                    class="px-4 py-2 text-base text-gray-100 bg-blue-600 rounded hover:bg-blue-500">Send</button>
+                                <button class="px-4 py-2 text-base text-gray-100 bg-blue-600 rounded hover:bg-blue-500"
+                                onclick="submitForm()">Create</button>
                         </div>
-                        </form>
             </div>
             </section>
-
-
             </section>
         </div>
     </div>
@@ -526,14 +519,40 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 
+    <script>
+        async function submitForm() {
+
+            const name = document.getElementById('name').value
+            const amount = document.getElementById('amount').value
+            const description = document.getElementById('description').value
+            const barcodeId = document.getElementById('barcode').value;
+            const category = document.getElementById('category').value;
+            const images = document.getElementById('images').files;
 
 
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('amount', amount);
+            formData.append('description', description);
+            formData.append('barcodeId', barcodeId);
+            formData.append('category', '6560d3abcd290a0948542535');
+            for (let i = 0; i < images.length; i++) {
+                formData.append('images', images[i]);
+            }
 
+            try {
+                const response = await fetch('http://localhost:8888/create-product', {
+                    method: 'POST',
+                    body: formData,
+                });
 
-
-
-
-
+                const data = await response.json();
+                console.log(data);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+    </script>
 
 </body>
 

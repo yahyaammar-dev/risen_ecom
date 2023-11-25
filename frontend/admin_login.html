@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles/homepage.css">
+
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -57,17 +58,9 @@
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
-
-
-
 </head>
 
 <body>
-
-
-
-
-
 
     <!-- Admin Login form -->
     <section class="h-96 lg:h-screen font-poppins ">
@@ -85,14 +78,15 @@
                             <div class="hidden w-full px-6 mb-16 lg:w-3/5 lg:mb-0 lg:block">
                                 <h2
                                     class="text-4xl font-bold leading-loose text-left text-gray-100 dark:text-gray-300 mb-9 lg:text-6xl ">
-                                    Welcome and join our community</h2>
-                                <p class="text-lg text-left text-gray-200 dark:text-gray-300 ">You are welcome here!</p>
+                                    Welcome Back Chief!</h2>
+                                <p class="text-lg text-left text-gray-200 dark:text-gray-300 ">Login and see your new
+                                    SALES!</p>
                             </div>
                             <div class="w-full px-4 lg:w-2/5">
                                 <div class="p-6 shadow-md lg:p-9 bg-gray-50 dark:bg-gray-900 ">
                                     <h2 class="mb-4 text-xl font-bold lg:mb-8 lg:text-3xl dark:text-gray-400">
                                         Login our account</h2>
-                                    <form action="" class="p-0 m-0">
+                                    <form action="" id="loginForm" class="p-0 m-0">
                                         <div>
                                             <label for=""
                                                 class="text-lg font-medium text-gray-700 dark:text-gray-400">Email:</label>
@@ -121,21 +115,29 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="mt-5 text-right">
-                                            <a href="#"
-                                                class="text-sm font-semibold text-blue-700 dark:text-blue-300 dark:hover:text-blue-500">
-                                                forgot password?</a>
+
+                                        <div class="mt-5">
+                                            <label class="block mb-2 text-sm font-medium dark:text-gray-400"
+                                                for="">Store</label>
+                                            <div class="relative">
+                                                <select
+                                                    class="w-full px-4 py-3 bg-gray-200 rounded-lg dark:text-gray-400 dark:bg-gray-800 "
+                                                    name="field-name">
+                                                    <option>Store 1 </option>
+                                                    <option>Store 2</option>
+                                                    <option>Store 3</option>
+                                                    <option>Store 4</option>
+                                                    <option>Store 5</option>
+                                                    <option>Store 6</option>
+                                                    <option>Store 7</option>
+                                                    <option>Store 8</option>
+                                                </select>
+                                            </div>
                                         </div>
+
                                         <button
                                             class="w-full px-4 py-3 mt-5 font-semibold text-gray-200 bg-blue-500 rounded-lg dark:bg-blue-500 hover:text-blue-200 "
                                             type="submit">LOGIN</button>
-                                        <div
-                                            class="flex flex-wrap items-center mt-3 text-sm text-gray-700 lg:text-base lg:mt-5 dark:text-gray-400">
-                                            Need an account?
-                                            <a href="#"
-                                                class="ml-2 text-base font-semibold text-blue-700 dark:text-blue-300 dark:hover:text-blue-500">
-                                                Create an account</a>
-                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -143,16 +145,79 @@
                     </div>
                 </div>
             </div>
+
+
+
+
     </section>
+    <div id="erroralert"
+        class="hidden  p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+        role="alert">
+        <span class="font-medium">Error!</span> Change a few things up and try submitting again.
+    </div>
+    <div id="successalert"
+        class="hidden absolute p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
+        role="alert">
+        <span class="font-medium">Success alert!</span> Change a few things up and try submitting again.
+    </div>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Validate form fields
+            var email = document.querySelector('input[type="email"]').value;
+            var password = document.querySelector('input[type="password"]').value;
+
+            var successAlert = document.getElementById('successalert')
+            var errorAlert = document.getElementById('erroralert')
 
 
+            if (!email || !password) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Get other form data
+            var store = document.querySelector('select[name="field-name"]').value;
+
+            // Prepare data for the API call
+            var data = {
+                email: email,
+                password: password,
+                branchName: store
+            };
 
 
-    <
+            axios.post('http://localhost:8888/adminlogin', data)
+                .then(function (response) {
+                    if (response?.status == 200) {
+                        window.location = 'dashboard.html'
+                    }
+                })
+                .catch(function (error) {
+                    // i am using tailwindcss i want an alert box to appear appear with error message and it should dissappear after 3 second 
+                    errorAlert.innerHTML = error.message
+                    errorAlert.classList.remove('hidden')
+                    setTimeout(() => {
+                        errorAlert.classList.add('hidden')
+                    }, 3000)
+                    console.error(error);
+                });
+        });
+    </script>
+
 
 
 </body>
 
 </html>
+
+
+
+
+<!-- superadmin@example.com
+superadminpassword -->

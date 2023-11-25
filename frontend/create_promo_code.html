@@ -57,6 +57,11 @@
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
 </head>
 
 <body>
@@ -70,7 +75,7 @@
 
 
     <!-- Admin Dashboard -->
-    <div class="bg-gray-100 xl:h-screen dark:bg-gray-800">
+    <div class="bg-gray-100  dark:bg-gray-800">
         <div class="body-content" x-data="{ open: true }">
             <div class="relative lg:block navbar-menu">
                 <nav x-bind:class="! open ? 'w-0' : 'w-[280px]'"
@@ -104,8 +109,8 @@
                     <div class="pb-6 mt-4 overflow-x-hidden overflow-y-auto ">
                         <ul class="mb-8 text-sm">
                             <li>
-                                <a href="#"
-                                    class="flex items-center px-8 py-4 text-gray-100 bg-blue-600 dark:text-gray-200 dark:bg-blue-500 dark:hover:bg-gray-700 hover:bg-blue-500">
+                                <a href="dashboard.html"
+                                    class="flex items-center px-8 py-4 text-gray-700 group dark:text-gray-400 dark:hover:bg-gray-700 hover:bg-gray-100">
                                     <span class="inline-block mr-3">
                                         <svg class="w-5 h-5 group-" viewBox="0 0 18 18" fill="none"
                                             xmlns="http://www.w3.org/2000/svg" data-config-id="auto-svg-2-1">
@@ -115,6 +120,97 @@
                                         </svg>
                                     </span>
                                     <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="read_order.html"
+                                    class="flex items-center px-8 py-4 text-gray-700 dark:text-gray-400 group dark:hover:bg-gray-700 hover:bg-gray-100">
+                                    <span class="inline-block mr-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="w-5 h-5 group-" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+                                            <path
+                                                d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
+                                        </svg>
+                                    </span>
+                                    <span> Orders </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="create_categories.html"
+                                    class="flex items-center px-8 py-4 text-gray-700 group dark:text-gray-400 dark:hover:bg-gray-700 hover:bg-gray-100">
+                                    <span class="inline-block mr-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="w-5 h-5 group-" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+                                            <path
+                                                d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
+                                        </svg>
+                                    </span>
+                                    <span> Create Categories </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="create_product.html"
+                                    class="flex items-center px-8 py-4 text-gray-700 group dark:text-gray-400 dark:hover:bg-gray-700 hover:bg-gray-100">
+                                    <span class="inline-block mr-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="w-5 h-5 group-" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+                                            <path
+                                                d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
+                                        </svg>
+                                    </span>
+                                    <span> Create Products </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="upload_products.html"
+                                    class="flex items-center px-8 py-4 text-gray-700 group dark:text-gray-400 dark:hover:bg-gray-700 hover:bg-gray-100">
+                                    <span class="inline-block mr-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="w-5 h-5 group-" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+                                            <path
+                                                d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
+                                        </svg>
+                                    </span>
+                                    <span> Upload Products </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="create_notification.html"
+                                    class="flex items-center px-8 py-4 text-gray-100 bg-blue-600 dark:text-gray-200 dark:bg-blue-500 dark:hover:bg-gray-700 hover:bg-blue-500">
+
+                                    <span class="inline-block mr-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="w-5 h-5 group-" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+                                            <path
+                                                d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
+                                        </svg>
+                                    </span>
+                                    <span> Create Notifications </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="create_promo_code.html"
+                                    class="flex items-center px-8 py-4 text-gray-700 group dark:text-gray-400 dark:hover:bg-gray-700 hover:bg-gray-100">
+                                    <span class="inline-block mr-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="w-5 h-5 group-" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+                                            <path
+                                                d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
+                                        </svg>
+                                    </span>
+                                    <span> Create Promo Code </span>
                                 </a>
                             </li>
                             <li x-data="{ open: false }">
@@ -269,21 +365,7 @@
                                     <span> Category </span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="#"
-                                    class="flex items-center px-8 py-4 text-gray-700 dark:text-gray-400 group dark:hover:bg-gray-700 hover:bg-gray-100">
-                                    <span class="inline-block mr-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="w-5 h-5 group-" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
-                                            <path
-                                                d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
-                                        </svg>
-                                    </span>
-                                    <span> Blog </span>
-                                </a>
-                            </li>
+
                         </ul>
                     </div>
                 </nav>
@@ -409,131 +491,138 @@
                         </div>
                     </nav>
                 </section>
-
                 <section class="px-4 py-6">
+                    <div class="grid grid-cols-1 gap-6 lg:grid-cols-1 ">
 
-
-                    <!-- Creation form -->
-                    <section class="py-16 bg-stone-100 font-poppins dark:bg-gray-800">
                         <div
-                            class="max-w-4xl px-4 py-4 mx-auto bg-white border shadow-sm dark:border-gray-900 dark:bg-gray-900 lg:py-4 md:px-6">
-                            <div class="mb-10 ">
-                                <h2 class="pb-2 mb-2 text-xl font-bold text-gray-800 md:text-3xl dark:text-gray-300">
-                                    Basic Info
+                            class="p-6 bg-white border border-gray-100 rounded-lg shadow dark:bg-gray-900 dark:border-gray-900 w-2/3 mx-auto">
+                            <div class="pb-6 border-b border-gray-100 dark:border-gray-700 ">
+                                <h2 class="text-xl font-bold text-gray-800 md:text-3xl dark:text-gray-300">
+                                    Create Promo Code
                                 </h2>
-                                <p class="text-sm dark:text-gray-400">
-                                    Lorem ipsum dor amet ispicusus isopiros amet ispis lorem
+                                <p class="text-xs font-medium text-gray-500">
+                                    Lorem ipsum dor amet set ispicuous
                                 </p>
                             </div>
-                            <form action="#" class="">
-                                <div class="mb-6">
-                                    <label for="" class="block mb-2 text-sm font-medium dark:text-gray-400">Full
-                                        Name</label>
-                                    <input type="text"
-                                        class="block w-full px-4 py-3 mb-2 text-sm bg-gray-100 border rounded dark:placeholder-gray-400 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800"
-                                        placeholder="Full name...." required>
-                                </div>
-                                <div class="mb-6">
-                                    <label for=""
-                                        class="block mb-2 text-sm font-medium dark:text-gray-400">Email</label>
-                                    <input type="email" placeholder="abc@gmail.com" required
-                                        class="block w-full px-4 py-3 mb-3 leading-tight placeholder-gray-400 bg-gray-100 border rounded ark:border-gray-800 dark:bg-gray-800 dark:placeholder-gray-500 dark:text-gray-400 dark:border-gray-800 ">
-                                </div>
-                                <div class="mb-6">
-                                    <label for=""
-                                        class="block mb-2 text-sm font-medium dark:text-gray-400">Message</label>
-                                    <textarea type="message" placeholder="Message.." required
-                                        class="block w-full px-4 py-6 leading-tight placeholder-gray-400 bg-gray-100 border rounded dark:placeholder-gray-400 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 "></textarea>
-                                </div>
-                                <div class="mb-8 ">
-                                    <label class="mr-2 dark:text-gray-400">
-                                        <input type="radio" name="inline-radio" value="option 1"
-                                            class="checked:bg-gray-600 " checked="">
-                                        <span class="ml-2">Male</span>
-                                    </label>
-                                    <label class="dark:text-gray-400">
-                                        <input type="radio" name="inline-radio" value="option 2">
-                                        <span class="ml-2">Female</span>
-                                    </label>
-                                </div>
-                                <div class="mb-8 ">
-                                    <h2 class="mb-4 text-sm font-semibold text-gray-700 dark:text-gray-400">Choose
-                                        your proffession?
-                                    </h2>
-                                    <div class="flex flex-wrap items-center gap-6 ">
-                                        <div class="flex items-center ">
-                                            <input type="checkbox"
-                                                class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:border-gray-600">
-                                            <label for=""
-                                                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400">IT</label>
+                            <div class="py-6 border-b border-gray-100 dark:border-gray-800">
+                                <div class="w-full ">
+                                    <div class="flex flex-wrap -m-3">
+                                        <div class="w-full p-3 ">
+                                            <p class="text-base font-semibold text-gray-700 dark:text-gray-400">
+                                                Name
+                                            </p>
                                         </div>
-                                        <div class="flex items-center ">
-                                            <input type="checkbox"
-                                                class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:border-gray-600">
-                                            <label for=""
-                                                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400">Networking</label>
-                                        </div>
-                                        <div class="flex items-center ">
-                                            <input type="checkbox"
-                                                class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:border-gray-600">
-                                            <label for=""
-                                                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400">Database</label>
+                                        <div class="w-full p-3">
+                                            <input
+                                                class="w-full dark:bg-gray-800 dark:border-gray-800 px-4 dark:placeholder-gray-500 dark:text-gray-400 py-2.5 text-base text-gray-900 rounded-lg font-normal border border-gray-200"
+                                                id="promotionName" placeholder="Enter Promo Code Name">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mb-6 ">
-                                    <label for=""
-                                        class="block mb-2 text-sm font-medium dark:text-gray-400">Position</label>
-                                    <div class="relative">
-                                        <select name="select-name"
-                                            class="block w-full px-4 py-3 mb-2 text-sm text-gray-500 placeholder-gray-400 bg-gray-100 border rounded appearance-none dark:text-gray-400 dark:bg-gray-800 dark:border-gray-800 ">
-                                            <option value="">Manager</option>
-                                            <option value="">Chairman</option>
-                                            <option value="">CEO</option>
-                                        </select>
-                                        <div class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-600 ">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd"
-                                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
-                                            </svg>
+                            </div>
+                            <div class="py-6 border-b border-gray-100 dark:border-gray-800">
+                                <div class="w-full ">
+                                    <div class="flex flex-wrap -m-3">
+                                        <div class="w-full p-3 ">
+                                            <p class="text-base font-semibold text-gray-700 dark:text-gray-400">
+                                                Percentage
+                                            </p>
+                                        </div>
+                                        <div class="w-full p-3">
+                                            <input
+                                                class="w-full dark:bg-gray-800 dark:border-gray-800 px-4 dark:placeholder-gray-500 dark:text-gray-400 py-2.5 text-base text-gray-900 rounded-lg font-normal border border-gray-200"
+                                                id="promotionPercentage" type="number" placeholder="Enter Percentage">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mb-6 ">
-                                    <label for=""
-                                        class="block mb-2 text-sm font-medium dark:text-gray-400">Placeholder</label>
-                                    <div class="py-2 shrink-0">
-                                        <img src="https://i.postimg.cc/rF6G0Dh9/pexels-emmy-e-2381069.jpg" alt=""
-                                            class="object-cover rounded-full w-11 h-11" />
+                            </div>
+                            <div class="py-6 border-b border-gray-100 dark:border-gray-800">
+                                <div class="w-full ">
+                                    <div class="flex flex-wrap -m-3">
+                                        <div class="w-full p-3 ">
+                                            <p class="text-base font-semibold text-gray-700 dark:text-gray-400">
+                                                Valid Till
+                                            </p>
+                                        </div>
+                                        <div class="w-full p-3">
+                                            <input
+                                                class="w-full dark:bg-gray-800 dark:border-gray-800 px-4 dark:placeholder-gray-500 dark:text-gray-400 py-2.5 text-base text-gray-900 rounded-lg font-normal border border-gray-200"
+                                                id="promotionValidTill" type="datetime-local"
+                                                placeholder="Select Valid Till Date and Time">
+                                        </div>
                                     </div>
-                                    <label for="" class="block pt-2">
-                                        <input type="file" class="block w-full text-sm text-slate-500 " />
-                                    </label>
                                 </div>
-                                <button
-                                    class="px-4 py-2 text-base text-gray-100 bg-blue-600 rounded hover:bg-blue-500">Send</button>
+                            </div>
+                            <div class="py-6 border-b border-gray-100 dark:border-gray-800">
+                                <div class="w-full ">
+                                    <div class="flex flex-wrap -m-3">
+                                        <div class="w-full p-3">
+                                            <p class="text-base font-semibold text-gray-700 dark:text-gray-400">
+                                                Type
+                                            </p>
+                                        </div>
+                                        <div class="w-full p-3 md:flex-1">
+                                            <select
+                                                class="appearance-none dark:text-gray-400 dark:bg-gray-800 dark:border-gray-800 w-full py-2.5 px-4 text-gray-700 text-base font-normal border border-gray-200 rounded-lg "
+                                                id="promotionType">
+                                                <option>Email</option>
+                                                <option>SMS</option>
+                                                <option>Whatsapp</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex pt-6 flex-wrap -m-1.5">
+                                <div class="w-full p-1.5">
+                                    <button
+                                        class="flex flex-wrap justify-center w-full px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-blue-500 rounded-md hover:bg-blue-600"
+                                        onclick="createPromoCode()">
+                                        <p>Create Promo Code</p>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        </form>
+                    </div>
+                </section>
+
             </div>
-            </section>
-
-
-            </section>
         </div>
     </div>
-    </div>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+    <script>
+        function createPromoCode() {
+            // Get values from input fields
+            var promotionName = document.getElementById('promotionName').value;
+            var promotionPercentage = document.getElementById('promotionPercentage').value;
+            var promotionValidTill = document.getElementById('promotionValidTill').value;
+            var promotionType = document.getElementById('promotionType').value;
 
+            // Prepare data for the API request
+            var data = {
+                name: promotionName,
+                percentage: promotionPercentage,
+                validTill: promotionValidTill,
+                type: promotionType
+            };
 
-
-
-
-
-
-
+            // Make an asynchronous request to the API endpoint using Axios
+            axios.post('http://localhost:8888/create-promotion', data)
+                .then((res) => {
+                    // Handle the response if needed
+                    alert('Created Promo Code');
+                    console.log(res.data);
+                })
+                .catch((error) => {
+                    // Handle errors
+                    console.error(error);
+                });
+        }
+    </script>
 
 </body>
 
