@@ -6,10 +6,11 @@ const productSchema = new mongoose.Schema({
   description: String,
   barcodeId: String,
   category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
-  branch: { type: mongoose.Schema.Types.ObjectId, ref: 'Branch' },
-  promoCode: String
+  branchId: { type: mongoose.Schema.Types.ObjectId, ref: 'Store' },
+  promoCode: String,
+  price: String
 });
  
-const Product = mongoose.model('Product', productSchema);
+const Product = mongoose.model('products', productSchema);
 
 module.exports = Product;

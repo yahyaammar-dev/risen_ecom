@@ -57,25 +57,12 @@
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-
-
 </head>
 
 <body>
 
-
-
-
-
-
-
-
-
     <!-- Admin Dashboard -->
-    <div class="bg-gray-100  dark:bg-gray-800">
+    <div class="bg-gray-100 xl:h-screen dark:bg-gray-800">
         <div class="body-content" x-data="{ open: true }">
             <div class="relative lg:block navbar-menu">
                 <nav x-bind:class="! open ? 'w-0' : 'w-[280px]'"
@@ -140,6 +127,7 @@
                             <li>
                                 <a href="create_categories.html"
                                     class="flex items-center px-8 py-4 text-gray-700 group dark:text-gray-400 dark:hover:bg-gray-700 hover:bg-gray-100">
+
                                     <span class="inline-block mr-3">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="w-5 h-5 group-" viewBox="0 0 16 16">
@@ -154,7 +142,7 @@
                             </li>
                             <li>
                                 <a href="create_product.html"
-                                    class="flex items-center px-8 py-4 text-gray-700 group dark:text-gray-400 dark:hover:bg-gray-700 hover:bg-gray-100">
+                                    class="flex items-center px-8 py-4 text-gray-100 bg-blue-600 dark:text-gray-200 dark:bg-blue-500 dark:hover:bg-gray-700 hover:bg-blue-500">
                                     <span class="inline-block mr-3">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="w-5 h-5 group-" viewBox="0 0 16 16">
@@ -180,37 +168,6 @@
                                         </svg>
                                     </span>
                                     <span> Upload Products </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="create_notification.html"
-                                    class="flex items-center px-8 py-4 text-gray-100 bg-blue-600 dark:text-gray-200 dark:bg-blue-500 dark:hover:bg-gray-700 hover:bg-blue-500">
-
-                                    <span class="inline-block mr-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="w-5 h-5 group-" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
-                                            <path
-                                                d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
-                                        </svg>
-                                    </span>
-                                    <span> Create Notifications </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="create_promo_code.html"
-                                    class="flex items-center px-8 py-4 text-gray-700 group dark:text-gray-400 dark:hover:bg-gray-700 hover:bg-gray-100">
-                                    <span class="inline-block mr-3">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="w-5 h-5 group-" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
-                                            <path
-                                                d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
-                                        </svg>
-                                    </span>
-                                    <span> Create Promo Code </span>
                                 </a>
                             </li>
                             <li x-data="{ open: false }">
@@ -491,109 +448,119 @@
                         </div>
                     </nav>
                 </section>
-                <section class="px-4 py-6">
-                    <div class="grid grid-cols-1 gap-6 lg:grid-cols-1 ">
 
+                <section class="px-4 py-6">
+
+
+                    <!-- Creation form -->
+                    <section class="py-16 bg-stone-100 font-poppins dark:bg-gray-800">
                         <div
-                            class="p-6 bg-white border border-gray-100 rounded-lg shadow dark:bg-gray-900 dark:border-gray-900 w-2/3 mx-auto">
-                            <div class="pb-6 border-b border-gray-100 dark:border-gray-700 ">
-                                <h2 class="text-xl font-bold text-gray-800 md:text-3xl dark:text-gray-300">
-                                    Create Notifcation
+                            class="max-w-4xl px-4 py-4 mx-auto bg-white border shadow-sm dark:border-gray-900 dark:bg-gray-900 lg:py-4 md:px-6">
+                            <div class="mb-10 ">
+                                <h2 class="pb-2 mb-2 text-xl font-bold text-gray-800 md:text-3xl dark:text-gray-300">
+                                    Manage Delivery
                                 </h2>
-                                <p class="text-xs font-medium text-gray-500">
-                                    Lorem ipsum dor amet set ispicuous
+                                <p class="text-sm dark:text-gray-400">
+                                    Lorem ipsum dor amet ispicusus isopiros amet ispis lorem
                                 </p>
                             </div>
-                            <div class="py-6 border-b border-gray-100 dark:border-gray-800">
-                                <div class="w-full ">
-                                    <div class="flex flex-wrap -m-3">
-                                        <div class="w-full p-3 ">
-                                            <p class="text-base font-semibold text-gray-700 dark:text-gray-400">
-                                                Text
-                                            </p>
-                                        </div>
-                                        <div class="w-full p-3">
-                                            <textarea
-                                                class="w-full dark:bg-gray-800 dark:border-gray-800 px-4 dark:placeholder-gray-500 dark:text-gray-400 py-2.5 text-base text-gray-900 rounded-lg font-normal border border-gray-200"
-                                                id="notificationText" placeholder="Type Your Message Here"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="mb-6">
+                                <label for="time1" class="block mb-2 text-sm font-medium dark:text-gray-400">Schedule
+                                    Time 01</label>
+                                <input type="time" id="time1"
+                                    class="block w-full px-4 py-3 mb-2 text-sm bg-gray-100 border rounded dark:placeholder-gray-400 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800"
+                                    name="time1" required>
                             </div>
-                            <div class="py-6 border-b border-gray-100 dark:border-gray-800">
-                                <div class="w-full ">
-                                    <div class="flex flex-wrap -m-3">
-                                        <div class="w-full p-3">
-                                            <p class="text-base font-semibold text-gray-700 dark:text-gray-400">
-                                                Type
-                                            </p>
-                                        </div>
-                                        <div class="w-full p-3 md:flex-1">
-                                            <select
-                                                class="appearance-none dark:text-gray-400 dark:bg-gray-800 dark:border-gray-800 w-full py-2.5 px-4 text-gray-700 text-base font-normal border border-gray-200 rounded-lg "
-                                                id="notificationType">
-                                                <option>Email</option>
-                                                <option>SMS</option>
-                                                <option>Whatsapp</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="mb-6">
+                                <label for="time2" class="block mb-2 text-sm font-medium dark:text-gray-400">Schedule
+                                    Time 02</label>
+                                <input type="time" id="time2" name="time2"
+                                    class="block w-full px-4 py-3 mb-3 leading-tight placeholder-gray-400 bg-gray-100 border rounded ark:border-gray-800 dark:bg-gray-800 dark:placeholder-gray-500 dark:text-gray-400 dark:border-gray-800"
+                                    required>
                             </div>
-                            <div class="flex pt-6 flex-wrap -m-1.5">
-                                <div class="w-full p-1.5">
-                                    <button
-                                        class="flex flex-wrap justify-center w-full px-4 py-2 text-sm font-medium text-white bg-blue-500 border border-blue-500 rounded-md hover:bg-blue-600"
-                                        onclick="createNotification()">
-                                        <p>Create Notificaation</p>
-                                    </button>
-                                </div>
+                            <div class="mb-6">
+                                <label for="time3" class="block mb-2 text-sm font-medium dark:text-gray-400">Schedule
+                                    Time 03</label>
+                                <input type="time" id="time3" name="time3"
+                                    class="block w-full px-4 py-3 mb-3 leading-tight placeholder-gray-400 bg-gray-100 border rounded ark:border-gray-800 dark:bg-gray-800 dark:placeholder-gray-500 dark:text-gray-400 dark:border-gray-800"
+                                    required>
                             </div>
+
+                            <button class="px-4 py-2 text-base text-gray-100 bg-blue-600 rounded hover:bg-blue-500"
+                                onclick="submitForm()">Create</button>
                         </div>
-
-
-                    </div>
-                </section>
-
             </div>
+            </section>
+            </section>
         </div>
     </div>
+    </div>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
 
 
     <script>
-        let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
+        async function submitForm() {
 
-        function createNotification() {
-            // Get values from input fields
-            var notificationText = document.getElementById('notificationText').value;
-            var notificationType = document.getElementById('notificationType').value;
+            const name = document.getElementById('name').value
+            const amount = document.getElementById('amount').value
+            const description = document.getElementById('description').value
+            const barcodeId = document.getElementById('barcode').value;
+            const category = document.getElementById('category').value;
+            const images = document.getElementById('images').files;
 
-            // Prepare data for the API request
-            var data = {
-                text: notificationText,
-                type: notificationType,
-                branchId: branchId
-            };
 
-            // Make an asynchronous request to the API endpoint using Axios
-            axios.post('http://localhost:8888/create-notification', data)
-                .then((res) => {
-                    // Handle the response if needed
-                    alert('Created Notifcation')
-                    console.log(res.data);
-                })
-                .catch((error) => {
-                    // Handle errors
-                    console.error(error);
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('amount', amount);
+            formData.append('description', description);
+            formData.append('barcodeId', barcodeId);
+            formData.append('category', '6560d3abcd290a0948542535');
+            for (let i = 0; i < images.length; i++) {
+                formData.append('images', images[i]);
+            }
+
+            try {
+                const response = await fetch('http://localhost:8888/create-product', {
+                    method: 'POST',
+                    body: formData,
                 });
+
+                const data = await response.json();
+                console.log(data);
+            } catch (error) {
+                console.error('Error:', error);
+            }
         }
+
+
+
+
+
+
+        function submitForm() {
+            // Get values from input fields
+            var time1Value = document.getElementById('time1').value;
+            var time2Value = document.getElementById('time2').value;
+            var time3Value = document.getElementById('time3').value;
+
+            // Log values to the console (you can replace this with your desired action)
+            console.log('Schedule Time 01:', time1Value);
+            console.log('Schedule Time 02:', time2Value);
+            console.log('Schedule Time 03:', time3Value);
+
+            // store it on backend
+
+
+        }
+
+
+
+
+
+
+
+
     </script>
-
-
-
 
 </body>
 

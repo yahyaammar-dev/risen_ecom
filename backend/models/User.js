@@ -4,7 +4,8 @@ const userSchema = new mongoose.Schema({
   name: String,
   email: String,
   password: String,
-  promoCode: String
+  promoCode: String,
+  branch: { type: mongoose.Schema.Types.ObjectId, ref: 'Store' }
 });
 
 const User = mongoose.model('User', userSchema);

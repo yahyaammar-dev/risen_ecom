@@ -471,7 +471,7 @@
                                         class="block w-full px-4 py-3 mb-2 text-sm bg-gray-100 border rounded dark:placeholder-gray-400 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800"
                                         placeholder="Write Category Name...." required>
                                 </div>
-                                <button onclick="createCategory(e)"
+                                <button onclick="createCategory()"
                                     class="px-4 py-2 text-base text-gray-100 bg-blue-600 rounded hover:bg-blue-500">Send</button>
                         </div>
                         </form>
@@ -485,8 +485,8 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <script>
-        async function createCategory(e) {
-            e.preventDefault()
+        async function createCategory() {
+            console.log('kuch ho rha hy')
             // Get the category name from the input field
             const categoryName = document.getElementById('categoryName').value;
 

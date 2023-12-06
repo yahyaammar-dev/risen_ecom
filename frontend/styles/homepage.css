@@ -7833,3 +7833,8 @@ html[dir="rtl"] #onetrust-consent-sdk #onetrust-pc-sdk h3 {
     top: 0;
     transform: translate(-50%, 0px);
 }
+
+.custom-table{
+    border-collapse: separate;
+    border-spacing: 10px;
+}

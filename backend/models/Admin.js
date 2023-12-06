@@ -5,9 +5,9 @@ const adminSchema = new mongoose.Schema({
   email: String,
   password: String,
   role: String,
-  branch: { type: mongoose.Schema.Types.ObjectId, ref: 'Branch' }
+  branch: { type: mongoose.Schema.Types.ObjectId, ref: 'Store' }
 });
 
-const Admin = mongoose.model('Admin', adminSchema);
+const Admin = mongoose.model('admins', adminSchema);
 
 module.exports = Admin;
