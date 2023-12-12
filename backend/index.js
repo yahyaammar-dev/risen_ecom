@@ -14,9 +14,7 @@ const nodemailer = require('nodemailer');
 const cron = require('node-cron');
 const cors = require('cors');
 const { ObjectId } = require('mongodb');
-
-
-
+const moment = require('moment');
 
 // Set up multer for handling file uploads
 const storage = multer.diskStorage({
@@ -35,19 +33,15 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage, limits: { files: 10 } });
 
-
 // middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
-
-
 // importing models
 const User = require('./models/User');
 const Admin = require('./models/Admin');
-const Branch = require('./models/Branch');
 const Order = require('./models/Order');
 const Product = require('./models/Product');
 const Category = require('./models/Category');
@@ -56,7 +50,8 @@ const PromoCode = require('./models/PromoCode');
 const Store = require('./models/Store')
 const SupportTicket = require('./models/SupportTicket')
 const Schedule = require('./models/Schedule')
-
+const Area = require('./models/Area')
+const SubCategory = require('./models/SubCategory')
 
 // connecting to db
 const mongoose = require('mongoose');
@@ -68,6 +63,46 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             console.log(`Server is running on port ${PORT}`);
         });
 
+
+        // Get all Areas
+        app.get('/get-areas', async (req, res) => {
+            try {
+                const areas = await Area.find({});
+                res.status(200).json(areas);
+            } catch (error) {
+                res.status(500).json({ error: 'Internal Server Error' });
+            }
+        });
+
+
+        app.post('/get-subcategories', async (req, res) => {
+            try {
+                // Extract parentCategoryId from the request body
+                const { parentCategoryId } = req.body;
+        
+                // Query the database to find all subcategories with the specified parentCategoryId
+                const subcategories = await SubCategory.find({ parentCategoryId });
+        
+                // Return the list of subcategories
+                res.status(200).json(subcategories);
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ error: 'Internal Server Error' });
+            }
+        });
+
+
+        // Get all products
+        app.get('/orders', async (req, res) => {
+            try {
+                const branchId = req.query.branchId;
+                const orders = await Order.find({});
+                res.status(200).json({ orders });
+            } catch (error) {
+                res.status(500).json({ message: error.message });
+            }
+        });
+
         // Get all stores
         app.get('/get-all-stores', async (req, res) => {
             try {
@@ -77,7 +112,6 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 res.status(500).json({ message: error.message });
             }
         });
-
 
         // Admin should be able to login by selecting a branch
         app.post('/adminlogin', async (req, res) => {
@@ -108,9 +142,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             } catch (error) {
                 res.status(500).json({ message: error.message });
             }
-        })
-
-
+        });
 
         // get all suppport tickets 
         app.get('/get-support-tickets', async (req, res) => {
@@ -121,8 +153,6 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 res.status(500).json({ message: error.message });
             }
         });
-
-
 
         // Email sending endpoint
         app.get('/send-email', async (req, res) => {
@@ -157,9 +187,6 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
-
-
-
         // get product details
         app.get('/product-details/:productId', async (req, res) => {
             const productId = req.params.productId;
@@ -179,8 +206,6 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
-
-
         // get product details
         app.get('/category-detail/:productId', async (req, res) => {
             const productId = req.params.productId;
@@ -199,8 +224,6 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 res.status(500).json({ message: error.message });
             }
         });
-
-
 
         // delete the product   
         app.delete('/delete-products', async (req, res) => {
@@ -241,12 +264,6 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
-
-
-
-
-
-
         // delete the category   
         app.delete('/delete-category', async (req, res) => {
             try {
@@ -286,8 +303,28 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
+        // Subcategory Creation API
+        app.post('/subcategories', async (req, res) => {
+            try {
+                const newSubCategory = new SubCategory(req.body);
+                const savedSubCategory = await newSubCategory.save();
+                res.status(201).json(savedSubCategory);
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ error: 'Internal Server Error' });
+            }
+        });
 
-
+        // Get all Subcategories API
+        app.get('/subcategories', async (req, res) => {
+            try {
+                const subcategories = await SubCategory.find();
+                res.status(200).json(subcategories);
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ error: 'Internal Server Error' });
+            }
+        });
 
         // delete the product   
         app.delete('/delete-notification', async (req, res) => {
@@ -329,9 +366,6 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
-
-
-
         // Define your routes here
         app.get('/', async (req, res) => {
             try {
@@ -341,8 +375,6 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 res.status(500).json({ message: error.message });
             }
         });
-
-
 
         // get product details
         app.get('/get-notification', async (req, res) => {
@@ -362,10 +394,6 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 res.status(500).json({ message: error.message });
             }
         });
-
-
-
-
 
         // admin should be able to see total sales, sales in last month, and sales in this week
         app.post('/calculateamount', async (req, res) => {
@@ -430,36 +458,41 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         });
 
 
-
-
+        // get all users
+        app.post('/users', async (req, res) => {
+            try {
+                const newUser = new Admin(req.body);
+                const savedUser = await newUser.save();
+                res.status(201).json(savedUser);
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ error: 'Internal Server Error' });
+            }
+        });
 
         // admin should be able to see order detail
         app.post('/order-details', async (req, res) => {
             const { orderId } = req.body;
             try {
-                // Find the order by ID and populate the 'user' field to get user details
                 const order = await Order.findById(orderId).populate('user').populate('products');
-
                 if (!order) {
                     return res.status(404).json({ message: 'Order not found with the provided ID.' });
                 }
-
-                // Return the order details with user information
                 res.json(order);
             } catch (error) {
                 res.status(500).json({ message: error.message });
             }
         });
 
-
-        // admin should be able to create categories 
-        app.post('/create-category', async (req, res) => {
+        // Create Category API
+        app.post('/create-category', upload.single('categoryImage'), async (req, res) => {
             const { categoryName } = req.body;
 
             try {
                 // Create a new category
                 const category = new Category({
-                    name: categoryName
+                    name: categoryName,
+                    image: req.file.path,
                 });
 
                 // Save the category to the database
@@ -471,18 +504,72 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
+        // Create Category API
+        app.post('/create-branch', async (req, res) => {
+            const { branchName, address, latitude, longitude } = req.body;
+
+            console.log(req.body, branchName, address)
+
+            try {
+                // Create a new category
+                const branch = new Store({
+                    name: branchName,
+                    address: address, 
+                    latitidue: latitude, 
+                    longitude: longitude
+                });
+
+                // Save the category to the database
+                await branch.save();
+
+                res.status(201).json({ message: 'Branch created successfully', branch });
+            } catch (error) {
+                res.status(500).json({ message: error.message });
+            }
+        });
+
+
+        // checking otp here
+        app.post('/checkotp', async (req, res) => {
+            const { otp, email } = req.body;
+
+            try {
+                // Find the user by email
+                const user = await User.findOne({ email });
+
+                if (!user) {
+                    return res.status(404).json({ message: 'User not found' });
+                }
+
+                // Check if the provided OTP matches the stored OTP
+                if (user.otp !== otp) {
+                    return res.status(403).json({ message: 'Invalid OTP' });
+                }
+
+                // Clear the OTP after successful verification (optional)
+                user.otp = null;
+                await user.save();
+                res.status(200).json({ message: 'OTP verification successful', user });
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ message: 'Internal server error' });
+            }
+        });
 
 
         // admin should be able to create users 
         app.post('/register', async (req, res) => {
             const { name, email, password } = req.body;
 
+            var otp = Math.floor(Math.random() * 900000) + 100000;
+
             try {
                 // Create a new category
                 const user = new User({
                     name: name,
                     email: email,
-                    password: password
+                    password: password,
+                    otp
                 });
 
                 // Save the category to the database
@@ -494,9 +581,24 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
+        // Login API
+        app.post('/login', async (req, res) => {
+            const { email, password } = req.body;
 
+            try {
+                // Find the user by email
+                const user = await User.findOne({ email, password });
 
+                if (!user) {
+                    return res.status(404).json({ message: 'User not found' });
+                }
 
+                res.status(200).json({ message: 'Login successful', user });
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ message: 'Internal server error' });
+            }
+        });
 
         // Update the notification
         app.put('/update-notifcation', async (req, res) => {
@@ -530,27 +632,26 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
-
-
         // Update the product
-        app.put('/update-product', async (req, res) => {
+        app.put('/update-product', upload.array('image[]'), async (req, res) => {
             try {
                 const { barcode, name, category, description, branchId } = req.body;
 
-                // Define the data object
-                const data = {
-                    barcode,
-                    name,
-                    category,
-                    description,
-                    branchId
-                };
-
+                // Get the file paths from Multer
+                const newImages = req.files.map(file => file.path);
 
                 // Find and update the document, returning the original document before the update
                 const updatedProduct = await Product.findOneAndUpdate(
                     { barcodeId: barcode, branchId: branchId },
-                    { $set: data },
+                    {
+                        $set: {
+                            name,
+                            category,
+                            description,
+                            branchId,
+                        },
+                        $push: { images: { $each: newImages } }, // Append new images
+                    },
                     { new: true } // Return the updated document
                 );
 
@@ -564,8 +665,6 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 return res.status(500).json({ error: 'Internal Server Error' });
             }
         });
-
-
 
         // Update the product
         app.put('/update-category', async (req, res) => {
@@ -585,7 +684,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
 
                 // Find and update the document, returning the original document before the update
                 const updatedProduct = await Category.findOneAndUpdate(
-                    { _id:id, branchId: branchId },
+                    { _id: id, branchId: branchId },
                     { $set: data },
                     { new: true } // Return the updated document
                 );
@@ -601,12 +700,9 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
-
-
-
         // admin should be able to create products
         app.post('/create-product', upload.array('images', 5), async (req, res) => {
-            const { name, description, amount, category, barcodeId } = req.body;
+            const { name, description, amount, category, barcodeId, branch } = req.body;
             const imagePaths = req.files ? req.files.map(file => file.path) : [];
 
             try {
@@ -623,7 +719,8 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                     amount,
                     category: category,
                     images: imagePaths,
-                    barcodeId: barcodeId
+                    barcodeId: barcodeId,
+                    branch: branch
                 });
 
                 // Save the product to the database
@@ -635,19 +732,11 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
-
-
         // admin should be able to upload product file 
         app.post('/upload-products', upload.single('file'), async (req, res) => {
-            const { category } = req.body;
             const filePath = req.file ? req.file.path : null;
 
             try {
-                // Validate that the specified category exists
-
-
-
-
                 // Read the Excel file
                 const workbook = xlsx.readFile(filePath);
                 const sheetName = workbook.SheetNames[0];
@@ -657,16 +746,11 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 const jsonData = xlsx.utils.sheet_to_json(sheet);
 
 
-
-
                 // Process each row in the Excel file
                 for (const data of jsonData) {
                     const barcode = data.barcodeId;
                     const barcodeId = data.barcodeId;
-
                     const existingProduct = await Product.findOne({ barcodeId: barcode });
-
-
 
                     // find branch name here 
                     // find category here
@@ -695,7 +779,6 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
-
         // admin should be able to read notification  
         app.get('/read-notification', async (req, res) => {
             try {
@@ -713,7 +796,6 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 res.status(500).json({ message: error.message });
             }
         });
-
 
         // admin should be able to create notification  
         app.post('/create-notification', async (req, res) => {
@@ -738,7 +820,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
 
         // admin should be able to create promotions 
         app.post('/create-promotion', async (req, res) => {
-            const { name, percentage, type, validTill } = req.body;
+            const { name, percentage, type, validTill, branchId } = req.body;
 
             try {
                 // Create a new promotion
@@ -746,7 +828,8 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                     name,
                     percentage,
                     type,
-                    validTill
+                    validTill,
+                    branchId
                 });
 
                 // Save the promotion to the database
@@ -757,7 +840,6 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 res.status(500).json({ message: error.message });
             }
         });
-
 
         // Get all users for a specific branch
         app.get('/get-all-users', async (req, res) => {
@@ -777,9 +859,6 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 res.status(500).json({ message: error.message });
             }
         });
-
-
-
 
         // admin should be able to see list of orders
         app.get('/get-all-orders', async (req, res) => {
@@ -808,8 +887,6 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
-
-
         // Define your API endpoint for saving schedule data
         app.post('/schedule', async (req, res) => {
             try {
@@ -832,9 +909,6 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
-
-
-
         // Get all products
         app.get('/get-all-products', async (req, res) => {
             try {
@@ -846,8 +920,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
-
-        /// Get all categories
+        // Get all categories
         app.get('/get-categories', async (req, res) => {
             try {
                 const branchId = req.query.branchId;
@@ -859,24 +932,18 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
-
-
-
-
-
-        /// Get all categories
+        // Get all categories
         app.get('/get-all-categories', async (req, res) => {
             try {
-                const categories = await Category.find();
+                const branchId = req.query.branchId;
+                const categories = await Category.find({ branchId: branchId });
                 res.status(200).json({ categories });
             } catch (error) {
                 res.status(500).json({ message: error.message });
             }
         });
 
-
-
-        /// Get all promocodes
+        // Get all promocodes
         app.get('/get-all-promos', async (req, res) => {
             try {
                 const promoCodes = await PromoCode.find();
@@ -894,7 +961,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 // Find the promo code by ID
                 const promoCode = await PromoCode.find({ name: promoCodeName });
 
-                if (!promoCode) {
+                if (!promoCode || !(promoCode.length > 0)) {
                     return res.status(404).json({ message: 'PromoCode not found with the provided ID.' });
                 }
 
@@ -903,8 +970,8 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                     case 'user':
                         const user = await User.findById(typeId);
                         if (user) {
-                            user.promoCode = promoCode._id;
-                            await user.save();
+                            user.promoCode = promoCode[0]._id;
+                            const response = await user.save();
                         } else {
                             return res.status(404).json({ message: 'User not found with the provided ID.' });
                         }
@@ -912,8 +979,9 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                     case 'product':
                         const product = await Product.findById(typeId);
                         if (product) {
-                            product.promoCode = promoCode._id;
-                            await product.save();
+                            product.promoCode = promoCode[0]._id;
+                            const response = await product.save();
+
                         } else {
                             return res.status(404).json({ message: 'Product not found with the provided ID.' });
                         }
@@ -921,8 +989,8 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                     case 'category':
                         const category = await Category.findById(typeId);
                         if (category) {
-                            category.promoCode = promoCode._id;
-                            await category.save();
+                            category.promoCode = promoCode[0]._id;
+                            const response = await category.save();
                         } else {
                             return res.status(404).json({ message: 'Category not found with the provided ID.' });
                         }
@@ -937,9 +1005,177 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
+        // API Endpoint to send email to users who haven't placed an order
+        app.post('/send-email-to-non-order-users', async (req, res) => {
+            try {
+                const nonOrderUsers = await getNonOrderUsers(db);
+                await sendEmails(nonOrderUsers);
+
+                res.json({ success: true, message: 'Emails sent successfully.' });
+            } catch (error) {
+                console.error('Error sending emails:', error);
+                res.status(500).json({ success: false, message: 'Internal server error.' });
+            }
+        });
+
+
+        // update the promocode
+        app.put('/update-promo-code', async (req, res) => {
+            try {
+                const id = req.body.id;
+                const data = req.body;
+                const promoCode = await PromoCode.findByIdAndUpdate(id, data, { new: true });
+                if (!promoCode) {
+                    return res.status(404).json({ error: 'Promo code not found' });
+                }
+                res.status(200).json({ promoCode });
+            } catch (error) {
+                res.status(500).json({ message: error.message });
+            }
+        })
+
+        app.delete('/delete-promo', async (req, res) => {
+            try {
+                const id = req.query.id
+                const promoCode = await PromoCode.findOneAndDelete(id);
+                res.status(200).json({ promoCode });
+            } catch (error) {
+                res.status(500).json({ message: error.message });
+            }
+        })
+
+
+        // Get all promocode for a specific branch
+        app.get('/promo-code-details', async (req, res) => {
+            try {
+                const branchId = req.query.branchId;
+                const id = req.query.id
+
+                // Check if branchId is provided
+                if (!branchId) {
+                    const users = await User.find();
+                    res.status(200).json({ users });
+                    return
+                }
+
+                const promoCode = await PromoCode.findById({ '_id': id });
+                res.status(200).json({ promoCode });
+            } catch (error) {
+                res.status(500).json({ message: error.message });
+            }
+        });
+
+        // Create Order
+        app.post('/create-order', async (req, res) => {
+            const { amount, branchId, products, user } = req.body;
+
+            try {
+
+                let pros = []
+                products.forEach(element => {
+                    pros.push(element?.id)
+                });
+                let user_id = user?.id
+
+                // Create a new product
+                const order = new Order({
+                    amount,
+                    branchId,
+                    products,
+                    user_id
+                });
+
+                const admins = Admin.find({ branch: branchId })
+
+                console.log('They will get email', admins)
+
+                // Save the product to the database
+                await product.save();
+
+                res.status(201).json({ message: 'Product created successfully', product });
+            } catch (error) {
+                res.status(500).json({ message: error.message });
+            }
+        });
+
+        // Helper function to get users who haven't placed an order
+        async function getNonOrderUsers(db) {
+            const nonOrderUsers = await db.collection('users').aggregate([
+                {
+                    $lookup: {
+                        from: 'orders',
+                        localField: '_id',
+                        foreignField: 'user',
+                        as: 'userOrders'
+                    }
+                },
+                {
+                    $match: {
+                        userOrders: { $size: 0 }
+                    }
+                },
+                {
+                    $project: {
+                        _id: 1,
+                        username: 1,
+                        email: 1
+                        // Add other fields you want to include in the result
+                    }
+                }
+            ]).toArray();
+
+            return nonOrderUsers;
+        }
+
+        // Helper function to send emails
+        async function sendEmails(users) {
+            const transporter = nodemailer.createTransport({
+                // Configure your email transport options here (e.g., SMTP, OAuth2)
+            });
+
+            for (const user of users) {
+                const mailOptions = {
+                    from: 'your_email@example.com',
+                    to: user.email,
+                    subject: 'Reminder: Place Your First Order',
+                    text: `Dear ${user.username},\n\nYou have not placed an order yet. Visit our website and explore our products.\n\nRegards,\nThe Team`
+                };
+
+                await transporter.sendMail(mailOptions);
+            }
+        }
 
 
 
+        // get user orders this month
+
+        app.get('/user-orders-this-month', async (req, res) => {
+            const userEmail = req.query.email; // Assuming the email is passed as a query parameter
+
+            try {
+                // Find the user by email
+                const user = await User.findOne({ email: userEmail });
+
+                if (!user) {
+                    return res.status(404).json({ message: 'User not found' });
+                }
+
+                // Get the first and last day of the current month
+                const startOfMonth = moment().startOf('month');
+                const endOfMonth = moment().endOf('month');
+
+                // Find orders for the current month
+                const orders = await Order.find({
+                    user_id: user._id,
+                    createdAt: { $gte: startOfMonth, $lte: endOfMonth },
+                });
+
+                res.status(200).json({ message: 'User orders for the current month', orders });
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ message: 'Internal server error' });
+            }
+        });
 
         // email to people who have not placed order 
 
@@ -1058,23 +1294,24 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         // });
 
 
-        // // create ticket  
-        // app.post('/create-ticket', async (req, res) => {
-        //     const { customerName, issue } = req.body;
+        // create ticket  
+        app.post('/create-ticket', async (req, res) => {
+            const { customerName, email, issue } = req.body;
 
-        //     try {
-        //         const newTicket = new SupportTicket({
-        //             customerName,
-        //             issue,
-        //         });
+            try {
+                const newTicket = new SupportTicket({
+                    customerName,
+                    issue,
+                    email
+                });
 
-        //         const savedTicket = await newTicket.save();
-        //         res.json(savedTicket);
-        //     } catch (error) {
-        //         console.error('Error creating ticket:', error);
-        //         res.status(500).json({ message: 'Error creating ticket' });
-        //     }
-        // });
+                const savedTicket = await newTicket.save();
+                res.json(savedTicket);
+            } catch (error) {
+                console.error('Error creating ticket:', error);
+                res.status(500).json({ message: 'Error creating ticket' });
+            }
+        });
 
 
 
@@ -1099,70 +1336,6 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         //         res.status(500).json({ message: 'Error replying to ticket' });
         //     }
         // });
-
-        // API Endpoint to send email to users who haven't placed an order
-        app.post('/send-email-to-non-order-users', async (req, res) => {
-            try {
-                const nonOrderUsers = await getNonOrderUsers(db);
-                await sendEmails(nonOrderUsers);
-
-                res.json({ success: true, message: 'Emails sent successfully.' });
-            } catch (error) {
-                console.error('Error sending emails:', error);
-                res.status(500).json({ success: false, message: 'Internal server error.' });
-            }
-        });
-
-        // Helper function to get users who haven't placed an order
-        async function getNonOrderUsers(db) {
-            const nonOrderUsers = await db.collection('users').aggregate([
-                {
-                    $lookup: {
-                        from: 'orders',
-                        localField: '_id',
-                        foreignField: 'user',
-                        as: 'userOrders'
-                    }
-                },
-                {
-                    $match: {
-                        userOrders: { $size: 0 }
-                    }
-                },
-                {
-                    $project: {
-                        _id: 1,
-                        username: 1,
-                        email: 1
-                        // Add other fields you want to include in the result
-                    }
-                }
-            ]).toArray();
-
-            return nonOrderUsers;
-        }
-
-        // Helper function to send emails
-        async function sendEmails(users) {
-            const transporter = nodemailer.createTransport({
-                // Configure your email transport options here (e.g., SMTP, OAuth2)
-            });
-
-            for (const user of users) {
-                const mailOptions = {
-                    from: 'your_email@example.com',
-                    to: user.email,
-                    subject: 'Reminder: Place Your First Order',
-                    text: `Dear ${user.username},\n\nYou have not placed an order yet. Visit our website and explore our products.\n\nRegards,\nThe Team`
-                };
-
-                await transporter.sendMail(mailOptions);
-            }
-        }
-
-
-
-
 
     })
     .catch((error) => {

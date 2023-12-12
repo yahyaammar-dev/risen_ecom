@@ -512,6 +512,19 @@
                         class="w-full  justify-center flex px-5 py-3 mr-2 text-xs font-semibold leading-none text-gray-100 bg-blue-600 border border-blue-200 rounded dark:border dark:border-blue-300 dark:hover:border-blue-400 dark:hover:bg-blue-400 dark:bg-blue-300 dark:text-gray-700 hover:bg-blue-700">
                         Notifications
                     </a>
+
+                    <div class="mt-10">
+                        <p>
+                            Reach 25k to win coupon
+                        </p>
+                        <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+                            <div id="progressbar"
+                                class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
+                                style="width: 45%">5k</div>
+                        </div>
+                    </div>
+
+
                 </div>
                 <div class="px-4 mx-auto w-3/4">
                     <div class="p-6 bg-white rounded-md shadow dark:border-gray-800 dark:bg-gray-900">
@@ -519,155 +532,17 @@
                             Information
                         </h2>
                         <form action="#" method="post" class="">
-                            <div class="container px-4 mx-auto"></div>
                             <div class="mb-6">
-                                <label class="block mb-2 text-sm font-medium dark:text-gray-400" for="">
-                                    Full Name
-                                </label>
-                                <input
-                                    class="block w-full px-4 py-3 mb-2 text-sm placeholder-gray-500 bg-white border rounded dark:text-gray-400 dark:placeholder-gray-500 dark:border-gray-800 dark:bg-gray-800"
-                                    type="text" name="" placeholder="Write a full name">
-                            </div>
-                            <div class="mb-6">
-                                <label class="mr-2">
-                                    <input type="radio" name="inline-radio">
-                                    <span class="ml-2 dark:text-gray-400">Male</span>
-                                </label>
-                                <label>
-                                    <input type="radio" name="inline-radio" value="option 2">
-                                    <span class="ml-2 dark:text-gray-400">Female</span>
-                                </label>
-                            </div>
-                            <div class="mb-6">
-                                <label class="block mb-2 text-sm font-medium dark:text-gray-400" for="">Position</label>
-                                <div class="relative">
-                                    <select
-                                        class="block w-full px-4 py-3 mb-2 text-sm placeholder-gray-500 bg-white border rounded appearance-none dark:text-gray-400 dark:border-gray-900 dark:bg-gray-800"
-                                        name="field-name">
-                                        <option>Manager </option>
-                                        <option>CEO</option>
-                                        <option>Assistant</option>
-                                        <option>Designer</option>
-                                    </select>
-                                    <div
-                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-500 pointer-events-none">
-                                        <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 20 20">
-                                            <path
-                                                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z">
-                                            </path>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-6">
-                                <label class="block mb-2 text-sm font-medium dark:text-gray-400" for="">Message</label>
-                                <textarea
-                                    class="block w-full px-4 py-3 mb-2 text-sm placeholder-gray-500 bg-white border rounded dark:text-gray-400 dark:border-gray-900 dark:bg-gray-800"
-                                    name="field-name" rows="5" placeholder="Write something..."></textarea>
-                            </div>
-                            <div class="mb-6 ">
-                                <label class="block mb-2 text-sm font-medium dark:text-gray-400"
-                                    for="">Placeholder</label>
-                                <div class="py-2 shrink-0">
-                                    <img class="object-cover w-16 h-16 rounded-full"
-                                        src="https://i.postimg.cc/bNyr5cJq/pexels-anastasia-shuraeva-5704720.jpg"
-                                        alt="Current profile photo">
-                                </div>
-                                <label class="block pt-2">
-                                    <span class="sr-only ">Choose profile photo</span>
-                                    <input type="file"
-                                        class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold dark:file:bg-gray-600 dark:file:text-gray-200 dark:hover:file:bg-gray-700 file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 ">
-                                </label>
-                            </div>
-                            <div class="grid w-full gap-4 mb-6 lg:grid-cols-2">
-                                <div> <label class="block mb-2 text-sm font-medium dark:text-gray-400" for="">Min-width
-                                    </label>
-                                    <input
-                                        class="block w-full px-4 py-3 mb-2 text-sm placeholder-gray-500 bg-white border rounded dark:text-gray-400 dark:border-gray-900 dark:bg-gray-800"
-                                        type="number" name="" placeholder="min-width">
-                                </div>
-                                <div> <label class="block mb-2 text-sm font-medium dark:text-gray-400" for="">Max-width
-                                    </label>
-                                    <input
-                                        class="block w-full px-4 py-3 mb-2 text-sm placeholder-gray-500 bg-white border rounded dark:text-gray-400 dark:border-gray-900 dark:bg-gray-800"
-                                        type="number" name="" placeholder="max-width">
-                                </div>
-                            </div>
-
-                            <div class="mb-7">
-                                <label class="block mb-2 text-sm font-medium dark:text-gray-400" for="">Rating</label>
-                                <ul class="flex justify-start text-red-400">
-                                    <li>
-                                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star"
-                                            class="w-4 mr-1 text-yellow-500" role="img"
-                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                            <path fill="currentColor"
-                                                d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z">
-                                            </path>
-                                        </svg>
-                                    </li>
-                                    <li>
-                                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star"
-                                            class="w-4 mr-1 text-yellow-500" role="img"
-                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                            <path fill="currentColor"
-                                                d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z">
-                                            </path>
-                                        </svg>
-                                    </li>
-                                    <li>
-                                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star"
-                                            class="w-4 mr-1 text-yellow-500" role="img"
-                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                            <path fill="currentColor"
-                                                d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z">
-                                            </path>
-                                        </svg>
-                                    </li>
-                                    <li>
-                                        <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="star"
-                                            class="w-4 mr-1 text-yellow-500" role="img"
-                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                            <path fill="currentColor"
-                                                d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z">
-                                            </path>
-                                        </svg>
-                                    </li>
-                                    <li>
-                                        <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="star"
-                                            class="w-4 text-yellow-500" role="img" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 576 512">
-                                            <path fill="currentColor"
-                                                d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z">
-                                            </path>
-                                        </svg>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="mb-6 ">
-                                <div class="relative pt-1">
-                                    <label for="customRange1" class="form-label dark:text-gray-400">
-                                        Range</label>
-                                    <input type="range"
-                                        class="h-4 p-0 ml-3 bg-blue-100 appearance-none dark:bg-gray-800 form-range focus:outline-none focus:ring-0 focus:shadow-none"
-                                        id="customRange1">
-                                </div>
-                            </div>
-                            <div class="mb-6">
-                                <label class="block mb-2 text-sm font-medium dark:text-gray-400" for="">
-                                    Field
-                                    Name</label>
+                                <label class="block mb-2 text-sm font-medium dark:text-gray-400" for="">Email</label>
                                 <input
                                     class="block w-full px-4 py-3 mb-2 text-sm placeholder-gray-500 bg-white border rounded dark:text-gray-400 dark:border-gray-900 dark:bg-gray-800"
-                                    type="text" name="" placeholder="Write a text">
+                                    type="text" name="email" placeholder="Write a text" id="email">
                             </div>
                             <div class="mb-6">
-                                <label class="block mb-2 text-sm font-medium dark:text-gray-400"
-                                    for="">Instruction</label>
+                                <label class="block mb-2 text-sm font-medium dark:text-gray-400" for="">Password</label>
                                 <input
-                                    class="block w-full px-4 py-3 mb-2 text-sm placeholder-gray-500 bg-white border rounded dark:border-gray-900 dark:bg-gray-800 dark:text-gray-400"
-                                    type="text" name="" placeholder="Write a text">
+                                    class="block w-full px-4 py-3 mb-2 text-sm placeholder-gray-500 bg-white border rounded dark:text-gray-400 dark:border-gray-900 dark:bg-gray-800"
+                                    type="text" name="text" placeholder="Write a text" id="password">
                             </div>
                             <div class="mt-7">
                                 <div class="flex justify-start space-x-2">
@@ -920,6 +795,49 @@
                 </svg></a>
         </div>
     </div>
+
+    <script>
+        let user = JSON.parse(window.localStorage.getItem('storeduser'))
+
+        let email = user.email
+        let password = user.password
+
+
+        document.getElementById('email').value = email
+        document.getElementById('password').value = password
+
+
+
+
+
+        // get user orders this month 
+
+
+        document.addEventListener('DOMContentLoaded', async function () {
+
+
+            const data = {
+                email: email,
+            };
+            try {
+                const response = await fetch(`http://localhost:8888/user-orders-this-month?email=${email}`);
+                const responseData = await response.json();
+
+                console.log('User Orders till now:', responseData);
+
+                // Add your progress bar logic here
+
+            } catch (error) {
+                console.error('Error:', error);
+                // Handle error
+            }
+        });
+
+
+    </script>
+
+
+
 
 </body>
 

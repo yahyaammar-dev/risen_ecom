@@ -134,7 +134,10 @@
             })
                 .then(response => response.json())
                 .then(data => {
+                    alert("User have been created")
                     console.log('Success:', data);
+                    window.localStorage.setItem('useremail', data?.user?.email)
+                    window.location.href = 'file:///home/madmachine/projects/ecommerce-app-risen/frontend/otp.html'
                     // Handle success, e.g., redirect to another page
                 })
                 .catch((error) => {

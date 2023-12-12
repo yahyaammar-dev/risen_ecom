@@ -1,0 +1,2180 @@
+{
+    "currentDate": "28-11-2023",
+    "currentTime": "14:00",
+    "currentCorporateUser": null,
+    "corporateUsers": [],
+    "type": "Normal",
+    "user": {
+        "id": 28,
+        "value": "Allegrini Giovanna",
+        "label": "Allegrini Giovanna",
+        "email": "gio.allegrini@gmail.com"
+    },
+    "cities": [
+        {
+            "id": 1,
+            "value": "Milano",
+            "label": "Milano"
+        },
+        {
+            "id": 2,
+            "value": "Roma",
+            "label": "Roma"
+        },
+        {
+            "id": 3,
+            "value": "Monza Brianza",
+            "label": "Monza Brianza"
+        },
+        {
+            "id": 4,
+            "value": "Bergamo",
+            "label": "Bergamo"
+        },
+        {
+            "id": 5,
+            "value": "Ibiza",
+            "label": "Ibiza"
+        },
+        {
+            "id": 6,
+            "value": "Como Varese",
+            "label": "Como Varese"
+        },
+        {
+            "id": 7,
+            "value": "Brescia",
+            "label": "Brescia"
+        }
+    ],
+    "currentCity": {
+        "id": 1,
+        "value": "Milano",
+        "label": "Milano"
+    },
+    "categories": [
+        {
+            "id": 3,
+            "name": "Hair Styling",
+            "image": {
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_509_default_card.png"
+            },
+            "sub_image": {
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_510_default_card.png"
+            },
+            "main_image": {
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_233_default_card.png"
+            }
+        },
+        {
+            "id": 4,
+            "name": "Beauty & Wellness",
+            "image": {
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_511_default_card.png"
+            },
+            "sub_image": {
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_512_default_card.png"
+            },
+            "main_image": {
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_234_default_card.png"
+            }
+        },
+        {
+            "id": 5,
+            "name": "Personal Training",
+            "image": {
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_513_default_card.png"
+            },
+            "sub_image": {
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_514_default_card.png"
+            },
+            "main_image": {
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_235_default_card.png"
+            }
+        },
+        {
+            "id": 6,
+            "name": "Comfort & Experience",
+            "image": {
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_515_default_card.png"
+            },
+            "sub_image": {
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_516_default_card.png"
+            },
+            "main_image": {
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_236_default_card.png"
+            }
+        },
+        {
+            "id": 10,
+            "name": "Salute",
+            "image": {
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_517_default_card.png"
+            },
+            "sub_image": {
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_518_default_card.png"
+            },
+            "main_image": {
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_387_default_card.png"
+            }
+        }
+    ],
+    "subCategories": [
+        {
+            "id": 4,
+            "name": "CERETTA"
+        },
+        {
+            "id": 5,
+            "name": "MASSAGGIO CORPO"
+        },
+        {
+            "id": 6,
+            "name": "MAKE-UP"
+        },
+        {
+            "id": 7,
+            "name": "PIEDI"
+        },
+        {
+            "id": 15,
+            "name": "CIGLIA SOPRACCIGLIA"
+        },
+        {
+            "id": 16,
+            "name": "MANI"
+        },
+        {
+            "id": 17,
+            "name": "TATTOO*"
+        },
+        {
+            "id": 18,
+            "name": "VISO"
+        },
+        {
+            "id": 19,
+            "name": "COMBO"
+        },
+        {
+            "id": 20,
+            "name": "TRATTAMENTO CORPO"
+        },
+        {
+            "id": 113,
+            "name": "GEMME DENTALI"
+        }
+    ],
+    "genders": [
+        {
+            "id": "f",
+            "name": "Donna"
+        },
+        {
+            "id": "m",
+            "name": "Uomo"
+        }
+    ],
+    "availibility": [],
+    "availibilitydata": [],
+    "corporates": [],
+    "currentCat": {
+        "id": 4,
+        "name": "Beauty & Wellness",
+        "image": {
+            "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_511_default_card.png"
+        },
+        "sub_image": {
+            "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_512_default_card.png"
+        },
+        "main_image": {
+            "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_234_default_card.png"
+        }
+    },
+    "currentSub": {
+        "id": 5,
+        "name": "MASSAGGIO CORPO"
+    },
+    "currentGen": {
+        "id": "f",
+        "name": "Donna"
+    },
+    "currentProfessional": {
+        "id": 2819,
+        "biography": "Tayna ha fatto il suo primo corso di massaggi in Brasile nel 2015, ha continuato la formazione a Milano presso il Centro Olistico Milanese prendendo il diploma come massaggiatrice professionista. Innamorata dei massaggi e dell’estetica nel 2022 e 2023 ha fatto ulteriori corsi sia in Brasile che in Portogallo, specializzandosi nel massaggio con finalità estetica, nel post operatorio di chirurgia plastica e protocolli personalizzati per il pre e il post parto. Tayna è di origine Brasiliana, è una persona solare, gentile e professionale, ha collaborato e collabora con diversi studi e rinomate spa sia in Italia che in Brasile.",
+        "profile_image": {
+            "url": "/upload/media/default/0001/01/thumb_701_default_card.jpeg",
+            "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_701_default_card.jpeg"
+        },
+        "position": "Massaggiatrice",
+        "full_name": "Tayna D M G",
+        "working_city": [],
+        "postal_codes": [],
+        "is_favorite": true,
+        "available": true
+    },
+    "corporate": [],
+    "cart": [
+        {
+            "id": 2577,
+            "name": "Applicazione argilla Brasiliana detox",
+            "duration": 30,
+            "price": "34",
+            "sub_category": {
+                "id": 5,
+                "name": "MASSAGGIO CORPO"
+            }
+        },
+        {
+            "id": 2578,
+            "name": "Applicazione argilla Brasiliana detox",
+            "duration": 30,
+            "price": "34",
+            "sub_category": {
+                "id": 20,
+                "name": "TRATTAMENTO CORPO"
+            }
+        },
+        {
+            "id": 2575,
+            "name": "Applicazione tape",
+            "duration": 30,
+            "price": "34",
+            "sub_category": {
+                "id": 5,
+                "name": "MASSAGGIO CORPO"
+            }
+        }
+    ],
+    "currCorporate": null,
+    "newAddress": null,
+    "newCity": null,
+    "currentAddress": {
+        "id": "243",
+        "city_id": "1",
+        "customer_id": "28",
+        "address": "via giovanni battista morgagni 28",
+        "address2": null,
+        "postal_code": null,
+        "is_primary": "0"
+    },
+    "totalAmount": 102,
+    "availibilitiesData": {
+        "11": [
+            {
+                "date": "",
+                "month": "",
+                "year": "",
+                "day": "",
+                "available": false,
+                "times": [],
+                "message": "",
+                "text": ""
+            },
+            {
+                "date": "",
+                "month": "",
+                "year": "",
+                "day": "",
+                "available": false,
+                "times": [],
+                "message": "",
+                "text": ""
+            },
+            {
+                "date": "01-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "3",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "01"
+            },
+            {
+                "date": "02-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "4",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "02"
+            },
+            {
+                "date": "03-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "5",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "03"
+            },
+            {
+                "date": "04-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "6",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "04"
+            },
+            {
+                "date": "05-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "0",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "05"
+            },
+            {
+                "date": "06-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "1",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "06"
+            },
+            {
+                "date": "07-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "2",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "07"
+            },
+            {
+                "date": "08-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "3",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "08"
+            },
+            {
+                "date": "09-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "4",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "09"
+            },
+            {
+                "date": "10-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "5",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "10"
+            },
+            {
+                "date": "11-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "6",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "11"
+            },
+            {
+                "date": "12-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "0",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "12"
+            },
+            {
+                "date": "13-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "1",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "13"
+            },
+            {
+                "date": "14-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "2",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "14"
+            },
+            {
+                "date": "15-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "3",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "15"
+            },
+            {
+                "date": "16-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "4",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "16"
+            },
+            {
+                "date": "17-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "5",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "17"
+            },
+            {
+                "date": "18-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "6",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "18"
+            },
+            {
+                "date": "19-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "0",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "19"
+            },
+            {
+                "date": "20-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "1",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "20"
+            },
+            {
+                "date": "21-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "2",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "21"
+            },
+            {
+                "date": "22-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "3",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "22"
+            },
+            {
+                "date": "23-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "4",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "23"
+            },
+            {
+                "date": "24-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "5",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "24"
+            },
+            {
+                "date": "25-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "6",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "25"
+            },
+            {
+                "date": "26-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "0",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "26"
+            },
+            {
+                "date": "27-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "1",
+                "available": true,
+                "times": [
+                    "14:00",
+                    "14:30",
+                    "15:00",
+                    "15:30",
+                    "16:00",
+                    "16:30"
+                ],
+                "message": "",
+                "available_issue": true,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "27"
+            },
+            {
+                "date": "28-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "2",
+                "available": true,
+                "times": [
+                    "14:00",
+                    "14:30"
+                ],
+                "message": "",
+                "available_issue": true,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "28"
+            },
+            {
+                "date": "29-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "3",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": {
+                    "duration": 90,
+                    "date": "29-11-2023",
+                    "response": {
+                        "times": [],
+                        "message": "Tempo necessario per il servizio: 90 min. Non abbiamo tempo disponibile per questa data, selezionare un'altra data o contattare il Concierge +39 333 8131426"
+                    }
+                },
+                "text": "29"
+            },
+            {
+                "date": "30-11-2023",
+                "month": "11",
+                "year": "23",
+                "day": "4",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "30"
+            }
+        ],
+        "12": [
+            {
+                "date": "",
+                "month": "",
+                "year": "",
+                "day": "",
+                "available": false,
+                "times": [],
+                "message": "",
+                "text": ""
+            },
+            {
+                "date": "",
+                "month": "",
+                "year": "",
+                "day": "",
+                "available": false,
+                "times": [],
+                "message": "",
+                "text": ""
+            },
+            {
+                "date": "",
+                "month": "",
+                "year": "",
+                "day": "",
+                "available": false,
+                "times": [],
+                "message": "",
+                "text": ""
+            },
+            {
+                "date": "",
+                "month": "",
+                "year": "",
+                "day": "",
+                "available": false,
+                "times": [],
+                "message": "",
+                "text": ""
+            },
+            {
+                "date": "01-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "5",
+                "available": true,
+                "times": [
+                    "09:00",
+                    "09:30",
+                    "10:00",
+                    "10:30",
+                    "11:00",
+                    "11:30"
+                ],
+                "message": "",
+                "available_issue": true,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "01"
+            },
+            {
+                "date": "02-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "6",
+                "available": true,
+                "times": [
+                    "09:00",
+                    "09:30",
+                    "10:00",
+                    "10:30",
+                    "11:00",
+                    "11:30"
+                ],
+                "message": "",
+                "available_issue": true,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "02"
+            },
+            {
+                "date": "03-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "0",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "03"
+            },
+            {
+                "date": "04-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "1",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "04"
+            },
+            {
+                "date": "05-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "2",
+                "available": true,
+                "times": [
+                    "09:00",
+                    "09:30",
+                    "10:00",
+                    "10:30",
+                    "11:00",
+                    "11:30",
+                    "12:00",
+                    "12:30",
+                    "13:00",
+                    "13:30",
+                    "14:00",
+                    "14:30",
+                    "15:00",
+                    "15:30",
+                    "16:00",
+                    "16:30"
+                ],
+                "message": "",
+                "available_issue": true,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "05"
+            },
+            {
+                "date": "06-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "3",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": {
+                    "duration": 90,
+                    "date": "06-12-2023",
+                    "response": {
+                        "times": [],
+                        "message": "Tempo necessario per il servizio: 90 min. Non abbiamo tempo disponibile per questa data, selezionare un'altra data o contattare il Concierge +39 333 8131426"
+                    }
+                },
+                "text": "06"
+            },
+            {
+                "date": "07-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "4",
+                "available": true,
+                "times": [
+                    "09:00",
+                    "09:30",
+                    "10:00",
+                    "10:30",
+                    "11:00",
+                    "11:30",
+                    "12:00",
+                    "12:30",
+                    "13:00",
+                    "13:30",
+                    "14:00",
+                    "14:30",
+                    "15:00",
+                    "15:30"
+                ],
+                "message": "",
+                "available_issue": true,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "07"
+            },
+            {
+                "date": "08-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "5",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "08"
+            },
+            {
+                "date": "09-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "6",
+                "available": true,
+                "times": [
+                    "09:00",
+                    "09:30",
+                    "10:00",
+                    "10:30",
+                    "11:00",
+                    "11:30"
+                ],
+                "message": "",
+                "available_issue": true,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "09"
+            },
+            {
+                "date": "10-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "0",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "10"
+            },
+            {
+                "date": "11-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "1",
+                "available": true,
+                "times": [
+                    "13:00",
+                    "13:30",
+                    "14:00",
+                    "14:30",
+                    "15:00",
+                    "15:30",
+                    "16:00",
+                    "16:30"
+                ],
+                "message": "",
+                "available_issue": true,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "11"
+            },
+            {
+                "date": "12-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "2",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "12"
+            },
+            {
+                "date": "13-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "3",
+                "available": true,
+                "times": [
+                    "09:00",
+                    "09:30",
+                    "10:00",
+                    "10:30",
+                    "11:00",
+                    "11:30",
+                    "12:00",
+                    "12:30",
+                    "13:00",
+                    "13:30",
+                    "14:00",
+                    "14:30",
+                    "15:00",
+                    "15:30",
+                    "16:00",
+                    "16:30"
+                ],
+                "message": "",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "13"
+            },
+            {
+                "date": "14-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "4",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "14"
+            },
+            {
+                "date": "15-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "5",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "15"
+            },
+            {
+                "date": "16-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "6",
+                "available": true,
+                "times": [
+                    "09:00",
+                    "09:30",
+                    "10:00",
+                    "10:30",
+                    "11:00",
+                    "11:30",
+                    "12:00",
+                    "12:30",
+                    "13:00",
+                    "13:30"
+                ],
+                "message": "",
+                "available_issue": true,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "16"
+            },
+            {
+                "date": "17-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "0",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "17"
+            },
+            {
+                "date": "18-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "1",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "18"
+            },
+            {
+                "date": "19-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "2",
+                "available": true,
+                "times": [
+                    "09:00",
+                    "09:30",
+                    "10:00",
+                    "10:30",
+                    "11:00",
+                    "11:30",
+                    "12:00",
+                    "12:30",
+                    "13:00",
+                    "13:30",
+                    "14:00",
+                    "14:30",
+                    "15:00",
+                    "15:30",
+                    "16:00",
+                    "16:30"
+                ],
+                "message": "",
+                "available_issue": true,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "19"
+            },
+            {
+                "date": "20-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "3",
+                "available": true,
+                "times": [
+                    "09:00",
+                    "09:30",
+                    "10:00",
+                    "10:30",
+                    "11:00",
+                    "11:30",
+                    "12:00",
+                    "12:30",
+                    "13:00",
+                    "13:30",
+                    "14:00",
+                    "14:30",
+                    "15:00",
+                    "15:30",
+                    "16:00",
+                    "16:30"
+                ],
+                "message": "",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "20"
+            },
+            {
+                "date": "21-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "4",
+                "available": true,
+                "times": [
+                    "09:00",
+                    "09:30",
+                    "10:00",
+                    "10:30",
+                    "11:00",
+                    "11:30",
+                    "12:00",
+                    "12:30",
+                    "13:00",
+                    "13:30",
+                    "14:00",
+                    "14:30",
+                    "15:00",
+                    "15:30",
+                    "16:00",
+                    "16:30"
+                ],
+                "message": "",
+                "available_issue": true,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "21"
+            },
+            {
+                "date": "22-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "5",
+                "available": true,
+                "times": [
+                    "09:00",
+                    "09:30",
+                    "10:00",
+                    "10:30",
+                    "11:00",
+                    "11:30",
+                    "12:00",
+                    "12:30",
+                    "13:00",
+                    "13:30",
+                    "14:00",
+                    "14:30",
+                    "15:00",
+                    "15:30",
+                    "16:00",
+                    "16:30"
+                ],
+                "message": "",
+                "available_issue": true,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "22"
+            },
+            {
+                "date": "23-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "6",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "23"
+            },
+            {
+                "date": "24-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "0",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "24"
+            },
+            {
+                "date": "25-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "1",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "25"
+            },
+            {
+                "date": "26-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "2",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "26"
+            },
+            {
+                "date": "27-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "3",
+                "available": true,
+                "times": [
+                    "09:00",
+                    "09:30",
+                    "10:00",
+                    "10:30",
+                    "11:00",
+                    "11:30",
+                    "12:00",
+                    "12:30",
+                    "13:00",
+                    "13:30",
+                    "14:00",
+                    "14:30",
+                    "15:00",
+                    "15:30",
+                    "16:00",
+                    "16:30"
+                ],
+                "message": "",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "27"
+            },
+            {
+                "date": "28-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "4",
+                "available": true,
+                "times": [
+                    "09:00",
+                    "09:30",
+                    "10:00",
+                    "10:30",
+                    "11:00",
+                    "11:30",
+                    "12:00",
+                    "12:30",
+                    "13:00",
+                    "13:30",
+                    "14:00",
+                    "14:30",
+                    "15:00",
+                    "15:30",
+                    "16:00",
+                    "16:30"
+                ],
+                "message": "",
+                "available_issue": true,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "28"
+            },
+            {
+                "date": "29-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "5",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "29"
+            },
+            {
+                "date": "30-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "6",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "30"
+            },
+            {
+                "date": "31-12-2023",
+                "month": "12",
+                "year": "23",
+                "day": "0",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "31"
+            }
+        ],
+        "01": [
+            {
+                "date": "01-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "1",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "01"
+            },
+            {
+                "date": "02-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "2",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "02"
+            },
+            {
+                "date": "03-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "3",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": {
+                    "duration": 90,
+                    "date": "03-01-2024",
+                    "response": {
+                        "times": [],
+                        "message": "Tempo necessario per il servizio: 90 min. Non abbiamo tempo disponibile per questa data, selezionare un'altra data o contattare il Concierge +39 333 8131426"
+                    }
+                },
+                "text": "03"
+            },
+            {
+                "date": "04-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "4",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "04"
+            },
+            {
+                "date": "05-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "5",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "05"
+            },
+            {
+                "date": "06-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "6",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "06"
+            },
+            {
+                "date": "07-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "0",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "07"
+            },
+            {
+                "date": "08-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "1",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "08"
+            },
+            {
+                "date": "09-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "2",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "09"
+            },
+            {
+                "date": "10-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "3",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": {
+                    "duration": 90,
+                    "date": "10-01-2024",
+                    "response": {
+                        "times": [],
+                        "message": "Tempo necessario per il servizio: 90 min. Non abbiamo tempo disponibile per questa data, selezionare un'altra data o contattare il Concierge +39 333 8131426"
+                    }
+                },
+                "text": "10"
+            },
+            {
+                "date": "11-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "4",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "11"
+            },
+            {
+                "date": "12-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "5",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "12"
+            },
+            {
+                "date": "13-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "6",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "13"
+            },
+            {
+                "date": "14-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "0",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "14"
+            },
+            {
+                "date": "15-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "1",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "15"
+            },
+            {
+                "date": "16-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "2",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "16"
+            },
+            {
+                "date": "17-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "3",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": {
+                    "duration": 90,
+                    "date": "17-01-2024",
+                    "response": {
+                        "times": [],
+                        "message": "Tempo necessario per il servizio: 90 min. Non abbiamo tempo disponibile per questa data, selezionare un'altra data o contattare il Concierge +39 333 8131426"
+                    }
+                },
+                "text": "17"
+            },
+            {
+                "date": "18-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "4",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "18"
+            },
+            {
+                "date": "19-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "5",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "19"
+            },
+            {
+                "date": "20-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "6",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "20"
+            },
+            {
+                "date": "21-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "0",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "21"
+            },
+            {
+                "date": "22-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "1",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "22"
+            },
+            {
+                "date": "23-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "2",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "23"
+            },
+            {
+                "date": "24-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "3",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": {
+                    "duration": 90,
+                    "date": "24-01-2024",
+                    "response": {
+                        "times": [],
+                        "message": "Tempo necessario per il servizio: 90 min. Non abbiamo tempo disponibile per questa data, selezionare un'altra data o contattare il Concierge +39 333 8131426"
+                    }
+                },
+                "text": "24"
+            },
+            {
+                "date": "25-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "4",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "25"
+            },
+            {
+                "date": "26-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "5",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "26"
+            },
+            {
+                "date": "27-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "6",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "27"
+            },
+            {
+                "date": "28-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "0",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "28"
+            },
+            {
+                "date": "29-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "1",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "29"
+            },
+            {
+                "date": "30-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "2",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": false,
+                "text": "30"
+            },
+            {
+                "date": "31-01-2024",
+                "month": "01",
+                "year": "24",
+                "day": "3",
+                "available": false,
+                "times": [],
+                "message": "Professional doesn't have enough time",
+                "available_issue": false,
+                "deleted_issue": false,
+                "timeissue_issue": {
+                    "duration": 90,
+                    "date": "31-01-2024",
+                    "response": {
+                        "times": [],
+                        "message": "Tempo necessario per il servizio: 90 min. Non abbiamo tempo disponibile per questa data, selezionare un'altra data o contattare il Concierge +39 333 8131426"
+                    }
+                },
+                "text": "31"
+            }
+        ]
+    },
+    "extras": null,
+    "professionals": [
+        {
+            "id": 2819,
+            "biography": "Tayna ha fatto il suo primo corso di massaggi in Brasile nel 2015, ha continuato la formazione a Milano presso il Centro Olistico Milanese prendendo il diploma come massaggiatrice professionista. Innamorata dei massaggi e dell’estetica nel 2022 e 2023 ha fatto ulteriori corsi sia in Brasile che in Portogallo, specializzandosi nel massaggio con finalità estetica, nel post operatorio di chirurgia plastica e protocolli personalizzati per il pre e il post parto. Tayna è di origine Brasiliana, è una persona solare, gentile e professionale, ha collaborato e collabora con diversi studi e rinomate spa sia in Italia che in Brasile.",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_701_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_701_default_card.jpeg"
+            },
+            "position": "Massaggiatrice",
+            "full_name": "Tayna D M G",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 2838,
+            "biography": "Dopo un lungo percorso formativo Mirko ha ricevuto l’attestato di abilitazione all’esercizio dell’arte ausiliaria delle professioni sanitarie di “Massaggiatore e Capo Bagnino degli stabilimenti idroterapici” presso il Centro studi Synapsy. Specializzato nel massaggio terapeutico, decontratturante e sportivo. Lavora presso lo studio CityLifeChiropratica dove collabora con chiropratici, osteopati e fisioterapisti ogni giorno, perché crede nel lavoro di squadra. Ancora oggi è in continuo aggiornamento. Ha conseguito corsi di specializzazione come: “la gestione dell’atleta infortunato parte prima e seconda - le patologie della caviglia, del rachide e del ginocchio dell’atleta infortunato - Progetto formazione Atalanta Metronic”, “Lesioni muscolari e tendinee - sport ernie e pubalgia”, “Mobilizzazione vertebrale e fasciale - cingolo scapolo omerale”.  \r\n“La Massoterepia è una passione cresciuta giorno per giorno grazie alle persone che hanno deciso di affidarsi ai suoi trattamenti”.",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_720_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_720_default_card.jpeg"
+            },
+            "position": "Massoterapista",
+            "full_name": "Mirko S",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 2864,
+            "biography": "Da sempre appassionata di massaggi, meditazione e oli essenziali. Qualche anno fa si è iscritta alla scuola Diabasi per conseguire il diploma. Lavora tra Milano e la Liguria e offre servizi a domicilio. Collabora in Liguria con diversi Hotel e Residence",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_721_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_721_default_card.jpeg"
+            },
+            "position": "Massaggiatrice",
+            "full_name": "Angela G",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 3042,
+            "biography": "\"Sollievo & Benessere\" è il suo mantra ed è l'obiettivo dei suoi trattamenti. Andrea è nato a Milano negli anni '80, dopo una laurea in scienze umanistiche e diverse esperienze professionali, ha deciso di seguire quella che è da sempre la sua passione: il massaggio ed il benessere. Dal 2011 è un Operatore del Massaggio Olistico e Sportivo in costante e continuo aggiornamento presso diverse realtà formative nazionali. Porta con sé un bagaglio di esperienze svolte anche fuori confine come Vienna ed oltreoceano, nella caotica ed affascinante Manhattan (New York) con l'obiettivo di donare benessere psicofisico alleviando fastidi e tensioni provocati dal \"logorio della vita moderna\"( Cit.).",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_738_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_738_default_card.jpeg"
+            },
+            "position": "Massaggiatore",
+            "full_name": "Andrea B",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 3268,
+            "biography": "Aziza Dahbi si potrebbe definire ”figlia d’arte” perché da sua nonna ha appreso sin da piccola la capacità di applicare tecniche di benessere energetico. Dopo aver letto “I libri del Fiore d’Oro” di Osho, ha cominciato un percorso interiore di crescita personale, di ricerca di armonia, benessere ed equilibrio psicofisico, coadiuvato da tecniche e discipline bio naturali e bioenergetiche. \r\nDurante questo percorso ha scoperto che il suo scopo primario era proprio quello di portare le stesse forme di benessere che apprendeva per se stessa anche nella vita delle altre persone. \r\nHa indirizzato quindi i suoi studi verso le discipline olistiche e le tecniche di massaggio, dopo un diploma di massoterapia, e non ha mai smesso di frequentare corsi di specializzazione per apprendere nuove tecniche di benessere. Attualmente è un’operatrice olistica professionale riconosciuta SIAF Italia.",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_840_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_840_default_card.jpeg"
+            },
+            "position": "Massoterapista e Massaggiatrice olistica",
+            "full_name": "Aziza D",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 3277,
+            "biography": "Martina Bianchi, 25 anni\r\nIstruttrice di sala, Personal Trainer e Massoterapista MCB.\r\nLa sua passione per la ginnastica artistica, praticata fin da piccola, la avvicina fin dall’inizio al mondo del fitness e della preparazione atletica. Nel 2017 inizia il suo percorso diventando istruttrice e giudice regionale CSEN di ginnastica artistica; Si iscrive alla facoltà di Scienze Motorie e dello Sport presso l'università Cattolica del Sacro Cuore dove si laurea nel 2020. La sua formazione continua nell’ambito della preparazione atletica e dell’allenamento personalizzato e di gruppo ottenendo il diploma ISSA Europe CFT3, ma si allarga anche all’ ambito riabilitativo frequentando presso la scuola Ecolife Milano il corso di Massaggiatore e Capo Bagnino degli Stabilimenti Idroterapici ottenendo la relativa abilitazione.",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_796_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_796_default_card.jpeg"
+            },
+            "position": "Massoterapista",
+            "full_name": "Martina B",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 3322,
+            "biography": "Valentina è nata a Milano. Fin da piccola ha coltivato una passione per lo sport, praticando diverse discipline e attualmente si dedica al calcio. Diplomata in massoterapia e studentessa di osteopatia, Valentina ha acquisito competenze specifiche nel campo del benessere fisico. Utilizzando tecniche come il massaggio linfodrenante, miofasciale e sportivo, si concentra principalmente sulla gestione della muscolatura contratta. Ha avuto l'opportunità di lavorare presso uno studio medico specializzato nelle problematiche muscolo-scheletriche, affrontando condizioni comuni come cervicalgie, lombalgie e sciatalgie. Durante questa esperienza, ha affinato le sue abilità nell'applicazione di trattamenti mirati per alleviare i sintomi e migliorare la salute muscolare dei suoi pazienti.",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_773_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_773_default_card.jpeg"
+            },
+            "position": "Massoterapista",
+            "full_name": "Valentina A",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 3560,
+            "biography": "Elettra ha iniziato a lavorare nel settore del benessere diplomandosi inizialmente in estetica. Dopo aver lavorato per alcuni anni nel mondo delle spa e centri benessere come massaggiatrice, ha voluto approfondire i suoi studi sul corpo umano dirigendosi più sul lato terapeutico.\r\nNel 2020 si è diplomata in Massoterapia frequentando il corso biennale alla Essence Academy di Monza, conseguendo il diploma di MCB. Ha iniziato a lavorare come massoterapista facendo esperienza in alcune palestre a Milano e centri termali in Lombardia. È specializzata in massaggi decontratturanti-sportivi pre e post allenamento, rilassanti, linfodrenanti, drenanti e tonificanti con uso di oli essenziali",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_815_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_815_default_card.jpeg"
+            },
+            "position": "Massoterapista",
+            "full_name": "Elettra M",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 4392,
+            "biography": "Ha lavorato come Retail Manager nel campo del Fashion Luxury per prestigiosi marchi Made In Italy per circa 10 anni. Ha vissuto e lavorato in USA a New York e Miami, dove ha iniziato ad approcciarsi anche all’arte del massaggio, nel tempo libero, investendo in corsi di massaggio con tecniche specifiche per Massaggio Drenante e Mental Relax. Ha deciso di cambiare totalmente strada professionale nel 2017: la passione per il Beauty si è trasformata in un lavoro, lasciando la Moda e rientrando nel 2017 stabilmente in Italia, dove ha frequentato diversi corsi professionali della scuola Diabasi con diploma e collaborando con Aziende del settore beauty e Medical spa. Tutt’ora effettuo corsi di aggiornamento per perfezionare le tecniche apprese e scoprirne di nuove più performanti. La mia specializzazione è il massaggio modellante e drenante, personalizzato sul cliente.",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_885_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_885_default_card.jpeg"
+            },
+            "position": "Massaggiatrice",
+            "full_name": "Patrizia D M",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 4410,
+            "biography": "La conoscenza della chimica ha portato Paola ad essere responsabile del reparto dermocosmesi in farmacia e alla conoscenza di circa 20 case di cosmetici, di integratori e fitoterapici e ad appassionarsi alla cura della pelle a livello endogeno ed esogeno.\r\nLa passione, poi , l’ha portata a Seul , dove ha fatto un corso di kobido , tecniche di auto massaggio e tecniche di massaggio corpo. Rientrata in Italia ha fatto un percorso per acquisire il diploma di estetista che mi le ha permesso di fare dei corsi di formazione per massaggi corpo e poter “ toccare “ finalmente viso e corpo delle clienti. La sua passione si è trasformata anche nel suo lavoro.\r\nNegli anni ha conosciuto molti studi di medicina estetica con i quali ha collaborato.",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_888_default_card.jpg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_888_default_card.jpg"
+            },
+            "position": "Massaggiatrice",
+            "full_name": "Paola R",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 14,
+            "biography": "Federico è un massoterapista con diversi anni di esperienza che collabora in illustri centri della città di milano. Il suo principale obbiettivo  è il benessere delle persone, attraverso trattamenti che lui rende efficaci. È un ragazzo giovane, solare e molto educato che ama il suo lavoro e mette sempre passione in quello che fa; ha a cuore lo star bene delle persone e lo dimostra alleviando, con tecniche mirate, il loro dolore.",
+            "gender": "u",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_173_default_card.png",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_173_default_card.png"
+            },
+            "position": "Massoterapista",
+            "full_name": "Federico T",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 21,
+            "biography": "Con più di 25 anni di esperienza da estetista, Maria è specializzata in ceretta calda al miele preparata artigianalmente con estrema cura. Professionista di livello che lavora ed ha lavorato presso diversi centri estetici del centro di Milano e presso il domicilio di numerosi clienti.",
+            "gender": "u",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_168_default_card.png",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_168_default_card.png"
+            },
+            "position": "Estetista",
+            "full_name": "Maria R",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": false
+        },
+        {
+            "id": 119,
+            "biography": "Rita è una giovane da ragazza da sempre stata appassionata del mondo olistico e del benessere a 360° che è riuscita a trasformare la passione in lavoro, iniziando i suoi studi presso il Centro Olistico Milanese e diplomandosi come massaggiatrice professionista nel 2013. \r\nHa subito iniziato a lavorare presso Spa, hotel di Lusso e centri termali. \r\nLa svolta è arrivata quando ha improntato la sua professione interamente sul servizio a domicilio.  \r\nCollabora attualmente con diverse aziende, catene alberghiere e residence Luxury. \r\nLa sua missione è quella di portare una piccola Spa a casa del cliente con musica, candele, aromaterapia ed oli profumati.",
+            "gender": "u",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_191_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_191_default_card.jpeg"
+            },
+            "position": "MASSAGGIATRICE",
+            "full_name": "Rita D",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 487,
+            "biography": "Marika ha iniziato a conoscere il mondo dell'estetica 18 anni fa.\r\nNel 2004 si qualifica e si specializza in estetica innovativa all’accademia BCM con il massimo dei voti.  Inizia a lavorare nei saloni e realizza una sua ulteriore aspirazione diventando socia di un centro estetico. Ha una consolidata esperienza in tutti i servizi previsti dalla sua professione, ma la sua specializzazione e’ il viso. \r\nLa sua proposta va dal rituale cosmetico Made in Italy, alle apparecchiature anti-age, al trattamento coreano Skin Doll, al BbGlow Russo. Metodo Renata Franca certificata.",
+            "gender": "u",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_616_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_616_default_card.jpeg"
+            },
+            "position": "Estetista",
+            "full_name": "Marika D B",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 526,
+            "biography": "Jennifer ha iniziato ad avvicinarsi al settore Wellness grazie alla passione per il mondo olistico.\r\nDurante il suo percorso formativo ha scoperto il  massaggio e da lì in poi ha capito che il suo scopo nella vita era fare del bene e far sentire belle le persone grazie alle sue mani. Fa questo lavoro con passione ed entusiasmo sapendo che ha la fortuna di fare quel che ama.\r\nLavora come spa therapist da diversi anni e le piace sperimentare sempre nuovi trattamenti in base alle esigenze del cliente. Ha inoltre studiato come naturopata per 4 anni.",
+            "gender": "u",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_306_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_306_default_card.jpeg"
+            },
+            "position": "Massaggiatrice",
+            "full_name": "Jennifer T",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 563,
+            "biography": "Nato in provincia di Milano nel 1992: Nel 2016 ottiene la Laurea in Fisioterapia presso Università degli studi di Milano Bicocca. Prosegue gli studi ottenendo il Master In Fisioterapia Muscoloscheletrica e Reumatologica, Università di Roma Tor Vergata. Infine nel 2021 Master in Osteopatia nelle Disfunzioni Muscolo-Scheletriche, presso L’Università degli studi di Verona. Lavora come libero professionista nel proprio studio a Sesto San Giovanni e a domicilio dei pazienti. E’ fisioterapista dell’atleta della nazionale italiana di ginnastica artistica Giorgia Balottari e vincitore di una borsa di studio presso ASST Gaetano Pini di Milano, in qualità di fisioterapista altamente qualificato nel trattamento delle patologie reumatiche. E’ specializzato nel trattamento del dolore persistente e dello sportivo. Grande appassionato della medicina basata sulle evidenze scientifiche.",
+            "gender": "u",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_308_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_308_default_card.jpeg"
+            },
+            "position": "Fisioterapista",
+            "full_name": "Mattia M",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 593,
+            "biography": "Nato a Milano nel 1969, diplomato massofisioterapista e operatore Tecarterapia HumanTecar. Istruttore Federazione Italiana Fitness/CONI, insegnante di Pilates e massaggiatore sportivo.\r\nHa lavorato per 10 anni a Parigi dove si è specializzato nella cura di persone affette da patologie diverse, che ha seguito in percorsi a lungo termine di ripresa dello sport e del movimento. Massaggiatore presso Lancôme Paris per 5 anni.\r\nIn quanto massofisioterapista si occupa di problematiche muscolo-scheletriche quali traumi sportivi, sciatalgie, lombalgie, cervicalgie, contratture, problemi posturali, spesso con l'ausilio di Tecarterapia.",
+            "gender": "u",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_316_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_316_default_card.jpeg"
+            },
+            "position": "Masso-fisioterapista",
+            "full_name": "Stefano B",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 1036,
+            "biography": "Mattia é originario di Bormio, paese della Valtellina caratterizzato dalla bellezza della natura che ha ispirato, negli anni, le attività incentrate intorno al benessere e allo sport. Il suo percorso iniziò alla scuola zen di shiatsu a Milano per poi diventare massaggiatore attraverso la formazione alla scuola di naturopatia Lumen. Da allora non ha mai smesso di formarsi per ampliare le sue conoscenze. Ha approfondito la pratica di diverse tipologie di massaggio, della coppettazione, l'uso degli oli essenziali, frequentato la scuola di integrazionefasciale diventando operatore fasciale e concluso la formazione per praticare il massaggio drenante e modellante metodo Renata Franca. Mattia ha una esperienza decennale svolta tra centri termali, luxury hotel e domicili.",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_581_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_581_default_card.jpeg"
+            },
+            "position": "Massaggiatore",
+            "full_name": "Mattia Z",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 1040,
+            "biography": "Marika è una giovane massaggiatrice da sempre appassionata al mondo dei massaggi e del benessere a 360*. Ha trasformato questa sua passione in lavoro. Formazione biennale in “operatore in massaggio professionale” targata DIABASI. Questo le ha permesso di acquisire importanti esperienze lavorative, come aver partecipato come massaggiatrice delle Stars in occasione della 70esima edizione del Festival della Canzone Italiana.",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_750_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_750_default_card.jpeg"
+            },
+            "position": "Massaggiatrice",
+            "full_name": "Marika F",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 1465,
+            "biography": "Gianluca è un giovane massoterapista da sempre appassionato al mondo dello sport e del benessere in generale. Da poco concluso il percorso di massoterapista mcb all'ecolife di milano,  ha iniziato a collaborare presso vari studi e centri sportivi continuando comunque la formazione verso ciò che ama fare, con lo scopo di promuovere la salute dal punto di vista muscolo-scheletrico. Attualmente sta concludendo il percorso di laurea in scienze motorie per diventare anche un futuro personal trainer!",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_575_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_575_default_card.jpeg"
+            },
+            "position": "Massoterapista",
+            "full_name": "Gianluca L",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 1545,
+            "biography": "Dopo anni di esperienza nel settore benessere e salute Andrea ha conseguito il diploma di Massaggiatore e Massoterapista MCB nel 2018. \r\nHa lavorato presso hotel di Lusso, centri termali e attualmente ha deciso di improntare la sua professione interamente sul servizio a domicilio, esclusivo e personalizzato.\r\nAndrea negli anni ha svolto diversi corsi di aggiornamento riferiti al suo settore e tra gli altri, il metodo Renata França e il metodo Maderoterapia® Manuel Casado sono ormai parte integrante delle sue competenze. \r\nSpecializzato soprattutto nel massaggio drenante, modellante, miracle face e rilassante metodo Renata França, nel trattamento viso Key of Kobido®, nel massaggio Maderoterapia® combinato drenante-modellante e  nel massaggio decontratturante. \r\nIl suo lavoro è la sua passione e affidarsi a lui significa avere a disposizione un professionista dedicato per il tuo benessere e la tua salute.",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_645_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_645_default_card.jpeg"
+            },
+            "position": "Massoterapista e Massaggiatore",
+            "full_name": "Andrea B",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 1786,
+            "biography": "Stefano Dorati ha 26 anni. Ha conseguito il diploma di Massoterapista MCB presso la Kern School di Milano che gli ha dato la possibilità di studiare diverse tecniche di massaggio, permettendogli di intraprendere esperienze lavorative presso studi fisioterapici e società sportive. Attualmente sta frequentando corsi di specializzazione, come istruttore posturale, specifico anche per persone della terza età. Il suo obiettivo principale è quello di cercare di far stare bene la persona attraverso i trattamenti svolti che permettono di alleviare i dolori che le persone presentano. È un ragazzo solare, disponibile, collaborativo , puntuale. È uno sportivo, fin da piccolo gioca a calcio a livello agonistico.",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_646_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_646_default_card.jpeg"
+            },
+            "position": "Massoterapista",
+            "full_name": "Stefano D",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 2070,
+            "biography": "Milano, Ibiza e Roma sono solo alcuni dei luoghi in cui Claudia ha lavorato nella sua decennale esperienza. Appassionata di bellezza e benessere fin da piccola, ha seguito il suo istinto e la sua passione per il settore frequentando la scuola professionale di estetica subito dopo la fine del liceo. Ha iniziato la sua carriera lavorando come terapista spa in un relais, sviluppando varie tecniche di massaggio e trattamenti viso/corpo. Il continuo desiderio di crescita professionale e la curiosità personale per il settore l’hanno portata a lasciare la spa per ricoprire il ruolo di direttore tecnico di un franchising specializzato in estetica avanzata con tecnologie. Successivamente ha avviato e sviluppato l'angolo franchising a Milano per più di tre anni. Nel frattempo ha continuato lo studio di altre tecniche di massaggio, diventando terapista specializzata nel metodo Renata França, coadiuvando il benessere psico-fisico al risultato estetico.",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_660_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_660_default_card.jpeg"
+            },
+            "position": "Massaggiatrice",
+            "full_name": "Claudia L",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 1775,
+            "biography": "Silvia è una persona solare e dinamica. Il mondo dell’estetica è sempre stato una passione. Ha sempre e solo lavorato in questo settore sin da piccola pur studiando altro, ma aspirando e sognando di arrivare un giorno in un determinato ambiente.\r\nHa lavorato per lunghi e diversi anni in una delle aziende più famose del settore, Aldo Coppola. Ha avuto la fortuna e la possibilità di lavorare per diversi eventi, show, cosmoprof, nella moda (fashion week ed alta moda Milano/Parigi), con diversi stilisti importanti che le hanno dato la possibilità di crescere ancora di più professionalmente. Nel corso degli anni ha lavorato in altri paesi, come in Spagna (Barcellona ed Ibiza), a Miami con Pascky lavorando a stretto contatto con personaggi dello spettacolo.",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_603_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_603_default_card.jpeg"
+            },
+            "position": "Estetista",
+            "full_name": "Silvia A",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 2320,
+            "biography": "Francesco arriva da altri percorsi professionali e da esperienze lavorative svolte anche all’estero.\r\nPoi scopre la profonda passione per il massaggio manuale, torna in Italia e si diploma in Massoterapia.\r\nOggi è un massaggiatore professionista che si occupa di massaggio sportivo, miofasciale, decontratturante e miorilassante. Il suo scopo è avere la possibilità di migliorare la qualità della vita dei suoi pazienti, a 360° gradi.",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_649_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_649_default_card.jpeg"
+            },
+            "position": "Massoterapista",
+            "full_name": "Francesco S",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": false
+        },
+        {
+            "id": 2475,
+            "biography": "Claudia Caruso, siciliana del 1992, trasferita a Milano nel 2020. Ha sempre avuto un forte interesse per lo sport, per l'anatomia e per il massaggio in tutte le sue sfaccettature. Ha deciso di fare del suo lavoro la sua più grande passione: ha conseguito la laurea in Scienze delle Attività Motorie e Sportive nel 2015, successivamente ha ottenuto diversi diplomi nell' ambito del massaggio, tra cui quello da massaggiatore professionale, da massaggiatore sportivo, da massaggiatore olistico e da massaggiatore per terme e spa, nel 2018. Infine, nel 2021, ha ottenuto il titolo di Massoterapista MCB presso la Kern School di Milano, specializzandosi dunque, in massoterapia per lo sport e per il benessere psicofisico.",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_658_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_658_default_card.jpeg"
+            },
+            "position": "Massoterapista",
+            "full_name": "Claudia C",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 12,
+            "biography": "Maurizio ha diversi anni di esperienza come personal trainer, avendo lavorato in importanti centri di Milano e presso il domicilio di numerosi clienti. Maurizio è capace di modulare programmi personalizzati per l'home work-out con\r\nvalutazioni antropometriche. Èspecializzato in allenamento funzionale volto alla tonificazione, al dimagrimento ed alla riabilitazione funzionale. È un maratoneta e Running Coach. Ha diploma ISEF e titolo di Allenamento Funzionale Triform. Maurizio è anche un Massaggiatore Olistico con diploma WSO di Massaggio Base Svedese. Il suo slogan è \"stay fit, work hard and train harder\"",
+            "gender": "u",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_172_default_card.png",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_172_default_card.png"
+            },
+            "position": "Personal Trainer",
+            "full_name": "Maurizio R",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        },
+        {
+            "id": 2095,
+            "biography": "Michela inizia la sua carriera più di vent’anni fa come estetista, e successivamente si specializza nel make-up frequentando una tra le scuole più prestigiose del make-up, la “BCM di Milano”. Contemporaneamente gestisce la parte dell’estetica in un salone di bellezza di Bergamo curando insieme all' hair stylist moltissime spose e continuando la sua attività di make-up lavorando per fotografi e shooting fotografici. La passione stimola il suo percorso formativo nel mondo beauty specializzandosi nelle extension ciglia, nella sugaring e infine appassionandosi al metodo brasiliano di Renata Franca di cui conosce tutti i massaggi. La sua crescita professionale e formazione nel mondo beauty sono sempre andati di pari passo portando tutta la sua conoscenza nell’isola di Ibiza dove esercita la sua professione con servizio a domicilio del cliente su Ibiza e Formentera.",
+            "profile_image": {
+                "url": "/upload/media/default/0001/01/thumb_622_default_card.jpeg",
+                "full_url": "https://takemihome.it/upload/media/default/0001/01/thumb_622_default_card.jpeg"
+            },
+            "position": "Beauty Specialist",
+            "full_name": "Michela C",
+            "working_city": [],
+            "postal_codes": [],
+            "is_favorite": true,
+            "available": true
+        }
+    ]
+}

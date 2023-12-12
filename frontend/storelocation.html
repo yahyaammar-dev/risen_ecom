@@ -506,7 +506,7 @@
                 <h1 class="text-3xl font-bold capitalize dark:text-white mt-8"> Explore Our Locations </h1>
             </div>
             <div class="flex flex-wrap justify-center -mx-4" id="storeBody">
-                
+
             </div>
         </div>
     </section>
@@ -752,22 +752,23 @@
     <script>
         // Function to fetch store data from the API
         async function fetchStores() {
-          try {
-            const response = await fetch('http://localhost:8888/get-all-stores');
-            const data = await response.json();
-            return data;
-          } catch (error) {
-            console.error('Error fetching store data:', error);
-            return [];
-          }
+            try {
+                const response = await fetch('http://localhost:8888/get-all-stores');
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error fetching store data:', error);
+                return [];
+            }
         }
-    
+
         // Function to create HTML elements for each store
         function createStoreElements(stores) {
-          const storeBody = document.getElementById('storeBody');
-    
-          stores.forEach(store => {
-            const html = `
+            const storeBody = document.getElementById('storeBody');
+
+            stores.forEach(store => {
+                const html = `
+            <a href="${store.address}">
               <div class="w-full px-4 mb-10 sm:w-1/2 lg:w-1/3 xl:w-1/4">
                 <div class="relative overflow-hidden rounded-md shadow h-96">
                   <div class="w-full overflow-hidden">
@@ -786,19 +787,20 @@
                   </div>
                 </div>
               </div>
+              </a>
             `;
-    
-            // Append the HTML to the store body
-            storeBody.innerHTML += html;
-          });
+
+                // Append the HTML to the store body
+                storeBody.innerHTML += html;
+            });
         }
-    
+
         // Fetch stores and create HTML elements when the page loads
         document.addEventListener('DOMContentLoaded', async () => {
-          const stores = await fetchStores();
-          createStoreElements(stores?.stores);
+            const stores = await fetchStores();
+            createStoreElements(stores?.stores);
         });
-      </script>
+    </script>
 
 
 </body>

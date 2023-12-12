@@ -111,17 +111,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="mt-5">
-                                            <label class="block mb-2 text-sm font-medium dark:text-gray-400"
-                                                for="">Store</label>
-                                            <div class="relative">
-                                                <select
-                                                    class="w-full px-4 py-3 bg-gray-200 rounded-lg dark:text-gray-400 dark:bg-gray-800 "
-                                                    name="stoers" id="stores">
-
-                                                </select>
-                                            </div>
-                                        </div>
                                         <button
                                             class="w-full px-4 py-3 mt-5 font-semibold text-gray-200 bg-blue-500 rounded-lg dark:bg-blue-500 hover:text-blue-200 "
                                             type="submit">LOGIN</button>
@@ -146,24 +135,6 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const selectElement = document.getElementById('stores');
-
-            const apiEndpoint = 'http://localhost:8888/get-all-stores';
-
-            fetch(apiEndpoint)
-                .then(response => response.json())
-                .then(data => {
-                    data.stores.forEach(store => {
-                        const option = document.createElement('option');
-                        option.value = store._id; // Assuming _id is a unique identifier for each store
-                        option.text = store.name; // Assuming 'name' is the property containing the store name
-                        selectElement.appendChild(option);
-                    });
-                })
-                .catch(error => console.error('Error fetching data:', error));
-        });
-
         document.getElementById('loginForm').addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent the default form submission
 
@@ -179,14 +150,9 @@
                 return;
             }
 
-            // Get other form data
-            var store = document.querySelector('select[name="stoers"]').value;
-
-            // Prepare data for the API call
             var data = {
                 email: email,
                 password: password,
-                branch: store
             };
 
             axios.post('http://localhost:8888/adminlogin', data)
@@ -197,7 +163,6 @@
                     }
                 })
                 .catch(function (error) {
-                    // i am using tailwindcss i want an alert box to appear appear with error message and it should dissappear after 3 second 
                     errorAlert.innerHTML = error.message
                     errorAlert.classList.remove('hidden')
                     setTimeout(() => {

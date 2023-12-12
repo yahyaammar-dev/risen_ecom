@@ -760,6 +760,10 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script>
+
+        let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
+
+
         // API URLs
         const baseURL = 'http://localhost:8888';
         const getUsersURL = `${baseURL}/get-all-users`;
@@ -780,13 +784,13 @@
 
 
                 // get all promo codes
-                const promoCodesResponse = await axios.get(getPromoCodes);
+                const promoCodesResponse = await axios.get(getPromoCodes, {params: {branchId}});
                 const promoCodes = promoCodesResponse.data.promoCodes;
 
                 console.log('ormo', promoCodes)
 
                 // Get Users
-                const usersResponse = await axios.get(getUsersURL);
+                const usersResponse = await axios.get(getUsersURL, {params: {branchId}});
                 const users = usersResponse.data.users;
                 const userContent = document.getElementById('userbody')
                 users?.map((item) => {
@@ -816,7 +820,7 @@
                 })
 
                 // Get Products
-                const productsResponse = await axios.get(getProductsURL);
+                const productsResponse = await axios.get(getProductsURL, {params: {branchId}});
                 const products = productsResponse.data.products;
                 const productContent = document.getElementById('productcontent')
 
@@ -830,7 +834,7 @@
                                                         </td>
                                                         <td class="px-6 py-5 font-medium ">${item?.description ? item?.description : 'No Description Found'}
                                                         </td>
-                                                        <td class="px-6 py-5 font-medium ">${item?.amount}
+                                                        <td class="px-6 py-5 font-medium ">${item?.price}
                                                         </td>
                                                       
                                                         <td class="px-6 py-5 font-medium ">
@@ -854,7 +858,7 @@
 
 
                 // Get Categories
-                const categoriesResponse = await axios.get(getCategoriesURL);
+                const categoriesResponse = await axios.get(getCategoriesURL, {params: {branchId}});
                 const categories = categoriesResponse.data.categories;
                 const categoryContent = document.getElementById('categorycontent')
                 categories?.map(function (item) {
@@ -892,33 +896,32 @@
         // Call the fetchData function
         fetchData();
 
-
+        let data
 
         const applyPromoCodeProduct = (item) => {
-            const data = {
+             data = {
                 type: 'product',
                 typeId: item?._id,
-                promoCode: selectedProductPromo
+                promoCodeName: selectedProductPromo
             }
-            console.log('Data is', data)
+            applyPromoAtBackend(data)
         }
         const applyPromoCodeUser = (item) => {
-            const data = {
+             data = {
                 type: 'user',
                 typeId: item?._id,
-                promoCode: selectedUserPromo
+                promoCodeName: selectedUserPromo
             }
-
+            applyPromoAtBackend(data)
         }
         const applyPromoCodeCategory = (item) => {
-            const data = {
+             data = {
                 type: 'category',
                 typeId: item?._id,
-                promoCode: selectedCategoryPromo
+                promoCodeName: selectedCategoryPromo
             }
-
+            applyPromoAtBackend(data)
         }
-
 
         function handleProductChange(selectElement) {
             const selectedValue = selectElement.value;
@@ -934,12 +937,16 @@
         }
 
 
-        const applyPromoAtBackend  = (data) => {
-             // call hte api here
+        const applyPromoAtBackend = (data) => {
+            axios.post('http://localhost:8888/assign-promotion', data)
+            .then((res)=>{
+                alert("Promo Code Have been applied")
+            })
+            .catch((err)=>{
+                console.log("There has been an error")
+            })
         }
 
     </script>
-
 </body>
-
 </html>

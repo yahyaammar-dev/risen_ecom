@@ -5,6 +5,7 @@ const promoCodeSchema = new mongoose.Schema({
   percentage: Number,
   type: String,
   validTill: Date,
+  promoCode: String
 });
 
 const PromoCode = mongoose.model('PromoCode', promoCodeSchema);

@@ -467,7 +467,7 @@
                             <h2 class="mb-6 text-xl font-medium leading-6 text-gray-900 dark:text-gray-300">
                                 Edit the Product
                             </h2>
-                            <form action="#" method="post" class="" id="updateForm">
+                            <form action="#" enctype="multipart/form-data" method="post" class="" id="updateForm">
                                 <div class="container px-4 mx-auto"></div>
                                 <div class="mb-6">
                                     <label class="block mb-2 text-sm font-medium dark:text-gray-400" for="">
@@ -500,6 +500,15 @@
                                         class="block w-full px-4 py-3 mb-2 text-sm placeholder-gray-500 bg-white border rounded dark:text-gray-400 dark:border-gray-900 dark:bg-gray-800"
                                         id="description" rows="5" placeholder="Write something..."></textarea>
                                 </div>
+
+                                <div class="mb-6">
+                                    <label class="block mb-2 text-sm font-medium dark:text-gray-400"
+                                        for="images">Images</label>
+                                    <input type="file"
+                                        class="block w-full px-4 py-3 mb-2 text-sm placeholder-gray-500 bg-white border rounded dark:text-gray-400 dark:border-gray-900 dark:bg-gray-800"
+                                        id="image" name="image" multiple />
+                                </div>
+
                                 <div class="mt-7">
                                     <div class="flex justify-start space-x-2">
                                         <div class="flex justify-start space-x-2">
@@ -766,6 +775,7 @@
                 const name = document.getElementById("name").value;
                 const category = document.getElementById("category").value;
                 const description = document.getElementById("description").value;
+                const image = document.getElementById("image").files
 
                 // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
                 const apiEndpoint = 'http://localhost:8888/update-product';
@@ -776,11 +786,17 @@
                     name: name,
                     category: category,
                     description: description,
-                    branchId: branchId
+                    branchId: branchId,
+                    image
                 };
 
+
                 // Make the API call using Axios
-                axios.put(apiEndpoint, data)
+                axios.put(apiEndpoint, data, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data', // Important to set the content type to multipart/form-data
+                    },
+                })
                     .then(function (response) {
                         // Handle the API response as needed
                         console.log(response.data);

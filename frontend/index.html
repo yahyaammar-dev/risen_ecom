@@ -57,6 +57,39 @@
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
+
+    <style>
+        .overlay {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent black background */
+        }
+
+        /* Style for the popup content */
+        .popupx {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            z-index: 12;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #default-carousel {
+            z-index: 2;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -126,7 +159,8 @@
                             </svg></a></div>
                 </div>
 
-                <div class="css-15ffgiy" id="css-15ffgiy" data-modal-target="crud-modal" data-modal-toggle="crud-modal">
+                <div class="css-15ffgiy" id="css-15ffgiy" data-modal-target="crud-modal" data-modal-toggle="crud-modal"
+                    onclick="openPopup()">
                     <div class="mobile-area-section css-4cffwv" id="category_landing_page_address_change"
                         data-sl="mask">
                         <div data-testid="delivery_city_area" data-sl="mask" class="css-1vmlbcg">
@@ -211,287 +245,18 @@
         <nav class="bg-white border-gray-200 dark:bg-gray-900">
             <div class="flex flex-wrap items-center justify-between max-w-[1440px] mx-auto py-4">
                 <div id="mega-menu" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
-                    <ul class="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
-                        <li>
-                            <button id="mega-menu-dropdown-button" data-dropdown-toggle="mega-menu-dropdown"
-                                class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
-                                Company <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m1 1 4 4 4-4" />
-                                </svg>
-                            </button>
-                            <div id="mega-menu-dropdown"
-                                class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
-                                <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
-                                    <ul class="space-y-4" aria-labelledby="mega-menu-dropdown-button">
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                About Us
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Library
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Resources
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Pro Version
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
-                                    <ul class="space-y-4">
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Blog
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Newsletter
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Playground
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                License
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="p-4">
-                                    <ul class="space-y-4">
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Contact Us
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Support Center
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Terms
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <button id="mega-menu-dropdown-button" data-dropdown-toggle="mega-menu-dropdown2"
-                                class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
-                                Company <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m1 1 4 4 4-4" />
-                                </svg>
-                            </button>
-                            <div id="mega-menu-dropdown2"
-                                class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
-                                <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
-                                    <ul class="space-y-4" aria-labelledby="mega-menu-dropdown-button">
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                About Us
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Library
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Resources
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Pro Version
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
-                                    <ul class="space-y-4">
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Blog
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Newsletter
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Playground
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                License
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="p-4">
-                                    <ul class="space-y-4">
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Contact Us
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Support Center
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Terms
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <button id="mega-menu-dropdown-button" data-dropdown-toggle="mega-menu-dropdown3"
-                                class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
-                                Company <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m1 1 4 4 4-4" />
-                                </svg>
-                            </button>
-                            <div id="mega-menu-dropdown3"
-                                class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
-                                <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
-                                    <ul class="space-y-4" aria-labelledby="mega-menu-dropdown-button">
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                About Us
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Library
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Resources
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Pro Version
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
-                                    <ul class="space-y-4">
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Blog
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Newsletter
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Playground
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                License
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="p-4">
-                                    <ul class="space-y-4">
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Contact Us
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Support Center
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                Terms
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
+                    <ul id="mega-menu-list"
+                        class="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
                     </ul>
                 </div>
             </div>
         </nav>
 
-
-
+        <!-- <div class="hidden  md:block  w-[1440px] mx-auto my-4" id="navbar-default">
+            <ul id="navmenuid"
+                class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            </ul>
+        </div> -->
 
         <!-- type of order   -->
         <div class="flex w-[1440px] mx-auto gap-5 mb-5">
@@ -618,8 +383,6 @@
                 </div>
             </div>
         </div>
-
-
 
         <!-- Deliver type -->
         <div class="flex w-[1440px] mx-auto gap-5">
@@ -1112,190 +875,11 @@
 
     <div class="w-[1440px] mx-auto p-relative my-20">
         <h3 data-testid="trolly-text" font-size="3,,,6" font-family="Teshrin AR LT" class="css-1rjm86d" color="copy">Top
-            Products</h3>
+            Products x</h3>
         <div class="swiper-container2">
             <div class="swiper-wrapper" id="productContainer">
-                <div class="swiper-slide">
-                    <div class="relative overflow-hidden bg-white shadow rounded-xl dark:bg-gray-700">
-                        <div class="relative overflow-hidden">
-                            <div class="mb-5 overflow-hidden">
-                                <img class="object-cover w-full mx-auto transition-all rounded h-72 hover:scale-110"
-                                    src="https://i.postimg.cc/XqBnTJBL/pink-sweater-front.jpg" alt="">
-                            </div>
-                            <button
-                                class="absolute top-0 left-0 p-3 bg-blue-500 rounded-l-none hover:bg-blue-600 rounded-b-xl">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="text-white" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z">
-                                    </path>
-                                </svg>
-                            </button>
-                        </div>
-                        <a>
-                            <h3 class="px-5 mb-4 text-lg font-bold dark:text-white"> Pink Tshirt With Braided
-                                Sweater Pattern </h3>
-                        </a>
-                        <div class="flex">
-                            <div class="w-1/2 px-5 pb-3">
-                                <p class="text-lg font-bold text-blue-500 dark:text-blue-300">
-                                    $299.99
-                                </p>
-                                <span
-                                    class="block -mt-1 text-xs font-semibold text-gray-400 line-through">$399.99</span>
-                            </div>
-                            <button onclick="handleProductClick('data')"
-                                class="flex-1 text-sm text-white transition-all bg-blue-500 rounded-r-none hover:bg-blue-600 rounded-t-xl">
-                                Add To Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="swiper-slide">
-                    <div class="relative overflow-hidden bg-white shadow rounded-xl dark:bg-gray-700">
-                        <div class="relative overflow-hidden">
-                            <div class="mb-5 overflow-hidden">
-                                <img class="object-cover w-full mx-auto transition-all rounded h-72 hover:scale-110"
-                                    src="https://i.postimg.cc/XqBnTJBL/pink-sweater-front.jpg" alt="">
-                            </div>
-                            <button
-                                class="absolute top-0 left-0 p-3 bg-blue-500 rounded-l-none hover:bg-blue-600 rounded-b-xl">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="text-white" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z">
-                                    </path>
-                                </svg>
-                            </button>
-                        </div>
-                        <a>
-                            <h3 class="px-5 mb-4 text-lg font-bold dark:text-white"> Pink Tshirt With Braided
-                                Sweater Pattern </h3>
-                        </a>
-                        <div class="flex">
-                            <div class="w-1/2 px-5 pb-3">
-                                <p class="text-lg font-bold text-blue-500 dark:text-blue-300">
-                                    $299.99
-                                </p>
-                                <span
-                                    class="block -mt-1 text-xs font-semibold text-gray-400 line-through">$399.99</span>
-                            </div>
-                            <button
-                                class="flex-1 text-sm text-white transition-all bg-blue-500 rounded-r-none hover:bg-blue-600 rounded-t-xl">
-                                Add To Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="relative overflow-hidden bg-white shadow rounded-xl dark:bg-gray-700">
-                        <div class="relative overflow-hidden">
-                            <div class="mb-5 overflow-hidden">
-                                <img class="object-cover w-full mx-auto transition-all rounded h-72 hover:scale-110"
-                                    src="https://i.postimg.cc/XqBnTJBL/pink-sweater-front.jpg" alt="">
-                            </div>
-                            <button
-                                class="absolute top-0 left-0 p-3 bg-blue-500 rounded-l-none hover:bg-blue-600 rounded-b-xl">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="text-white" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z">
-                                    </path>
-                                </svg>
-                            </button>
-                        </div>
-                        <a>
-                            <h3 class="px-5 mb-4 text-lg font-bold dark:text-white"> Pink Tshirt With Braided
-                                Sweater Pattern </h3>
-                        </a>
-                        <div class="flex">
-                            <div class="w-1/2 px-5 pb-3">
-                                <p class="text-lg font-bold text-blue-500 dark:text-blue-300">
-                                    $299.99
-                                </p>
-                                <span
-                                    class="block -mt-1 text-xs font-semibold text-gray-400 line-through">$399.99</span>
-                            </div>
-                            <button
-                                class="flex-1 text-sm text-white transition-all bg-blue-500 rounded-r-none hover:bg-blue-600 rounded-t-xl">
-                                Add To Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="relative overflow-hidden bg-white shadow rounded-xl dark:bg-gray-700">
-                        <div class="relative overflow-hidden">
-                            <div class="mb-5 overflow-hidden">
-                                <img class="object-cover w-full mx-auto transition-all rounded h-72 hover:scale-110"
-                                    src="https://i.postimg.cc/XqBnTJBL/pink-sweater-front.jpg" alt="">
-                            </div>
-                            <button
-                                class="absolute top-0 left-0 p-3 bg-blue-500 rounded-l-none hover:bg-blue-600 rounded-b-xl">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="text-white" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z">
-                                    </path>
-                                </svg>
-                            </button>
-                        </div>
-                        <a>
-                            <h3 class="px-5 mb-4 text-lg font-bold dark:text-white"> Pink Tshirt With Braided
-                                Sweater Pattern </h3>
-                        </a>
-                        <div class="flex">
-                            <div class="w-1/2 px-5 pb-3">
-                                <p class="text-lg font-bold text-blue-500 dark:text-blue-300">
-                                    $299.99
-                                </p>
-                                <span
-                                    class="block -mt-1 text-xs font-semibold text-gray-400 line-through">$399.99</span>
-                            </div>
-                            <button
-                                class="flex-1 text-sm text-white transition-all bg-blue-500 rounded-r-none hover:bg-blue-600 rounded-t-xl">
-                                Add To Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="relative overflow-hidden bg-white shadow rounded-xl dark:bg-gray-700">
-                        <div class="relative overflow-hidden">
-                            <div class="mb-5 overflow-hidden">
-                                <img class="object-cover w-full mx-auto transition-all rounded h-72 hover:scale-110"
-                                    src="https://i.postimg.cc/XqBnTJBL/pink-sweater-front.jpg" alt="">
-                            </div>
-                            <button
-                                class="absolute top-0 left-0 p-3 bg-blue-500 rounded-l-none hover:bg-blue-600 rounded-b-xl">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="text-white" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z">
-                                    </path>
-                                </svg>
-                            </button>
-                        </div>
-                        <a>
-                            <h3 class="px-5 mb-4 text-lg font-bold dark:text-white"> Pink Tshirt With Braided
-                                Sweater Pattern </h3>
-                        </a>
-                        <div class="flex">
-                            <div class="w-1/2 px-5 pb-3">
-                                <p class="text-lg font-bold text-blue-500 dark:text-blue-300">
-                                    $299.99
-                                </p>
-                                <span
-                                    class="block -mt-1 text-xs font-semibold text-gray-400 line-through">$399.99</span>
-                            </div>
-                            <button
-                                class="flex-1 text-sm text-white transition-all bg-blue-500 rounded-r-none hover:bg-blue-600 rounded-t-xl">
-                                Add To Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
+
 
 
             </div>
@@ -1404,6 +988,58 @@
 
 
     <!-- Favorite Brands -->
+
+
+
+
+    <!-- Overlay and Popup content -->
+    <div id="overlay" class="overlay"></div>
+    <div id="popupx" class="popupx">
+
+
+        <div class="relative  w-full  max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg  dark:bg-gray-700">
+                <!-- Modal header -->
+                <div
+                    class="w-[30rem] flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                        Select Location
+                    </h3>
+                    <button type="button" onclick="closePopup()"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                        data-modal-toggle="crud-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5">
+                    <div class="grid gap-4 mb-4 grid-cols-1">
+                        <div class="col-span-2 sm:col-span-1">
+                            <label for="category"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stores</label>
+                            <select id="locationSelect" onchange="handleChange(this)"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                <option selected disabled>Select Location</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button onclick="closePopup()"
+                        class="justify-center w-full text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-center">
+                        Choose the area
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
 
 
 
@@ -1523,55 +1159,10 @@
 
     <!-- Popup for selecting location -->
     <!-- Main modal -->
-    <div id="crud-modal" tabindex="-1" aria-hidden="true"
+    <!-- <div id="crud-modal" tabindex="-1" aria-hidden="true"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative p-4 w-full max-w-md max-h-full">
-            <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                <!-- Modal header -->
-                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                        Select Location
-                    </h3>
-                    <button type="button"
-                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                        data-modal-toggle="crud-modal">
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                        </svg>
-                        <span class="sr-only">Close modal</span>
-                    </button>
-                </div>
-                <!-- Modal body -->
-                <div class="p-4 md:p-5">
-                    <div class="grid gap-4 mb-4 grid-cols-1">
-                        <div class="col-span-2 sm:col-span-1">
-                            <label for="category"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stores</label>
-                            <select id="locationSelect"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option selected="">Select Location</option>
-                                <option value="location1">Store 1</option>
-                                <option value="location2">Store 2</option>
-                                <option value="location3">Store 3</option>
-                                <option value="location4">Store 4</option>
-                                <option value="location5">Store 5</option>
-                                <option value="location6">Store 6</option>
-                                <option value="location7">Store 7</option>
-                                <option value="location8">Store 8</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button
-                        class="justify-center w-full text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-center">
-                        Add new product
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+        
+    </div> -->
 
 
 
@@ -1599,17 +1190,19 @@
             </svg>
             <span class="sr-only">Close menu</span>
         </button>
-        <p class="mb-6 text-sm text-gray-500 dark:text-gray-400">Supercharge your hiring by taking advantage of our <a
-                href="#" class="text-blue-600 underline font-medium dark:text-blue-500 hover:no-underline">limited-time
-                sale</a> for Flowbite Docs + Job Board. Unlimited access to over 190K top-ranked candidates and the #1
-            design job board.</p>
+
+
+        <div id="cartContent">
+            <!-- all content goes here -->
+        </div>
+
         <div class="grid grid-cols-2 gap-4">
+            <div>
+
+            </div>
             <a href="#"
-                class="px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Learn
-                more</a>
-            <a href="#"
-                class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Get
-                access <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Move
+                To Checkout <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M1 5h12m0 0L9 1m4 4L9 9" />
@@ -1621,7 +1214,271 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
+
+        let existingCart = JSON.parse(localStorage.getItem('cart')) || [];
+
+
+        function handleChange(selectElement) {
+            window.localStorage.setItem('branch', selectElement.value)
+        }
+
+        const editItem = (item, quantity = 1) => {
+            console.log(item);
+
+            // Retrieve existing cart items from local storage
+
+            // Check if the item already exists in the cart based on a unique identifier (e.g., _id)
+            const existingItem = existingCart.find(cartItem => cartItem._id === item._id);
+
+            if (existingItem) {
+                // If the item already exists, update the quantity or perform other actions
+                existingItem.quantity += quantity; // Update quantity, based on the specified quantity parameter
+            } else {
+                // If the item doesn't exist, add it to the cart with the specified quantity
+                item.quantity = quantity; // Add a quantity property, based on the specified quantity parameter
+                existingCart.push(item);
+            }
+
+            // Store the updated cart back to local storage
+            localStorage.setItem('cart', JSON.stringify(existingCart));
+
+            // Print the updated cart for testing purposes
+            console.log('Updated Cart:', existingCart);
+
+
+
+
+            const cartContent = document.getElementById('cartContent');
+
+            // Clear existing content in the cartContent element
+            cartContent.innerHTML = '';
+
+            // Loop through each item in the cart and append it to the cartContent element
+            existingCart?.forEach(item => {
+                const cartItemElement = document.createElement('div');
+                cartItemElement.classList.add('cart-item');
+
+                // Create HTML content for each item (customize this based on your needs)
+                cartItemElement.innerHTML = `<div class="my-4">
+        <img src="${item.images[0]}" alt="${item.name}" class="cart-item-image">
+        <div class="cart-item-details">
+            <h3 class="cart-item-name">${item.name}</h3>
+            <p class="cart-item-description">${item.description}</p>
+            <p class="cart-item-price">$${item.price}</p>
+            <p class="cart-item-quantity">Quantity: ${item.quantity}</p>
+            <button class="remove-item-button" data-item-id="${item._id}">Remove</button>
+        </div></div>
+    `;
+
+                // Append the cart item element to the #cartContent element
+                cartContent.appendChild(cartItemElement);
+            });
+
+            setTimeout(() => {
+                const removeButton = document.querySelector('.remove-item-button');
+                removeButton.addEventListener('click', () => {
+                    // Remove the item from the cart
+                    console.log('kuch ho rha hy?')
+                    const updatedCart = existingCart.filter(cartItem => cartItem._id !== item._id);
+
+                    // Update local storage with the new cart
+                    localStorage.setItem('cart', JSON.stringify(updatedCart));
+                });
+            }, 1000);
+
+        };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        function createProductCard(product) {
+            let swiperSlide = `<div class="swiper-slide">
+                        <div class="relative overflow-hidden bg-white shadow rounded-xl dark:bg-gray-700">
+                            <div class="relative overflow-hidden">
+                                <div class="mb-5 overflow-hidden">
+                                    <img class="object-cover w-full mx-auto transition-all rounded h-72 hover:scale-110"
+                                        src="https://i.postimg.cc/XqBnTJBL/pink-sweater-front.jpg" alt="">
+                                </div>
+                                <button
+                                    class="absolute top-0 left-0 p-3 bg-blue-500 rounded-l-none hover:bg-blue-600 rounded-b-xl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                        class="text-white" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <a>
+                                <h3 class="px-5 mb-4 text-lg font-bold dark:text-white"> 
+                                    ${product?.name} </h3>
+                            </a>
+                            <div class="flex">
+                                <div class="w-1/2 px-5 pb-3">
+                                    <p class="text-lg font-bold text-blue-500 dark:text-blue-300">
+                                        $299.99
+                                    </p>
+                                    <span
+                                        class="block -mt-1 text-xs font-semibold text-gray-400 line-through">$399.99</span>
+                                </div>
+                                <button onclick="editItem(${JSON.stringify(product).replace(/"/g, '&quot;')})"  class="flex-1 text-sm text-white transition-all bg-blue-500 rounded-r-none hover:bg-blue-600 rounded-t-xl"> Add To Cart </button>
+                            </div>
+                        </div>
+                    </div>`
+
+            return swiperSlide;
+        }
+
+        //  Fetching all of data 
+        let areas = null
+        let categories = null
+        let categoriesWithSubcategories = new Map()
+        let products = null
+
+        axios.get('http://localhost:8888/get-areas')
+            .then(function (response) {
+                areas = response.data;
+                const locationSelect = document.getElementById('locationSelect');
+                areas.forEach(area => {
+                    const option = document.createElement('option');
+                    option.value = area._id;
+                    option.textContent = area.name;
+                    locationSelect.appendChild(option);
+                });
+
+            })
+            .catch(function (error) {
+                // Handle errors
+                console.error(error);
+            });
+
+
+
+
+
+
+
+        // let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
+        axios.get('http://localhost:8888/get-all-categories')
+            .then(async function (response) {
+                let mydata = new Map()
+                let temp = response.data.categories
+                for (const category of temp) {
+                    const subcategoriesResponse = await axios.post('http://localhost:8888/get-subcategories', {
+                        parentCategoryId: category._id,
+                    });
+                    mydata.set(category.name, subcategoriesResponse.data)
+                }
+
+                let container = document.getElementById("mega-menu-list")
+
+                let index = 1;
+                for (const [key, value] of mydata.entries()) {
+                    let dropdownToggle = `mega-menu-dropdown-${index}`;
+    let dropdownId = `mega-menu-dropdown-${index}`;
+                    let html = `
+                    <li>
+                            <button  id="mega-menu-dropdown-button" data-dropdown-toggle="${dropdownToggle}"
+                                class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                                ${key} <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 1 4 4 4-4" />
+                                </svg>
+                            </button>
+                            <div  id="${dropdownId}"
+                                class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
+                                <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
+                                    <ul class="space-y-4" aria-labelledby="mega-menu-dropdown-button">
+                                      ${value?.map((item)=>{
+                                          return `<li>
+                                              <a href="${'file:///home/madmachine/projects/ecommerce-app-risen/frontend/category.html?id=' + item?._id}"
+                                                  class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
+                                                  ${item?.subCategoryName}
+                                              </a>
+                                          </li>`
+                                      }).join('')}
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>`
+            
+                        container.innerHTML += html
+index++
+                        
+                    }
+
+
+
+
+
+            })
+            .catch(function (error) {
+                // Handle error
+            });
+
+
+
+
+
+        // // let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
+        // axios.get('http://localhost:8888/get-all-categories')
+        //     .then(function (response) {
+        //         categories = response.data.categories
+
+        //         // categoriesWithSubcategories // t
+
+        //         // categories.forEach((item)=>{
+        //         //     // get its subcategories
+
+
+        //         // })
+
+        //         const navbar = document.getElementById('navmenuid');
+        //         categories.forEach(category => {
+        //             const cat = document.createElement('li');
+        //             const link = document.createElement('a');
+        //             link.classList.add('cursor-pointer', 'block', 'py-2', 'px-3', 'text-gray-900', 'rounded', 'hover:bg-gray-100', 'md:hover:bg-transparent', 'md:border-0', 'md:hover:text-blue-700', 'md:p-0', 'dark:text-white', 'md:dark:hover:text-blue-500', 'dark:hover:bg-gray-700', 'dark:hover:text-white', 'md:dark:hover:bg-transparent');
+        //             link.innerHTML = category.name
+        //             cat.appendChild(link)
+        //             navbar.appendChild(cat);
+        //         });
+        //     })
+        //     .catch(function (error) {
+        //         // Handle error
+        //     });
+
+
+
+        axios.get('http://localhost:8888/get-all-products', { params: { branchId: '656df5f3d5b184a99cf62627' } })
+            .then(function (response) {
+                products = response.data.products
+                const productContainer = document.getElementById('productContainer');
+                products.forEach(product => {
+                    const productCard = createProductCard(product)
+                    // Append the swiper slide to the product container
+                    productContainer.innerHTML += productCard;
+                });
+            })
+            .catch(function (error) {
+                // Handle error
+            });
+
+
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 6,
             spaceBetween: 20,
@@ -1649,54 +1506,90 @@
             },
         });
 
-
-    </script>
-
-    <script>
         document.addEventListener('DOMContentLoaded', function () {
 
+            if (existingCart?.length > 0) {
 
-            // enable the popup
-            const ele = document.getElementById('css-15ffgiy')
-            ele.click()
+                const cartContent = document.getElementById('cartContent');
+                // Clear existing content in the cartContent element
+                cartContent.innerHTML = '';
+                existingCart = window.localStorage.getItem("cart")
+                // Loop through each item in the cart and append it to the cartContent element
+                existingCart?.forEach(item => {
+                    const cartItemElement = document.createElement('div');
+                    cartItemElement.classList.add('cart-item');
+                    // Create HTML content for each item (customize this based on your needs)
+                    cartItemElement.innerHTML = `<div class="my-4">
+                        class="cart-item-image">
+                        <div class="cart-item-details">
+                        <h3 class="cart-item-name">${item.name}</h3>
+                        <p class="cart-item-description">${item.description}</p>
+                        <p class="cart-item-price">$${item.price}</p>
+                        <p class="cart-item-quantity">Quantity: ${item.quantity}</p>
+                        <button class="remove-item-button" data-item-id="${item._id}">Remove</button>
+                        </div></div>`;
+                    // Append the cart item element to the #cartContent element
+                    cartContent.appendChild(cartItemElement);
+                });
+                setTimeout(() => {
+                    const removeButton = document.querySelector('.remove-item-button');
+                    removeButton.addEventListener('click', () => {
+                        // Remove the item from the cart
+                        console.log('kuch ho rha hy?')
+                        const updatedCart = existingCart.filter(cartItem => cartItem._id !== item._id);
+                        // Update local storage with the new cart
+                        localStorage.setItem('cart', JSON.stringify(updatedCart));
+                    });
 
-            // Check if the Geolocation API is supported
-            if ('geolocation' in navigator) {
-                // Get the user's location
-                navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-            } else {
-                console.log('Geolocation is not supported by your browser');
+                }, 1000);
             }
 
-            // Success callback function
-            function successCallback(position) {
-                const latitude = position.coords.latitude;
-                const longitude = position.coords.longitude;
+        })
 
-                console.log('Latitude:', latitude);
-                console.log('Longitude:', longitude);
 
-                // You can use the latitude and longitude as needed
-            }
 
-            // Error callback function
-            function errorCallback(error) {
-                switch (error.code) {
-                    case error.PERMISSION_DENIED:
-                        console.log('User denied the request for Geolocation.');
-                        break;
-                    case error.POSITION_UNAVAILABLE:
-                        console.log('Location information is unavailable.');
-                        break;
-                    case error.TIMEOUT:
-                        console.log('The request to get user location timed out.');
-                        break;
-                    case error.UNKNOWN_ERROR:
-                        console.log('An unknown error occurred.');
-                        break;
-                }
-            }
-        });
+
+
+        // document.addEventListener('DOMContentLoaded', function () {
+
+
+        //     // Check if the Geolocation API is supported
+        //     if ('geolocation' in navigator) {
+        //         // Get the user's location
+        //         navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+        //     } else {
+        //         console.log('Geolocation is not supported by your browser');
+        //     }
+
+        //     // Success callback function
+        //     function successCallback(position) {
+        //         const latitude = position.coords.latitude;
+        //         const longitude = position.coords.longitude;
+
+        //         console.log('Latitude:', latitude);
+        //         console.log('Longitude:', longitude);
+
+        //         // You can use the latitude and longitude as needed
+        //     }
+
+        //     // Error callback function
+        //     function errorCallback(error) {
+        //         switch (error.code) {
+        //             case error.PERMISSION_DENIED:
+        //                 console.log('User denied the request for Geolocation.');
+        //                 break;
+        //             case error.POSITION_UNAVAILABLE:
+        //                 console.log('Location information is unavailable.');
+        //                 break;
+        //             case error.TIMEOUT:
+        //                 console.log('The request to get user location timed out.');
+        //                 break;
+        //             case error.UNKNOWN_ERROR:
+        //                 console.log('An unknown error occurred.');
+        //                 break;
+        //         }
+        //     }
+        // });
     </script>
 
 
@@ -1802,13 +1695,57 @@
 
     <script>
 
-        console.log(item);
-        let serializedItem = JSON.stringify(item);
-        window.location.href = "/product-detail.html?item=" + encodeURIComponent(serializedItem);
+        // let serializedItem = JSON.stringify(item);
+        // window.location.href = "/product-detail.html?item=" + encodeURIComponent(serializedItem);
 
+
+        // Flag to track the popup state
+
+        // let branch = null
+
+        // if(!window.localStorage.getItem("admin")){
+        //     openPopup()
+        // }else{
+        //     branch = window.localStorage.getItem("admin")?.branch
+        // }
+
+        setTimeout(() => {
+            openPopup()
+        }, 1000);
+
+
+
+        let isPopupOpen = false;
+
+        function openPopup() {
+            // Check if the popup is not already open
+            if (!isPopupOpen) {
+                // Set the flag to true
+                isPopupOpen = true;
+
+                // Show the overlay and popup
+                document.getElementById('overlay').style.display = 'block';
+                document.getElementById('popupx').style.display = 'block';
+            }
+        }
+
+        function closePopup() {
+            // Check if the popup is open
+            if (isPopupOpen) {
+                // Set the flag to false
+                isPopupOpen = false;
+
+                // Hide the overlay and popup
+                document.getElementById('overlay').style.display = 'none';
+                document.getElementById('popupx').style.display = 'none';
+            }
+        }
+
+        function handleProductClick(data) {
+            console.log(data)
+        }
 
     </script>
-
-
 </body>
+
 </html>
