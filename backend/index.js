@@ -15,6 +15,7 @@ const cron = require('node-cron');
 const cors = require('cors');
 const { ObjectId } = require('mongodb');
 const moment = require('moment');
+const emailjs = require('@emailjs/nodejs');
 
 // Set up multer for handling file uploads
 const storage = multer.diskStorage({
@@ -79,10 +80,10 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             try {
                 // Extract parentCategoryId from the request body
                 const { parentCategoryId } = req.body;
-        
+
                 // Query the database to find all subcategories with the specified parentCategoryId
                 const subcategories = await SubCategory.find({ parentCategoryId });
-        
+
                 // Return the list of subcategories
                 res.status(200).json(subcategories);
             } catch (error) {
@@ -90,6 +91,72 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 res.status(500).json({ error: 'Internal Server Error' });
             }
         });
+
+
+        app.get('/get-products-via-sub-category', async (req, res) => {
+            const subcatid = req.query.id;
+            const branch = req.query.branch;
+
+
+
+            // For now
+            const products = await Product.find({}).populate('category');
+
+            res.json({
+                products,
+                parentCategory: {
+                    name: "POP"
+                }
+            });
+            return
+
+
+
+            try {
+                // Find a subcategory by its ID
+                const subCategory = await SubCategory.findById(subcatid);
+
+                if (!subCategory) {
+                    return res.status(404).json({ message: 'Subcategory not found' });
+                }
+
+                // Find the parent category
+                const parentCategory = await Category.findById(subCategory.parentCategoryId);
+
+                if (!parentCategory) {
+                    return res.status(404).json({ message: 'Parent category not found' });
+                }
+
+                // Find products with matching category and branch
+                const products = await Product.find({
+                    category: subCategory.parentCategoryId,
+                    branch: branch
+                });
+
+                // Construct the response object with additional information
+                const response = {
+                    subCategory: {
+                        id: subCategory._id,
+                        name: subCategory.subCategoryName,
+                        parentId: subCategory.parentCategoryId
+                    },
+                    parentCategory: {
+                        id: parentCategory._id,
+                        name: parentCategory.name
+                    },
+                    products: products
+                };
+
+                res.json(response);
+            } catch (error) {
+                console.error(error.message);
+                res.status(500).json({ message: 'Internal Server Error' });
+            }
+        });
+
+
+
+
 
 
         // Get all products
@@ -514,8 +581,8 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 // Create a new category
                 const branch = new Store({
                     name: branchName,
-                    address: address, 
-                    latitidue: latitude, 
+                    address: address,
+                    latitidue: latitude,
                     longitude: longitude
                 });
 
@@ -838,6 +905,37 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 res.status(201).json({ message: 'Promotion created successfully', promotion });
             } catch (error) {
                 res.status(500).json({ message: error.message });
+            }
+        });
+
+
+        // update user
+        // Endpoint to update a user
+        app.post('/update-user', async (req, res) => {
+            try {
+                // Extract user details from the request body
+                const { id, email, password } = req.body;
+
+                // Find the user in the database based on the provided id
+                const user = await User.findById(id);
+
+                // If the user is found, update their details
+                if (user) {
+                    user.email = email || user.email; // Update email if provided
+                    user.password = password || user.password; // Update password if provided
+
+                    // Save the updated user to the database
+                    const updatedUser = await user.save();
+
+                    // Return the updated user
+                    res.status(200).json(updatedUser);
+                } else {
+                    // If user with the provided id is not found
+                    res.status(404).json({ error: 'User not found' });
+                }
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ error: 'Internal Server Error' });
             }
         });
 
