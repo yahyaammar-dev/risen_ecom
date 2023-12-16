@@ -709,48 +709,43 @@
 
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get('id');
-
-
-
-
-        // get the branch id from local storage
-        let branchId = JSON.parse(window.localStorage.getItem('admin')).branch
-
-
-        // get all categories
-
-        axios.get('http://localhost:8888/get-categories', { params: { branchId } })
-            .then((res) => {
-                console.log(res)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-
-
-
-
-
         axios.get(`http://localhost:8888/product-details/${id}`)
             .then((res) => {
 
-
-
-
                 const barcodeId = document.getElementById('barcodeId')
                 const name = document.getElementById('name')
-                const category = document.getElementById('category')
                 const description = document.getElementById('description')
 
                 barcodeId.value = res.data.barcodeId
                 name.value = res.data.name
-                category.value = res.data.category
                 description.value = res.data.description
-
+                const id = res.data.category
+                axios.get(`http://localhost:8888/get-categories/${id}`)
+                    .then((res) => {
+                        const category = document.getElementById('category')
+                        category.value = res.data.name
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
             })
             .catch((err) => {
                 console.log(err)
             })
+
+
+
+        // get the branch id from local storage
+        // let branchId = JSON.parse(window.localStorage.getItem('admin'))
+
+        // get all categories
+
+
+
+
+
+
+
 
 
 
@@ -784,12 +779,11 @@
                 const data = {
                     barcode: barcode,
                     name: name,
-                    category: category,
                     description: description,
-                    branchId: branchId,
                     image
                 };
-
+                
+                console.log(data)
 
                 // Make the API call using Axios
                 axios.put(apiEndpoint, data, {

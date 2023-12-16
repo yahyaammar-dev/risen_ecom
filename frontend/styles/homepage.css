@@ -313,7 +313,13 @@ textarea {
 img {
     vertical-align: middle;
 }
+.hidden{
+    display: none;
 
+}
+.flex{
+    display: block;
+}
 fieldset {
     border: 0;
     margin: 0;
@@ -4142,7 +4148,7 @@ button#onetrust-pc-btn-handler {
 
 
 }
-}
+
 
 #onetrust-banner-sdk .has-reject-all-button .banner-actions-container {
     max-width: none;

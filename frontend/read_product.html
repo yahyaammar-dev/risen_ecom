@@ -532,20 +532,12 @@
 
     <script>
         const editItem = (item) => {
-            window.location.href = `file:///home/madmachine/projects/ecommerce-app-risen/frontend/update_product.html?id=${item?._id}`;
+            window.location.href = `./update_product.html?id=${item?._id}`;
         }
-
-
-
-       
-
-
-
-
         const renderProducts = (products) => {
             const tableBody = document.getElementById('tablebody');
             tableBody.innerHTML = ''; // Clear the existing content
-
+            
             products.forEach((item) => {
                 let html = `<tr class="border-b border-gray-200 dark:border-gray-800">
                           <td class="flex items-center px-6 py-3 font-medium">
@@ -602,7 +594,8 @@
 
 
             const deleteItem = (item) => {
-            axios.delete('http://localhost:8888/delete-products', { params: { branchId: branchId, id: item?._id } })
+                console.log(item)
+            axios.delete('http://localhost:8888/delete-products', { params: { branchId: item.branch, id: item?._id } })
                 .then(function (response) {
                    alert("It has been deleted from database") 
                    window.location.reload()

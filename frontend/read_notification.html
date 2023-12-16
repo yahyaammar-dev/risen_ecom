@@ -510,7 +510,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="tablebody" class="mt-2">
-
+                                    
                                 </tbody>
                             </table>
 
@@ -529,14 +529,8 @@
 
     <script>
         const editItem = (item) => {
-            window.location.href = `file:///home/madmachine/projects/ecommerce-app-risen/frontend/update_notification.html?id=${item?._id}`;
+            window.location.href = `./update_notification.html?id=${item?._id}`;
         }
-
-
-
-
-
-
 
 
         const renderProducts = (products) => {
@@ -571,7 +565,7 @@
 
 
         let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
-
+        // alert(branchId)
 
         axios.get('http://localhost:8888/read-notification', { params: { branchId } })
             .then(function (response) {

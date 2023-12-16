@@ -465,25 +465,25 @@
                     <div class="grid grid-cols-1 gap-6 lg:grid-cols-1 ">
                         <div class="p-6 bg-white rounded-md shadow dark:border-gray-800 dark:bg-gray-900">
                             <h2 class="mb-6 text-xl font-medium leading-6 text-gray-900 dark:text-gray-300">
-                                Edit the Product
+                                Edit the Notifcation
                             </h2>
                             <form action="#" method="post" class="" id="updateForm">
                                 <div class="container px-4 mx-auto"></div>
                                 <div class="mb-6">
-                                    <label class="block mb-2 text-sm font-medium dark:text-gray-400" for="">
+                                    <label class="block mb-2 text-sm font-medium dark:text-gray-400" for="text">
                                         Text
                                     </label>
                                     <input
                                         class="block w-full px-4 py-3 mb-2 text-sm placeholder-gray-500 bg-white border rounded dark:text-gray-400 dark:placeholder-gray-500 dark:border-gray-800 dark:bg-gray-800"
-                                        type="text" id="text" name="" placeholder="Write a full name">
+                                        type="text" id="text" name="text" placeholder="Write a full name">
                                 </div>
                                 <div class="mb-6">
-                                    <label class="block mb-2 text-sm font-medium dark:text-gray-400" for="">
+                                    <label class="block mb-2 text-sm font-medium dark:text-gray-400" for="type">
                                         Type
                                     </label>
                                     <input
                                         class="block w-full px-4 py-3 mb-2 text-sm placeholder-gray-500 bg-white border rounded dark:text-gray-400 dark:placeholder-gray-500 dark:border-gray-800 dark:bg-gray-800"
-                                        type="text" id="type" name="" placeholder="Write a full name" id="name">
+                                        type="text" id="type" name="type" placeholder="Write a full name">
                                 </div>
                                 
                                 <div class="mt-7">
@@ -698,7 +698,6 @@
             .then((res) => {
                 const text = document.getElementById('text')
                 const type = document.getElementById('type')
-
                 text.value = res?.data?.text
                 type.value = res?.data?.type
             })
@@ -706,20 +705,16 @@
                 console.log(err)
             })
 
-        axios.get(`http://localhost:8888/notification-details/${id}`)
-            .then((res) => {
-                const barcodeId = document.getElementById('barcodeId')
-                const name = document.getElementById('name')
-                const category = document.getElementById('category')
-                const description = document.getElementById('description')
-                barcodeId.value = res.data.barcodeId
-                name.value = res.data.name
-                category.value = res.data.category
-                description.value = res.data.description
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+        // axios.get(`http://localhost:8888/notification-details/${id}`)
+        //     .then((res) => {
+        //         const type = document.getElementById('type')
+        //         const text = document.getElementById('text')
+        //         type.value = res.data.name
+        //         text.value = res.data.category
+        //     })
+        //     .catch((err) => {
+        //         console.log(err)
+        //     })
     </script>
 
 
@@ -737,12 +732,12 @@
                    id,
                    text,
                    type,
-                   branchId
                 };
 
                 axios.put(apiEndpoint, data)
                     .then(function (response) {
                         console.log(response.data);
+                        window.location.href('./read_notification.html')
                         alert("Notifcation has been updated")
                     })
                     .catch(function (error) {

@@ -53,18 +53,16 @@ const SupportTicket = require('./models/SupportTicket')
 const Schedule = require('./models/Schedule')
 const Area = require('./models/Area')
 const SubCategory = require('./models/SubCategory')
+const Favourite = require('./models/favourte')
 
 // connecting to db
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/ecom_db')
     .then(async () => {
         // Routes
-
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`);
         });
-
-
         // Get all Areas
         app.get('/get-areas', async (req, res) => {
             try {
@@ -75,6 +73,16 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
+        app.get('/get-favourite', async (req, res) => {
+            try {
+                const {id} = req.query;
+                console.log(id);
+                const areas = await Favourite.find({user:id});
+                res.status(200).json(areas);
+            } catch (error) {
+                res.status(500).json({ error: 'Internal Server Error' });
+            }
+        });
 
         app.post('/get-subcategories', async (req, res) => {
             try {
@@ -274,18 +282,17 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         });
 
         // get product details
-        app.get('/category-detail/:productId', async (req, res) => {
-            const productId = req.params.productId;
-
+        app.get('/category-detail/:categoryId', async (req, res) => {
+            
+            const categoryId = req.params.categoryId;
             try {
                 // Find the product by ID
-                const product = await Category.findById(productId);
-
+                const product = await Category.findById(categoryId);
                 if (!product) {
-                    return res.status(404).json({ message: 'Product not found with the provided ID.' });
+                    res.status(404).json({ message: 'Product not found with the provided ID.' });
                 }
 
-                // Return the product details
+                // Return the product details   
                 res.json(product);
             } catch (error) {
                 res.status(500).json({ message: error.message });
@@ -297,6 +304,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             try {
                 const branchId = req.query.branchId;
                 const id = req.query.id;
+                
 
                 // Check if branchId and id are provided
                 if (!branchId || !id) {
@@ -304,22 +312,10 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                     return;
                 }
 
-                // Validate branchId and id format
+                // // Validate branchId and id format
                 if (!ObjectId.isValid(branchId) || !ObjectId.isValid(id)) {
+                    console.log(id,branchId)
                     res.status(400).json({ error: 'Invalid branchId or id format' });
-                    return;
-                }
-
-                // Check if the product exists before deleting
-                const existingProduct = await Product.findById(new ObjectId(id)); // Create a new instance of ObjectId
-                if (!existingProduct) {
-                    res.status(404).json({ error: 'Product not found' });
-                    return;
-                }
-
-                // Check if the product belongs to the specified branch
-                if (existingProduct.branchId.toString() !== branchId) {
-                    res.status(403).json({ error: 'Product does not belong to the specified branch' });
                     return;
                 }
 
@@ -413,17 +409,17 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 }
 
                 // Check if the product exists before deleting
-                const existingProduct = await Notification.findById(new ObjectId(id)); // Create a new instance of ObjectId
-                if (!existingProduct) {
-                    res.status(404).json({ error: 'Product not found' });
-                    return;
-                }
+                // const existingProduct = await Notification.findById(new ObjectId(id)); // Create a new instance of ObjectId
+                // if (!existingProduct) {
+                //     res.status(404).json({ error: 'Product not found' });
+                //     return;
+                // }
 
-                // Check if the product belongs to the specified branch
-                if (existingProduct.branchId.toString() !== branchId) {
-                    res.status(403).json({ error: 'Product does not belong to the specified branch' });
-                    return;
-                }
+                // // Check if the product belongs to the specified branch
+                // if (existingProduct.branchId.toString() !== branchId) {
+                //     res.status(403).json({ error: 'Product does not belong to the specified branch' });
+                //     return;
+                // }
 
                 // Delete the product
                 const deletedProduct = await Notification.findByIdAndDelete(new ObjectId(id)); // Create a new instance of ObjectId
@@ -531,6 +527,21 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 const newUser = new Admin(req.body);
                 const savedUser = await newUser.save();
                 res.status(201).json(savedUser);
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ error: 'Internal Server Error' });
+            }
+        });
+        app.post('/favourite', async (req, res) => {
+            try {
+                const { data } = req.body;
+                console.log(data);
+                const data1 = {
+
+                }
+                const newdata = new Favourite(data);
+                const saved = await newdata.save();
+                res.status(200).json(saved);
             } catch (error) {
                 console.error(error);
                 res.status(500).json({ error: 'Internal Server Error' });
@@ -670,19 +681,18 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         // Update the notification
         app.put('/update-notifcation', async (req, res) => {
             try {
-                const { id, text, type, branchId } = req.body;
+                const { id,text, type } = req.body;
 
                 // Define the data object
                 const data = {
                     text,
                     type,
-                    branchId,
                     id
                 };
 
                 // Find and update the document, returning the original document before the update
                 const updatedProduct = await Notification.findOneAndUpdate(
-                    { _id: id, branchId: branchId },
+                    { _id: id},
                     { $set: data },
                     { new: true } // Return the updated document
                 );
@@ -857,7 +867,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                     return
                 }
 
-                const notifcations = await Notification.find({ 'branchId': branchId });
+                const notifcations = await Notification.find({});
                 res.status(200).json({ notifcations });
             } catch (error) {
                 res.status(500).json({ message: error.message });
@@ -1007,6 +1017,15 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
+        app.get('/get-last-schedule', async (req, res) => {
+            try {
+                const lastSchedule = await Schedule.find({}).sort({ _id: -1 }).limit(1);
+                res.status(200).json({ lastSchedule });
+            } catch (error) {
+                res.status(500).json({ message: error.message });
+            }
+        });
+
         // Get all products
         app.get('/get-all-products', async (req, res) => {
             try {
@@ -1019,12 +1038,11 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         });
 
         // Get all categories
-        app.get('/get-categories', async (req, res) => {
+        app.get('/get-categories/:categoryId', async (req, res) => {
             try {
-                const branchId = req.query.branchId;
-                const categories = await Category.find({ branchId: branchId });
-                console.log(branchId)
-                res.status(200).json({ categories });
+                const categoryId = req.params.categoryId;
+                const categories = await Category.findById(categoryId);
+                res.status(200).json(categories);
             } catch (error) {
                 res.status(500).json({ message: error.message });
             }
