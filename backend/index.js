@@ -54,6 +54,8 @@ const Schedule = require('./models/Schedule')
 const Area = require('./models/Area')
 const SubCategory = require('./models/SubCategory')
 const Favourite = require('./models/favourte')
+const Section = require('./models/Section')
+
 
 // connecting to db
 const mongoose = require('mongoose');
@@ -1088,6 +1090,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                         if (user) {
                             user.promoCode = promoCode[0]._id;
                             const response = await user.save();
+                            return res.status(200).json({ message: "User have been updated", response })
                         } else {
                             return res.status(404).json({ message: 'User not found with the provided ID.' });
                         }
@@ -1292,6 +1295,65 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 res.status(500).json({ message: 'Internal server error' });
             }
         });
+
+
+
+
+        // get all promo codes where it belongs to products 
+
+        app.get('/get-all-promocodes-of-products', async (req, res) => {
+            try {
+                // Step 1: Fetch all products
+                const products = await Product.find();
+
+                // Step 2: Extract promo codes from products
+                const promoCodeIds = products.map(product => product.promoCode);
+
+                // Step 3: Fetch promo codes using promoCodeIds
+                const promoCodes = await PromoCode.find({ _id: { $in: promoCodeIds } });
+
+                res.status(200).json({ message: 'All promoCodes of all products are', promoCodes });
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ message: 'Internal server error' });
+            }
+        });
+
+
+
+
+        app.post('/create-section', async (req, res) => {
+            try {
+                // Extract data from the request body
+                const { name, promoCodeId } = req.body;
+
+                // Validate if promoCodeId is provided and exists
+                if (!promoCodeId) {
+                    return res.status(400).json({ message: 'Promo Code ID is required' });
+                }
+
+                const promoCode = await PromoCode.findById(promoCodeId);
+
+                if (!promoCode) {
+                    return res.status(404).json({ message: 'Promo Code not found' });
+                }
+
+                // Create a new section
+                const newSection = new Section({
+                    name,
+                    promoCode: promoCodeId
+                });
+
+                // Save the section to the database
+                await newSection.save();
+
+                res.status(201).json({ message: 'Section created successfully', section: newSection });
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ message: 'Internal server error' });
+            }
+        });
+
 
         // email to people who have not placed order 
 
