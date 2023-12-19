@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles/homepage.css">
+    <script src="./libs/jspdf.umd.js"></script>
+    <script src="./dist/jspdf.plugin.autotable.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -57,7 +59,7 @@
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
@@ -498,7 +500,10 @@
                 </section>
                 <section class="px-4 py-6">
                     <div class="grid grid-cols-1 gap-6 lg:grid-cols-1 ">
-
+                        <div>
+                            <button class="bg-blue-200 px-4 py-2 border rounded-md hover:bg-blue-300"
+                                onclick="generateReport()">Generate Report</button>
+                        </div>
                         <div class="overflow-x-auto rounded shadow dark:bg-gray-900 bg-white">
                             <table class="w-full table-auto">
                                 <thead class="bg-lightGray-50">
@@ -529,15 +534,44 @@
 
 
 
-
     <script>
+        let data = [];
+        function generatepdf(data) {
+
+            // Generating the PDF
+            var doc = new jspdf.jsPDF();
+
+            var headers = Object.keys(data[0]); // Assuming the first item has all keys
+            var rows = [];
+
+            data.forEach(function (item) {
+                var row = [];
+                headers.forEach(function (header) {
+                    row.push(item[header]);
+                });
+                rows.push(row);
+            });
+
+            doc.autoTable({
+                head: [headers],
+                body: rows
+            });
+
+            doc.save('report.pdf');
+        }
+
+        function generateReport() {
+            console.log(data);
+            generatepdf(data);
+        }
+
         const editItem = (item) => {
             window.location.href = `./update_product.html?id=${item?._id}`;
         }
         const renderProducts = (products) => {
             const tableBody = document.getElementById('tablebody');
             tableBody.innerHTML = ''; // Clear the existing content
-            
+
             products.forEach((item) => {
                 let html = `<tr class="border-b border-gray-200 dark:border-gray-800">
                           <td class="flex items-center px-6 py-3 font-medium">
@@ -579,7 +613,7 @@
         axios.get('http://localhost:8888/get-all-products', { params: { branchId } })
             .then(function (response) {
                 renderProducts(response?.data?.products);
-
+                data = response?.data?.products;
                 document.getElementById('searching').addEventListener('input', function () {
                     const inputValue = this.value.toLowerCase();
                     const filteredProducts = response.data.products.filter(product =>
@@ -593,31 +627,19 @@
             });
 
 
-            const deleteItem = (item) => {
-                console.log(item)
+        const deleteItem = (item) => {
+            console.log(item)
             axios.delete('http://localhost:8888/delete-products', { params: { branchId: item.branch, id: item?._id } })
                 .then(function (response) {
-                   alert("It has been deleted from database") 
-                   window.location.reload()
+                    alert("It has been deleted from database")
+                    window.location.reload()
                 })
                 .catch(function (error) {
                     // Handle error
                 });
         }
 
-
-
-
-
-
     </script>
-
-
-
-
-
-
-
 
 </body>
 

@@ -694,17 +694,16 @@
 
         // get the branch id from local storage
         let branchId = JSON.parse(window.localStorage.getItem('admin')).branch
-
         // get all categories
-        axios.get('http://localhost:8888/get-categories', { params: { branchId } })
-            .then((res) => {
-                console.log(res)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+        // axios.get(`http://localhost:8888/get-categories/${id}`)
+        //     .then((res) => {
+        //         console.log(res)
+        //     })
+        //     .catch((err) => {
+        //         console.log(err)
+        //     })
 
-        axios.get(`http://localhost:8888/promo-code-details`, {params: {branchId, id}})
+        axios.get(`http://localhost:8888/promo-code-details/${id}`)
             .then((res) => {
                 const name = document.getElementById('name')
                 const percentage = document.getElementById('percentage')
@@ -755,7 +754,7 @@
                     .then(function (response) {
                         // Handle the API response as needed
                         alert("Updated the Promo Code")
-                        console.log(response.data);
+                        window.location.href = './read_promo_code.html'
                     })
                     .catch(function (error) {
                         // Handle errors

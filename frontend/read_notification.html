@@ -564,14 +564,12 @@
 
 
 
-        let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
+        let branchId = JSON.parse(window.localStorage.getItem('admin'))
         // alert(branchId)
-
-        axios.get('http://localhost:8888/read-notification', { params: { branchId } })
+        console.log(branchId)
+        axios.get('http://localhost:8888/read-notification')
             .then(function (response) {
-
                 console.log(response)
-
                 renderProducts(response?.data?.notifcations);
             })
             .catch(function (error) {

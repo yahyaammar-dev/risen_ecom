@@ -54,6 +54,7 @@ const Schedule = require('./models/Schedule')
 const Area = require('./models/Area')
 const SubCategory = require('./models/SubCategory')
 const Favourite = require('./models/favourte')
+const Location = require('./models/location')
 
 // connecting to db
 const mongoose = require('mongoose');
@@ -68,6 +69,14 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             try {
                 const areas = await Area.find({});
                 res.status(200).json(areas);
+            } catch (error) {
+                res.status(500).json({ error: 'Internal Server Error' });
+            }
+        });
+        app.get('/get-locations', async (req, res) => {
+            try {
+                const loc = await Location.find({});
+                res.status(200).json(loc);
             } catch (error) {
                 res.status(500).json({ error: 'Internal Server Error' });
             }
@@ -859,13 +868,6 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         // admin should be able to read notification  
         app.get('/read-notification', async (req, res) => {
             try {
-                const branchId = req.query.branchId;
-
-                // Check if branchId is provided
-                if (!branchId) {
-                    res.status(404).json('Branch id not found');
-                    return
-                }
 
                 const notifcations = await Notification.find({});
                 res.status(200).json({ notifcations });
@@ -1162,19 +1164,18 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
 
 
         // Get all promocode for a specific branch
-        app.get('/promo-code-details', async (req, res) => {
+        app.get('/promo-code-details/:id', async (req, res) => {
             try {
-                const branchId = req.query.branchId;
-                const id = req.query.id
+                const id = req.params.id;
 
                 // Check if branchId is provided
-                if (!branchId) {
-                    const users = await User.find();
-                    res.status(200).json({ users });
-                    return
-                }
+                // if (!branchId) {
+                //     const users = await User.find();
+                //     res.status(200).json({ users });
+                //     return
+                // }
 
-                const promoCode = await PromoCode.findById({ '_id': id });
+                const promoCode = await PromoCode.findById(id);
                 res.status(200).json({ promoCode });
             } catch (error) {
                 res.status(500).json({ message: error.message });

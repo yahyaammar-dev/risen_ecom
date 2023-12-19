@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles/homepage.css">
+    <script src="./libs/jspdf.umd.js"></script>
+    <script src="./dist/jspdf.plugin.autotable.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -450,6 +452,10 @@
                 </section>
                 <section class="px-4 py-6">
                     <div class="grid grid-cols-1 gap-6 lg:grid-cols-1 ">
+                        <div>
+                            <button class="bg-blue-200 px-4 py-2 border rounded-md hover:bg-blue-300"
+                                onclick="generateReport()">Generate Report</button>
+                        </div>
                         <div class="overflow-x-auto rounded shadow dark:bg-gray-900 bg-white">
                             <table class="w-full table-auto">
                                 <thead class="bg-lightGray-50">
@@ -474,34 +480,84 @@
         </div>
     </div>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-</body>
-
-</html>
-
-
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script>
-    // Replace 'your-api-endpoint' with the actual endpoint you want to call
-
-
-    const editItem = (item) => {
-        window.location.href = `file:///home/madmachine/projects/ecommerce-app-risen/frontend/update_order.html?id=${item?._id}`;
-    }
 
 
 
-    let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // Replace 'your-api-endpoint' with the actual endpoint you want to call
+        let data = [];
+        function generatepdf(data) {
+            console.log(data)
+            // Generating the PDF
+            var doc = new jspdf.jsPDF();
 
-    var apiEndpoint = `http://localhost:8888/orders`;
+            var headers = Object.keys(data[0]); // Assuming the first item has all keys
+            var rows = [];
 
-    // Make the API call using Axios
-    axios.get(apiEndpoint, { params: { branchId } })
-        .then(function (response) {
-            console.log(response)
-            let entries = response.data.orders
-            let scdatahastobehereid = document.getElementById('datahastobehereid')
-            entries?.map((item) => {
-                let html = `<tr class="border-b border-gray-200 dark:border-gray-800">
+            data.forEach(function (item) {
+                var row = [];
+                headers.forEach(function (header) {
+                    row.push(item[header]);
+                });
+                rows.push(row);
+            });
+
+            doc.autoTable({
+                head: [headers],
+                body: rows
+            });
+
+            doc.save('report.pdf');
+        }
+
+        function generateReport() {
+            console.log(data);
+            generatepdf(data);
+        }
+        function generateSingleRowPdf(data) {
+            console.log(data);
+
+            var doc = new jspdf.jsPDF();
+
+            if (typeof data === 'object' && data !== null) {
+                var headers = Object.keys(data);
+                var rows = [headers.map(header => data[header])];
+
+                doc.autoTable({
+                    head: [headers],
+                    body: rows
+                });
+
+                doc.save('report.pdf');
+            } else {
+                console.error('Invalid or empty data provided. Cannot generate PDF.');
+            }
+        }
+
+
+
+
+
+        const editItem = (item) => {
+            window.location.href = `file:///home/madmachine/projects/ecommerce-app-risen/frontend/update_order.html?id=${item?._id}`;
+        }
+
+
+
+        let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
+
+        var apiEndpoint = `http://localhost:8888/orders`;
+
+        // Make the API call using Axios
+        axios.get(apiEndpoint, { params: { branchId } })
+            .then(function (response) {
+                console.log(response)
+                let entries = response.data.orders
+                data = response.data.orders
+                let scdatahastobehereid = document.getElementById('datahastobehereid')
+                entries?.map((item) => {
+                    let html = `<tr class="border-b border-gray-200 dark:border-gray-800">
                 <td class="flex items-center px-6 py-3 font-medium">
                         <div class="flex">
                             <img class="object-cover w-10 h-10 mr-4 rounded-full"
@@ -517,22 +573,28 @@
                 <td class="px-6 text-sm font-medium dark:text-gray-400">${item.amount}</td>
                 <td class="px-6 text-sm font-medium dark:text-gray-400">
                     ${item?.products?.map((item) => {
-                    return `<div>${item}</div>`
-                }).join('')}
+                        return `<div>${item}</div>`
+                    }).join('')}
                 </td>
                 <td class="px-6">
                     <div class="flex ">
                         <button class="editBtn bg-blue-200 px-4 py-2 mr-4 text-sm text-blue-600 rounded-md dark:bg-blue-600 dark:text-blue-400 dark:hover:bg-blue-800 hover:bg-blue-300"
                               onclick='editItem(${JSON.stringify(item)})'>Edit</button>    
+                              <button class="editBtn bg-blue-200 px-4 py-2 mr-4 text-sm text-blue-600 rounded-md dark:bg-blue-600 dark:text-blue-400 dark:hover:bg-blue-800 hover:bg-blue-300"
+                              onclick='generateSingleRowPdf(${JSON.stringify(item)})'>Print</button>    
                     </div>
                 </td>
             </tr>`
-                scdatahastobehereid.innerHTML += html;
-            })
+                    scdatahastobehereid.innerHTML += html;
+                })
 
-        })
-        .catch(function (error) {
-            // Handle errors here
-            console.error(error);
-        });
-</script>
+            })
+            .catch(function (error) {
+                // Handle errors here
+                console.error(error);
+            });
+    </script>
+
+</body>
+
+</html>
