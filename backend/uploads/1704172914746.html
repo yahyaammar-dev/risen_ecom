@@ -1,0 +1,86 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        async function x() {
+            let response;
+            try {
+                let f = new URLSearchParams();
+                f.append('grant_type', 'client_credentials');
+                f.append('scope', 'openid authorities profile');
+                f.append('client_id', "EEE3DD2A-1D3D-477C-AB5B-A2184EB5EE20");
+                f.append('client_secret', '4/nv/JiIvPShqLWKU9ArsIqor5pFZ8Hcglk6nAqrOZ4XLt/fD/ShYhMhEYIfvdYHcjbR7tJKRZqMI8ihaK2Gzg==');
+                console.log('Pre-call', 'Before');
+                let r = await fetch('https://devauth.wollette.com/oauth2/token', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: f.toString()
+                });
+                let t = await r.json();
+                return t;
+            } catch (e) {
+                console.log('What', e);
+            }
+        }
+        x().then(t => {
+            console.log(t);
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        async function x() {
+            let response;
+            try {
+                let f = new URLSearchParams();
+                f.append('grant_type', 'client_credentials');
+                f.append('scope', 'openid authorities profile');
+                f.append('client_id', "EEE3DD2A-1D3D-477C-AB5B-A2184EB5EE20");
+                f.append('client_secret', '4/nv/JiIvPShqLWKU9ArsIqor5pFZ8Hcglk6nAqrOZ4XLt/fD/ShYhMhEYIfvdYHcjbR7tJKRZqMI8ihaK2Gzg==');
+                console.log('Pre-call', 'Before');
+                let r = await fetch('https://devauth.wollette.com/oauth2/token', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: f.toString()
+                });
+                let t = await r.json();
+                return t;
+            } catch (e) {
+                console.log('What', e);
+            }
+        }
+        x().then(t => {
+            console.log(t);
+        });
+    </script>
+</body>
+</html> -->

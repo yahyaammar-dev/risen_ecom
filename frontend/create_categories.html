@@ -594,7 +594,7 @@
 
         async function fetchCategories() {
             try {
-                const response = await fetch('http://localhost:8888/get-categories');
+                const response = await fetch('http://localhost:8888/get-all-categories');
                 let categories = await response.json();
                 categories = categories.categories
                 // Get the select element

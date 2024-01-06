@@ -40,6 +40,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
+
+const uploadsDirectory = path.join(__dirname, 'uploads');
+app.use('/uploads', express.static(uploadsDirectory));
+
 // importing models
 const User = require('./models/User');
 const Admin = require('./models/Admin');
@@ -66,6 +70,116 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`);
         });
+
+
+
+        // Update Branch API
+        app.put('/update-branch/:branchId', async (req, res) => {
+            try {
+                const branchId = req.params.branchId;
+                const { branchName, address, latitude, longitude } = req.body;
+
+                // Check if branchId is provided
+                if (!branchId) {
+                    return res.status(400).json({ message: 'Branch ID is required for updating a branch' });
+                }
+
+                // Find the branch by ID
+                const existingBranch = await Store.findById(branchId);
+
+                // Check if the branch exists
+                if (!existingBranch) {
+                    return res.status(404).json({ message: 'Branch not found' });
+                }
+
+                // Update the branch properties
+                existingBranch.name = branchName;
+                existingBranch.address = address;
+                existingBranch.latitude = latitude;
+                existingBranch.longitude = longitude;
+
+                // Save the updated branch to the database
+                await existingBranch.save();
+
+                res.status(200).json({ message: 'Branch updated successfully', branch: existingBranch });
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ message: 'Internal server error' });
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+        app.put('/update-section/:sectionId', async (req, res) => {
+            try {
+                // Extract data from the request body
+                const { name, percentage, productIds } = req.body;
+                const sectionId = req.params.sectionId;
+
+                // Check if sectionId is provided
+                if (!sectionId) {
+                    return res.status(400).json({ message: 'Section ID is required for updating a section' });
+                }
+
+                // Find the section by ID
+                const existingSection = await Section.findById(sectionId);
+
+                // Check if the section exists
+                if (!existingSection) {
+                    return res.status(404).json({ message: 'Section not found' });
+                }
+
+                // Update the section properties
+                existingSection.name = name;
+                existingSection.percentage = percentage;
+                // existingSection.products = productIds;
+
+                // Save the updated section to the database
+                await existingSection.save();
+
+                res.status(200).json({ message: 'Section updated successfully', section: existingSection });
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ message: 'Internal server error' });
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // Get all Areas
         app.get('/get-areas', async (req, res) => {
             try {
@@ -86,9 +200,9 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
 
         app.get('/get-favourite', async (req, res) => {
             try {
-                const {id} = req.query;
+                const { id } = req.query;
                 console.log(id);
-                const areas = await Favourite.find({user:id});
+                const areas = await Favourite.find({ user: id });
                 res.status(200).json(areas);
             } catch (error) {
                 res.status(500).json({ error: 'Internal Server Error' });
@@ -177,13 +291,56 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
 
 
 
+        // Get all sections with products 
+        app.get('/sections', async (req, res) => {
+            try {
+                const sections = await Section.find({}).populate('products');
+                res.status(200).json({ sections });
+            } catch (error) {
+                res.status(500).json({ message: error.message });
+            }
+        });
+
+
+
+
+
+
 
         // Get all products
         app.get('/orders', async (req, res) => {
             try {
-                const branchId = req.query.branchId;
-                const orders = await Order.find({});
-                res.status(200).json({ orders });
+                const branchId = req?.query?.branchId;
+                if (branchId) {
+                    const orders = await Order.find({}).populate('');
+                    res.status(200).json({ orders });
+                    return
+                } else {
+                    const orders = await Order.find({}).populate('user').populate('products');
+                    res.status(200).json({ orders });
+                    return
+                }
+            } catch (error) {
+                res.status(500).json({ message: error.message });
+            }
+        });
+
+
+        // Get all branches
+        app.get('/get-all-branches', async (req, res) => {
+            try {
+                const branches = await Store.find({});
+                res.status(200).json({ branches });
+            } catch (error) {
+                res.status(500).json({ message: error.message });
+            }
+        });
+
+        app.delete('/delete-branches', async (req, res) => {
+            try {
+                const id = req.query.id
+                const branches = await Store.findByIdAndDelete(new ObjectId(id));
+                res.status(200).json({ branches });
             } catch (error) {
                 res.status(500).json({ message: error.message });
             }
@@ -294,7 +451,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
 
         // get product details
         app.get('/category-detail/:categoryId', async (req, res) => {
-            
+
             const categoryId = req.params.categoryId;
             try {
                 // Find the product by ID
@@ -313,26 +470,25 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         // delete the product   
         app.delete('/delete-products', async (req, res) => {
             try {
-                const branchId = req.query.branchId;
+                // const branchId = req.query.branchId;
                 const id = req.query.id;
-                
 
-                // Check if branchId and id are provided
-                if (!branchId || !id) {
-                    res.status(400).json({ error: 'Both branchId and id are required parameters' });
-                    return;
-                }
-
-                // // Validate branchId and id format
-                if (!ObjectId.isValid(branchId) || !ObjectId.isValid(id)) {
-                    console.log(id,branchId)
-                    res.status(400).json({ error: 'Invalid branchId or id format' });
-                    return;
-                }
-
-                // Delete the product
                 const deletedProduct = await Product.findByIdAndDelete(new ObjectId(id)); // Create a new instance of ObjectId
                 res.status(200).json({ success: true, deletedProduct });
+
+                // // Check if branchId and id are provided
+                // if (!branchId || !id) {
+                //     res.status(400).json({ error: 'Both branchId and id are required parameters' });
+                //     return;
+                // }
+
+                // // // Validate branchId and id format
+                // if (!ObjectId.isValid(branchId) || !ObjectId.isValid(id)) {
+                //     console.log(id, branchId)
+                //     res.status(400).json({ error: 'Invalid branchId or id format' });
+                //     return;
+                // }
+
             } catch (error) {
                 res.status(500).json({ error: error.message });
             }
@@ -344,34 +500,35 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 const branchId = req.query.branchId;
                 const id = req.query.id;
 
-                // Check if branchId and id are provided
-                if (!branchId || !id) {
-                    res.status(400).json({ error: 'Both branchId and id are required parameters' });
-                    return;
-                }
+                // Delete the product
+                const deletedCategory = await Category.findByIdAndDelete(new ObjectId(id)); // Create a new instance of ObjectId
+                res.status(200).json({ success: true, deletedCategory });
+            } catch (error) {
+                res.status(500).json({ error: error.message });
+            }
+        });
 
-                // Validate branchId and id format
-                if (!ObjectId.isValid(branchId) || !ObjectId.isValid(id)) {
-                    res.status(400).json({ error: 'Invalid branchId or id format' });
-                    return;
-                }
 
-                // Check if the product exists before deleting
-                const existingProduct = await Category.findById(new ObjectId(id)); // Create a new instance of ObjectId
-                if (!existingProduct) {
-                    res.status(404).json({ error: 'Product not found' });
-                    return;
-                }
+        // Get all users for a specific branch
+        app.delete('/delete-user', async (req, res) => {
+            try {
+                const id = req.query.id;
+                const deletedUser = await User.findByIdAndDelete(new ObjectId(id));
+                res.status(200).json({ deletedUser });
+            } catch (error) {
+                res.status(500).json({ message: error.message });
+            }
+        });
 
-                // Check if the product belongs to the specified branch
-                if (existingProduct.branchId.toString() !== branchId) {
-                    res.status(403).json({ error: 'Product does not belong to the specified branch' });
-                    return;
-                }
+
+        app.delete('/delete-subcategory', async (req, res) => {
+            try {
+                const branchId = req.query.branchId;
+                const id = req.query.id;
 
                 // Delete the product
-                const deletedProduct = await Category.findByIdAndDelete(new ObjectId(id)); // Create a new instance of ObjectId
-                res.status(200).json({ success: true, deletedProduct });
+                const deletedCategory = await SubCategory.findByIdAndDelete(new ObjectId(id)); // Create a new instance of ObjectId
+                res.status(200).json({ success: true, deletedCategory });
             } catch (error) {
                 res.status(500).json({ error: error.message });
             }
@@ -399,6 +556,18 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 res.status(500).json({ error: 'Internal Server Error' });
             }
         });
+
+        // Get all Subcategories API
+        app.get('/get-all-subcategories', async (req, res) => {
+            try {
+                const subcategories = await SubCategory.find().populate('parentCategoryId');
+                res.status(200).json(subcategories);
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ error: 'Internal Server Error' });
+            }
+        });
+
 
         // delete the product   
         app.delete('/delete-notification', async (req, res) => {
@@ -543,6 +712,16 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 res.status(500).json({ error: 'Internal Server Error' });
             }
         });
+        app.get('/users', async (req, res) => {
+            try {
+                const users = await Admin.find({})
+                console.log(users)
+                res.status(201).json({ users });
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ error: 'Internal Server Error' });
+            }
+        });
         app.post('/favourite', async (req, res) => {
             try {
                 const { data } = req.body;
@@ -597,14 +776,12 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         app.post('/create-branch', async (req, res) => {
             const { branchName, address, latitude, longitude } = req.body;
 
-            console.log(req.body, branchName, address)
-
             try {
                 // Create a new category
                 const branch = new Store({
                     name: branchName,
                     address: address,
-                    latitidue: latitude,
+                    latitude: latitude,
                     longitude: longitude
                 });
 
@@ -664,6 +841,41 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 // Save the category to the database
                 await user.save();
 
+
+                const nodemailer = require("nodemailer");
+
+                const transporter = nodemailer.createTransport({
+                    host: "smtp.gmail.com",
+                    port: 587,
+                    secure: false, // `true` for port 465, `false` for all other ports
+                    auth: {
+                        user: "yahyaammar4807@gmail.com",
+                        pass: "pvoz ulzc qfyp rbmn",
+                    },
+                });
+
+                // async..await is not allowed in global scope, must use a wrapper
+                async function main() {
+                    // send mail with defined transport object
+                    const info = await transporter.sendMail({
+                        from: '"Maddison Foo Koch 👻" <yahyaamar4807@gmail.com>', // sender address
+                        to: email, // list of receivers
+                        subject: "OTP ✔", // Subject line
+                        text: otp.toString(), // plain text body
+                        html: otp.toString(), // html body
+                    });
+
+                    console.log("Message sent: %s", info.messageId);
+                    // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
+                }
+
+                main().catch(console.error);
+
+
+
+
+
+
                 res.status(201).json({ message: 'User created successfully', user });
             } catch (error) {
                 res.status(500).json({ message: error.message });
@@ -692,7 +904,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         // Update the notification
         app.put('/update-notifcation', async (req, res) => {
             try {
-                const { id,text, type } = req.body;
+                const { id, text, type } = req.body;
 
                 // Define the data object
                 const data = {
@@ -703,7 +915,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
 
                 // Find and update the document, returning the original document before the update
                 const updatedProduct = await Notification.findOneAndUpdate(
-                    { _id: id},
+                    { _id: id },
                     { $set: data },
                     { new: true } // Return the updated document
                 );
@@ -723,14 +935,11 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         // Update the product
         app.put('/update-product', upload.array('image[]'), async (req, res) => {
             try {
-                const { barcode, name, category, description, branchId } = req.body;
+                const { id, barcode, name, category, description, branchId } = req.body;
 
-                // Get the file paths from Multer
-                const newImages = req.files.map(file => file.path);
-
-                // Find and update the document, returning the original document before the update
-                const updatedProduct = await Product.findOneAndUpdate(
-                    { barcodeId: barcode, branchId: branchId },
+                const newImages = req?.files?.map(file => file.path);
+                const updatedProduct = await Product.findByIdAndUpdate(
+                    { _id: id },
                     {
                         $set: {
                             name,
@@ -757,22 +966,15 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         // Update the product
         app.put('/update-category', async (req, res) => {
             try {
+                const { id, name } = req.body;
 
-                console.log('hello world')
-
-                const { id, name, branchId } = req.body;
-
-                // Define the data object
                 const data = {
                     id,
-                    name,
-                    branchId
+                    name
                 };
 
-
-                // Find and update the document, returning the original document before the update
                 const updatedProduct = await Category.findOneAndUpdate(
-                    { _id: id, branchId: branchId },
+                    { _id: id },
                     { $set: data },
                     { new: true } // Return the updated document
                 );
@@ -780,7 +982,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 if (updatedProduct) {
                     return res.status(200).json(updatedProduct);
                 } else {
-                    return res.status(404).json({ error: 'Product not found' });
+                    return res.status(404).json({ error: 'Category not found' });
                 }
             } catch (error) {
                 console.error(error);
@@ -788,9 +990,47 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
+
+
+        // Update the product
+        app.put('/update-subcategory', async (req, res) => {
+            try {
+
+
+                const { id, subCategoryName } = req.body;
+
+                // Define the data object
+                const data = {
+                    id,
+                    subCategoryName
+                };
+
+                console.log(data)
+
+
+                // Find and update the document, returning the original document before the update
+                const updatedProduct = await SubCategory.findOneAndUpdate(
+                    { _id: id },
+                    { $set: data },
+                    { new: true } // Return the updated document
+                );
+
+                if (updatedProduct) {
+                    return res.status(200).json(updatedProduct);
+                } else {
+                    return res.status(404).json({ error: 'SubCategory not found' });
+                }
+            } catch (error) {
+                console.error(error);
+                return res.status(500).json({ error: 'Internal Server Error' });
+            }
+        });
+
+
+
         // admin should be able to create products
         app.post('/create-product', upload.array('images', 5), async (req, res) => {
-            const { name, description, amount, category, barcodeId, branch } = req.body;
+            const { name, description, amount, category, barcodeId, subcategory } = req.body;
             const imagePaths = req.files ? req.files.map(file => file.path) : [];
 
             try {
@@ -808,7 +1048,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                     category: category,
                     images: imagePaths,
                     barcodeId: barcodeId,
-                    branch: branch
+                    subcategory: subcategory
                 });
 
                 // Save the product to the database
@@ -1033,9 +1273,14 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         // Get all products
         app.get('/get-all-products', async (req, res) => {
             try {
-                const branchId = req.query.branchId;
-                const products = await Product.find({ branchId: branchId });
-                res.status(200).json({ products });
+                const branchId = req?.query?.branchId;
+                if (branchId) {
+                    const products = await Product.find({ branchId: branchId }).populate('category');
+                    res.status(200).json({ products });
+                } else {
+                    const products = await Product.find().populate('category');
+                    res.status(200).json({ products });
+                }
             } catch (error) {
                 res.status(500).json({ message: error.message });
             }
@@ -1055,9 +1300,32 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         // Get all categories
         app.get('/get-all-categories', async (req, res) => {
             try {
-                const branchId = req.query.branchId;
-                const categories = await Category.find({ branchId: branchId });
+                const branchId = req?.query?.branchId;
+                let categories = null
+                if (branchId) {
+                    categories = await Category.find({ branchId: branchId });
+                } else {
+                    categories = await Category.find({});
+                }
+
                 res.status(200).json({ categories });
+            } catch (error) {
+                res.status(500).json({ message: error.message });
+            }
+        });
+
+        // Get all categories
+        app.get('/get-all-subcategories', async (req, res) => {
+            try {
+                const branchId = req?.query?.branchId;
+                let subcategories = null
+                if (branchId) {
+                    subcategories = await SubCategory.find({ branchId: branchId });
+                } else {
+                    subcategories = await SubCategory.find({});
+                }
+
+                res.status(200).json({ subcategories });
             } catch (error) {
                 res.status(500).json({ message: error.message });
             }
@@ -1201,18 +1469,14 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 const order = new Order({
                     amount,
                     branchId,
-                    products,
+                    pros,
                     user_id
                 });
 
-                const admins = Admin.find({ branch: branchId })
 
-                console.log('They will get email', admins)
+                await order.save();
 
-                // Save the product to the database
-                await product.save();
-
-                res.status(201).json({ message: 'Product created successfully', product });
+                res.status(201).json({ message: 'Order created successfully', order });
             } catch (error) {
                 res.status(500).json({ message: error.message });
             }
@@ -1320,29 +1584,38 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
+        // Endpoint for deleting a section
+        app.delete('/delete-section/:id', async (req, res) => {
+            try {
+                // Extract section ID from the request parameters
+                const sectionId = req.params.id;
 
+                // Find and delete the section by ID
+                const deletedSection = await Section.findByIdAndDelete(sectionId);
 
+                if (!deletedSection) {
+                    return res.status(404).json({ message: 'Section not found' });
+                }
+
+                res.json({ message: 'Section deleted successfully', section: deletedSection });
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ message: 'Internal server error' });
+            }
+        });
 
         app.post('/create-section', async (req, res) => {
             try {
                 // Extract data from the request body
-                const { name, promoCodeId } = req.body;
+                const { name, percentage, productIds } = req.body;
 
-                // Validate if promoCodeId is provided and exists
-                if (!promoCodeId) {
-                    return res.status(400).json({ message: 'Promo Code ID is required' });
-                }
-
-                const promoCode = await PromoCode.findById(promoCodeId);
-
-                if (!promoCode) {
-                    return res.status(404).json({ message: 'Promo Code not found' });
-                }
+                console.log(name, percentage, productIds)
 
                 // Create a new section
                 const newSection = new Section({
                     name,
-                    promoCode: promoCodeId
+                    percentage,
+                    products: productIds // Assuming productIds is an array of product IDs
                 });
 
                 // Save the section to the database
@@ -1354,6 +1627,8 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 res.status(500).json({ message: 'Internal server error' });
             }
         });
+
+
 
 
         // email to people who have not placed order 
