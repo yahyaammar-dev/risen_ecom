@@ -6,7 +6,7 @@ const productSchema = new mongoose.Schema({
   description: String,
   barcodeId: String,
   category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
-  branch: { type: mongoose.Schema.Types.ObjectId, ref: 'Store' },
+  subcategory: { type: mongoose.Schema.Types.ObjectId, ref: 'SubCategory' },
   promoCode: String,
   price: String
 });

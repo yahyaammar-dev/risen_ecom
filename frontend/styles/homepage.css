@@ -1494,8 +1494,6 @@ html[dir='rtl'] .css-j2tvhw {
         -webkit-box-align: flex-start;
         -ms-flex-align: flex-start;
         align-items: flex-start;
-        overflow-x: auto;
-        height: 120px;
     }
 }
 
@@ -7813,10 +7811,10 @@ html[dir="rtl"] #onetrust-consent-sdk #onetrust-pc-sdk h3 {
 }
 
 
-.css-q98w96{
+/* .css-q98w96{
     width: 1440px;
     margin: 0 auto;
-}
+} */
 
 .css-1qy7g6h{
     display: flex;
@@ -7844,3 +7842,11 @@ html[dir="rtl"] #onetrust-consent-sdk #onetrust-pc-sdk h3 {
     border-collapse: separate;
     border-spacing: 10px;
 }
+
+
+
+/* Homepage responsivness */
+
+
+
+
