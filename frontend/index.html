@@ -56,6 +56,40 @@
                 }
             }
         }
+        $(document).ready(function () {
+
+            var quantitiy = 0;
+            $('.quantity-right-plus').click(function (e) {
+
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('#quantity').val());
+
+                // If is not undefined
+
+                $('#quantity').val(quantity + 1);
+
+
+                // Increment
+
+            });
+
+            $('.quantity-left-minus').click(function (e) {
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('#quantity').val());
+
+                // If is not undefined
+
+                // Increment
+                if (quantity > 0) {
+                    $('#quantity').val(quantity - 1);
+                }
+            });
+
+        });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
 
@@ -71,6 +105,8 @@
             background: rgba(0, 0, 0, 0.5);
             /* Semi-transparent black background */
         }
+
+
 
         /* Style for the popup content */
         .popupx {
@@ -874,6 +910,49 @@
             <div class="swiper-button-prev"></div>
         </div>
     </div>
+    <section id="Projects" class="justify-items-center justify-center mt-10 mb-5">
+
+        <!--   ✅ Product card 1 - Starts Here 👇 -->
+        <div class="w-48 p-4 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+            <!-- <a href=""> -->
+            <div>
+                <img src="https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                    alt="Product" class="h-40 w-48 object-cover rounded-t-xl" />
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <button type="button" class="quantity-left-minus btn btn-danger btn-number"
+                                        data-type="minus" data-field="">
+                                        <span class="glyphicon glyphicon-minus"></span>
+                                    </button>
+                                </span>
+                                <input type="text" id="quantity" name="quantity" class="form-control input-number"
+                                    value="10" min="1" max="100">
+                                <span class="input-group-btn">
+                                    <button type="button" class="quantity-right-plus btn btn-success btn-number"
+                                        data-type="plus" data-field="">
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="px-4 py-3 w-48">
+                    <span class="text-gray-400 mr-3 uppercase text-xs">Brand</span>
+                    <p class="text-lg font-bold text-black truncate block capitalize">Product Name</p>
+                    <div class="flex items-center">
+                        <p class="text-lg font-semibold text-black cursor-auto my-3">$149</p>
+                        <del>
+                            <p class="text-sm text-gray-600 cursor-auto ml-2">$199</p>
+                        </del>
+                    </div>
+                </div>
+                <!-- </a> -->
+            </div>
+    </section>
 
 
 
@@ -1729,12 +1808,12 @@
             }
 
         }
-        async function getFav(){
+        async function getFav() {
             try {
                 const Response = await axios.get('http://localhost:8888/get-favourite', { params: { id: id1 } })
                 if (Response.status == 200) {
                     const favouriteDiv = document.getElementById('favouriteDiv');
-    // Loop through the data and create <p> tags to display each item
+                    // Loop through the data and create <p> tags to display each item
                     Response.data.forEach(item => {
                         console.log(item)
                         const paragraph = document.createElement('p');
