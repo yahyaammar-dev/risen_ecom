@@ -1192,7 +1192,6 @@
         };
 
         function createProductCard(product) {
-            alert("Dont trust me")
             let swiperSlide =
                 `<div class="swiper-slide">
     <div class="relative overflow-hidden bg-white shadow rounded-xl dark:bg-gray-700">
@@ -1578,8 +1577,6 @@
         }
 
 
-
-
         document.addEventListener('DOMContentLoaded', ppp());
 
         async function populateProducts(products, containerId) {
@@ -1593,15 +1590,13 @@
                     });
                     console.log('Updated fav array:', fav);
                 } else {
-                    alert(Response.error);
+                    console.log(Response.error);
                 }
             } catch (error) {
                 console.log(error);
             }
             container.innerHTML = ''
             products?.products.forEach(product => {
-                console.log("fav", fav.length);
-                console.log(typeof (product?._id))
                 const isFavorite = fav.some(favItem => {
                     console.log('Comparing:', favItem.trim(), product?._id.trim());
                     return favItem.trim() === product?._id.trim();
@@ -1610,7 +1605,7 @@
                 container.appendChild(productElement);
             });
         }
-
+        
         function createProductElement(product, isFavorite) {
             const imageUrl = product.images && product.images.length > 0
                 ? `http://localhost:8888/${product.images[0]}`
@@ -1638,7 +1633,7 @@
         <!-- ... (Add to Cart icon) ... -->
     </button>
     
-    <a class="w-full flex justify-between">
+    <a class="flex justify-between">
         <h3 class="w-7/8 px-5 mb-4 text-lg font-bold dark:text-white truncate">${product?.name}</h3>
         <div class="w-1/8 cursor-pointer" text-[#3b82f6] onclick="favouriteClick('${product?._id}')">
             ${favoriteSVG}
@@ -1675,11 +1670,6 @@
 
         async function addToCart(event) {
             const productId = event.target.getAttribute('data-product-id');
-            //   axios.get('http://localhost:8888/get-all-products')
-            //   .then((res)=>{
-
-            //       console.log(res.data.products)
-            //   })
 
 
             const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -1714,7 +1704,7 @@
                     window.location.reload();
                 }
                 else {
-                    alert(Response.error)
+                    console.log(Response.error)
                 }
             }
             catch (error) {
@@ -1748,7 +1738,7 @@
                     });
                 }
                 else {
-                    alert(Response.error)
+                    console.log(Response.error)
                 }
             }
             catch (error) {
