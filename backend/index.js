@@ -346,6 +346,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
+
         // Get all stores
         app.get('/get-all-stores', async (req, res) => {
             try {
@@ -558,7 +559,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         });
 
         // Get all Subcategories API
-        app.get('/get-all-subcategories', async (req, res) => {
+        app.get('/get-all-subcategoriess', async (req, res) => {
             try {
                 const subcategories = await SubCategory.find().populate('parentCategoryId');
                 res.status(200).json(subcategories);
@@ -738,6 +739,16 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
+        app.delete('/delete-favourite', async (req, res) => {
+            try {
+                const pid = req.query.id
+                const favourite = await Favourite.findOneAndDelete({ product: pid });
+                res.status(200).json({ favourite });
+            } catch (error) {
+                res.status(500).json({ message: error.message });
+            }
+        });
+
         // admin should be able to see order detail
         app.post('/order-details', async (req, res) => {
             const { orderId } = req.body;
@@ -754,12 +765,13 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
 
         // Create Category API
         app.post('/create-category', upload.single('categoryImage'), async (req, res) => {
-            const { categoryName } = req.body;
+            const { categoryName, branchId  } = req.body;
 
             try {
                 // Create a new category
                 const category = new Category({
                     name: categoryName,
+                    branchId: branchId,
                     image: req.file.path,
                 });
 
@@ -1030,7 +1042,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
 
         // admin should be able to create products
         app.post('/create-product', upload.array('images', 5), async (req, res) => {
-            const { name, description, amount, category, barcodeId, subcategory } = req.body;
+            const { name, description, amount, category, barcodeId, subcategory, branchId } = req.body;
             const imagePaths = req.files ? req.files.map(file => file.path) : [];
 
             try {
@@ -1048,6 +1060,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                     category: category,
                     images: imagePaths,
                     barcodeId: barcodeId,
+                    branchId: branchId,
                     subcategory: subcategory
                 });
 
@@ -1063,7 +1076,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         // admin should be able to upload product file 
         app.post('/upload-products', upload.single('file'), async (req, res) => {
             const filePath = req.file ? req.file.path : null;
-
+            
             try {
                 // Read the Excel file
                 const workbook = xlsx.readFile(filePath);
@@ -1116,6 +1129,29 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             } catch (error) {
                 res.status(500).json({ message: error.message });
             }
+        });
+
+        app.post('/dublicate-product', async (req, res) => {
+            const { sourceBranchId, destinationBranchId } = req.body;
+            console.log(req.body)
+            try {
+                // Find all products with the sourceBranchId
+                const productsToDuplicate = await Product.find({ branchId: sourceBranchId });
+            
+                // Create copies of each product with the new destinationBranchId
+                const duplicatedProducts = productsToDuplicate.map(product => ({
+                  ...product.toObject(),
+                  _id: undefined, // Exclude original ID to create a new entry
+                  branchId: destinationBranchId // Set the destination branch ID
+                }));
+            
+                // Insert the duplicated products into the database
+                const insertedProducts = await Product.insertMany(duplicatedProducts);
+            
+                res.status(200).json({ message: 'Products duplicated successfully', data: insertedProducts });
+              } catch (error) {
+                res.status(500).json({ error: 'Unable to duplicate products', message: error.message });
+              }
         });
 
         // admin should be able to create notification  
@@ -1200,12 +1236,14 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
 
                 // Check if branchId is provided
                 if (!branchId) {
+                    console.log("up")
                     const users = await User.find();
                     res.status(200).json({ users });
                     return
                 }
-
+                console.log(branchId);
                 const users = await User.find({ 'branch': branchId });
+                console.log(users);
                 res.status(200).json({ users });
             } catch (error) {
                 res.status(500).json({ message: error.message });
@@ -1317,10 +1355,11 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         // Get all categories
         app.get('/get-all-subcategories', async (req, res) => {
             try {
-                const branchId = req?.query?.branchId;
+                const pId = req?.query?.id;
+                console.log("pid",pId);
                 let subcategories = null
-                if (branchId) {
-                    subcategories = await SubCategory.find({ branchId: branchId });
+                if (pId) {
+                    subcategories = await SubCategory.find({ parentCategoryId: new ObjectId(pId) });
                 } else {
                     subcategories = await SubCategory.find({});
                 }

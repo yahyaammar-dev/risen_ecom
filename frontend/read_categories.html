@@ -652,6 +652,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -1192,10 +1193,9 @@
                         </div>
                     </section> -->
 
-                    <section class="py-16 bg-stone-100 font-poppins dark:bg-gray-800">
+                    <section class="py-16 bg-stone-100 font-poppins">
                         <div class="crud">
-                            <section class="bg-gray-50 dark  
-    :bg-gray-900 p-3 sm:p-5 antialiased">
+                            <section class="bg-gray-50 p-3 sm:p-5 antialiased">
                                 <div class="mx-auto max-w-screen-2xl px-4 lg:px-12">
                                     <div
                                         class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
@@ -2513,8 +2513,8 @@
                                             <div class="items-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
                                                 <button onclick="createCategoryx()"
                                                     class="w-full sm:w-auto justify-center text-white inline-flex bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Add
-                                                    product</button>
-                                                <button
+                                                    Category</button>
+                                                <!-- <button
                                                     class="w-full sm:w-auto text-white justify-center inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                                                     <svg class="mr-1 -ml-1 w-5 h-5" fill="currentColor"
                                                         viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -2523,7 +2523,7 @@
                                                             clip-rule="evenodd" />
                                                     </svg>
                                                     Schedule
-                                                </button>
+                                                </button> -->
                                                 <button data-modal-toggle="createproductmodal"
                                                     data-modal-toggle="createproductmodal" type="button"
                                                     class="w-full justify-center sm:w-auto text-gray-500 inline-flex items-center bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
@@ -4073,8 +4073,9 @@
                                             <div class="items-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
                                                 <button onclick="createSubCategoryx()"
                                                     class="w-full sm:w-auto justify-center text-white inline-flex bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Add
-                                                    product</button>
-                                                <button
+                                                    subcategory
+                                                </button>
+                                                <!-- <button
                                                     class="w-full sm:w-auto text-white justify-center inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                                                     <svg class="mr-1 -ml-1 w-5 h-5" fill="currentColor"
                                                         viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -4083,7 +4084,7 @@
                                                             clip-rule="evenodd" />
                                                     </svg>
                                                     Schedule
-                                                </button>
+                                                </button> -->
                                                 <button data-modal-toggle="createproductmodal"
                                                     data-modal-toggle="createproductmodal" type="button"
                                                     class="w-full justify-center sm:w-auto text-gray-500 inline-flex items-center bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
@@ -4353,6 +4354,7 @@
                 // Create a FormData object to send both text and file data
                 const formData = new FormData();
                 formData.append('categoryName', categoryName);
+                formData.append('branchId', branchId);
                 formData.append('categoryImage', categoryImageInput.files[0]);
 
                 // Make a POST request to the API endpoint
@@ -4364,6 +4366,7 @@
                 // Check if the request was successful
                 if (response.ok) {
                     alert('Category created successfully!');
+                    window.location.reload();
                 } else {
                     // Handle errors
                     const errorMessage = await response.text();
@@ -4438,6 +4441,7 @@
                 // Check if the request was successful
                 if (response.ok) {
                     alert('Subcategory created successfully!');
+                    window.location.reload();
                 } else {
                     // Handle errors
                     const errorMessage = await response.text();
@@ -4528,7 +4532,7 @@
                                                         <th scope="row"
                                                             class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                             <div class="flex items-center mr-3">
-                                                                <img src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-front-image.png"
+                                                                <img src="http://localhost:8888/${item?.image}"
                                                                     alt="iMac Front Image" class="h-8 w-auto mr-3">
                                                                 ${item?.name}
                                                             </div>
@@ -4598,11 +4602,12 @@
 
 
         const renderBranches2 = (products) => {
+            console.log("products",products)
             const tableBody = document.getElementById('subcategories_table_body');
             tableBody.innerHTML = ''; // Clear the existing content
 
             // if (role === "superadmin") {
-            products.forEach((item) => {
+            products?.forEach((item) => {
                 console.log(item)
                 let html = `<tr
                                                         class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -4682,11 +4687,31 @@
 
 
         let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
-
+        let idsArray = [];
+        let responsesArray = {};
+        let count = 0
 
         axios.get('http://localhost:8888/get-all-categories', { params: { branchId } })
             .then(function (response) {
                 console.log('bite me ', response.data)
+                idsArray = response?.data?.categories.map(category => category._id);
+                const apiRequests = idsArray.map(id => (
+                    axios.get('http://localhost:8888/get-all-subcategories', { params: { id } })
+                        .then(response => response.data.subcategories)
+                        .catch(error => {
+                            console.log(error);
+                            return []; // Return empty array for failed requests
+                        })
+                ));
+                Promise.all(apiRequests)
+                    .then(responses => {
+                        const mergedData = [].concat(...responses); // Merge arrays of responses
+                        renderBranches2(mergedData);
+                        console.log("mergedData",mergedData); // Final merged data
+                    })
+                    .catch(error => {
+                        console.log("Error fetching data:", error);
+                    });
                 renderBranches(response?.data?.categories);
             })
             .catch(function (error) {
@@ -4696,16 +4721,6 @@
 
 
 
-
-        axios.get('http://localhost:8888/get-all-subcategories', { params: { branchId } })
-            .then(function (response) {
-                console.log('bite me ', response.data)
-                renderBranches2(response?.data);
-            })
-            .catch(function (error) {
-                // Handle error
-                console.log(error)
-            });
 
         let btn = document.getElementById("createProductButton")
         let modal = document.getElementById("createproductmodal")

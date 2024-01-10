@@ -55,40 +55,40 @@
                 }
             }
         }
-        $(document).ready(function () {
+        // $(document).ready(function () {
 
-            var quantitiy = 0;
-            $('.quantity-right-plus').click(function (e) {
+        //     var quantitiy = 0;
+        //     $('.quantity-right-plus').click(function (e) {
 
-                // Stop acting like a button
-                e.preventDefault();
-                // Get the field name
-                var quantity = parseInt($('#quantity').val());
+        //         // Stop acting like a button
+        //         e.preventDefault();
+        //         // Get the field name
+        //         var quantity = parseInt($('#quantity').val());
 
-                // If is not undefined
+        //         // If is not undefined
 
-                $('#quantity').val(quantity + 1);
+        //         $('#quantity').val(quantity + 1);
 
 
-                // Increment
+        //         // Increment
 
-            });
+        //     });
 
-            $('.quantity-left-minus').click(function (e) {
-                // Stop acting like a button
-                e.preventDefault();
-                // Get the field name
-                var quantity = parseInt($('#quantity').val());
+        //     $('.quantity-left-minus').click(function (e) {
+        //         // Stop acting like a button
+        //         e.preventDefault();
+        //         // Get the field name
+        //         var quantity = parseInt($('#quantity').val());
 
-                // If is not undefined
+        //         // If is not undefined
 
-                // Increment
-                if (quantity > 0) {
-                    $('#quantity').val(quantity - 1);
-                }
-            });
+        //         // Increment
+        //         if (quantity > 0) {
+        //             $('#quantity').val(quantity - 1);
+        //         }
+        //     });
 
-        });
+        // });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
     <style>
@@ -835,7 +835,11 @@
     <!-- Products to be added to cart -->
     <div class="mx-auto p-relative my-20">
         <h3 data-testid="trolly-text" font-size="3,,,6" font-family="Teshrin AR LT" class="css-1rjm86d" color="copy">Top
-            Products</h3>
+            Products
+        </h3>
+        <div>
+
+        </div>
         <div class="swiper-container2">
             <div class="swiper-wrapper" id="productContainer">
 
@@ -1146,6 +1150,34 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script defer>
+        let fav = [];
+        async function ppp() {
+            try {
+                const response = await axios.get('http://localhost:8888/get-last-schedule');
+                const areas = response.data;
+
+                const timing1 = document.getElementById('timing1');
+                const timing2 = document.getElementById('timing2');
+                const timing3 = document.getElementById('timing3');
+                timing1.textContent = areas.lastSchedule[0].schedule1;
+                timing2.textContent = areas.lastSchedule[0].schedule2;
+                timing3.textContent = areas.lastSchedule[0].schedule3;
+
+                const productsResponse = await fetch('http://localhost:8888/get-all-products');
+                const products = await productsResponse.json();
+                populateProducts(products, 'productContainer');
+                setTimeout(() => {
+                    document.querySelectorAll('.add-to-cart-button').forEach(button => {
+                        button.addEventListener('click', addToCart);
+                    });
+                }, 100)
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', ppp);
+
 
         let existingCart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -1170,68 +1202,68 @@
                 cartItemElement.classList.add('cart-item');
 
                 cartItemElement.innerHTML = `<div class="my-4">
-        <img src="${item.images[0]}" alt="${item.name}" class="cart-item-image">
-        <div class="cart-item-details">
-            <h3 class="cart-item-name">${item.name}</h3>
-            <p class="cart-item-description">${item.description}</p>
-            <p class="cart-item-price">$${item.price}</p>
-            <p class="cart-item-quantity">Quantity: ${item.quantity}</p>
-            <button class="remove-item-button" data-item-id="${item._id}">Remove</button>
-        </div></div>
+                <img src="${item.images[0]}" alt="${item.name}" class="cart-item-image">
+                <div class="cart-item-details">
+                    <h3 class="cart-item-name">${item.name}</h3>
+                    <p class="cart-item-description">${item.description}</p>
+                    <p class="cart-item-price">$${item.price}</p>
+                    <p class="cart-item-quantity">Quantity: ${item.quantity}</p>
+                    <button class="remove-item-button" data-item-id="${item._id}">Remove</button>
+                </div></div>
     `;
                 cartContent.appendChild(cartItemElement);
             });
-            setTimeout(() => {
-                const removeButton = document.querySelector('.remove-item-button');
-                removeButton.addEventListener('click', () => {
-                    console.log('kuch ho rha hy?')
-                    const updatedCart = existingCart.filter(cartItem => cartItem._id !== item._id);
-                    localStorage.setItem('cart', JSON.stringify(updatedCart));
-                });
-            }, 1000);
+            // setTimeout(() => {
+            //     const removeButton = document.querySelector('.remove-item-button');
+            //     removeButton.addEventListener('click', () => {
+            //         console.log('kuch ho rha hy?')
+            //         const updatedCart = existingCart.filter(cartItem => cartItem._id !== item._id);
+            //         localStorage.setItem('cart', JSON.stringify(updatedCart));
+            //     });
+            // }, 1000);
         };
 
         function createProductCard(product) {
             let swiperSlide =
                 `<div class="swiper-slide">
-    <div class="relative overflow-hidden bg-white shadow rounded-xl dark:bg-gray-700">
-        <div class="relative overflow-hidden">
-            <div class="mb-3 overflow-hidden">
-                <img class="object-cover w-full mx-auto transition-all rounded h-48 sm:h-56 md:h-64 lg:h-72 hover:scale-110"
-                    src="https://i.postimg.cc/XqBnTJBL/pink-sweater-front.jpg" alt="">
-            </div>
-            <button
-                class="absolute top-0 left-0 p-3 bg-blue-500 rounded-l-none hover:bg-blue-600 rounded-b-xl">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                    class="text-white" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z">
-                    </path>
-                </svg>
-            </button>
-        </div>
-        <a>
-            <h3 class="px-5 mb-2 sm:mb-3 md:mb-4 text-lg font-bold dark:text-white">
-                ${product?.name}
-            </h3>
-        </a>
-        <div class="flex">
-            <div class="w-1/2 px-5 pb-2 sm:pb-3">
-                <p class="text-lg font-bold text-blue-500 dark:text-blue-300">
-                    $299.99
-                </p>
-                <span class="block -mt-1 text-xs font-semibold text-gray-400 line-through">
-                    $399.99
-                </span>
-            </div>
-            <button onclick="editItem(${JSON.stringify(product).replace(/"/g, '&quot;')})"
-                class="flex-1 text-sm text-white transition-all bg-blue-500 rounded-r-none hover:bg-blue-600 rounded-t-xl">
-                Add To Cart
-            </button>
-        </div>
-    </div>
-</div>
-`
+                    <div class="relative overflow-hidden bg-white shadow rounded-xl dark:bg-gray-700">
+                        <div class="relative overflow-hidden">
+                            <div class="mb-3 overflow-hidden">
+                                <img class="object-cover w-full mx-auto transition-all rounded h-48 sm:h-56 md:h-64 lg:h-72 hover:scale-110"
+                                    src="https://i.postimg.cc/XqBnTJBL/pink-sweater-front.jpg" alt="">
+                            </div>
+                            <button
+                                class="absolute top-0 left-0 p-3 bg-blue-500 rounded-l-none hover:bg-blue-600 rounded-b-xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                    class="text-white" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                        <a>
+                            <h3 class="px-5 mb-2 sm:mb-3 md:mb-4 text-lg font-bold dark:text-white">
+                                ${product?.name}
+                            </h3>
+                        </a>
+                        <div class="flex">
+                            <div class="w-1/2 px-5 pb-2 sm:pb-3">
+                                <p class="text-lg font-bold text-blue-500 dark:text-blue-300">
+                                    $299.99
+                                </p>
+                                <span class="block -mt-1 text-xs font-semibold text-gray-400 line-through">
+                                    $399.99
+                                </span>
+                            </div>
+                            <button onclick="editItem(${JSON.stringify(product).replace(/"/g, '&quot;')})"
+                                class="flex-1 text-sm text-white transition-all bg-blue-500 rounded-r-none hover:bg-blue-600 rounded-t-xl">
+                                Add To Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                `
             return swiperSlide;
         }
 
@@ -1391,20 +1423,20 @@
 
 
 
-        axios.get('http://localhost:8888/get-all-products', { params: { branchId: '656df5f3d5b184a99cf62627' } })
-            .then(function (response) {
-                products = response.data.products
-                const productContainer = document.getElementById('productContainer');
-                products.forEach(product => {
+        // axios.get('http://localhost:8888/get-all-products', { params: { branchId: '656df5f3d5b184a99cf62627' } })
+        //     .then(function (response) {
+        //         products = response.data.products
+        //         const productContainer = document.getElementById('productContainer');
+        //         products.forEach(product => {
 
-                    const productCard = createProductCard(product)
-                    // Append the swiper slide to the product container
-                    productContainer.innerHTML += productCard;
-                });
-            })
-            .catch(function (error) {
-                // Handle error
-            });
+        //             const productCard = createProductCard(product)
+        //             // Append the swiper slide to the product container
+        //             productContainer.innerHTML += productCard;
+        //         });
+        //     })
+        //     .catch(function (error) {
+        //         // Handle error
+        //     });
 
 
         var swiper = new Swiper('.swiper-container', {
@@ -1462,7 +1494,10 @@
             },
         });
 
-        document.addEventListener('DOMContentLoaded', function () {
+
+        document.addEventListener('DOMContentLoaded', cartContent)
+
+        function cartContent() {
             existingCart = JSON.parse(localStorage.getItem("cart"))
             if (existingCart?.length > 0) {
 
@@ -1476,8 +1511,6 @@
                     // fetch the product here /product-details/:productId from where id is in item.productId
                     const response = await fetch(`http:localhost:8888/product-details/${item.productId}`);
                     const productDetails = await response.json()
-
-
 
                     const cartItemElement = document.createElement('div');
                     cartItemElement.classList.add('cart-item');
@@ -1494,19 +1527,19 @@
                     // Append the cart item element to the #cartContent element
                     cartContent.appendChild(cartItemElement);
                 });
-                setTimeout(() => {
-                    const removeButton = document.querySelector('.remove-item-button');
-                    removeButton.addEventListener('click', () => {
-                        // Remove the item from the cart
-                        const updatedCart = existingCart.filter(cartItem => cartItem._id !== item._id);
-                        // Update local storage with the new cart
-                        localStorage.setItem('cart', JSON.stringify(updatedCart));
-                    });
+                // setTimeout(() => {
+                //     const removeButton = document.querySelector('.remove-item-button');
+                //     removeButton.addEventListener('click', () => {
+                //         // Remove the item from the cart
+                //         const updatedCart = existingCart.filter(cartItem => cartItem._id !== item._id);
+                //         // Update local storage with the new cart
+                //         localStorage.setItem('cart', JSON.stringify(updatedCart));
+                //     });
 
-                }, 1000);
+                // }, 1000);
             }
 
-        })
+        }
 
         let selectedElement = null;
         function toggleBackgroundColor(element, data) {
@@ -1542,70 +1575,29 @@
             window.localStorage.setItem("location", selectedLocation)
         }
         document.getElementById('locationSelect').addEventListener('change', handleLocationChange);
-        let fav = []
-        async function ppp() {
-            axios.get('http://localhost:8888/get-last-schedule')
-                .then(function (response) {
-                    areas = response.data;
-
-                    const timing1 = document.getElementById('timing1');
-                    const timing2 = document.getElementById('timing2');
-                    const timing3 = document.getElementById('timing3');
-                    timing1.textContent = areas.lastSchedule[0].schedule1;
-                    timing2.textContent = areas.lastSchedule[0].schedule2;
-                    timing3.textContent = areas.lastSchedule[0].schedule3;
-
-                })
-                .catch(function (error) {
-                    // Handle errors
-                    console.error(error);
-                });
-            // Fetch products from the API
-            try {
-                const response = await fetch('http://localhost:8888/get-all-products');
-                const products = await response.json();
-
-                // Populate products in the specified ID
-                populateProducts(products, 'productContainer');
-            } catch (error) {
-                console.error('Error fetching products:', error);
-            }
-            // Add click event listener to each "Add To Cart" button
-            document.querySelectorAll('.add-to-cart-button').forEach(button => {
-                button.addEventListener('click', addToCart);
-            });
-        }
-
-
-        document.addEventListener('DOMContentLoaded', ppp());
 
         async function populateProducts(products, containerId) {
-            fav = []
             const container = document.getElementById(containerId);
+            container.innerHTML = '';
+
             try {
-                const Response = await axios.get('http://localhost:8888/get-favourite', { params: { id: id1 } })
+                const Response = await axios.get('http://localhost:8888/get-favourite', { params: { id: id1 } });
                 if (Response.status == 200) {
-                    Response.data.forEach(item => {
-                        fav.push(item.product);
-                    });
+                    const fav = Response.data.map(item => item.product);
                     console.log('Updated fav array:', fav);
+                    products.products.forEach(product => {
+                        const isFavorite = fav.includes(product._id.trim());
+                        const productElement = createProductElement(product, isFavorite);
+                        container.appendChild(productElement);
+                    });
                 } else {
                     console.log(Response.error);
                 }
             } catch (error) {
                 console.log(error);
             }
-            container.innerHTML = ''
-            products?.products.forEach(product => {
-                const isFavorite = fav.some(favItem => {
-                    console.log('Comparing:', favItem.trim(), product?._id.trim());
-                    return favItem.trim() === product?._id.trim();
-                });
-                const productElement = createProductElement(product, isFavorite);
-                container.appendChild(productElement);
-            });
         }
-        
+
         function createProductElement(product, isFavorite) {
             const imageUrl = product.images && product.images.length > 0
                 ? `http://localhost:8888/${product.images[0]}`
@@ -1613,11 +1605,11 @@
 
             const favoriteSVG = isFavorite
                 ? `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
-            fill="#3b82f6" class="w-6 h-6">
+            fill="#3b82f6" class="w-6 h-6" onclick="favDelete('${product?._id}')">
             <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
         </svg>`
                 : `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="#3b82f6" class="w-6 h-6">
+            stroke="#3b82f6" class="w-6 h-6" onclick="favouriteClick('${product?._id}')">
             <path stroke-linecap="round" stroke-linejoin="round"
                 d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
         </svg>`;
@@ -1627,28 +1619,28 @@
             productElement.className = 'swiper-slide';
             productElement.innerHTML = `
             <div class="relative overflow-hidden bg-white shadow rounded-xl dark:bg-gray-700" style="height: 400px;">
-    <!-- ... (Product details) ... -->
-    <img class="object-cover w-full mx-auto transition-all rounded h-72 hover:scale-110" src="${imageUrl}" />
-    <button class="absolute top-0 left-0 p-3 bg-blue-500 rounded-l-none hover:bg-blue-600 rounded-b-xl h-8">
-        <!-- ... (Add to Cart icon) ... -->
-    </button>
+            <!-- ... (Product details) ... -->
+            <img class="object-cover w-full mx-auto transition-all rounded h-72 hover:scale-110" src="${imageUrl}" />
+            <button class="absolute top-0 left-0 p-3 bg-blue-500 rounded-l-none hover:bg-blue-600 rounded-b-xl h-8">
+                <!-- ... (Add to Cart icon) ... -->
+            </button>
     
-    <a class="flex justify-between">
-        <h3 class="w-7/8 px-5 mb-4 text-lg font-bold dark:text-white truncate">${product?.name}</h3>
-        <div class="w-1/8 cursor-pointer" text-[#3b82f6] onclick="favouriteClick('${product?._id}')">
-            ${favoriteSVG}
-        </div>
-    </a>
-    <div class="flex">
-        <div class="w-1/2 px-5 pb-2">
-            <p class="text-lg font-bold text-blue-500 dark:text-blue-300">
-                $${parseInt(product?.price).toFixed(2)}
-            </p>
-            <span class="block -mt-1 text-xs font-semibold text-gray-400 line-through">$399.99</span>
-        </div>
+            <a class="flex justify-between">
+                <h3 class="w-7/8 px-5 mb-4 text-lg font-bold dark:text-white truncate">${product?.name}</h3>
+                <div class="w-1/8 cursor-pointer">
+                    ${favoriteSVG}
+                </div>
+            </a>
+            <div class="flex">
+                <div class="w-1/2 px-5 pb-2">
+                    <p class="text-lg font-bold text-blue-500 dark:text-blue-300">
+                        $${parseInt(product?.price).toFixed(2)}
+                    </p>
+                    <span class="block -mt-1 text-xs font-semibold text-gray-400 line-through">$399.99</span>
+                </div>
 
         ${existingCart?.some(item => item.productId === product._id) ?
-            `<div class="flex items-center">
+                    `<div class="flex items-center">
                 <button data-product-id="${product?._id}" class="flex-none text-sm text-white transition-all bg-blue-500 rounded-l-xl hover:bg-blue-600 p-2 h-8">
                     -
                 </button>
@@ -1671,11 +1663,12 @@
         async function addToCart(event) {
             const productId = event.target.getAttribute('data-product-id');
 
-
             const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
+            console.log("haaaaamad", existingCart);
             const existingItemIndex = existingCart.findIndex(item => item.productId === productId);
             if (existingItemIndex !== -1) {
                 // If the item exists, increase its quantity
+
                 existingCart[existingItemIndex].quantity += 1;
             } else {
                 // If the item doesn't exist, add it with a quantity of 1
@@ -1690,7 +1683,6 @@
         const id = JSON.parse(window.localStorage.getItem('storeduser'))
         const id1 = id._id;
         async function favouriteClick(productId) {
-            console.log(id1);
             const data = {
                 favourite: true,
                 product: productId,
@@ -1701,7 +1693,11 @@
                     data: data,
                 });
                 if (Response.status == 200) {
-                    window.location.reload();
+                    const response = await fetch('http://localhost:8888/get-all-products');
+                    const products = await response.json();
+
+                    // Populate products in the specified ID
+                    populateProducts(products, 'productContainer');
                 }
                 else {
                     console.log(Response.error)
@@ -1712,6 +1708,26 @@
             }
 
         }
+
+        async function favDelete(id) {
+            try {
+                const res = await axios.delete('http://localhost:8888/delete-favourite', { params: { id: id } })
+                if (res.status == 200) {
+                    const response = await fetch('http://localhost:8888/get-all-products');
+                    const products = await response.json();
+
+                    // Populate products in the specified ID
+                    populateProducts(products, 'productContainer');
+                }
+                else {
+                    console.log(res.error)
+                }
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }
+
         async function getFav() {
             try {
                 let count = 0;
@@ -1722,19 +1738,19 @@
                     Response.data.forEach(async (item) => {
                         let favs = document.getElementById('favoritieContent')
                         favs.innerHTML = '';
-                            const response = await fetch(`http://localhost:8888/product-details/${item.product}`);
-                            const productDetails = await response.json()
-                            console.log("The details of product are", productDetails)
-                            const cartItemElement = document.createElement('div');
-                            cartItemElement.classList.add('cart-item');
-                            cartItemElement.innerHTML = `<div class="my-4" class="cart-item-image">
+                        const response = await fetch(`http://localhost:8888/product-details/${item.product}`);
+                        const productDetails = await response.json()
+                        console.log("The details of product are", productDetails)
+                        const cartItemElement = document.createElement('div');
+                        cartItemElement.classList.add('cart-item');
+                        cartItemElement.innerHTML = `<div class="my-4" class="cart-item-image">
                         <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${productDetails.name}</h5>
                             <p class="font-normal text-gray-700 dark:text-gray-400">${productDetails.description}</p>
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${productDetails.price ? productDetails.price : 0}</h5>
                         </a>
                         </div>`;
-                            favs.appendChild(cartItemElement);
+                        favs.appendChild(cartItemElement);
                     });
                 }
                 else {
