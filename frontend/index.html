@@ -123,6 +123,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            min-width: 30%;
         }
 
 
@@ -147,6 +148,21 @@
             width: 230px;
             height: 365px;
         }
+
+        body{
+            width: 80%;
+            margin: auto;
+        }
+
+        #mega-menu-list li{
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        #mega-menu-list {
+            gap: 2rem;
+        }
+
     </style>
 </head>
 
@@ -181,8 +197,9 @@
                                 </svg>
                                 <div class="css-zeeqtd">
                                     <div class="css-1c19nm1"><span class="css-himknp">Deliver to:</i></i> </span>
-                                        <div data-testid="header_default_area" title="Akram Abad Walton - Lahore"
-                                            class="css-1p32cg5">Akram Abad Walton - Lahore</div>
+                                        <div id="area" data-testid="header_default_area" title="Akram Abad Walton - Lahore"
+                                            class="css-1p32cg5">
+                                        </div>
 
                                     </div>
                                 </div>
@@ -253,8 +270,8 @@
     </div>
 
     <!-- Mega Menu -->
-    <nav class="bg-white border-gray-200 dark:bg-gray-900 md:mt-10">
-        <div class="flex items-center justify-center mx-auto py-4">
+    <nav class="bg-white border-gray-200 dark:bg-gray-900 md:mt-5">
+        <div class="flex items-center  mx-auto py-4">
             <div id="mega-menu" class="items-center justify-center w-full md:flex md:w-auto md:order-1">
                 <ul id="mega-menu-list"
                     class="flex flex-col mt-4 font-medium md:flex-row md:flex-wrap md:mt-2 md:space-x-8 rtl:space-x-reverse md:space-x-reverse">
@@ -787,7 +804,7 @@
         </div>
     </div>
 
-    <!-- Promotions -->
+    <!-- Promotions
     <div class="sm-w-full mx-auto p-relative my-20">
         <h3 data-testid="trolly-text" font-size="3,,,6" font-family="Teshrin AR LT" class="css-1rjm86d" color="copy">
             Promotions</h3>
@@ -830,7 +847,7 @@
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Products to be added to cart -->
     <div class="mx-auto p-relative my-20">
@@ -1151,32 +1168,76 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script defer>
         let fav = [];
+
+
+
+
         async function ppp() {
-            try {
-                const response = await axios.get('http://localhost:8888/get-last-schedule');
-                const areas = response.data;
 
-                const timing1 = document.getElementById('timing1');
-                const timing2 = document.getElementById('timing2');
-                const timing3 = document.getElementById('timing3');
-                timing1.textContent = areas.lastSchedule[0].schedule1;
-                timing2.textContent = areas.lastSchedule[0].schedule2;
-                timing3.textContent = areas.lastSchedule[0].schedule3;
 
-                const productsResponse = await fetch('http://localhost:8888/get-all-products');
-                const products = await productsResponse.json();
-                populateProducts(products, 'productContainer');
-                setTimeout(() => {
-                document.querySelectorAll('.add-to-cart-button').forEach(button => {
-                    button.addEventListener('click', addToCart);
+
+
+
+
+            axios.get('http://localhost:8888/get-last-schedule')
+                .then(function (response) {
+                    areas = response.data;
+
+                    const timing1 = document.getElementById('timing1');
+                    const timing2 = document.getElementById('timing2');
+                    const timing3 = document.getElementById('timing3');
+                    timing1.textContent = areas.lastSchedule[0].schedule1;
+                    timing2.textContent = areas.lastSchedule[0].schedule2;
+                    timing3.textContent = areas.lastSchedule[0].schedule3;
+
+                })
+                .catch(function (error) {
+                    // Handle errors
+                    console.error(error);
                 });
-                }, 100)
+            // Fetch products from the API
+            try {
+                const response = await fetch('http://localhost:8888/get-all-products');
+                const products = await response.json();
+
+                // Populate products in the specified ID
+                populateProducts(products, 'productContainer');
             } catch (error) {
-                console.error('Error:', error);
+                console.error('Error fetching products:', error);
             }
         }
 
-        document.addEventListener('DOMContentLoaded', ppp);
+
+        document.addEventListener('DOMContentLoaded', ppp());
+
+
+        async function populateProducts(products, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            try {
+                const Response = await axios.get('http://localhost:8888/get-favourite', { params: { id: id1 } });
+                if (Response.status == 200) {
+                    const fav = Response.data.map(item => item.product);
+                    console.log('Updated fav array:', fav);
+                    products.products.forEach(product => {
+                        const isFavorite = fav.includes(product._id.trim());
+                        const productElement = createProductElement(product, isFavorite);
+                        container.appendChild(productElement);
+                    });
+                } else {
+                    console.log(Response.error);
+                }
+
+                document.querySelectorAll('.add-to-cart-button').forEach(button => {
+                    button.addEventListener('click', addToCart);
+                });
+
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+
 
 
         let existingCart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -1268,7 +1329,7 @@
         }
 
         //  Fetching all of data 
-        
+
         let categories = null
         let categoriesWithSubcategories = new Map()
         let products = null
@@ -1290,9 +1351,6 @@
                 // Handle errors
                 console.error(error);
             });
-
-
-
 
         let subcats = []
 
@@ -1355,13 +1413,13 @@
                     <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
                         <ul class="space-y-4" aria-labelledby="${dropdownToggle}">
                             ${value?.map((item) => {
-                            return `<li>
+                        return `<li>
                                     <a href="${'category.html?id=' + item?._id}"
                                         class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
                                         ${item?.subCategoryName}
                                     </a>
                                 </li>`;
-                        }).join('')}
+                    }).join('')}
                         </ul>
                     </div>
                 </div>
@@ -1379,7 +1437,7 @@
                     if (dropdownContent) {
                         dropdownContent.classList.toggle("hidden");
                     }
-                }); 
+                });
 
 
 
@@ -1387,58 +1445,6 @@
             .catch(function (error) {
                 // Handle error
             });
-
-
-
-
-
-
-
-
-        // // let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
-        // axios.get('http://localhost:8888/get-all-categories')
-        //     .then(function (response) {
-        //         categories = response.data.categories
-
-        //         // categoriesWithSubcategories // t
-
-        //         // categories.forEach((item)=>{
-        //         //     // get its subcategories
-
-
-        //         // })
-
-        //         const navbar = document.getElementById('navmenuid');
-        //         categories.forEach(category => {
-        //             const cat = document.createElement('li');
-        //             const link = document.createElement('a');
-        //             link.classList.add('cursor-pointer', 'block', 'py-2', 'px-3', 'text-gray-900', 'rounded', 'hover:bg-gray-100', 'md:hover:bg-transparent', 'md:border-0', 'md:hover:text-blue-700', 'md:p-0', 'dark:text-white', 'md:dark:hover:text-blue-500', 'dark:hover:bg-gray-700', 'dark:hover:text-white', 'md:dark:hover:bg-transparent');
-        //             link.innerHTML = category.name
-        //             cat.appendChild(link)
-        //             navbar.appendChild(cat);
-        //         });
-        //     })
-        //     .catch(function (error) {
-        //         // Handle error
-        //     });
-
-
-
-        // axios.get('http://localhost:8888/get-all-products', { params: { branchId: '656df5f3d5b184a99cf62627' } })
-        //     .then(function (response) {
-        //         products = response.data.products
-        //         const productContainer = document.getElementById('productContainer');
-        //         products.forEach(product => {
-
-        //             const productCard = createProductCard(product)
-        //             // Append the swiper slide to the product container
-        //             productContainer.innerHTML += productCard;
-        //         });
-        //     })
-        //     .catch(function (error) {
-        //         // Handle error
-        //     });
-
 
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 2,
@@ -1513,6 +1519,9 @@
                     const response = await fetch(`http:localhost:8888/product-details/${item.productId}`);
                     const productDetails = await response.json()
 
+                    console.log("item is", productDetails, item)
+
+
                     const cartItemElement = document.createElement('div');
                     cartItemElement.classList.add('cart-item');
                     // Create HTML content for each item (customize this based on your needs)
@@ -1520,9 +1529,14 @@
                         <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${productDetails.name}</h5>
                             <p class="font-normal text-gray-700 dark:text-gray-400">${productDetails.description}</p>
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${productDetails.price}</h5>
-                            <p class="font-normal text-gray-700 dark:text-gray-400">${item.quantity}</p>
-                            <p class="font-normal text-gray-700 dark:text-gray-400">${item.productId}</p>
+                           
+                            <button data-product-id="${item?.productId}" class="flex-none text-sm text-white transition-all bg-blue-500 rounded-l-xl hover:bg-blue-600 p-2 h-8">
+                                -   
+                            </button>
+                            <p class="font-normal text-gray-700 dark:text-gray-400">${item.quantity}</p> 
+                            <button data-product-id="${item?.productId}" class="flex-none text-sm text-white transition-all bg-blue-500 rounded-r-xl hover:bg-blue-600 p-2 add-to-cart-button h-8">
+                                +   
+                            </button>
                         </a>
                         </div>`;
                     // Append the cart item element to the #cartContent element
@@ -1572,78 +1586,17 @@
             window.localStorage.setItem("deliverytype", data)
         }
         function handleLocationChange() {
-            var selectedLocation = document.getElementById('locationSelect').value;
+            var locationSelect = document.getElementById('locationSelect');
+            var selectedLocation = locationSelect.value;
+            var selectedLocationText = locationSelect.options[locationSelect.selectedIndex].text;
             window.localStorage.setItem("location", selectedLocation)
+            window.localStorage.setItem("location", selectedLocationText)
+            let ele = document.getElementById("area")
+            ele.innerHTML = selectedLocationText            
         }
         document.getElementById('locationSelect').addEventListener('change', handleLocationChange);
-        async function ppp() {
 
 
-            setTimeout(() => {
-
-                document.querySelectorAll('.add-to-cart-button').forEach(button => {
-                    button.addEventListener('click', addToCart);
-                });
-
-            }, 3000)
-
-
-
-            axios.get('http://localhost:8888/get-last-schedule')
-                .then(function (response) {
-                    areas = response.data;
-
-                    const timing1 = document.getElementById('timing1');
-                    const timing2 = document.getElementById('timing2');
-                    const timing3 = document.getElementById('timing3');
-                    timing1.textContent = areas.lastSchedule[0].schedule1;
-                    timing2.textContent = areas.lastSchedule[0].schedule2;
-                    timing3.textContent = areas.lastSchedule[0].schedule3;
-
-                })
-                .catch(function (error) {
-                    // Handle errors
-                    console.error(error);
-                });
-            // Fetch products from the API
-            try {
-                const response = await fetch('http://localhost:8888/get-all-products');
-                const products = await response.json();
-
-                // Populate products in the specified ID
-                populateProducts(products, 'productContainer');
-            } catch (error) {
-                console.error('Error fetching products:', error);
-            }
-        }
-
-
-        document.addEventListener('DOMContentLoaded', ppp());
-
-        document.addEventListener('DOMContentLoaded', () => { console.log("yahya hello sjalfjdsk") });
-
-
-
-        async function populateProducts(products, containerId) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = '';
-            try {
-                const Response = await axios.get('http://localhost:8888/get-favourite', { params: { id: id1 } });
-                if (Response.status == 200) {
-                    const fav = Response.data.map(item => item.product);
-                    console.log('Updated fav array:', fav);
-                    products.products.forEach(product => {
-                        const isFavorite = fav.includes(product._id.trim());
-                        const productElement = createProductElement(product, isFavorite);
-                        container.appendChild(productElement);
-                    });
-                } else {
-                    console.log(Response.error);
-                }
-            } catch (error) {
-                console.log(error);
-            }
-        }
 
         function createProductElement(product, isFavorite) {
             const imageUrl = product.images && product.images.length > 0
@@ -1709,7 +1662,7 @@
 
         async function addToCart(event) {
             const productId = event.target.getAttribute('data-product-id');
-
+            console.log("hello world", productId)
             const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
             console.log("haaaaamad", existingCart);
             const existingItemIndex = existingCart.findIndex(item => item.productId === productId);
@@ -1724,9 +1677,10 @@
             // Check if the item already exists in the cart
             localStorage.setItem('cart', JSON.stringify(existingCart));
             ppp();
+            cartContent()
         }
         let id = window.localStorage.getItem('storeduser')
-        if(id){
+        if (id) {
             id = JSON.parse(id);
         }
         let id1 = id._id;
@@ -1895,6 +1849,16 @@
             var element1 = document.getElementById('element1');
             toggleBackgroundColor(element1, 'takeaway');
         };
+
+
+
+        setInterval(() => {
+            document.querySelectorAll('.add-to-cart-button').forEach(button => {
+                button.addEventListener('click', addToCart);
+            });
+        }, 1000)
+
+
     </script>
 </body>
 
