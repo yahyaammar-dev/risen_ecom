@@ -707,31 +707,52 @@
 
         function placeOrder() {
             let amount = 0;
-            let products = JSON.parse(window.localStorage.getItem('cart'))
-            let user = JSON?.parse(window.localStorage.getItem('user'))
-            let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
-            let price = 5000
-            if(price > 2000){
+            let products = JSON.parse(window.localStorage.getItem('cart')) || [];
+            // console.log('eusgjh sa', window.localStorage.getItem('admin'));
+            let user = JSON.parse(window.localStorage.getItem('storeduser')) || {};
+            let adminData = JSON.parse(window.localStorage.getItem('admin')) || {};
+            let branchId = adminData.branch || null;
+            let price = 5000;
+
+            if (price > 2000) {
                 amount = price;
-            }   
-            else{
-                amount = amount + 200
-            }
-            let data = {
-                amount, branchId, products, user
+            } else {
+                amount = amount + 200;
             }
 
-            axios.post('http://localhost:8888/create-order', data)
-                .then((res) => {
-                    console.log(res)
-                    if (res.status == 200 || res.status == 201) {
-                        alert("Order has been placed")
-                    }
-                })
-                .catch((err) => {
-                    console.log("There is an error plesae try again later")
-                })
+            console.log(amount, branchId, products, user)
+
+            // Validating that required values are not null or undefined
+            if (amount !== null && products !== null && user !== null) {
+                let data = {
+                    amount,
+                    branchId,
+                    products,
+                    user
+                };
+
+                axios.post('http://localhost:8888/create-order', data)
+                    .then((res) => {
+                        console.log(res);
+                        if (res.status == 200 || res.status == 201) {
+                            alert("Order has been placed");
+                        }
+                    })
+                    .catch((err) => {
+                        console.log("There is an error, please try again later", err);
+                    });
+                // Now you can use the 'data' object as needed
+                console.log(data);
+            } else {
+                alert("Some required values are missing or invalid.");
+                console.error("Some required values are missing or invalid.");
+            }
+
         }
+
+
+
+
     </script>
 </body>
 
