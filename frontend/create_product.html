@@ -1172,8 +1172,7 @@
                                 <h5 id="drawer-label"
                                     class="inline-flex items-center mb-6 text-sm font-semibold text-gray-500 uppercase dark:text-gray-400">
                                     New Product</h5>
-                                <button type="button" data-drawer-dismiss="drawer-update-product"
-                                    aria-controls="drawer-update-product" onclick="closeProductContainer()"
+                                <button type="button" onclick="closeProductContainer()"
                                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
                                     <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -1222,7 +1221,8 @@
                                             <div class="grid grid-cols-3 gap-4 mb-4">
                                                 <div
                                                     class="relative p-2 bg-gray-100 rounded-lg sm:w-36 sm:h-36 dark:bg-gray-700">
-                                                    <img src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-side-image.png"
+                                                    <img id="Pimg1"
+                                                        src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-side-image.png"
                                                         alt="imac image">
                                                     <button type="button"
                                                         class="absolute text-red-600 dark:text-red-500 hover:text-red-500 dark:hover:text-red-400 bottom-1 left-1">
@@ -1237,37 +1237,8 @@
                                                 </div>
                                                 <div
                                                     class="relative p-2 bg-gray-100 rounded-lg sm:w-36 sm:h-36 dark:bg-gray-700">
-                                                    <img src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-front-image.png"
-                                                        alt="imac image">
-                                                    <button type="button"
-                                                        class="absolute text-red-600 dark:text-red-500 hover:text-red-500 dark:hover:text-red-400 bottom-1 left-1">
-                                                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor"
-                                                            viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                            <path fill-rule="evenodd"
-                                                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                                                clip-rule="evenodd" />
-                                                        </svg>
-                                                        <span class="sr-only">Remove image</span>
-                                                    </button>
-                                                </div>
-                                                <div
-                                                    class="relative p-2 bg-gray-100 rounded-lg sm:w-36 sm:h-36 dark:bg-gray-700">
-                                                    <img src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-back-image.png"
-                                                        alt="imac image">
-                                                    <button type="button"
-                                                        class="absolute text-red-600 dark:text-red-500 hover:text-red-500 dark:hover:text-red-400 bottom-1 left-1">
-                                                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor"
-                                                            viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                            <path fill-rule="evenodd"
-                                                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                                                clip-rule="evenodd" />
-                                                        </svg>
-                                                        <span class="sr-only">Remove image</span>
-                                                    </button>
-                                                </div>
-                                                <div
-                                                    class="relative p-2 bg-gray-100 rounded-lg sm:w-36 sm:h-36 dark:bg-gray-700">
-                                                    <img src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-side-image.png"
+                                                    <img id="Pimg2"
+                                                        src="https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-front-image.png"
                                                         alt="imac image">
                                                     <button type="button"
                                                         class="absolute text-red-600 dark:text-red-500 hover:text-red-500 dark:hover:text-red-400 bottom-1 left-1">
@@ -1282,7 +1253,7 @@
                                                 </div>
                                             </div>
                                             <div class="flex items-center justify-center w-full">
-                                                <label for="dropzone-file"
+                                                <label for="imagesx"
                                                     class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                                                     <div class="flex flex-col items-center justify-center pt-5 pb-6">
                                                         <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400"
@@ -1301,7 +1272,7 @@
                                                             GIF (MAX.
                                                             800x400px)</p>
                                                     </div>
-                                                    <input id="imagesx" type="file" class="hidden">
+                                                    <input id="imagesx" type="file" multiple class="hidden">
                                                 </label>
                                             </div>
                                         </div>
@@ -1309,14 +1280,22 @@
 
                                     </div>
                                     <div class="space-y-4 sm:space-y-6">
+                                        <div style="display: none;">
+                                            <label for="id"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">id</label>
+                                            <input type="text" name="id" id="idx2"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                                placeholder="Type product name" required="" />
+                                        </div>
                                         <div>
                                             <label for="product-brand"
-                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stock</label>
-                                            <input type="text" id="stockx"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Barcode</label>
+                                            <input type="text" id="barcodex"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                                 value="Apple" placeholder="Product Brand" required="">
                                         </div>
-                                        <div><label for="category"
+                                        <!-- <div>
+                                            <label for="category"
                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label><select
                                                 id="categoryx"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
@@ -1325,7 +1304,15 @@
                                                 <option value="PC">PC</option>
                                                 <option value="GA">Gaming/Console</option>
                                                 <option value="PH">Phones</option>
-                                            </select></div>
+                                            </select>
+                                        </div> -->
+                                        <div>
+                                            <label for="product-brand"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
+                                            <input type="text" id="pricex"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                                value="Apple" placeholder="Product Brand" required="">
+                                        </div>
 
                                     </div>
                                 </div>
@@ -1425,11 +1412,11 @@
                                                 </div>
                                                 <div class="sm:col-span-2"><label for="description"
                                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                                                    <textarea
-                                                        id="description" rows="3"
+                                                    <textarea id="description" rows="3"
                                                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                                         placeholder="Write product description here">
-                                                    </textarea></div>
+                                                    </textarea>
+                                                </div>
                                             </div>
                                             <div class="mb-4">
                                                 <span
@@ -1955,14 +1942,14 @@
         }
 
         window.addEventListener('DOMContentLoaded', fetchSubs2);
-        function deleteproduct(item) {
-            fetch(`http://localhost:8888/delete-products?id=${item._id}`, {
+        async function deleteproduct(item) {
+            await fetch(`http://localhost:8888/delete-products?id=${item._id}`, {
                 method: 'DELETE',
             })
                 .then(response => {
                     if (response) {
-                        console.log('Deleted successfully', response);
-                        // Handle success, e.g., redirect or display a success message
+                        alert('Deleted successfully');
+                        window.location.reload();
                     } else {
                         console.error('Error:', response.statusText);
                     }
@@ -1971,8 +1958,20 @@
         }
 
         function updateProduct(item) {
-            let ele = document.getElementById("idx")
-            ele.value = item._id
+            let idx = document.getElementById("idx")
+            let namex = document.getElementById("namex")
+            let descriptionx = document.getElementById("descriptionx")
+            let barx = document.getElementById("barcodex")
+            let pricex = document.getElementById("pricex")
+            let img1 = document.getElementById("Pimg1")
+            let img2 = document.getElementById("Pimg2")
+            idx.value = item._id
+            namex.value = item.name;
+            descriptionx.value = item.description;
+            barx.value = item.barcodeId;
+            pricex.value = item.price;
+            img1.src = "http://localhost:8888/" + item.images[0];
+            img2.src = "http://localhost:8888/" + item.images[1];
 
             let updateContainer = document.getElementById("drawer-update-product")
             updateContainer.classList.remove('hidden')
@@ -1984,40 +1983,79 @@
         }
 
         async function updateForm() {
-            let data = {}
-            let idx = document.getElementById("idx").value
-            let namex = document.getElementById("namex").value
-            let categoryx = document.getElementById("categoryx").value
-            let descriptionx = document.getElementById("descriptionx").value
-            let stockx = document.getElementById("stockx").value
-            let imagesx = document.getElementById("imagesx").files
-            data = {
-                id: idx,
-                name: namex,
-                category: categoryx,
-                description: descriptionx,
-                stock: stockx,
-                images: imagesx
-            }
-            const formData = new FormData();
+            let images = document.getElementById("imagesx").files
+            if (images.files && images.files.length != 0) {
+                let data = {}
+                let idx = document.getElementById("idx").value
+                let namex = document.getElementById("namex").value
+                let barcode = document.getElementById("barcodex").value
+                let descriptionx = document.getElementById("descriptionx").value
+                let price = document.getElementById("pricex").value
 
-            formData.append('id', idx);
-            formData.append('name', namex);
-            formData.append('description', descriptionx);
-            formData.append('category', categoryx);
-            formData.append('stock', categoryx);
-            for (let i = 0; i < images.length; i++) {
-                formData.append('images', images[i]);
+                data = {
+                    id: idx,
+                    name: namex,
+                    barcode: barcode,
+                    description: descriptionx,
+                    price: price,
+                    images: fileInput
+                }
+                const formData = new FormData();
+
+                formData.append('id', idx);
+                formData.append('name', namex);
+                formData.append('description', descriptionx);
+                formData.append('barcodeId', barcode);
+                formData.append('price', price);
+                for (let i = 0; i < images.length; i++) {
+                    formData.append('images', images[i]);
+                }
+                try {
+                    const response = await fetch('http://localhost:8888/update-product', {
+                        method: 'PUT',
+                        body: formData,
+                    });
+                    const data = await response.json();
+                    alert("Product has been updated!")
+                    window.location.reload();
+                } catch (error) {
+                    console.error('Error:', error);
+                }
             }
-            try {
-                const response = await fetch('http://localhost:8888/update-product', {
-                    method: 'PUT',
-                    body: formData,
-                });
-                const data = await response.json();
-                alert("Product has been updated!")
-            } catch (error) {
-                console.error('Error:', error);
+            else {
+                let data = {}
+                let idx = document.getElementById("idx").value
+                let namex = document.getElementById("namex").value
+                let barcode = document.getElementById("barcodex").value
+                let descriptionx = document.getElementById("descriptionx").value
+                let price = document.getElementById("pricex").value
+
+
+                data = {
+                    id: idx,
+                    name: namex,
+                    barcode: barcode,
+                    description: descriptionx,
+                    price: price
+                }
+                const formData = new FormData();
+
+                formData.append('id', idx);
+                formData.append('name', namex);
+                formData.append('description', descriptionx);
+                formData.append('barcodeId', barcode);
+                formData.append('price', price);
+                try {
+                    const response = await fetch('http://localhost:8888/update-product', {
+                        method: 'PUT',
+                        body: formData,
+                    });
+                    const data = await response.json();
+                    alert("Product has been updated!")
+                    window.location.reload();
+                } catch (error) {
+                    console.error('Error:', error);
+                }
             }
         }
 

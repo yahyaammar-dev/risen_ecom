@@ -765,7 +765,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
 
         // Create Category API
         app.post('/create-category', upload.single('categoryImage'), async (req, res) => {
-            const { categoryName, branchId  } = req.body;
+            const { categoryName, branchId } = req.body;
 
             try {
                 // Create a new category
@@ -945,29 +945,62 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         });
 
         // Update the product
+        const mongoose = require('mongoose');
+
         app.put('/update-product', upload.array('image[]'), async (req, res) => {
             try {
-                const { id, barcode, name, category, description, branchId } = req.body;
+                if (req?.files) {
+                    const { id, barcodeId, name, price, description } = req.body;
+                    // Check if id is a valid ObjectId
+                    if (!mongoose.Types.ObjectId.isValid(id)) {
+                        return res.status(400).json({ error: 'Invalid product ID' });
+                    }
 
-                const newImages = req?.files?.map(file => file.path);
-                const updatedProduct = await Product.findByIdAndUpdate(
-                    { _id: id },
-                    {
-                        $set: {
-                            name,
-                            category,
-                            description,
-                            branchId,
+                    const newImages = req?.files?.map(file => file.path);
+                    const updatedProduct = await Product.findByIdAndUpdate(
+                        { _id: id },
+                        {
+                            $set: {
+                                name,
+                                price,
+                                description,
+                                barcodeId,
+                            },
+                            $push: { images: { $each: newImages } }, // Append new images
                         },
-                        $push: { images: { $each: newImages } }, // Append new images
-                    },
-                    { new: true } // Return the updated document
-                );
+                        { new: true } // Return the updated document
+                    );
 
-                if (updatedProduct) {
-                    return res.status(200).json(updatedProduct);
+                    if (updatedProduct) {
+                        return res.status(200).json(updatedProduct);
+                    } else {
+                        return res.status(404).json({ error: 'Product not found' });
+                    }
                 } else {
-                    return res.status(404).json({ error: 'Product not found' });
+                    const { id, barcodeId, name, price, description } = req.body;
+                    // Check if id is a valid ObjectId
+                    if (!mongoose.Types.ObjectId.isValid(id)) {
+                        return res.status(400).json({ error: 'Invalid product ID' });
+                    }
+
+                    const updatedProduct = await Product.findByIdAndUpdate(
+                        { _id: id },
+                        {
+                            $set: {
+                                name,
+                                price,
+                                description,
+                                barcodeId,
+                            }
+                        },
+                        { new: true } // Return the updated document
+                    );
+
+                    if (updatedProduct) {
+                        return res.status(200).json(updatedProduct);
+                    } else {
+                        return res.status(404).json({ error: 'Product not found' });
+                    }
                 }
             } catch (error) {
                 console.error(error);
@@ -975,14 +1008,16 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
+
         // Update the product
-        app.put('/update-category', async (req, res) => {
+        app.put('/update-category', upload.single('file'), async (req, res) => {
             try {
                 const { id, name } = req.body;
+                const image = req.file ? req.file.path : null;
 
                 const data = {
-                    id,
-                    name
+                    name,
+                    image
                 };
 
                 const updatedProduct = await Category.findOneAndUpdate(
@@ -1076,7 +1111,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         // admin should be able to upload product file 
         app.post('/upload-products', upload.single('file'), async (req, res) => {
             const filePath = req.file ? req.file.path : null;
-            
+
             try {
                 // Read the Excel file
                 const workbook = xlsx.readFile(filePath);
@@ -1137,21 +1172,21 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             try {
                 // Find all products with the sourceBranchId
                 const productsToDuplicate = await Product.find({ branchId: sourceBranchId });
-            
+
                 // Create copies of each product with the new destinationBranchId
                 const duplicatedProducts = productsToDuplicate.map(product => ({
-                  ...product.toObject(),
-                  _id: undefined, // Exclude original ID to create a new entry
-                  branchId: destinationBranchId // Set the destination branch ID
+                    ...product.toObject(),
+                    _id: undefined, // Exclude original ID to create a new entry
+                    branchId: destinationBranchId // Set the destination branch ID
                 }));
-            
+
                 // Insert the duplicated products into the database
                 const insertedProducts = await Product.insertMany(duplicatedProducts);
-            
+
                 res.status(200).json({ message: 'Products duplicated successfully', data: insertedProducts });
-              } catch (error) {
+            } catch (error) {
                 res.status(500).json({ error: 'Unable to duplicate products', message: error.message });
-              }
+            }
         });
 
         // admin should be able to create notification  
@@ -1356,7 +1391,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         app.get('/get-all-subcategories', async (req, res) => {
             try {
                 const pId = req?.query?.id;
-                console.log("pid",pId);
+                console.log("pid", pId);
                 let subcategories = null
                 if (pId) {
                     subcategories = await SubCategory.find({ parentCategoryId: new ObjectId(pId) });

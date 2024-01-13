@@ -118,8 +118,7 @@
                     </div>
                 </a>
                 <div class="flex items-center sm:justify-center justify-start sm:flex-nowrap  flex-wrap">
-                    <div class="css-15ffgiy" id="css-15ffgiy" data-modal-target="crud-modal"
-                        data-modal-toggle="crud-modal" onclick="openPopup()">
+                    <div class="css-15ffgiy" id="css-15ffgiy" data-modal-toggle="crud-modal" onclick="openPopup()">
                         <div class="mobile-area-section css-4cffwv" id="category_landing_page_address_change"
                             data-sl="mask">
                             <div data-testid="delivery_city_area" data-sl="mask" class="css-1vmlbcg">
@@ -786,6 +785,51 @@
     </div>
 
 
+    <div id="overlay" class="overlay">
+
+    </div>
+    <div id="popupx" class="popupx">
+        <div class="relative  w-full  max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg  dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                        Select Location
+                    </h3>
+                    <button type="button" onclick="closePopup()"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                        data-modal-toggle="crud-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5">
+                    <div class="grid gap-4 mb-4 grid-cols-1">
+                        <div class="col-span-2 sm:col-span-1">
+                            <label for="category"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stores</label>
+                            <select id="locationSelect"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                <option selected disabled>Select Location</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button onclick="closePopup()"
+                        class="justify-center w-full text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-center">
+                        Choose the area
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Scripts -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -795,13 +839,22 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
+        setTimeout(() => {
+            let item = localStorage.getItem('branch')
+            if (item) {
+                console.log("branch is", item)
+            } else {
+                openPopup()
+            }
+        }, 1000);
+
         let isPopupOpen = false;
 
         function openPopup() {
+            // Check if the popup is not already open
             if (!isPopupOpen) {
                 // Set the flag to true
                 isPopupOpen = true;
-
                 // Show the overlay and popup
                 document.getElementById('overlay').style.display = 'block';
                 document.getElementById('popupx').style.display = 'block';
@@ -813,15 +866,34 @@
             if (isPopupOpen) {
                 // Set the flag to false
                 isPopupOpen = false;
-
                 // Hide the overlay and popup
                 document.getElementById('overlay').style.display = 'none';
                 document.getElementById('popupx').style.display = 'none';
             }
         }
+
+
         const id2 = JSON.parse(window.localStorage.getItem('storeduser'))
         const id1 = id2._id;
 
+        let areas = null
+
+        axios.get('http://localhost:8888/get-areas')
+            .then(function (response) {
+                areas = response.data;
+                const locationSelect = document.getElementById('locationSelect');
+                areas.forEach(area => {
+                    const option = document.createElement('option');
+                    option.value = area._id;
+                    option.textContent = area.name;
+                    locationSelect.appendChild(option);
+                });
+
+            })
+            .catch(function (error) {
+                // Handle errors
+                console.error(error);
+            });
         async function getFav() {
             try {
 
@@ -863,6 +935,9 @@
             window.localStorage.setItem('branch', selectElement.value)
         }
 
+        let subcats = []
+
+
         // let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
         axios.get('http://localhost:8888/get-all-categories')
             .then(async function (response) {
@@ -872,52 +947,87 @@
                     const subcategoriesResponse = await axios.post('http://localhost:8888/get-subcategories', {
                         parentCategoryId: category._id,
                     });
+                    // subcats.push(...subcategoriesResponse.data)
+                    subcategoriesResponse.data.forEach((item) => {
+                        subcats.push(item)
+                    })
                     mydata.set(category.name, subcategoriesResponse.data)
                 }
 
-                let container = document.getElementById("mega-menu-list")
+
+                // subcat_container
+                // let subcat_container = document.getElementById("subcat_container")
+
+
+                // subcats.forEach(element => {
+                //     let html = ` <div radius="104px" id="undefined_7243" class="css-3wkdtx">
+                //                     <div radius="104px" data-testid="image-circle-2" class="css-mxvkng">
+                //                         <a href="https://www.carrefour.pk/mafpak/en/c/Offer_Lowest_Price">
+                //                             <div radius="104px" class="css-15lamc8"><img height="auto" width="100%"
+                //                                     src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/Lowest_Prices_EN_2x_d1a2a241a5.png"
+                //                                     alt="Lowest Prices" class="css-ziidzl"></div>
+                //                             <div font-size="12px" data-testid="title" class="css-1sc22zy">${element?.subCategoryName}</div>
+                //                         </a>
+                //                     </div>
+                //                 </div>`
+                //     subcat_container.innerHTML += html
+                // });
+
+
+
+                let container = document.getElementById("mega-menu-list");
 
                 let index = 1;
                 for (const [key, value] of mydata.entries()) {
                     let dropdownToggle = `mega-menu-dropdown-${index}`;
-                    let dropdownId = `mega-menu-dropdown-${index}`;
+                    let dropdownId = `mega-menu-content-${index}`;
                     let html = `
-                    <li>
-                            <button  id="mega-menu-dropdown-button" data-dropdown-toggle="${dropdownToggle}"
-                                class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
-                                ${key} <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m1 1 4 4 4-4" />
-                                </svg>
-                            </button>
-                            <div  id="${dropdownId}"
-                                class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
-                                <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
-                                    <ul class="space-y-4" aria-labelledby="mega-menu-dropdown-button">
-                                      ${value?.map((item) => {
+            <li>
+                <button id="${dropdownToggle}" data-dropdown-toggle="${dropdownId}"
+                    class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                    ${key} <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="m1 1 4 4 4-4" />
+                    </svg>
+                </button>
+                <div  id="${dropdownId}"
+                    class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
+                    <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
+                        <ul class="space-y-4" aria-labelledby="${dropdownToggle}">
+                            ${value?.map((item) => {
                         return `<li>
-                                              <a href="${'file:///home/madmachine/projects/ecommerce-app-risen/frontend/category.html?id=' + item?._id}"
-                                                  class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                  ${item?.subCategoryName}
-                                              </a>
-                                          </li>`
+                                    <a href="${'category.html?id=' + item?._id}"
+                                        class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
+                                        ${item?.subCategoryName}
+                                    </a>
+                                </li>`;
                     }).join('')}
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>`
-
-                    container.innerHTML += html
-                    index++
-
+                        </ul>
+                    </div>
+                </div>
+            </li>`;
+                    container.innerHTML += html;
+                    index++;
                 }
+
+                // Event delegation on the container
+                container.addEventListener("click", function (event) {
+                    const target = event.target;
+                    const dropdownId = target.dataset.dropdownToggle;
+                    const dropdownContent = document.getElementById(dropdownId);
+
+                    if (dropdownContent) {
+                        dropdownContent.classList.toggle("hidden");
+                    }
+                }); u
+
+
 
             })
             .catch(function (error) {
                 // Handle error
             });
-
         // categoryname
         let url = window.location.href;
         var match = url.match(/[?&]id=([^&]*)/);

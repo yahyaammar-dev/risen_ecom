@@ -1272,7 +1272,7 @@
         }
         let user = JSON.parse(window.localStorage.getItem('storeduser'))
         if (!user) {
-            window.location.href = 'file:///home/madmachine/projects/ecommerce-app-risen/frontend/login.html'
+            window.location.href = 'login.html'
         }
         console.log('user is', user)
         let email = user?.email || 'Enter Name Here'
@@ -1294,8 +1294,10 @@
 
             axios.post('http://localhost:8888/update-user', data)
                 .then((res) => {
-                    window.localStorage.removeItem('user')
-                    window.localStorage.setItem('user', res.data)
+                    console.log(res.data);
+                    window.localStorage.removeItem("storeduser")
+                    window.localStorage.setItem('storeduser', res.data)
+                    alert("updated");
                 })
                 .catch((err) => {
                     console.log(err)
@@ -1306,8 +1308,6 @@
 
 
         document.addEventListener('DOMContentLoaded', async function () {
-
-
             const data = {
                 email: email,
             };
@@ -1329,9 +1329,6 @@
         }
 
     </script>
-
-
-
 
 </body>
 
