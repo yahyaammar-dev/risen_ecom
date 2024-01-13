@@ -1182,7 +1182,7 @@
                 cartContent.appendChild(cartItemElement);
             });
             setTimeout(() => {
-                const removeButton = document.querySelector('.remove-item-button');
+                const removeButton = document?.querySelector('.remove-item-button');
                 removeButton.addEventListener('click', () => {
                     console.log('kuch ho rha hy?')
                     const updatedCart = existingCart.filter(cartItem => cartItem._id !== item._id);
@@ -1494,16 +1494,16 @@
                     // Append the cart item element to the #cartContent element
                     cartContent.appendChild(cartItemElement);
                 });
-                setTimeout(() => {
-                    const removeButton = document.querySelector('.remove-item-button');
-                    removeButton.addEventListener('click', () => {
-                        // Remove the item from the cart
-                        const updatedCart = existingCart.filter(cartItem => cartItem._id !== item._id);
-                        // Update local storage with the new cart
-                        localStorage.setItem('cart', JSON.stringify(updatedCart));
-                    });
+                // setTimeout(() => {
+                //     const removeButton = document.querySelector('.remove-item-button');
+                //     removeButton.addEventListener('click', () => {
+                //         // Remove the item from the cart
+                //         const updatedCart = existingCart.filter(cartItem => cartItem._id !== item._id);
+                //         // Update local storage with the new cart
+                //         localStorage.setItem('cart', JSON.stringify(updatedCart));
+                //     });
 
-                }, 1000);
+                // }, 1000);
             }
 
         })
@@ -1544,6 +1544,18 @@
         document.getElementById('locationSelect').addEventListener('change', handleLocationChange);
         let fav = []
         async function ppp() {
+
+
+            setTimeout(() => {
+
+                document.querySelectorAll('.add-to-cart-button').forEach(button => {
+                    button.addEventListener('click', addToCart);
+                });
+
+            }, 3000)
+
+
+
             axios.get('http://localhost:8888/get-last-schedule')
                 .then(function (response) {
                     areas = response.data;
@@ -1570,14 +1582,14 @@
             } catch (error) {
                 console.error('Error fetching products:', error);
             }
-            // Add click event listener to each "Add To Cart" button
-            document.querySelectorAll('.add-to-cart-button').forEach(button => {
-                button.addEventListener('click', addToCart);
-            });
         }
 
 
         document.addEventListener('DOMContentLoaded', ppp());
+
+        document.addEventListener('DOMContentLoaded', () => { console.log("yahya hello sjalfjdsk") });
+
+
 
         async function populateProducts(products, containerId) {
             fav = []
@@ -1605,7 +1617,7 @@
                 container.appendChild(productElement);
             });
         }
-        
+
         function createProductElement(product, isFavorite) {
             const imageUrl = product.images && product.images.length > 0
                 ? `http://localhost:8888/${product.images[0]}`
@@ -1648,7 +1660,7 @@
         </div>
 
         ${existingCart?.some(item => item.productId === product._id) ?
-            `<div class="flex items-center">
+                    `<div class="flex items-center">
                 <button data-product-id="${product?._id}" class="flex-none text-sm text-white transition-all bg-blue-500 rounded-l-xl hover:bg-blue-600 p-2 h-8">
                     -
                 </button>
@@ -1722,19 +1734,19 @@
                     Response.data.forEach(async (item) => {
                         let favs = document.getElementById('favoritieContent')
                         favs.innerHTML = '';
-                            const response = await fetch(`http://localhost:8888/product-details/${item.product}`);
-                            const productDetails = await response.json()
-                            console.log("The details of product are", productDetails)
-                            const cartItemElement = document.createElement('div');
-                            cartItemElement.classList.add('cart-item');
-                            cartItemElement.innerHTML = `<div class="my-4" class="cart-item-image">
+                        const response = await fetch(`http://localhost:8888/product-details/${item.product}`);
+                        const productDetails = await response.json()
+                        console.log("The details of product are", productDetails)
+                        const cartItemElement = document.createElement('div');
+                        cartItemElement.classList.add('cart-item');
+                        cartItemElement.innerHTML = `<div class="my-4" class="cart-item-image">
                         <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${productDetails.name}</h5>
                             <p class="font-normal text-gray-700 dark:text-gray-400">${productDetails.description}</p>
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${productDetails.price ? productDetails.price : 0}</h5>
                         </a>
                         </div>`;
-                            favs.appendChild(cartItemElement);
+                        favs.appendChild(cartItemElement);
                     });
                 }
                 else {
