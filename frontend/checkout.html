@@ -73,6 +73,11 @@
         .css-1qy7g6h {
             flex-wrap: wrap;
         }
+
+        .indexBody {
+            margin: 10px 20px;
+            margin-bottom: 0;
+        }
     </style>
 
 
@@ -81,158 +86,112 @@
 <body>
 
     <!-- Header -->
-    <div class="header bg-white">
+    <div class="header bg-white indexBody">
         <div data-testid="main-pane" class="css-15zwyk6">
-            <div class="css-166ol68">
-                <div data-testid="drawer-menu-button" class="css-bd1z86"><button class="css-13e2t38"><i></i></button>
-                </div><a data-testid="carrefour_logo" href="https://www.carrefour.pk/mafpak/en/" class="css-4xhjn0">
-                    <div class="css-pefvse"><svg data-testid="CarrefourNewLogoMobile" width="32" height="32"
-                            viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="css-1bah3pf">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M14.7052 4C7.6181 4 2.66797 8.85053 2.66797 15.2812V28H6.78023C6.78023 28 6.77686 21.0029 6.77686 15.2719C6.77686 9.29023 11.2449 5.02383 15.729 4.09781C15.9116 4.05888 16.1254 4 15.9126 4H14.7052Z"
-                                fill="#DD2326"></path>
-                            <path
-                                d="M16.0247 4.41439C15.4822 4.59612 14.9448 4.8206 14.1709 5.30298C10.9412 7.30823 9.49354 10.9953 9.34739 14.5636C9.33792 14.7667 9.33548 14.9685 9.33548 15.1703V15.1694C9.33548 15.1891 9.33203 15.2921 9.33203 15.3258V28H13.5336V15.3258C13.5336 14.5257 13.8964 13.8111 14.4658 13.3373L16.1236 15.3258L17.7788 13.3376C18.3482 13.8111 18.7118 14.5257 18.7118 15.3258V28H22.9126V15.3258C22.9126 11.5786 19.8723 8.54092 16.1236 8.54092C15.2358 8.54092 14.3887 8.71032 13.6134 9.02029V9.01943C14.4738 8.00992 15.7736 7.50961 17.1946 7.47892H17.198C17.6416 7.4683 18.0973 7.50531 18.5541 7.58621C22.272 8.19467 25.1045 11.3083 25.119 15.0634C25.1261 15.2066 25.1287 15.3513 25.1287 15.4986V28H29.332V15.393C29.332 9.93284 26.0479 5.55471 20.4505 4.2513C20.2464 4.20497 19.9225 4.13971 19.6328 4.10098C19.2189 4.04604 18.7944 4 18.356 4C17.4465 4 16.7858 4.16094 16.0247 4.41439Z"
-                                fill="#0E5AA7"></path>
-                        </svg></div>
-                    <div class="css-v80skc">
-
-                        <img src="./images/logo.png" />
-
+            <div class="flex justify-between items-center sm:flex-nowrap  flex-wrap">
+                <a data-testid="" href="" class="">
+                    <div class="css-4xhjn0">
+                        <img class="css-4xhjn0-img" src="./images/logo.png" />
                     </div>
                 </a>
-                <div class="css-1ab06vv">
-                    <div data-testid="search-box-wrapper" class="css-1jv2uvu">
-                        <div class="css-1aer4pn"><input name="inputText" data-testid="header_search__inp"
-                                id="category_landing_page_search_input" type="text" placeholder="Search for products"
-                                autocomplete="off" class="css-qcxpjp" value=""><a data-testid="header_search__button"
-                                id="category_landing_page_search_btn" class="css-94cg66"><svg data-testid="Search"
-                                    viewBox="0 0 16 16" class="css-2wfeb7">
-                                    <path
-                                        d="M8.28585 0.678589C12.4872 0.678589 15.893 4.08442 15.893 8.28573C15.893 10.1163 15.2464 11.7959 14.1691 13.1085L17.0305 15.9697C17.3234 16.2626 17.3234 16.7375 17.0305 17.0303C16.7642 17.2966 16.3475 17.3208 16.0539 17.103L15.9698 17.0303L13.1086 14.169C11.796 15.2463 10.1164 15.8929 8.28585 15.8929C4.08454 15.8929 0.678711 12.487 0.678711 8.28573C0.678711 4.08442 4.08454 0.678589 8.28585 0.678589ZM8.28585 2.17859C4.91297 2.17859 2.17871 4.91285 2.17871 8.28573C2.17871 11.6586 4.91297 14.3929 8.28585 14.3929C9.86997 14.3929 11.3132 13.7897 12.3985 12.8006L12.6035 12.6034C13.7117 11.4939 14.393 9.96937 14.393 8.28573C14.393 4.91285 11.6587 2.17859 8.28585 2.17859Z"
-                                        fill="#747474"></path>
-                                </svg></a></div>
-                    </div>
-                </div>
-                <div data-testid="search-box-wrapper" class="css-c3gjbo">
-                    <div class="css-1aer4pn"><input name="inputText" data-testid="header_search__inp"
-                            id="category_landing_page_search_input" type="text" placeholder="Search for products "
-                            autocomplete="off" class="css-qcxpjp" value=""><a data-testid="header_search__button"
-                            id="category_landing_page_search_btn" class="css-94cg66"><svg data-testid="Search"
-                                viewBox="0 0 16 16" class="css-2wfeb7">
-                                <path
-                                    d="M8.28585 0.678589C12.4872 0.678589 15.893 4.08442 15.893 8.28573C15.893 10.1163 15.2464 11.7959 14.1691 13.1085L17.0305 15.9697C17.3234 16.2626 17.3234 16.7375 17.0305 17.0303C16.7642 17.2966 16.3475 17.3208 16.0539 17.103L15.9698 17.0303L13.1086 14.169C11.796 15.2463 10.1164 15.8929 8.28585 15.8929C4.08454 15.8929 0.678711 12.487 0.678711 8.28573C0.678711 4.08442 4.08454 0.678589 8.28585 0.678589ZM8.28585 2.17859C4.91297 2.17859 2.17871 4.91285 2.17871 8.28573C2.17871 11.6586 4.91297 14.3929 8.28585 14.3929C9.86997 14.3929 11.3132 13.7897 12.3985 12.8006L12.6035 12.6034C13.7117 11.4939 14.393 9.96937 14.393 8.28573C14.393 4.91285 11.6587 2.17859 8.28585 2.17859Z"
-                                    fill="#747474"></path>
-                            </svg></a></div>
-                </div>
+                <div class="flex items-center sm:justify-center justify-start sm:flex-nowrap  flex-wrap">
+                    <div class="css-15ffgiy" id="css-15ffgiy" data-modal-target="crud-modal"
+                        data-modal-toggle="crud-modal" onclick="openPopup()">
+                        <div class="mobile-area-section css-4cffwv" id="category_landing_page_address_change"
+                            data-sl="mask">
+                            <div data-testid="delivery_city_area" data-sl="mask" class="css-1vmlbcg">
+                                <div class="css-euj0yn"><svg data-testid="AreaChangeLocationNew" viewBox="0 0 14 16"
+                                        class="css-ekjjru">
+                                        <path
+                                            d="M7.33336 0C9.5515 0 11.5455 1.01409 12.8036 2.78191C14.0556 4.54078 14.3447 6.76756 13.5769 8.73847C13.3737 9.27141 13.0483 9.79281 12.6111 10.2847L7.77206 15.8031C7.66259 15.928 7.50219 16 7.33336 16C7.16454 16 7.00414 15.928 6.89467 15.8031L2.05425 10.2833C1.619 9.79413 1.29322 9.27216 1.08827 8.73491C0.322061 6.76756 0.611145 4.54078 1.86311 2.78191C3.12126 1.01409 5.11523 0 7.33336 0ZM11.7378 9.55528C12.0852 9.16425 12.3411 8.75772 12.4978 8.34653C13.133 6.71578 12.8924 4.87466 11.8555 3.41806C10.8156 1.95678 9.16733 1.11875 7.33336 1.11875C5.49936 1.11875 3.85093 1.95681 2.81102 3.41806C1.77437 4.87466 1.53389 6.71578 2.16755 8.34281C2.32582 8.75794 2.58168 9.16444 2.92896 9.55513L7.33336 14.5776L11.7351 9.55828C11.7358 9.55716 11.7368 9.55622 11.7378 9.55528Z"
+                                            fill="#0E5AA7"></path>
+                                        <path
+                                            d="M3.99951 6.66652C3.99951 4.82842 5.49494 3.33319 7.33284 3.33319C9.17075 3.33319 10.6662 4.82862 10.6662 6.66652C10.6662 8.50463 9.17095 9.99986 7.33284 9.99986C5.49474 9.99986 3.99951 8.50463 3.99951 6.66652ZM5.19033 6.66688C5.19033 7.84843 6.15164 8.80974 7.3332 8.80974C8.51475 8.80974 9.47607 7.84843 9.47607 6.66688C9.47607 5.48532 8.51475 4.52401 7.3332 4.52401C6.15164 4.52401 5.19033 5.48532 5.19033 6.66688Z"
+                                            fill="#0E5AA7"></path>
+                                    </svg>
+                                    <div class="css-zeeqtd">
+                                        <div class="css-1c19nm1"><span class="css-himknp">Deliver to:</i></i> </span>
+                                            <div data-testid="header_default_area" title="Akram Abad Walton - Lahore"
+                                                class="css-1p32cg5">Akram Abad Walton - Lahore</div>
 
-                <div class="css-15ffgiy" id="css-15ffgiy" data-modal-target="crud-modal" data-modal-toggle="crud-modal"
-                    onclick="openPopup()">
-                    <div class="mobile-area-section css-4cffwv" id="category_landing_page_address_change"
-                        data-sl="mask">
-                        <div data-testid="delivery_city_area" data-sl="mask" class="css-1vmlbcg">
-                            <div class="css-euj0yn"><svg data-testid="AreaChangeLocationNew" viewBox="0 0 14 16"
-                                    class="css-ekjjru">
-                                    <path
-                                        d="M7.33336 0C9.5515 0 11.5455 1.01409 12.8036 2.78191C14.0556 4.54078 14.3447 6.76756 13.5769 8.73847C13.3737 9.27141 13.0483 9.79281 12.6111 10.2847L7.77206 15.8031C7.66259 15.928 7.50219 16 7.33336 16C7.16454 16 7.00414 15.928 6.89467 15.8031L2.05425 10.2833C1.619 9.79413 1.29322 9.27216 1.08827 8.73491C0.322061 6.76756 0.611145 4.54078 1.86311 2.78191C3.12126 1.01409 5.11523 0 7.33336 0ZM11.7378 9.55528C12.0852 9.16425 12.3411 8.75772 12.4978 8.34653C13.133 6.71578 12.8924 4.87466 11.8555 3.41806C10.8156 1.95678 9.16733 1.11875 7.33336 1.11875C5.49936 1.11875 3.85093 1.95681 2.81102 3.41806C1.77437 4.87466 1.53389 6.71578 2.16755 8.34281C2.32582 8.75794 2.58168 9.16444 2.92896 9.55513L7.33336 14.5776L11.7351 9.55828C11.7358 9.55716 11.7368 9.55622 11.7378 9.55528Z"
-                                        fill="#0E5AA7"></path>
-                                    <path
-                                        d="M3.99951 6.66652C3.99951 4.82842 5.49494 3.33319 7.33284 3.33319C9.17075 3.33319 10.6662 4.82862 10.6662 6.66652C10.6662 8.50463 9.17095 9.99986 7.33284 9.99986C5.49474 9.99986 3.99951 8.50463 3.99951 6.66652ZM5.19033 6.66688C5.19033 7.84843 6.15164 8.80974 7.3332 8.80974C8.51475 8.80974 9.47607 7.84843 9.47607 6.66688C9.47607 5.48532 8.51475 4.52401 7.3332 4.52401C6.15164 4.52401 5.19033 5.48532 5.19033 6.66688Z"
-                                        fill="#0E5AA7"></path>
-                                </svg>
-                                <div class="css-zeeqtd">
-                                    <div class="css-1c19nm1"><span class="css-himknp">Deliver to:</i></i> </span>
-                                        <div data-testid="header_default_area" title="Akram Abad Walton - Lahore"
-                                            class="css-1p32cg5">Akram Abad Walton - Lahore</div>
-
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="css-hvc1jc"></div>
-                <div class="css-1qx9phl">
-                    <nav data-testid="loginRegister" class="css-1rhy5vl"><a href="login.html"
-                            data-testid="header_login_register" class="css-1bgs063" style="
-                        
-                        color: rgb(14, 90, 167);
-                        font-size: 12px;
-                        font-weight: 500;
-                        white-space: nowrap;
-                        margin-left: 10px;
-                        display: block;
-                        "><svg data-testid="UserInverse" viewBox="0 0 24 24" class="css-ekjjru">
-                                <g stroke-width="2" transform="translate(0, 0)">
-                                    <path data-cap="butt" data-color="color-2" fill="none" stroke="#0E5AA7"
-                                        stroke-width="2" stroke-miterlimit="10" d="M19,20.486v-0.745
-c0-1.077-0.577-2.071-1.512-2.605l-3.219-1.842" stroke-linejoin="miter" stroke-linecap="butt"></path>
-                                    <path data-cap="butt" data-color="color-2" fill="none" stroke="#0E5AA7"
-                                        stroke-width="2" stroke-miterlimit="10" d="M9.727,15.292l-3.215,1.844
-C5.577,17.67,5,18.664,5,19.741v0.745" stroke-linejoin="miter" stroke-linecap="butt"></path>
-                                    <path data-color="color-2" fill="none" stroke="#0E5AA7" stroke-width="2"
-                                        stroke-linecap="square" stroke-miterlimit="10" d="M12,16L12,16
-c-2.209,0-4-1.791-4-4v-2c0-2.209,1.791-4,4-4h0c2.209,0,4,1.791,4,4v2C16,14.209,14.209,16,12,16z"
-                                        stroke-linejoin="miter"></path>
-                                    <circle fill="none" stroke="#0E5AA7" stroke-width="2" stroke-linecap="square"
-                                        stroke-miterlimit="10" cx="12" cy="12" r="11" stroke-linejoin="miter">
-                                    </circle>
-                                </g>
-                            </svg><span class="css-y6db74">Login &amp; Register</span></a></nav>
-                </div>
-
-                <nav data-testid="miniCart" class="css-lmlqao"><a href="#" data-drawer-target="drawer-right-example"
-                        data-drawer-show="drawer-right-example" data-drawer-placement="right"
-                        aria-controls="drawer-right-example" class="css-1sqkjz4"><svg data-testid="CartInverse"
-                            viewBox="0 0 24 24" class="css-ekjjru">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M5.75 20C6.7165 20 7.5 20.7835 7.5 21.75C7.5 22.7165 6.7165 23.5 5.75 23.5C4.7835 23.5 4 22.7165 4 21.75C4 20.7835 4.7835 20 5.75 20ZM19.75 20C20.7165 20 21.5 20.7835 21.5 21.75C21.5 22.7165 20.7165 23.5 19.75 23.5C18.7835 23.5 18 22.7165 18 21.75C18 20.7835 18.7835 20 19.75 20ZM4.5 0V4H21.7106L19.3356 13.5H4.5V14.75C4.5 15.3972 4.99187 15.9295 5.62219 15.9935L5.75 16H22.5V17.5H5.75C4.28747 17.5 3.0916 16.3583 3.00502 14.9175L3 14.75V1.5H0V0H4.5ZM19.789 5.5H4.5V12H18.164L19.789 5.5Z"
-                                fill="#0E5AA7"></path>
-                        </svg>
-                    </a>
-                </nav>
-                <div class="favourite">
-                    <button onclick="getFav()">Favourite</button>
-                    <div id="favouriteDiv">
-
+                    <!-- <div class="css-hvc1jc"></div> -->
+                    <div class="css-1qx9phl">
+                        <nav data-testid="loginRegister" class="css-1rhy5vl"><a href="login.html"
+                                data-testid="header_login_register" class="css-1bgs063" style="
+                                
+                                color: rgb(14, 90, 167);
+                                font-size: 12px;
+                                font-weight: 500;
+                                white-space: nowrap;
+                                margin-right: 10px;
+                                display: block;
+                                ">
+                                <svg data-testid="UserInverse" viewBox="0 0 24 24" class="css-ekjjru">
+                                    <g stroke-width="2" transform="translate(0, 0)">
+                                        <path data-cap="butt" data-color="color-2" fill="none" stroke="#0E5AA7"
+                                            stroke-width="2" stroke-miterlimit="10"
+                                            d="M19,20.486v-0.745c0-1.077-0.577-2.071-1.512-2.605l-3.219-1.842"
+                                            stroke-linejoin="miter" stroke-linecap="butt"></path>
+                                        <path data-cap="butt" data-color="color-2" fill="none" stroke="#0E5AA7"
+                                            stroke-width="2" stroke-miterlimit="10"
+                                            d="M9.727,15.292l-3.215,1.844C5.577,17.67,5,18.664,5,19.741v0.745"
+                                            stroke-linejoin="miter" stroke-linecap="butt"></path>
+                                        <path data-color="color-2" fill="none" stroke="#0E5AA7" stroke-width="2"
+                                            stroke-linecap="square" stroke-miterlimit="10"
+                                            d="M12,16L12,16c-2.209,0-4-1.791-4-4v-2c0-2.209,1.791-4,4-4h0c2.209,0,4,1.791,4,4v2C16,14.209,14.209,16,12,16z"
+                                            stroke-linejoin="miter"></path>
+                                        <circle fill="none" stroke="#0E5AA7" stroke-width="2" stroke-linecap="square"
+                                            stroke-miterlimit="10" cx="12" cy="12" r="11" stroke-linejoin="miter">
+                                        </circle>
+                                    </g>
+                                </svg>
+                                <span class="css-y6db74">Login &amp; Register</span></a></nav>
                     </div>
-                </div>
 
-            </div>
-            <!-- only on mobile search bar -->
-            <div class="css-ybku6k">
-                <div class="css-18x3rle">
-                    <div data-testid="search-box-wrapper" class="css-1jv2uvu">
-                        <div class="css-1aer4pn"><input name="inputText" data-testid="header_search__inp"
-                                id="category_landing_page_search_input" type="text" placeholder="Search for products"
-                                autocomplete="off" class="css-qcxpjp" value=""><a data-testid="header_search__button"
-                                id="category_landing_page_search_btn" class="css-94cg66"><svg data-testid="Search"
-                                    viewBox="0 0 16 16" class="css-2wfeb7">
-                                    <path
-                                        d="M8.28585 0.678589C12.4872 0.678589 15.893 4.08442 15.893 8.28573C15.893 10.1163 15.2464 11.7959 14.1691 13.1085L17.0305 15.9697C17.3234 16.2626 17.3234 16.7375 17.0305 17.0303C16.7642 17.2966 16.3475 17.3208 16.0539 17.103L15.9698 17.0303L13.1086 14.169C11.796 15.2463 10.1164 15.8929 8.28585 15.8929C4.08454 15.8929 0.678711 12.487 0.678711 8.28573C0.678711 4.08442 4.08454 0.678589 8.28585 0.678589ZM8.28585 2.17859C4.91297 2.17859 2.17871 4.91285 2.17871 8.28573C2.17871 11.6586 4.91297 14.3929 8.28585 14.3929C9.86997 14.3929 11.3132 13.7897 12.3985 12.8006L12.6035 12.6034C13.7117 11.4939 14.393 9.96937 14.393 8.28573C14.393 4.91285 11.6587 2.17859 8.28585 2.17859Z"
-                                        fill="#747474"></path>
-                                </svg></a></div>
+                    <nav data-testid="miniCart" class="css-lmlqao">
+                        <a href="#" data-drawer-target="drawer-right-example" data-drawer-show="drawer-right-example"
+                            data-drawer-placement="right" aria-controls="drawer-right-example" class="css-1sqkjz4">
+                            <svg data-testid="CartInverse" viewBox="0 0 24 24" class="css-ekjjru">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.75 20C6.7165 20 7.5 20.7835 7.5 21.75C7.5 22.7165 6.7165 23.5 5.75 23.5C4.7835 23.5 4 22.7165 4 21.75C4 20.7835 4.7835 20 5.75 20ZM19.75 20C20.7165 20 21.5 20.7835 21.5 21.75C21.5 22.7165 20.7165 23.5 19.75 23.5C18.7835 23.5 18 22.7165 18 21.75C18 20.7835 18.7835 20 19.75 20ZM4.5 0V4H21.7106L19.3356 13.5H4.5V14.75C4.5 15.3972 4.99187 15.9295 5.62219 15.9935L5.75 16H22.5V17.5H5.75C4.28747 17.5 3.0916 16.3583 3.00502 14.9175L3 14.75V1.5H0V0H4.5ZM19.789 5.5H4.5V12H18.164L19.789 5.5Z"
+                                    fill="#0E5AA7"></path>
+                            </svg>
+                        </a>
+                    </nav>
+                    <div class="favourite" data-testid="miniCart2" class="css-lmlqao"><a href="#"
+                            data-drawer-target="drawer-right-example2" data-drawer-show="drawer-right-example2"
+                            data-drawer-placement="right" aria-controls="drawer-right-example2" class="css-1sqkjz4">
+                            <button onclick="getFav()" class="favourite">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                </svg>
+                            </button>
+                        </a>
+                        <div id="favouriteDiv">
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
+
         <!-- Mega Menu -->
-        <nav class="bg-white border-gray-200 dark:bg-gray-900">
-            <div class="flex flex-wrap items-center justify-between max-w-[1440px] mx-auto py-4">
-                <div id="mega-menu" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
+        <nav class="bg-white border-gray-200 dark:bg-gray-900 md:mt-10">
+            <div class="flex items-center justify-center mx-auto py-4">
+                <div id="mega-menu" class="items-center justify-center w-full md:flex md:w-auto md:order-1">
                     <ul id="mega-menu-list"
-                        class="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
+                        class="flex flex-col mt-4 font-medium md:flex-row md:flex-wrap md:mt-2 md:space-x-8 rtl:space-x-reverse md:space-x-reverse">
                     </ul>
                 </div>
             </div>
         </nav>
-
-
-
-
-
-
     </div>
 
     <section class="flex items-center py-16 bg-gray-50 font-poppins dark:bg-gray-800 ">
@@ -283,8 +242,7 @@ c-2.209,0-4-1.791-4-4v-2c0-2.209,1.791-4,4-4h0c2.209,0,4,1.791,4,4v2C16,14.209,1
                         class="w-full px-6 py-3 text-blue-500 border border-blue-500 rounded-md md:w-auto hover:text-gray-100 hover:bg-blue-600 dark:border-gray-800 dark:hover:bg-gray-800 dark:text-gray-300">
                         Go back shopping
                     </button>
-                    <button
-                        onclick="placeOrder()"
+                    <button onclick="placeOrder()"
                         class="w-full px-6 py-3 text-gray-100 bg-blue-500 rounded-md md:w-auto dark:text-gray-300 hover:bg-blue-600 dark:hover:bg-gray-800 dark:bg-gray-700">
                         Place Order
                     </button>
@@ -300,7 +258,7 @@ c-2.209,0-4-1.791-4-4v-2c0-2.209,1.791-4,4-4h0c2.209,0,4,1.791,4,4v2C16,14.209,1
 
     <!-- Footer -->
     <div class="bg-gray-100">
-        <div class="w-[1440px] mx-auto mt-20">
+        <div class="mx-auto mt-20">
             <footer class="bg-gray-100 dark:bg-gray-900">
                 <div class="mx-auto w-full p-4 py-6 lg:py-8">
                     <div class="md:flex md:justify-between">
@@ -529,10 +487,165 @@ c-2.209,0-4-1.791-4-4v-2c0-2.209,1.791-4,4-4h0c2.209,0,4,1.791,4,4v2C16,14.209,1
                 </svg></a>
         </div>
     </div>
+
+    <div id="drawer-right-example2"
+        class="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-80 dark:bg-gray-800"
+        tabindex="-1" aria-labelledby="drawer-right-label">
+        <h5 id="drawer-right-label"
+            class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400"><svg
+                class="w-4 h-4 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                viewBox="0 0 20 20">
+                <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+            </svg>Right drawer</h5>
+        <button type="button" data-drawer-hide="drawer-right-example2" aria-controls="drawer-right-example2"
+            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+            </svg>
+            <span class="sr-only">Close menu</span>
+        </button>
+
+
+        <div id="favoritieContent">
+            <!-- all content goes here -->
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+            <div>
+
+            </div>
+            <a href="#"
+                class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Move
+                To Checkout <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg></a>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
     <script>
+        let isPopupOpen = false;
+
+        function openPopup() {
+            if (!isPopupOpen) {
+                // Set the flag to true
+                isPopupOpen = true;
+
+                // Show the overlay and popup
+                document.getElementById('overlay').style.display = 'block';
+                document.getElementById('popupx').style.display = 'block';
+            }
+        }
+
+        function closePopup() {
+            // Check if the popup is open
+            if (isPopupOpen) {
+                // Set the flag to false
+                isPopupOpen = false;
+
+                // Hide the overlay and popup
+                document.getElementById('overlay').style.display = 'none';
+                document.getElementById('popupx').style.display = 'none';
+            }
+        }
+        const id2 = JSON.parse(window.localStorage.getItem('storeduser'))
+        const id1 = id2._id;
+
+        async function getFav() {
+            try {
+
+                let count = 0;
+                const Response = await axios.get('http://localhost:8888/get-favourite', { params: { id: id1 } })
+                if (Response.status == 200) {
+                    const favouriteDiv = document.getElementById('favouriteDiv');
+                    // Loop through the data and create <p> tags to display each item
+                    Response.data.forEach(async (item) => {
+                        let favs = document.getElementById('favoritieContent')
+                        favs.innerHTML = '';
+                        const response = await fetch(`http://localhost:8888/product-details/${item.product}`);
+                        const productDetails = await response.json()
+                        console.log("The details of product are", productDetails)
+                        const cartItemElement = document.createElement('div');
+                        cartItemElement.classList.add('cart-item');
+                        cartItemElement.innerHTML = `<div class="my-4" class="cart-item-image">
+                <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${productDetails.name}</h5>
+                    <p class="font-normal text-gray-700 dark:text-gray-400">${productDetails.description}</p>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${productDetails.price ? productDetails.price : 0}</h5>
+                </a>
+                </div>`;
+                        favs.appendChild(cartItemElement);
+                    });
+                }
+                else {
+                    console.log(Response.error)
+                }
+            }
+            catch (error) {
+                throw error
+            }
+        }
+
+
+        axios.get('http://localhost:8888/get-all-categories')
+            .then(async function (response) {
+                let mydata = new Map()
+                let temp = response.data.categories
+                for (const category of temp) {
+                    const subcategoriesResponse = await axios.post('http://localhost:8888/get-subcategories', {
+                        parentCategoryId: category._id,
+                    });
+                    mydata.set(category.name, subcategoriesResponse.data)
+                }
+
+                let container = document.getElementById("mega-menu-list")
+
+                let index = 1;
+                for (const [key, value] of mydata.entries()) {
+                    let dropdownToggle = `mega-menu-dropdown-${index}`;
+                    let dropdownId = `mega-menu-dropdown-${index}`;
+                    let html = `
+                    <li>
+                            <button  id="mega-menu-dropdown-button" data-dropdown-toggle="${dropdownToggle}"
+                                class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                                ${key} <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 1 4 4 4-4" />
+                                </svg>
+                            </button>
+                            <div  id="${dropdownId}"
+                                class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
+                                <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
+                                    <ul class="space-y-4" aria-labelledby="mega-menu-dropdown-button">
+                                      ${value?.map((item) => {
+                        return `<li>
+                                              <a href="${'file:///home/madmachine/projects/ecommerce-app-risen/frontend/category.html?id=' + item?._id}"
+                                                  class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
+                                                  ${item?.subCategoryName}
+                                              </a>
+                                          </li>`
+                    }).join('')}
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>`
+
+                    container.innerHTML += html
+                    index++
+
+                }
+
+            })
+            .catch(function (error) {
+                // Handle error
+            });
         let ele = document.getElementById("productcontainer")
 
 
@@ -584,35 +697,63 @@ c-2.209,0-4-1.791-4-4v-2c0-2.209,1.791-4,4-4h0c2.209,0,4,1.791,4,4v2C16,14.209,1
                     </div>
                 </div>
               `
-                ele.innerHTML += html
+                    ele.innerHTML += html
                 })
                 .catch(error => {
                     // Handle errors here
                     console.error("Error fetching data:", error);
                 });
-            })
+        })
 
         function placeOrder() {
-            let products = JSON.parse(window.localStorage.getItem('cart'))
-            let user = JSON?.parse(window.localStorage.getItem('user'))
-            let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
-            let amount = 5000
+            let amount = 0;
+            let products = JSON.parse(window.localStorage.getItem('cart')) || [];
+            // console.log('eusgjh sa', window.localStorage.getItem('admin'));
+            let user = JSON.parse(window.localStorage.getItem('storeduser')) || {};
+            let adminData = JSON.parse(window.localStorage.getItem('admin')) || {};
+            let branchId = adminData.branch || null;
+            let price = 5000;
 
-            let data = {
-                amount, branchId, products, user
+            if (price > 2000) {
+                amount = price;
+            } else {
+                amount = amount + 200;
             }
 
-            axios.post('http://localhost:8888/create-order',data)
-            .then((res)=>{
-                console.log(res)
-                if(res.status == 200 || res.status == 201){
-                    alert("Order has been placed")
-                }
-            })
-            .catch((err)=>{
-                console.log("There is an error plesae try again later")
-            })
+            console.log(amount, branchId, products, user)
+
+            // Validating that required values are not null or undefined
+            if (amount !== null && products !== null && user !== null) {
+                let data = {
+                    amount,
+                    branchId,
+                    products,
+                    user
+                };
+
+                axios.post('http://localhost:8888/create-order', data)
+                    .then((res) => {
+                        console.log(res);
+                        if (res.status == 200 || res.status == 201) {
+                            alert("Order has been placed");
+                        }
+                    })
+                    .catch((err) => {
+                        console.log("There is an error, please try again later", err);
+                    });
+                // Now you can use the 'data' object as needed
+                console.log(data);
+            } else {
+                alert("Some required values are missing or invalid.");
+                console.error("Some required values are missing or invalid.");
+            }
+
         }
+
+
+
+
     </script>
 </body>
+
 </html>

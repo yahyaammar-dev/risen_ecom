@@ -346,6 +346,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
+
         // Get all stores
         app.get('/get-all-stores', async (req, res) => {
             try {
@@ -558,7 +559,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         });
 
         // Get all Subcategories API
-        app.get('/get-all-subcategories', async (req, res) => {
+        app.get('/get-all-subcategoriess', async (req, res) => {
             try {
                 const subcategories = await SubCategory.find().populate('parentCategoryId');
                 res.status(200).json(subcategories);
@@ -738,6 +739,16 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
+        app.delete('/delete-favourite', async (req, res) => {
+            try {
+                const pid = req.query.id
+                const favourite = await Favourite.findOneAndDelete({ product: pid });
+                res.status(200).json({ favourite });
+            } catch (error) {
+                res.status(500).json({ message: error.message });
+            }
+        });
+
         // admin should be able to see order detail
         app.post('/order-details', async (req, res) => {
             const { orderId } = req.body;
@@ -754,12 +765,13 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
 
         // Create Category API
         app.post('/create-category', upload.single('categoryImage'), async (req, res) => {
-            const { categoryName } = req.body;
+            const { categoryName, branchId } = req.body;
 
             try {
                 // Create a new category
                 const category = new Category({
                     name: categoryName,
+                    branchId: branchId,
                     image: req.file.path,
                 });
 
@@ -859,7 +871,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                     // send mail with defined transport object
                     const info = await transporter.sendMail({
                         from: '"Maddison Foo Koch 👻" <yahyaamar4807@gmail.com>', // sender address
-                        to: email, // list of receivers
+                        to: 'yahyaammar4807@gmail.com', // list of receivers
                         subject: "OTP ✔", // Subject line
                         text: otp.toString(), // plain text body
                         html: otp.toString(), // html body
@@ -870,11 +882,6 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 }
 
                 main().catch(console.error);
-
-
-
-
-
 
                 res.status(201).json({ message: 'User created successfully', user });
             } catch (error) {
@@ -933,29 +940,62 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         });
 
         // Update the product
+        const mongoose = require('mongoose');
+
         app.put('/update-product', upload.array('image[]'), async (req, res) => {
             try {
-                const { id, barcode, name, category, description, branchId } = req.body;
+                if (req?.files) {
+                    const { id, barcodeId, name, price, description } = req.body;
+                    // Check if id is a valid ObjectId
+                    if (!mongoose.Types.ObjectId.isValid(id)) {
+                        return res.status(400).json({ error: 'Invalid product ID' });
+                    }
 
-                const newImages = req?.files?.map(file => file.path);
-                const updatedProduct = await Product.findByIdAndUpdate(
-                    { _id: id },
-                    {
-                        $set: {
-                            name,
-                            category,
-                            description,
-                            branchId,
+                    const newImages = req?.files?.map(file => file.path);
+                    const updatedProduct = await Product.findByIdAndUpdate(
+                        { _id: id },
+                        {
+                            $set: {
+                                name,
+                                price,
+                                description,
+                                barcodeId,
+                            },
+                            $push: { images: { $each: newImages } }, // Append new images
                         },
-                        $push: { images: { $each: newImages } }, // Append new images
-                    },
-                    { new: true } // Return the updated document
-                );
+                        { new: true } // Return the updated document
+                    );
 
-                if (updatedProduct) {
-                    return res.status(200).json(updatedProduct);
+                    if (updatedProduct) {
+                        return res.status(200).json(updatedProduct);
+                    } else {
+                        return res.status(404).json({ error: 'Product not found' });
+                    }
                 } else {
-                    return res.status(404).json({ error: 'Product not found' });
+                    const { id, barcodeId, name, price, description } = req.body;
+                    // Check if id is a valid ObjectId
+                    if (!mongoose.Types.ObjectId.isValid(id)) {
+                        return res.status(400).json({ error: 'Invalid product ID' });
+                    }
+
+                    const updatedProduct = await Product.findByIdAndUpdate(
+                        { _id: id },
+                        {
+                            $set: {
+                                name,
+                                price,
+                                description,
+                                barcodeId,
+                            }
+                        },
+                        { new: true } // Return the updated document
+                    );
+
+                    if (updatedProduct) {
+                        return res.status(200).json(updatedProduct);
+                    } else {
+                        return res.status(404).json({ error: 'Product not found' });
+                    }
                 }
             } catch (error) {
                 console.error(error);
@@ -963,14 +1003,16 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
+
         // Update the product
-        app.put('/update-category', async (req, res) => {
+        app.put('/update-category', upload.single('file'), async (req, res) => {
             try {
                 const { id, name } = req.body;
+                const image = req.file ? req.file.path : null;
 
                 const data = {
-                    id,
-                    name
+                    name,
+                    image
                 };
 
                 const updatedProduct = await Category.findOneAndUpdate(
@@ -1030,7 +1072,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
 
         // admin should be able to create products
         app.post('/create-product', upload.array('images', 5), async (req, res) => {
-            const { name, description, amount, category, barcodeId, subcategory } = req.body;
+            const { name, description, amount, category, barcodeId, subcategory, branchId } = req.body;
             const imagePaths = req.files ? req.files.map(file => file.path) : [];
 
             try {
@@ -1048,6 +1090,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                     category: category,
                     images: imagePaths,
                     barcodeId: barcodeId,
+                    branchId: branchId,
                     subcategory: subcategory
                 });
 
@@ -1115,6 +1158,29 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 res.status(200).json({ notifcations });
             } catch (error) {
                 res.status(500).json({ message: error.message });
+            }
+        });
+
+        app.post('/dublicate-product', async (req, res) => {
+            const { sourceBranchId, destinationBranchId } = req.body;
+            console.log(req.body)
+            try {
+                // Find all products with the sourceBranchId
+                const productsToDuplicate = await Product.find({ branchId: sourceBranchId });
+
+                // Create copies of each product with the new destinationBranchId
+                const duplicatedProducts = productsToDuplicate.map(product => ({
+                    ...product.toObject(),
+                    _id: undefined, // Exclude original ID to create a new entry
+                    branchId: destinationBranchId // Set the destination branch ID
+                }));
+
+                // Insert the duplicated products into the database
+                const insertedProducts = await Product.insertMany(duplicatedProducts);
+
+                res.status(200).json({ message: 'Products duplicated successfully', data: insertedProducts });
+            } catch (error) {
+                res.status(500).json({ error: 'Unable to duplicate products', message: error.message });
             }
         });
 
@@ -1200,12 +1266,14 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
 
                 // Check if branchId is provided
                 if (!branchId) {
+                    console.log("up")
                     const users = await User.find();
                     res.status(200).json({ users });
                     return
                 }
-
+                console.log(branchId);
                 const users = await User.find({ 'branch': branchId });
+                console.log(users);
                 res.status(200).json({ users });
             } catch (error) {
                 res.status(500).json({ message: error.message });
@@ -1317,10 +1385,11 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         // Get all categories
         app.get('/get-all-subcategories', async (req, res) => {
             try {
-                const branchId = req?.query?.branchId;
+                const pId = req?.query?.id;
+                console.log("pid", pId);
                 let subcategories = null
-                if (branchId) {
-                    subcategories = await SubCategory.find({ branchId: branchId });
+                if (pId) {
+                    subcategories = await SubCategory.find({ parentCategoryId: new ObjectId(pId) });
                 } else {
                     subcategories = await SubCategory.find({});
                 }
@@ -1453,7 +1522,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
-        // Create Order
+        // Create Order here it is
         app.post('/create-order', async (req, res) => {
             const { amount, branchId, products, user } = req.body;
 
@@ -1475,6 +1544,35 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
 
 
                 await order.save();
+
+                const nodemailer = require("nodemailer");
+
+                const transporter = nodemailer.createTransport({
+                    host: "smtp.gmail.com",
+                    port: 587,
+                    secure: false, // `true` for port 465, `false` for all other ports
+                    auth: {
+                        user: "yahyaammar4807@gmail.com",
+                        pass: "pvoz ulzc qfyp rbmn",
+                    },
+                });
+
+                // async..await is not allowed in global scope, must use a wrapper
+                async function main() {
+                    // send mail with defined transport object
+                    const info = await transporter.sendMail({
+                        from: '"New Order 👻" <yahyaamar4807@gmail.com>', // sender address
+                        to: 'yahyaammar4807@gmail.com', // list of receivers
+                        subject: "Congratulations! You got new Order ✔", // Subject line
+                        text: `New order has been generated by user id ${order.id}`, // plain text body
+                        html: `New order has been generated by user id ${order.id}`, // html body
+                    });
+
+                    console.log("Message sent: %s", info.messageId);
+                    // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
+                }
+
+                main().catch(console.error);
 
                 res.status(201).json({ message: 'Order created successfully', order });
             } catch (error) {
@@ -1529,31 +1627,20 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         }
 
-
-
         // get user orders this month
-
         app.get('/user-orders-this-month', async (req, res) => {
             const userEmail = req.query.email; // Assuming the email is passed as a query parameter
-
             try {
-                // Find the user by email
                 const user = await User.findOne({ email: userEmail });
-
                 if (!user) {
                     return res.status(404).json({ message: 'User not found' });
                 }
-
-                // Get the first and last day of the current month
                 const startOfMonth = moment().startOf('month');
                 const endOfMonth = moment().endOf('month');
-
-                // Find orders for the current month
                 const orders = await Order.find({
                     user_id: user._id,
                     createdAt: { $gte: startOfMonth, $lte: endOfMonth },
                 });
-
                 res.status(200).json({ message: 'User orders for the current month', orders });
             } catch (error) {
                 console.error(error);
@@ -1561,11 +1648,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
             }
         });
 
-
-
-
         // get all promo codes where it belongs to products 
-
         app.get('/get-all-promocodes-of-products', async (req, res) => {
             try {
                 // Step 1: Fetch all products
@@ -1609,7 +1692,6 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 // Extract data from the request body
                 const { name, percentage, productIds } = req.body;
 
-                console.log(name, percentage, productIds)
 
                 // Create a new section
                 const newSection = new Section({
@@ -1619,7 +1701,44 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 });
 
                 // Save the section to the database
+
                 await newSection.save();
+
+                const nodemailer = require("nodemailer");
+
+                const transporter = nodemailer.createTransport({
+                    host: "smtp.gmail.com",
+                    port: 587,
+                    secure: false, // `true` for port 465, `false` for all other ports
+                    auth: {
+                        user: "yahyaammar4807@gmail.com",
+                        pass: "pvoz ulzc qfyp rbmn",
+                    },
+                });
+
+
+                const users = await User.find();
+
+                // Extract emails from the user documents
+                let emails = users.map(({ email }) => email);
+                emails = new Set(emails)
+                const emailArray = Array.from(emails);
+                // async..await is not allowed in global scope, must use a wrapper
+                async function main() {
+                    // send mail with defined transport object
+                    const info = await transporter.sendMail({
+                        from: '"Maddison Foo Koch 👻" <yahyaamar4807@gmail.com>', // sender address
+                        to: emailArray.join(', '), // join the array with commas to create a comma-separated list of email addresses
+                        subject: "Sale ✔", // Subject line
+                        text: "New Sale on Our Website please visit to find out", // plain text body
+                        html: "New Sale on Our Website please visit to find out", // html body
+                    });
+
+                    console.log("Message sent: %s", info.messageId);
+                    // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
+                }
+
+                main().catch(console.error);
 
                 res.status(201).json({ message: 'Section created successfully', section: newSection });
             } catch (error) {

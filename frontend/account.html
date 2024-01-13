@@ -1272,7 +1272,7 @@
         }
         let user = JSON.parse(window.localStorage.getItem('storeduser'))
         if (!user) {
-            window.location.href = 'file:///home/madmachine/projects/ecommerce-app-risen/frontend/login.html'
+            window.location.href = 'login.html'
         }
         console.log('user is', user)
         let email = user?.email || 'Enter Name Here'
@@ -1294,8 +1294,10 @@
 
             axios.post('http://localhost:8888/update-user', data)
                 .then((res) => {
-                    window.localStorage.removeItem('user')
-                    window.localStorage.setItem('user', res.data)
+                    console.log(res.data);
+                    window.localStorage.removeItem("storeduser")
+                    window.localStorage.setItem('storeduser', res.data)
+                    alert("updated");
                 })
                 .catch((err) => {
                     console.log(err)
@@ -1306,8 +1308,6 @@
 
 
         document.addEventListener('DOMContentLoaded', async function () {
-
-
             const data = {
                 email: email,
             };
@@ -1315,7 +1315,13 @@
                 const response = await fetch(`http://localhost:8888/user-orders-this-month?email=${email}`);
                 const responseData = await response.json();
 
-                console.log('User Orders till now:', responseData);
+                if(responseData?.orders?.length == 0){
+                    
+                    let bar = document.getElementById("progressbar")
+                    bar.style.width = 0
+                    bar.innerText  = 0
+
+                }
 
                 // Add your progress bar logic here
 
@@ -1329,9 +1335,6 @@
         }
 
     </script>
-
-
-
 
 </body>
 

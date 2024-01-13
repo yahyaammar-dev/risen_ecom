@@ -459,11 +459,10 @@
                         </div>
                     </nav>
                 </section>
-                <section class="px-4 py-6">
-                    <div class="grid grid-cols-1 gap-6 lg:grid-cols-1 ">
-
+                <section class="px-4 py-6 w-auto overflow-x-auto">
+                    <div class="grid grid-cols-1 gap-6 lg:grid-cols-1">
                         <div
-                            class="p-6 bg-white border border-gray-100 rounded-lg shadow dark:bg-gray-900 dark:border-gray-900 w-2/3 mx-auto">
+                            class="p-6 bg-white border border-gray-100 rounded-lg shadow dark:bg-gray-900 dark:border-gray-900 mx-auto">
                             <div class="pb-6 border-b border-gray-100 dark:border-gray-700 ">
                                 <h2 class="text-xl font-bold text-gray-800 md:text-3xl dark:text-gray-300">
                                     User Based
@@ -541,7 +540,7 @@
 
 
                         <div
-                            class="p-6 bg-white border border-gray-100 rounded-lg shadow dark:bg-gray-900 dark:border-gray-900 w-2/3 mx-auto">
+                            class="p-6 bg-white border border-gray-100 rounded-lg shadow dark:bg-gray-900 dark:border-gray-900 w-screen mx-auto">
                             <div class="pb-6 border-b border-gray-100 dark:border-gray-700 ">
                                 <h2 class="text-xl font-bold text-gray-800 md:text-3xl dark:text-gray-300">
                                     Category Based
@@ -619,9 +618,8 @@
 
 
 
-                        <div
-                            class="p-6 bg-white border border-gray-100 rounded-lg shadow dark:bg-gray-900 dark:border-gray-900 w-2/3 mx-auto">
-                            <div class="pb-6 border-b border-gray-100 dark:border-gray-700 ">
+                        <div class="p-6 bg-white border border-gray-100 rounded-lg shadow dark:bg-gray-900 dark:border-gray-900 w-screen">
+                            <div class="pb-6 border-b border-gray-100 dark:border-gray-700">
                                 <h2 class="text-xl font-bold text-gray-800 md:text-3xl dark:text-gray-300">
                                     Product Based
                                 </h2>
@@ -638,32 +636,26 @@
                                             </p>
                                         </div>
                                         <div class="w-full p-3 md:w-2/3">
-                                            <input
-                                                class="w-full dark:bg-gray-800 dark:border-gray-800 px-4 dark:placeholder-gray-500 dark:text-gray-400 py-2.5 text-base text-gray-900 rounded-lg font-normal border border-gray-200"
+                                            <input class="w-full dark:bg-gray-800 dark:border-gray-800 px-4 dark:placeholder-gray-500 dark:text-gray-400 py-2.5 text-base text-gray-900 rounded-lg font-normal border border-gray-200"
                                                 type="text" placeholder="Adam">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Tablee -->
-                            <section class="items-center lg:flex bg-white  font-poppins dark:bg-gray-800 ">
-                                <div class="justify-center flex-1 max-w-6xl  py-4 mx-auto lg:py-8 ">
+                        
+                            <!-- Table Section -->
+                            <section class="items-center lg:flex bg-white font-poppins dark:bg-gray-800 overflow-x-auto">
+                                <div class="justify-center flex-1 max-w-6xl py-4 mx-auto lg:py-8">
                                     <div class="pt-4 rounded shadow bg-stone-100 dark:bg-gray-900">
-                                        <div
-                                            class="flex flex-wrap items-center justify-between px-6 pb-4 border-b dark:border-gray-700">
-                                            <h2 class="mb-4 text-xl font-bold md:mb-0 dark:text-gray-400">List of
-                                                document</h2>
-                                            <div
-                                                class="flex px-6 py-2 mb-4 border border-gray-600 rounded-md md:mb-0 dark:border-gray-400">
-                                                <input type="text"
-                                                    class="w-full pr-4 text-sm text-gray-700 bg-stone-100 dark:text-gray-400 dark:bg-gray-900 placeholder-text-100 "
+                                        <div class="flex flex-wrap items-center justify-between px-6 pb-4 border-b dark:border-gray-700">
+                                            <h2 class="mb-4 text-xl font-bold md:mb-0 dark:text-gray-400">List of document</h2>
+                                            <div class="flex px-6 py-2 mb-4 border border-gray-600 rounded-md md:mb-0 dark:border-gray-400">
+                                                <input type="text" class="w-full pr-4 text-sm text-gray-700 bg-stone-100 dark:text-gray-400 dark:bg-gray-900 placeholder-text-100 "
                                                     placeholder="search...">
-                                                <button
-                                                    class="flex items-center text-gray-700 dark:text-gray-400 dark:hover:text-blue-300 hover:text-blue-600">
-                                                    <span class="mr-2 text-xs ">Go</span>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-arrow-right"
-                                                        viewBox="0 0 16 16">
+                                                <button class="flex items-center text-gray-700 dark:text-gray-400 dark:hover:text-blue-300 hover:text-blue-600">
+                                                    <span class="mr-2 text-xs">Go</span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                        class="bi bi-arrow-right" viewBox="0 0 16 16">
                                                         <path fill-rule="evenodd"
                                                             d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
                                                     </svg>
@@ -674,8 +666,7 @@
                                             <table class="w-full table-auto">
                                                 <thead>
                                                     <tr class="text-sm text-left text-gray-500 dark:text-gray-400">
-                                                        <th
-                                                            class="flex items-center px-6 pb-3 font-medium dark:text-gray-400">
+                                                        <th class="flex items-center px-6 pb-3 font-medium dark:text-gray-400">
                                                             <input class="mr-4" type="checkbox" name="" id="">
                                                             <span>Name</span>
                                                         </th>
@@ -683,23 +674,17 @@
                                                         <th class="px-6 pb-3 font-medium">Amount </th>
                                                         <th class="px-6 pb-3 font-medium">PromoCode </th>
                                                         <th class="px-6 pb-3 font-medium">Actions</th>
-
                                                     </tr>
                                                 </thead>
                                                 <tbody id="productcontent">
-
+                                                    <!-- Table content goes here -->
                                                 </tbody>
                                             </table>
-
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                        </div>
-
-
-
-
+                        </div> 
                     </div>
                 </section>
             </div>
