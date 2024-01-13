@@ -1213,14 +1213,14 @@
     `;
                 cartContent.appendChild(cartItemElement);
             });
-            // setTimeout(() => {
-            //     const removeButton = document.querySelector('.remove-item-button');
-            //     removeButton.addEventListener('click', () => {
-            //         console.log('kuch ho rha hy?')
-            //         const updatedCart = existingCart.filter(cartItem => cartItem._id !== item._id);
-            //         localStorage.setItem('cart', JSON.stringify(updatedCart));
-            //     });
-            // }, 1000);
+            setTimeout(() => {
+                const removeButton = document?.querySelector('.remove-item-button');
+                removeButton.addEventListener('click', () => {
+                    console.log('kuch ho rha hy?')
+                    const updatedCart = existingCart.filter(cartItem => cartItem._id !== item._id);
+                    localStorage.setItem('cart', JSON.stringify(updatedCart));
+                });
+            }, 1000);
         };
 
         function createProductCard(product) {
@@ -1576,6 +1576,54 @@
             window.localStorage.setItem("location", selectedLocation)
         }
         document.getElementById('locationSelect').addEventListener('change', handleLocationChange);
+        let fav = []
+        async function ppp() {
+
+
+            setTimeout(() => {
+
+                document.querySelectorAll('.add-to-cart-button').forEach(button => {
+                    button.addEventListener('click', addToCart);
+                });
+
+            }, 3000)
+
+
+
+            axios.get('http://localhost:8888/get-last-schedule')
+                .then(function (response) {
+                    areas = response.data;
+
+                    const timing1 = document.getElementById('timing1');
+                    const timing2 = document.getElementById('timing2');
+                    const timing3 = document.getElementById('timing3');
+                    timing1.textContent = areas.lastSchedule[0].schedule1;
+                    timing2.textContent = areas.lastSchedule[0].schedule2;
+                    timing3.textContent = areas.lastSchedule[0].schedule3;
+
+                })
+                .catch(function (error) {
+                    // Handle errors
+                    console.error(error);
+                });
+            // Fetch products from the API
+            try {
+                const response = await fetch('http://localhost:8888/get-all-products');
+                const products = await response.json();
+
+                // Populate products in the specified ID
+                populateProducts(products, 'productContainer');
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        }
+
+
+        document.addEventListener('DOMContentLoaded', ppp());
+
+        document.addEventListener('DOMContentLoaded', () => { console.log("yahya hello sjalfjdsk") });
+
+
 
         async function populateProducts(products, containerId) {
             const container = document.getElementById(containerId);
