@@ -1315,7 +1315,13 @@
                 const response = await fetch(`http://localhost:8888/user-orders-this-month?email=${email}`);
                 const responseData = await response.json();
 
-                console.log('User Orders till now:', responseData);
+                if(responseData?.orders?.length == 0){
+                    
+                    let bar = document.getElementById("progressbar")
+                    bar.style.width = 0
+                    bar.innerText  = 0
+
+                }
 
                 // Add your progress bar logic here
 

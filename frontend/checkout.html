@@ -215,16 +215,16 @@
                         <span>Shipping</span>
                         <span class="flex items-center">
                             <span class="ml-3 mr-1 text-sm">Rs.</span>
-                            <span class="text-xl">4,000</span>
+                            <span class="text-xl" id="ship">4,000</span>
                         </span>
                     </div>
                     <div
                         class="relative flex items-center justify-between px-10 py-3 font-medium leading-8 bg-white bg-opacity-50 rounded-md shadow dark:text-gray-400 dark:bg-gray-800">
                         <div
                             class="absolute right-0 flex items-center justify-center bg-blue-500 rounded-md w-14 h-14 dark:bg-gray-600">
-                            <div
+                            <div id="countx"
                                 class="flex items-center justify-center text-lg font-bold text-blue-500 bg-gray-100 rounded-full dark:text-gray-300 dark:bg-gray-700 w-11 h-11">
-                                2</div>
+                            2</div>
                         </div>
                         <span class="mr-16">Products</span>
                     </div>
@@ -233,7 +233,7 @@
                         <span>Total</span>
                         <span class="flex items-center text-blue-500 dark:text-blue-400">
                             <span class="ml-3 mr-1 text-sm">Rs.</span>
-                            <span class="text-xl">7,000</span>
+                            <span class="text-xl" id="totalp"></span>
                         </span>
                     </div>
                 </div>
@@ -593,79 +593,124 @@
         }
 
 
-        axios.get('http://localhost:8888/get-all-categories')
-            .then(async function (response) {
-                let mydata = new Map()
-                let temp = response.data.categories
-                for (const category of temp) {
-                    const subcategoriesResponse = await axios.post('http://localhost:8888/get-subcategories', {
-                        parentCategoryId: category._id,
-                    });
-                    mydata.set(category.name, subcategoriesResponse.data)
-                }
+        let subcats = []
 
-                let container = document.getElementById("mega-menu-list")
 
-                let index = 1;
-                for (const [key, value] of mydata.entries()) {
-                    let dropdownToggle = `mega-menu-dropdown-${index}`;
-                    let dropdownId = `mega-menu-dropdown-${index}`;
-                    let html = `
-                    <li>
-                            <button  id="mega-menu-dropdown-button" data-dropdown-toggle="${dropdownToggle}"
-                                class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
-                                ${key} <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m1 1 4 4 4-4" />
-                                </svg>
-                            </button>
-                            <div  id="${dropdownId}"
-                                class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
-                                <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
-                                    <ul class="space-y-4" aria-labelledby="mega-menu-dropdown-button">
-                                      ${value?.map((item) => {
-                        return `<li>
-                                              <a href="${'file:///home/madmachine/projects/ecommerce-app-risen/frontend/category.html?id=' + item?._id}"
-                                                  class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                                  ${item?.subCategoryName}
-                                              </a>
-                                          </li>`
-                    }).join('')}
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>`
-
-                    container.innerHTML += html
-                    index++
-
-                }
-
-            })
-            .catch(function (error) {
-                // Handle error
+// let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
+axios.get('http://localhost:8888/get-all-categories')
+    .then(async function (response) {
+        let mydata = new Map()
+        let temp = response.data.categories
+        for (const category of temp) {
+            const subcategoriesResponse = await axios.post('http://localhost:8888/get-subcategories', {
+                parentCategoryId: category._id,
             });
+            // subcats.push(...subcategoriesResponse.data)
+            subcategoriesResponse.data.forEach((item) => {
+                subcats.push(item)
+            })
+            mydata.set(category.name, subcategoriesResponse.data)
+        }
+
+
+        // subcat_container
+        // let subcat_container = document.getElementById("subcat_container")
+
+
+        // subcats.forEach(element => {
+        //     let html = ` <div radius="104px" id="undefined_7243" class="css-3wkdtx">
+        //             <div radius="104px" data-testid="image-circle-2" class="css-mxvkng">
+        //                 <a href="https://www.carrefour.pk/mafpak/en/c/Offer_Lowest_Price">
+        //                     <div radius="104px" class="css-15lamc8"><img height="auto" width="100%"
+        //                             src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/Lowest_Prices_EN_2x_d1a2a241a5.png"
+        //                             alt="Lowest Prices" class="css-ziidzl"></div>
+        //                     <div font-size="12px" data-testid="title" class="css-1sc22zy">${element?.subCategoryName}</div>
+        //                 </a>
+        //             </div>
+        //         </div>`
+        //     subcat_container.innerHTML += html
+        // });
+
+
+
+        let container = document.getElementById("mega-menu-list");
+
+        let index = 1;
+        for (const [key, value] of mydata.entries()) {
+            let dropdownToggle = `mega-menu-dropdown-${index}`;
+            let dropdownId = `mega-menu-content-${index}`;
+            let html = `
+<li>
+<button id="${dropdownToggle}" data-dropdown-toggle="${dropdownId}"
+    class="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+    ${key} <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="2" d="m1 1 4 4 4-4" />
+    </svg>
+</button>
+<div  id="${dropdownId}"
+    class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
+    <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
+        <ul class="space-y-4" aria-labelledby="${dropdownToggle}">
+            ${value?.map((item) => {
+                return `<li>
+                    <a href="${'category.html?id=' + item?._id}"
+                        class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
+                        ${item?.subCategoryName}
+                    </a>
+                </li>`;
+            }).join('')}
+        </ul>
+    </div>
+</div>
+</li>`;
+            container.innerHTML += html;
+            index++;
+        }
+
+        // Event delegation on the container
+        container.addEventListener("click", function (event) {
+            const target = event.target;
+            const dropdownId = target.dataset.dropdownToggle;
+            const dropdownContent = document.getElementById(dropdownId);
+
+            if (dropdownContent) {
+                dropdownContent.classList.toggle("hidden");
+            }
+        });
+
+
+
+    })
+    .catch(function (error) {
+        // Handle error
+    });
+
         let ele = document.getElementById("productcontainer")
 
+        let Total = 0
+        
+
+        window.addEventListener("DOMContentLoaded", function () {
+            let products = JSON.parse(window.localStorage.getItem('cart'))
+            document.getElementById("countx").innerText = products.length
+            products.forEach(element => {
+
+                let apiEndpoint = `http://localhost:8888/product-details/${element.productId}`;
+
+                axios.get(apiEndpoint)
+                    .then(response => {
+                        // Handle the API response data here
+                        if (response?.data?.price) {
+                            Total = Total + response?.data?.price
+                        }
+                        let name = response.data.name
+                        let price = parseFloat(response.data?.price).toFixed(2)
+                        let image = 'http://localhost:8888/' + response.data.images[0]
 
 
-        let products = JSON.parse(window.localStorage.getItem('cart'))
-
-        products.forEach(element => {
-
-            let apiEndpoint = `http://localhost:8888/product-details/${element.productId}`;
-
-            axios.get(apiEndpoint)
-                .then(response => {
-                    // Handle the API response data here
-
-                    let name = response.data.name
-                    let price = parseFloat(response.data?.price).toFixed(2)
-                    let image = 'http://localhost:8888/' + response.data.images[0]
-
-
-                    let html = `<div
+                        let html = `<div
                     class="p-10 mb-8 bg-white rounded-md shadow dark:bg-gray-800 sm:flex sm:items-center xl:py-5 xl:px-12">
                     <a href="#" class="mr-6 md:mr-12">
                         <img class=" w-full lg:w-[80px] h-[200px] lg:h-[80px]  object-cover  mx-auto mb-6 sm:mb-0 "
@@ -697,41 +742,83 @@
                     </div>
                 </div>
               `
-                    ele.innerHTML += html
-                })
-                .catch(error => {
-                    // Handle errors here
-                    console.error("Error fetching data:", error);
-                });
+                        ele.innerHTML += html
+                    })
+                    .catch(error => {
+                        console.error("Error fetching data:", error);
+                    });
+
+            })
+            if(Total == 0){
+                document.getElementById("totalp").innerText = 7000
+                document.getElementById("ship").innerText = 0
+                
+            }
+            else{
+                document.getElementById("totalp").innerText = Total;
+                if(Total>2000)
+                {
+                    document.getElementById("ship").innerText = 0
+                }
+                else
+                {
+                    document.getElementById("ship").innerText = 200
+                }
+            }
+            
         })
+
+
+
 
         function placeOrder() {
             let amount = 0;
-            let products = JSON.parse(window.localStorage.getItem('cart'))
-            let user = JSON?.parse(window.localStorage.getItem('user'))
-            let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
-            let price = 5000
-            if(price > 2000){
+            let products = JSON.parse(window.localStorage.getItem('cart')) || [];
+            // console.log('eusgjh sa', window.localStorage.getItem('admin'));
+            let user = JSON.parse(window.localStorage.getItem('storeduser')) || {};
+            let adminData = JSON.parse(window.localStorage.getItem('admin')) || {};
+            let branchId = adminData.branch || null;
+            let price = Total;
+
+            if (price > 2000) {
                 amount = price;
-            }   
-            else{
-                amount = amount + 200
-            }
-            let data = {
-                amount, branchId, products, user
+            } else {
+                amount = amount + 200;
             }
 
-            axios.post('http://localhost:8888/create-order', data)
-                .then((res) => {
-                    console.log(res)
-                    if (res.status == 200 || res.status == 201) {
-                        alert("Order has been placed")
-                    }
-                })
-                .catch((err) => {
-                    console.log("There is an error plesae try again later")
-                })
+            console.log(amount, branchId, products, user)
+
+            // Validating that required values are not null or undefined
+            if (amount !== null && products !== null && user !== null) {
+                let data = {
+                    amount,
+                    branchId,
+                    products,
+                    user
+                };
+
+                axios.post('http://localhost:8888/create-order', data)
+                    .then((res) => {
+                        console.log(res);
+                        if (res.status == 200 || res.status == 201) {
+                            alert("Order has been placed");
+                        }
+                    })
+                    .catch((err) => {
+                        console.log("There is an error, please try again later", err);
+                    });
+                // Now you can use the 'data' object as needed
+                console.log(data);
+            } else {
+                alert("Some required values are missing or invalid.");
+                console.error("Some required values are missing or invalid.");
+            }
+
         }
+
+
+
+
     </script>
 </body>
 

@@ -93,6 +93,191 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
     <style>
+        *,
+        html {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        figure {
+            margin: 0px;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        /* ================== Badge Products CSS ========================*/
+        .products {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .products ul {
+            margin: 0px;
+            text-align: center;
+        }
+
+        .products ul li {
+            width: 320px;
+            height: 213px;
+            background: #f8f8f8;
+            display: inline-block;
+            position: relative;
+            margin: 15px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        /* ================== Badge Overlay CSS ========================*/
+        .badge-overlay {
+            position: absolute;
+            left: 0%;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 100;
+            -webkit-transition: width 1s ease, height 1s ease;
+            -moz-transition: width 1s ease, height 1s ease;
+            -o-transition: width 1s ease, height 1s ease;
+            transition: width 0.4s ease, height 0.4s ease;
+        }
+
+        /* ================== Badge CSS ========================*/
+        .badge {
+            margin: 0;
+            padding: 0;
+            color: white;
+            padding: 10px 10px;
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            line-height: normal;
+            text-transform: uppercase;
+            background: #ed1b24;
+        }
+
+        .badge::before,
+        .badge::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            margin: 0 -1px;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            min-width: 55px;
+        }
+
+        .badge::before {
+            right: 100%;
+        }
+
+        .badge::after {
+            left: 100%;
+        }
+
+        /* ================== Badge Position CSS ========================*/
+        .top-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            -ms-transform: translateX(-30%) translateY(0%) rotate(-45deg);
+            -webkit-transform: translateX(-30%) translateY(0%) rotate(-45deg);
+            transform: translateX(-30%) translateY(0%) rotate(-45deg);
+            -ms-transform-origin: top right;
+            -webkit-transform-origin: top right;
+            transform-origin: top right;
+        }
+
+        .top-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            -ms-transform: translateX(30%) translateY(0%) rotate(45deg);
+            -webkit-transform: translateX(30%) translateY(0%) rotate(45deg);
+            transform: translateX(30%) translateY(0%) rotate(45deg);
+            -ms-transform-origin: top left;
+            -webkit-transform-origin: top left;
+            transform-origin: top left;
+        }
+
+        .bottom-left {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            -ms-transform: translateX(-30%) translateY(0%) rotate(45deg);
+            -webkit-transform: translateX(-30%) translateY(0%) rotate(45deg);
+            transform: translateX(-30%) translateY(0%) rotate(45deg);
+            -ms-transform-origin: bottom right;
+            -webkit-transform-origin: bottom right;
+            transform-origin: bottom right;
+        }
+
+        .bottom-right {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            -ms-transform: translateX(30%) translateY(0%) rotate(-45deg);
+            -webkit-transform: translateX(30%) translateY(0%) rotate(-45deg);
+            transform: translateX(30%) translateY(0%) rotate(-45deg);
+            -ms-transform-origin: bottom left;
+            -webkit-transform-origin: bottom left;
+            transform-origin: bottom left;
+        }
+
+        .top-full {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .middle-full {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            -ms-transform: translateX(0%) translateY(-50%) rotate(0deg);
+            -webkit-transform: translateX(0%) translateY(-50%) rotate(0deg);
+            transform: translateX(0%) translateY(-50%) rotate(0deg);
+        }
+
+        .bottom-full {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* ================== Badge color CSS ========================*/
+        .badge.red {
+            background: #ed1b24;
+        }
+
+        .badge.orange {
+            background: #fa7901;
+        }
+
+        .badge.pink {
+            background: #ee2b8b;
+        }
+
+        .badge.blue {
+            background: #3b82f6;
+        }
+
+        .badge.green {
+            background: #b4bd00;
+        }
+    </style>
+    <style>
         .overlay {
             display: none;
             position: fixed;
@@ -124,6 +309,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            min-width: 30%;
         }
 
 
@@ -147,6 +333,20 @@
         .proImage {
             width: 230px;
             height: 365px;
+        }
+
+        body {
+            width: 80%;
+            margin: auto;
+        }
+
+        #mega-menu-list li {
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        #mega-menu-list {
+            gap: 2rem;
         }
     </style>
 </head>
@@ -182,8 +382,9 @@
                                 </svg>
                                 <div class="css-zeeqtd">
                                     <div class="css-1c19nm1"><span class="css-himknp">Deliver to:</i></i> </span>
-                                        <div data-testid="header_default_area" title="Akram Abad Walton - Lahore"
-                                            class="css-1p32cg5">Akram Abad Walton - Lahore</div>
+                                        <div id="area" data-testid="header_default_area"
+                                            title="Akram Abad Walton - Lahore" class="css-1p32cg5">
+                                        </div>
 
                                     </div>
                                 </div>
@@ -254,8 +455,8 @@
     </div>
 
     <!-- Mega Menu -->
-    <nav class="bg-white border-gray-200 dark:bg-gray-900 md:mt-10">
-        <div class="flex items-center justify-center mx-auto py-4">
+    <nav class="bg-white border-gray-200 dark:bg-gray-900 md:mt-5">
+        <div class="flex items-center  mx-auto py-4">
             <div id="mega-menu" class="items-center justify-center w-full md:flex md:w-auto md:order-1">
                 <ul id="mega-menu-list"
                     class="flex flex-col mt-4 font-medium md:flex-row md:flex-wrap md:mt-2 md:space-x-8 rtl:space-x-reverse md:space-x-reverse">
@@ -799,7 +1000,6 @@
                             src="https://cdnprod.mafretailproxy.com/assets/images/loreal_promotional_card_76a975379a.png"
                             alt="Image 1" class="w-[14rem] h-[22rem] object-cover rounded-xl"></figure>
                     <div class="badge-overlay">
-                        <!-- Change Badge Position, Color, Text here-->
                         <span class="top-left badge orange">Sale 50% Off</span>
                     </div>
                 </div>
@@ -808,7 +1008,6 @@
                             src="https://cdnprod.mafretailproxy.com/assets/images/loreal_promotional_card_76a975379a.png"
                             alt="Image 1" class="w-[14rem] h-[22rem] object-cover rounded-xl"></figure>
                     <div class="badge-overlay">
-                        <!-- Change Badge Position, Color, Text here-->
                         <span class="top-left badge orange">Sale 50% Off</span>
                     </div>
                 </div>
@@ -817,7 +1016,6 @@
                             src="https://cdnprod.mafretailproxy.com/assets/images/loreal_promotional_card_76a975379a.png"
                             alt="Image 1" class="w-[14rem] h-[22rem] object-cover rounded-xl"></figure>
                     <div class="badge-overlay">
-                        <!-- Change Badge Position, Color, Text here-->
                         <span class="top-left badge orange">Sale 50% Off</span>
                     </div>
                 </div>
@@ -826,7 +1024,6 @@
                             src="https://cdnprod.mafretailproxy.com/assets/images/loreal_promotional_card_76a975379a.png"
                             alt="Image 1" class="w-[14rem] h-[22rem] object-cover rounded-xl"></figure>
                     <div class="badge-overlay">
-                        <!-- Change Badge Position, Color, Text here-->
                         <span class="top-left badge orange">Sale 50% Off</span>
                     </div>
                 </div>
@@ -835,7 +1032,6 @@
                             src="https://cdnprod.mafretailproxy.com/assets/images/loreal_promotional_card_76a975379a.png"
                             alt="Image 1" class="w-[14rem] h-[22rem] object-cover rounded-xl"></figure>
                     <div class="badge-overlay">
-                        <!-- Change Badge Position, Color, Text here-->
                         <span class="top-left badge orange">Sale 50% Off</span>
                     </div>
                 </div>
@@ -844,7 +1040,6 @@
                             src="https://cdnprod.mafretailproxy.com/assets/images/loreal_promotional_card_76a975379a.png"
                             alt="Image 1" class="w-[14rem] h-[22rem] object-cover rounded-xl"></figure>
                     <div class="badge-overlay">
-                        <!-- Change Badge Position, Color, Text here-->
                         <span class="top-left badge orange">Sale 50% Off</span>
                     </div>
                 </div>
@@ -853,16 +1048,15 @@
                             src="https://cdnprod.mafretailproxy.com/assets/images/loreal_promotional_card_76a975379a.png"
                             alt="Image 1" class="w-[14rem] h-[22rem] object-cover rounded-xl"></figure>
                     <div class="badge-overlay">
-                        <!-- Change Badge Position, Color, Text here-->
                         <span class="top-left badge orange">Sale 50% Off</span>
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <figure><img
-                            src="https://cdnprod.mafretailproxy.com/assets/images/loreal_promotional_card_76a975379a.png"
-                            alt="Image 1" class="w-[14rem] h-[22rem] object-cover rounded-xl"></figure>
+                    <figure>
+                        <img src="https://cdnprod.mafretailproxy.com/assets/images/loreal_promotional_card_76a975379a.png"
+                            alt="Image 1" class="w-[14rem] h-[22rem] object-cover rounded-xl">
+                    </figure>
                     <div class="badge-overlay">
-                        <!-- Change Badge Position, Color, Text here-->
                         <span class="top-left badge orange">Sale 50% Off</span>
                     </div>
                 </div>
@@ -1192,32 +1386,76 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script defer>
         let fav = [];
+
+
+
+
         async function ppp() {
+
+
+
+
+
+
+            axios.get('http://localhost:8888/get-last-schedule')
+                .then(function (response) {
+                    areas = response.data;
+
+                    const timing1 = document.getElementById('timing1');
+                    const timing2 = document.getElementById('timing2');
+                    const timing3 = document.getElementById('timing3');
+                    timing1.textContent = areas.lastSchedule[0].schedule1;
+                    timing2.textContent = areas.lastSchedule[0].schedule2;
+                    timing3.textContent = areas.lastSchedule[0].schedule3;
+
+                })
+                .catch(function (error) {
+                    // Handle errors
+                    console.error(error);
+                });
+            // Fetch products from the API
             try {
-                const response = await axios.get('http://localhost:8888/get-last-schedule');
-                const areas = response.data;
+                const response = await fetch('http://localhost:8888/get-all-products');
+                const products = await response.json();
 
-                const timing1 = document.getElementById('timing1');
-                const timing2 = document.getElementById('timing2');
-                const timing3 = document.getElementById('timing3');
-                timing1.textContent = areas.lastSchedule[0].schedule1;
-                timing2.textContent = areas.lastSchedule[0].schedule2;
-                timing3.textContent = areas.lastSchedule[0].schedule3;
-
-                const productsResponse = await fetch('http://localhost:8888/get-all-products');
-                const products = await productsResponse.json();
+                // Populate products in the specified ID
                 populateProducts(products, 'productContainer');
-                setTimeout(() => {
-                    document.querySelectorAll('.add-to-cart-button').forEach(button => {
-                        button.addEventListener('click', addToCart);
-                    });
-                }, 100)
             } catch (error) {
-                console.error('Error:', error);
+                console.error('Error fetching products:', error);
             }
         }
 
-        document.addEventListener('DOMContentLoaded', ppp);
+
+        document.addEventListener('DOMContentLoaded', ppp());
+
+
+        async function populateProducts(products, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            try {
+                const Response = await axios.get('http://localhost:8888/get-favourite', { params: { id: id1 } });
+                if (Response.status == 200) {
+                    const fav = Response.data.map(item => item.product);
+                    console.log('Updated fav array:', fav);
+                    products.products.forEach(product => {
+                        const isFavorite = fav.includes(product._id.trim());
+                        const productElement = createProductElement(product, isFavorite);
+                        container.appendChild(productElement);
+                    });
+                } else {
+                    console.log(Response.error);
+                }
+
+                document.querySelectorAll('.add-to-cart-button').forEach(button => {
+                    button.addEventListener('click', addToCart);
+                });
+
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+
 
 
         let existingCart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -1254,14 +1492,13 @@
     `;
                 cartContent.appendChild(cartItemElement);
             });
-            // setTimeout(() => {
-            //     const removeButton = document.querySelector('.remove-item-button');
-            //     removeButton.addEventListener('click', () => {
-            //         console.log('kuch ho rha hy?')
-            //         const updatedCart = existingCart.filter(cartItem => cartItem._id !== item._id);
-            //         localStorage.setItem('cart', JSON.stringify(updatedCart));
-            //     });
-            // }, 1000);
+            setTimeout(() => {
+                const removeButton = document?.querySelector('.remove-item-button');
+                removeButton.addEventListener('click', () => {
+                    const updatedCart = existingCart.filter(cartItem => cartItem._id !== item._id);
+                    localStorage.setItem('cart', JSON.stringify(updatedCart));
+                });
+            }, 1000);
         };
 
         function createProductCard(product) {
@@ -1331,9 +1568,6 @@
                 // Handle errors
                 console.error(error);
             });
-
-
-
 
         let subcats = []
 
@@ -1420,7 +1654,7 @@
                     if (dropdownContent) {
                         dropdownContent.classList.toggle("hidden");
                     }
-                }); u
+                });
 
 
 
@@ -1428,58 +1662,6 @@
             .catch(function (error) {
                 // Handle error
             });
-
-
-
-
-
-
-
-
-        // // let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
-        // axios.get('http://localhost:8888/get-all-categories')
-        //     .then(function (response) {
-        //         categories = response.data.categories
-
-        //         // categoriesWithSubcategories // t
-
-        //         // categories.forEach((item)=>{
-        //         //     // get its subcategories
-
-
-        //         // })
-
-        //         const navbar = document.getElementById('navmenuid');
-        //         categories.forEach(category => {
-        //             const cat = document.createElement('li');
-        //             const link = document.createElement('a');
-        //             link.classList.add('cursor-pointer', 'block', 'py-2', 'px-3', 'text-gray-900', 'rounded', 'hover:bg-gray-100', 'md:hover:bg-transparent', 'md:border-0', 'md:hover:text-blue-700', 'md:p-0', 'dark:text-white', 'md:dark:hover:text-blue-500', 'dark:hover:bg-gray-700', 'dark:hover:text-white', 'md:dark:hover:bg-transparent');
-        //             link.innerHTML = category.name
-        //             cat.appendChild(link)
-        //             navbar.appendChild(cat);
-        //         });
-        //     })
-        //     .catch(function (error) {
-        //         // Handle error
-        //     });
-
-
-
-        // axios.get('http://localhost:8888/get-all-products', { params: { branchId: '656df5f3d5b184a99cf62627' } })
-        //     .then(function (response) {
-        //         products = response.data.products
-        //         const productContainer = document.getElementById('productContainer');
-        //         products.forEach(product => {
-
-        //             const productCard = createProductCard(product)
-        //             // Append the swiper slide to the product container
-        //             productContainer.innerHTML += productCard;
-        //         });
-        //     })
-        //     .catch(function (error) {
-        //         // Handle error
-        //     });
-
 
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 2,
@@ -1554,6 +1736,9 @@
                     const response = await fetch(`http:localhost:8888/product-details/${item.productId}`);
                     const productDetails = await response.json()
 
+                    console.log("item is", productDetails, item)
+
+
                     const cartItemElement = document.createElement('div');
                     cartItemElement.classList.add('cart-item');
                     // Create HTML content for each item (customize this based on your needs)
@@ -1561,9 +1746,14 @@
                         <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${productDetails.name}</h5>
                             <p class="font-normal text-gray-700 dark:text-gray-400">${productDetails.description}</p>
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${productDetails.price}</h5>
-                            <p class="font-normal text-gray-700 dark:text-gray-400">${item.quantity}</p>
-                            <p class="font-normal text-gray-700 dark:text-gray-400">${item.productId}</p>
+                           
+                            <button data-product-id="${item?.productId}" class="flex-none text-sm text-white transition-all bg-blue-500 rounded-l-xl hover:bg-blue-600 p-2 h-8">
+                                -   
+                            </button>
+                            <p class="font-normal text-gray-700 dark:text-gray-400">${item.quantity}</p> 
+                            <button data-product-id="${item?.productId}" class="flex-none text-sm text-white transition-all bg-blue-500 rounded-r-xl hover:bg-blue-600 p-2 add-to-cart-button h-8">
+                                +   
+                            </button>
                         </a>
                         </div>`;
                     // Append the cart item element to the #cartContent element
@@ -1613,31 +1803,17 @@
             window.localStorage.setItem("deliverytype", data)
         }
         function handleLocationChange() {
-            var selectedLocation = document.getElementById('locationSelect').value;
+            var locationSelect = document.getElementById('locationSelect');
+            var selectedLocation = locationSelect.value;
+            var selectedLocationText = locationSelect.options[locationSelect.selectedIndex].text;
             window.localStorage.setItem("location", selectedLocation)
+            window.localStorage.setItem("location", selectedLocationText)
+            let ele = document.getElementById("area")
+            ele.innerHTML = selectedLocationText
         }
         document.getElementById('locationSelect').addEventListener('change', handleLocationChange);
 
-        async function populateProducts(products, containerId) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = '';
-            try {
-                const Response = await axios.get('http://localhost:8888/get-favourite', { params: { id: id1 } });
-                if (Response.status == 200) {
-                    const fav = Response.data.map(item => item.product);
-                    console.log('Updated fav array:', fav);
-                    products.products.forEach(product => {
-                        const isFavorite = fav.includes(product._id.trim());
-                        const productElement = createProductElement(product, isFavorite);
-                        container.appendChild(productElement);
-                    });
-                } else {
-                    console.log(Response.error);
-                }
-            } catch (error) {
-                console.log(error);
-            }
-        }
+
 
 
         function createProductElement(product, isFavorite) {
@@ -1665,31 +1841,31 @@
 
             const favoriteSVG = isFavorite
                 ? `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
-            fill="#3b82f6" class="w-6 h-6" onclick="favDelete('${product?._id}')">
-            <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
-        </svg>`
+                        fill="#3b82f6" class="w-6 h-6" onclick="favDelete('${product?._id}')">
+                        <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
+                    </svg>`
                 : `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="#3b82f6" class="w-6 h-6" onclick="favouriteClick('${product?._id}')">
-            <path stroke-linecap="round" stroke-linejoin="round"
-                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-        </svg>`;
+                        stroke="#3b82f6" class="w-6 h-6" onclick="favouriteClick('${product?._id}')">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                    </svg>`;
 
             existingCart = JSON.parse(localStorage.getItem('cart'))
             const productElement = document.createElement('div');
             productElement.className = 'swiper-slide';
             productElement.innerHTML = `
             <div class="relative overflow-hidden bg-white shadow rounded-xl dark:bg-gray-700" style="height: 400px;">
-            <!-- ... (Product details) ... -->
-            <div x-data="imageSlider" class="relative mx-auto max-w-2xl overflow-hidden rounded-md bg-gray-100 p-2 sm:p-4" style="height:310px">
+
+            <div x-data="imageSlider" class="relative mx-auto max-w-2xl overflow-hidden rounded-md bg-gray-100 p-2 sm:p-4" style="height:300px">
             <div class="absolute right-5 top-5 z-10 rounded-full bg-gray-600 px-2 text-center text-sm text-white">
-                <span x-text="currentIndex"></span>/<span x-text="images.length"></span>
+                <span x-text="$currentIndex"></span>/<span x-text="images.length"></span>
             </div>
 
-            <button @click="previous" class="absolute left-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-gray-100 shadow-md">
+            <button @click="previous()" class="absolute left-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-gray-100 shadow-md">
                 <i class="fas fa-chevron-left text-2xl font-bold text-gray-500"></i>
             </button>
 
-            <button @click="forward" class="absolute right-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-gray-100 shadow-md">
+            <button @click="forward()" class="absolute right-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-gray-100 shadow-md">
                 <i class="fas fa-chevron-right text-2xl font-bold text-gray-500"></i>
             </button>
 
@@ -1703,7 +1879,7 @@
         </div>
 
             <button class="absolute top-0 left-0 p-3 bg-blue-500 rounded-l-none hover:bg-blue-600 rounded-b-xl h-8">
-                <!-- ... (Add to Cart icon) ... -->
+
             </button>
     
             <a class="flex justify-between">
@@ -1743,7 +1919,7 @@
 
         async function addToCart(event) {
             const productId = event.target.getAttribute('data-product-id');
-
+            console.log("hello world", productId)
             const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
             console.log("haaaaamad", existingCart);
             const existingItemIndex = existingCart.findIndex(item => item.productId === productId);
@@ -1758,6 +1934,7 @@
             // Check if the item already exists in the cart
             localStorage.setItem('cart', JSON.stringify(existingCart));
             ppp();
+            cartContent()
         }
         let id = window.localStorage.getItem('storeduser')
         if (id) {
@@ -1886,6 +2063,7 @@
             console.log(data)
         }
 
+
         function fetchSection() {
             axios.get('http://localhost:8888/sections')
                 .then((res) => {
@@ -1893,20 +2071,52 @@
                     let sections = res.data.sections;
                     sections.forEach((item) => {
                         let html = `
-                    <div class="sm:w-full mx-auto p-relative my-20" >
-                        <h3 data-testid="trolly-text" font-size="3,,,6" font-family="Teshrin AR LT" class="css-1rjm86d" color="copy">${item.name}</h3>
+                        <h3 data-testid="trolly-text" my-20 font-size="" font-family="Teshrin AR LT" class="css-1rjm86d" color="copy">${item.name}</h3>
+                    <div class="sm:w-full mx-auto p-relative " >
+                        
                         <div class="">
                             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-10">
-                                ${item.products.map(element => {
-                            const imageUrl = element.images && element.images.length > 0
+                            ${item.products.map(element => {
+                                const imageUrl = element.images && element.images.length > 0
                                 ? `http://localhost:8888/${element.images[0]}`
                                 : 'https://cdnprod.mafretailproxy.com/assets/images/loreal_promotional_card_76a975379a.png';
 
                             return `
-                                        <div class="">
-                                            <img width="250" height="365" class="proImage" src="${imageUrl}" />
-                                            <p>${element?.name}</p>
-                                        </div>
+                            <div class="">
+                                <div>
+                                    <div class="badge-overlay">
+                                        <span class="top-left badge blue">Sale 50% Off</span>
+                                    </div>
+                                    <figure>
+                                        <img width="250" height="300" class="proImage" src="${imageUrl}" />
+                                    </figure>
+                                    
+                                </div>
+                                <div class="flex pt-2 ">
+                                    <div class="flex-1 px-2">
+                                        <p class="text-lg font-bold text-blue-500 dark:text-blue-300">
+                                            $${parseInt(element?.price).toFixed(2)}
+                                        </p>
+                                        <span class="block -mt-1 text-xs font-semibold text-gray-400 line-through">$399.99</span>
+                                    </div>
+
+                                    ${existingCart?.some(item => item.productId === element._id) ?
+                                        `<div class="flex items-center">
+                                            <button data-product-id="${element?._id}" class="flex-none text-sm text-white transition-all bg-blue-500 rounded-l-xl hover:bg-blue-600 p-2 h-8">
+                                                -
+                                            </button>
+                                            <input type="text" class="flex-1 text-center text-sm bg-white rounded-none p-2 w-[2rem] h-8"  value="${existingCart.find(item => item.productId === element._id)?.quantity || 0}"> 
+                                            <button data-product-id="${element?._id}" class="flex-none text-sm text-white transition-all bg-blue-500 rounded-r-xl hover:bg-blue-600 p-2 add-to-cart-button h-8">
+                                                +   
+                                            </button>
+                                        </div>` :
+                                        `<button data-product-id="${element?._id}" class="flex-2 text-xs text-white transition-all bg-blue-500 rounded-r-none hover:bg-blue-600 rounded-t-lg add-to-cart-button h-8 min-w-1/2">
+                                            Add To Cart
+                                        </button>`
+                                                }  
+                                </div>
+                                <p>${element?.name}</p>
+                            </div>
                                     `;
                         }).join('')}
                             </div>
@@ -1929,6 +2139,16 @@
             var element1 = document.getElementById('element1');
             toggleBackgroundColor(element1, 'takeaway');
         };
+
+
+
+        setInterval(() => {
+            document.querySelectorAll('.add-to-cart-button').forEach(button => {
+                button.addEventListener('click', addToCart);
+            });
+        }, 1000)
+
+
     </script>
 </body>
 
