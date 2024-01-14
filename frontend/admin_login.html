@@ -1526,7 +1526,7 @@
             var errorAlert = document.getElementById('erroralert')
 
 
-            axios.post('http://localhost:8888/adminlogin', data)
+            axios.post('https://7e9b-203-96-170-59.ngrok-free.app/adminlogin', data)
                 .then(function (response) {
                     if (response?.status == 200) {
                         window.localStorage.setItem('admin', JSON.stringify(response?.data?.admin))

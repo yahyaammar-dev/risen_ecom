@@ -537,7 +537,7 @@
 
 
 
-        axios.get('http://localhost:8888/get-all-stores')
+        axios.get('https://7e9b-203-96-170-59.ngrok-free.app/get-all-stores')
             .then(response => {
                 const branches = response.data.stores;
                 const selectElement = document.getElementById('branch');
@@ -569,7 +569,7 @@
             });
 
             // Make an API call using Axios
-            axios.post('http://localhost:8888/users', jsonData)
+            axios.post('https://7e9b-203-96-170-59.ngrok-free.app/users', jsonData)
                 .then(response => {
                     alert("Admin has been created")
                     console.log('API response:', response.data);

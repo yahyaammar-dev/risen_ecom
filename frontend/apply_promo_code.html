@@ -701,7 +701,7 @@
 
 
         // API URLs
-        const baseURL = 'http://localhost:8888';
+        const baseURL = 'https://7e9b-203-96-170-59.ngrok-free.app';
         const getUsersURL = `${baseURL}/get-all-users`;
         const getProductsURL = `${baseURL}/get-all-products`;
         const getCategoriesURL = `${baseURL}/get-all-categories`;
@@ -874,7 +874,7 @@
 
 
         const applyPromoAtBackend = (data) => {
-            axios.post('http://localhost:8888/assign-promotion', data)
+            axios.post('https://7e9b-203-96-170-59.ngrok-free.app/assign-promotion', data)
                 .then((res) => {
                     alert("Promo Code Have been applied")
                 })

@@ -192,6 +192,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         app.get('/get-locations', async (req, res) => {
             try {
                 const loc = await Location.find({});
+                console.log("locations are", loc)
                 res.status(200).json(loc);
             } catch (error) {
                 res.status(500).json({ error: 'Internal Server Error' });

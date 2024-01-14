@@ -709,7 +709,7 @@
 
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get('id');
-        axios.get(`http://localhost:8888/product-details/${id}`)
+        axios.get(`https://7e9b-203-96-170-59.ngrok-free.app/product-details/${id}`)
             .then((res) => {
 
                 const barcodeId = document.getElementById('barcodeId')
@@ -720,7 +720,7 @@
                 name.value = res.data.name
                 description.value = res.data.description
                 const id = res.data.category
-                axios.get(`http://localhost:8888/get-categories/${id}`)
+                axios.get(`https://7e9b-203-96-170-59.ngrok-free.app/get-categories/${id}`)
                     .then((res) => {
                         const category = document.getElementById('category')
                         category.value = res.data.name
@@ -773,7 +773,7 @@
                 const image = document.getElementById("image").files
 
                 // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
-                const apiEndpoint = 'http://localhost:8888/update-product';
+                const apiEndpoint = 'https://7e9b-203-96-170-59.ngrok-free.app/update-product';
 
                 // Prepare data to send to the server
                 const data = {

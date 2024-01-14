@@ -695,7 +695,7 @@
         // get the branch id from local storage
         let branchId = JSON.parse(window.localStorage.getItem('admin')).branch
         // get all categories
-        // axios.get(`http://localhost:8888/get-categories/${id}`)
+        // axios.get(`https://7e9b-203-96-170-59.ngrok-free.app/get-categories/${id}`)
         //     .then((res) => {
         //         console.log(res)
         //     })
@@ -703,7 +703,7 @@
         //         console.log(err)
         //     })
 
-        axios.get(`http://localhost:8888/promo-code-details/${id}`)
+        axios.get(`https://7e9b-203-96-170-59.ngrok-free.app/promo-code-details/${id}`)
             .then((res) => {
                 const name = document.getElementById('name')
                 const percentage = document.getElementById('percentage')
@@ -737,7 +737,7 @@
                 const type = document.getElementById('type').value
 
                 // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
-                const apiEndpoint = 'http://localhost:8888/update-promo-code';
+                const apiEndpoint = 'https://7e9b-203-96-170-59.ngrok-free.app/update-promo-code';
 
 
                 // Prepare data to send to the server
