@@ -610,7 +610,7 @@
         let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
 
 
-        axios.get('https://7e9b-203-96-170-59.ngrok-free.app/get-all-products', { params: { branchId } })
+        axios.get('https://creativematrixstudios.co.uk/api/get-all-products', { params: { branchId } })
             .then(function (response) {
                 renderProducts(response?.data?.products);
                 data = response?.data?.products;
@@ -629,7 +629,7 @@
 
         const deleteItem = (item) => {
             console.log(item)
-            axios.delete('https://7e9b-203-96-170-59.ngrok-free.app/delete-products', { params: { branchId: item.branch, id: item?._id } })
+            axios.delete('https://creativematrixstudios.co.uk/api/delete-products', { params: { branchId: item.branch, id: item?._id } })
                 .then(function (response) {
                     alert("It has been deleted from database")
                     window.location.reload()

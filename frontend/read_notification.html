@@ -567,7 +567,7 @@
         let branchId = JSON.parse(window.localStorage.getItem('admin'))
         // alert(branchId)
         console.log(branchId)
-        axios.get('https://7e9b-203-96-170-59.ngrok-free.app/read-notification')
+        axios.get('https://creativematrixstudios.co.uk/api/read-notification')
             .then(function (response) {
                 console.log(response)
                 renderProducts(response?.data?.notifcations);
@@ -578,7 +578,7 @@
 
 
         const deleteItem = (item) => {
-            axios.delete('https://7e9b-203-96-170-59.ngrok-free.app/delete-notification', { params: { branchId: branchId, id: item?._id } })
+            axios.delete('https://creativematrixstudios.co.uk/api/delete-notification', { params: { branchId: branchId, id: item?._id } })
                 .then(function (response) {
                     alert("It has been deleted from database")
                     window.location.reload()

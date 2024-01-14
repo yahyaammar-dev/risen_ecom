@@ -570,7 +570,7 @@
                 formData.append('categoryImage', categoryImageInput.files[0]);
 
                 // Make a POST request to the API endpoint
-                const response = await fetch('https://7e9b-203-96-170-59.ngrok-free.app/create-category', {
+                const response = await fetch('https://creativematrixstudios.co.uk/api/create-category', {
                     method: 'POST',
                     body: formData,
                 });
@@ -594,7 +594,7 @@
 
         async function fetchCategories() {
             try {
-                const response = await fetch('https://7e9b-203-96-170-59.ngrok-free.app/get-all-categories');
+                const response = await fetch('https://creativematrixstudios.co.uk/api/get-all-categories');
                 let categories = await response.json();
                 categories = categories.categories
                 // Get the select element
@@ -635,7 +635,7 @@
 
             try {
                 // Make a POST request to the API endpoint
-                const response = await fetch('https://7e9b-203-96-170-59.ngrok-free.app/subcategories', {
+                const response = await fetch('https://creativematrixstudios.co.uk/api/subcategories', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

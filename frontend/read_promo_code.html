@@ -526,7 +526,7 @@
         }
 
         let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
-        axios.get('https://7e9b-203-96-170-59.ngrok-free.app/get-all-promos', { params: { branchId } })
+        axios.get('https://creativematrixstudios.co.uk/api/get-all-promos', { params: { branchId } })
             .then(function (response) {
                 renderProducts(response?.data?.promoCodes);
             })
@@ -534,7 +534,7 @@
                 // Handle error
             });
             const deleteItem = (item) => {
-            axios.delete('https://7e9b-203-96-170-59.ngrok-free.app/delete-promo', { params: {  id: item?._id } })
+            axios.delete('https://creativematrixstudios.co.uk/api/delete-promo', { params: {  id: item?._id } })
                 .then(function (response) {
                    alert("It has been deleted from database") 
                    window.location.reload()

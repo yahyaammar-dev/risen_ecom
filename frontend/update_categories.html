@@ -506,14 +506,14 @@
         const id = urlParams.get('id');
 
         let branchId = JSON.parse(window.localStorage.getItem('admin')).branch
-        axios.get('https://7e9b-203-96-170-59.ngrok-free.app/get-categories', { params: { branchId } })
+        axios.get('https://creativematrixstudios.co.uk/api/get-categories', { params: { branchId } })
             .then((res) => {
                 console.log(res)
             })
             .catch((err) => {
                 console.log(err)
             })
-        axios.get(`https://7e9b-203-96-170-59.ngrok-free.app/category-detail/${id}`)
+        axios.get(`https://creativematrixstudios.co.uk/api/category-detail/${id}`)
             .then((res) => {
                 const name = document.getElementById('name')
                 name.value = res.data.name
@@ -537,7 +537,7 @@
                 const name = document.getElementById("name").value;
 
                 // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
-                const apiEndpoint = 'https://7e9b-203-96-170-59.ngrok-free.app/update-category';
+                const apiEndpoint = 'https://creativematrixstudios.co.uk/api/update-category';
 
                 // Prepare data to send to the server
                 const data = {

@@ -3410,7 +3410,7 @@
                 formData.append('categoryImage', categoryImageInput.files[0]);
 
                 // Make a POST request to the API endpoint
-                const response = await fetch('https://7e9b-203-96-170-59.ngrok-free.app/create-category', {
+                const response = await fetch('https://creativematrixstudios.co.uk/api/create-category', {
                     method: 'POST',
                     body: formData,
                 });
@@ -3432,7 +3432,7 @@
 
         async function fetchCategoriesx() {
             try {
-                const response = await fetch('https://7e9b-203-96-170-59.ngrok-free.app/get-all-categories');
+                const response = await fetch('https://creativematrixstudios.co.uk/api/get-all-categories');
                 let categories = await response.json();
                 categories = categories.categories
                 // Get the select element
@@ -3479,7 +3479,7 @@
 
             try {
                 // Make a POST request to the API endpoint
-                const response = await fetch('https://7e9b-203-96-170-59.ngrok-free.app/subcategories', {
+                const response = await fetch('https://creativematrixstudios.co.uk/api/subcategories', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -3536,7 +3536,7 @@
 
                 // data is here with all fields filled
 
-                axios.post('https://7e9b-203-96-170-59.ngrok-free.app/create-branch', data)
+                axios.post('https://creativematrixstudios.co.uk/api/create-branch', data)
                     .then((res) => {
 
                         console.log('Response', res.data)
@@ -3584,7 +3584,7 @@
                                                         <th scope="row"
                                                             class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                             <div class="flex items-center mr-3">
-                                                                <img src="https://7e9b-203-96-170-59.ngrok-free.app/${item?.image}"
+                                                                <img src="https://creativematrixstudios.co.uk/api/${item?.image}"
                                                                     alt="iMac Front Image" class="h-8 w-auto mr-3">
                                                                 ${item?.name}
                                                             </div>
@@ -3742,12 +3742,12 @@
         let responsesArray = {};
         let count = 0
 
-        axios.get('https://7e9b-203-96-170-59.ngrok-free.app/get-all-categories', { params: { branchId } })
+        axios.get('https://creativematrixstudios.co.uk/api/get-all-categories', { params: { branchId } })
             .then(function (response) {
                 console.log('bite me ', response.data)
                 idsArray = response?.data?.categories.map(category => category._id);
                 const apiRequests = idsArray.map(id => (
-                    axios.get('https://7e9b-203-96-170-59.ngrok-free.app/get-all-subcategories', { params: { id } })
+                    axios.get('https://creativematrixstudios.co.uk/api/get-all-subcategories', { params: { id } })
                         .then(response => response.data.subcategories)
                         .catch(error => {
                             console.log(error);
@@ -3801,7 +3801,7 @@
 
 
         function deleteproduct(item) {
-            fetch(`https://7e9b-203-96-170-59.ngrok-free.app/delete-category?id=${item._id}`, {
+            fetch(`https://creativematrixstudios.co.uk/api/delete-category?id=${item._id}`, {
                 method: 'DELETE',
             })
                 .then(response => {
@@ -3818,7 +3818,7 @@
         }
 
         function deleteproduct2(item) {
-            fetch(`https://7e9b-203-96-170-59.ngrok-free.app/delete-subcategory?id=${item._id}`, {
+            fetch(`https://creativematrixstudios.co.uk/api/delete-subcategory?id=${item._id}`, {
                 method: 'DELETE',
             })
                 .then(response => {
@@ -3842,7 +3842,7 @@
             ele.value = item._id
             name.value = item?.name
 
-            image.src = "https://7e9b-203-96-170-59.ngrok-free.app/" + item.image;
+            image.src = "https://creativematrixstudios.co.uk/api/" + item.image;
 
 
             let updateContainer = document.getElementById("drawer-update-product")
@@ -3886,7 +3886,7 @@
                 formData.append('file', fileInput.files[0]); // 'file' matches the field name expected on the server
 
                 try {
-                    const res = await fetch("https://7e9b-203-96-170-59.ngrok-free.app/update-category", {
+                    const res = await fetch("https://creativematrixstudios.co.uk/api/update-category", {
                         method: 'PUT',
                         body: formData,
                     });
@@ -3907,7 +3907,7 @@
                 formData.append('id', ele);
                 formData.append('name', name); 
                 try {
-                    const res = await fetch("https://7e9b-203-96-170-59.ngrok-free.app/update-category", {
+                    const res = await fetch("https://creativematrixstudios.co.uk/api/update-category", {
                         method: 'PUT',
                         body: formData,
                     });
@@ -3937,7 +3937,7 @@
                 subCategoryName: name
             }
 
-            axios.put("https://7e9b-203-96-170-59.ngrok-free.app/update-subcategory", data)
+            axios.put("https://creativematrixstudios.co.uk/api/update-subcategory", data)
                 .then((res) => {
                     console.log(res)
                 })

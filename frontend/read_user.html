@@ -2246,7 +2246,7 @@
 
 
         let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
-        axios.get('https://7e9b-203-96-170-59.ngrok-free.app/users', { params: { branchId } })
+        axios.get('https://creativematrixstudios.co.uk/api/users', { params: { branchId } })
             .then(function (response) {
                 console.log("hamad", response.data)
                 renderBranches(response?.data?.users);
@@ -2262,7 +2262,7 @@
 
         async function fetchCategories() {
             try {
-                const response = await fetch('https://7e9b-203-96-170-59.ngrok-free.app/get-all-branches');
+                const response = await fetch('https://creativematrixstudios.co.uk/api/get-all-branches');
                 let categories = await response.json();
                 categories = categories.branches
                 // Get the select element
@@ -2315,7 +2315,7 @@
                     branch
                 }
                 // data is here with all fields filled
-                axios.post('https://7e9b-203-96-170-59.ngrok-free.app/users', data)
+                axios.post('https://creativematrixstudios.co.uk/api/users', data)
                     .then((res) => {
                         console.log('Response', res.data)
                         alert("User has been created!")
@@ -2353,7 +2353,7 @@
 
 
         function deleteproduct(item) {
-            fetch(`https://7e9b-203-96-170-59.ngrok-free.app/delete-user?id=${item._id}`, {
+            fetch(`https://creativematrixstudios.co.uk/api/delete-user?id=${item._id}`, {
                 method: 'DELETE',
             })
                 .then(response => {

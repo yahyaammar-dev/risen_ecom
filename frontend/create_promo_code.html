@@ -1008,7 +1008,7 @@
 
         async function fetchSection() {
             try {
-                const response = await axios.get('https://7e9b-203-96-170-59.ngrok-free.app/sections');
+                const response = await axios.get('https://creativematrixstudios.co.uk/api/sections');
                 let tbody = document.getElementById('sections_table_body')
                 console.log(response.data.sections)
                 response.data.sections.forEach((item) => {
@@ -1099,7 +1099,7 @@
 
         async function fetchCategories() {
             try {
-                const response = await fetch('https://7e9b-203-96-170-59.ngrok-free.app/get-all-products');
+                const response = await fetch('https://creativematrixstudios.co.uk/api/get-all-products');
                 let categories = await response.json();
                 categories = categories.products
                 // Get the select element
@@ -1149,7 +1149,7 @@
             };
 
             // Make an asynchronous request to the API endpoint using Axios
-            axios.post('https://7e9b-203-96-170-59.ngrok-free.app/create-section', data)
+            axios.post('https://creativematrixstudios.co.uk/api/create-section', data)
                 .then((res) => {
                     // Handle the response if needed
                     alert('Created Section');
@@ -1177,7 +1177,7 @@
         })
 
         function deleteproduct(item) {
-            fetch(`https://7e9b-203-96-170-59.ngrok-free.app/delete-section/${item._id}`, {
+            fetch(`https://creativematrixstudios.co.uk/api/delete-section/${item._id}`, {
                 method: 'DELETE',
             })
                 .then(response => {
@@ -1221,7 +1221,7 @@
                 percentage
             }
 
-            axios.put(`https://7e9b-203-96-170-59.ngrok-free.app/update-section/${ele}`, data)
+            axios.put(`https://creativematrixstudios.co.uk/api/update-section/${ele}`, data)
                 .then((res) => {
                     console.log(res)
                 })
