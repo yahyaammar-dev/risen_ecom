@@ -73,6 +73,22 @@ mongoose.connect('mongodb://127.0.0.1:27017/ecom_db')
         });
 
 
+        app.post('/webhook', (req, res) => {
+            const webhookData = req.body;
+            console.log('Received webhook data:', webhookData);
+
+            // const newData = new WebHooksData({
+            //     deviceId,
+            //     locationId,
+            //     staffId,
+            //     type,
+            //     json
+            // });
+
+            res.status(200).send('Webhook received successfully');
+        });
+
+
         app.post('/store-wollette-data', async (req, res) => {
             try {
                 const { deviceId, locationId, staffId, customerId, type, json } = req.body;
@@ -96,21 +112,21 @@ mongoose.connect('mongodb://127.0.0.1:27017/ecom_db')
 
         app.post('/get-wollette-data', async (req, res) => {
             try {
-              const { deviceId, locationId, staffId } = req.body;
-              
-              // Search for the data based on the provided deviceId, locationId, and staffId
-              const storedData = await WolletteData.find({ deviceId, locationId, staffId });
-          
-              if (storedData) {
-                res.status(200).json({ message: 'Data retrieved successfully', data: storedData });
-              } else {
-                res.status(404).json({ message: 'Data not found' });
-              }
+                const { deviceId, locationId, staffId } = req.body;
+
+                // Search for the data based on the provided deviceId, locationId, and staffId
+                const storedData = await WolletteData.find({ deviceId, locationId, staffId });
+
+                if (storedData) {
+                    res.status(200).json({ message: 'Data retrieved successfully', data: storedData });
+                } else {
+                    res.status(404).json({ message: 'Data not found' });
+                }
             } catch (error) {
-              console.error('Error Retrieving Data:', error);
-              res.status(500).json({ message: 'Error Retrieving Data', error: error.message });
+                console.error('Error Retrieving Data:', error);
+                res.status(500).json({ message: 'Error Retrieving Data', error: error.message });
             }
-          });
+        });
 
 
         // Update Branch API
