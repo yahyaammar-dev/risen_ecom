@@ -65,6 +65,7 @@ const Section = require('./models/Section')
 // connecting to db
 const mongoose = require('mongoose');
 const WolletteData = require('./models/WolleteData');
+const WebHooksData = require('./models/WebHooksData');
 mongoose.connect('mongodb://127.0.0.1:27017/ecom_db')
     .then(async () => {
         // Routes
@@ -74,17 +75,19 @@ mongoose.connect('mongodb://127.0.0.1:27017/ecom_db')
 
 
 
-        app.post('/get-webhook-data', async (req, res) => {
-            const webhookData = req.body;
+        app.get('/get-webhook-data', async (req, res) => {
             try {
-              const newWebhookData = new WebhookData(...webhookData);
-              await newWebhookData.save();
-              res.status(200).send('Webhook received successfully');
+                const storedData = await WebHooksData.find({});
+                if (storedData) {
+                    res.status(200).json({ message: 'Data retrieved successfully', data: storedData });
+                } else {
+                    res.status(404).json({ message: 'Data not found' });
+                }
             } catch (error) {
-              console.error('Error inserting data into MongoDB:', error);
-              res.status(500).send('Internal Server Error');
+                console.error('Error inserting data into MongoDB:', error);
+                res.status(500).send('Internal Server Error');
             }
-          });
+        });
 
 
 
@@ -92,17 +95,17 @@ mongoose.connect('mongodb://127.0.0.1:27017/ecom_db')
             const webhookData = req.body;
             console.log('Received webhook data:', webhookData);
             try {
-              // Create a new document using the WebhookData model
-              const newWebhookData = new WebhookData(...webhookData);
-              // Save the document to MongoDB
-              await newWebhookData.save();
-              console.log('Webhook data inserted into MongoDB');
-              res.status(200).send('Webhook received successfully');
+                // Create a new document using the WebhookData model
+                const newWebhookData = new WebhookData(...webhookData);
+                // Save the document to MongoDB
+                await newWebhookData.save();
+                console.log('Webhook data inserted into MongoDB');
+                res.status(200).send('Webhook received successfully');
             } catch (error) {
-              console.error('Error inserting data into MongoDB:', error);
-              res.status(500).send('Internal Server Error');
+                console.error('Error inserting data into MongoDB:', error);
+                res.status(500).send('Internal Server Error');
             }
-          });
+        });
 
 
         app.post('/store-wollette-data', async (req, res) => {
