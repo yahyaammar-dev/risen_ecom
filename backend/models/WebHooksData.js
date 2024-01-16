@@ -1,11 +1,7 @@
 const mongoose = require('mongoose');
 
 const webHooksData = new mongoose.Schema({
-  deviceId: String,
-  locationId: String,
-  staffId: String,
-  type: String,
-  json: String
+  data: String,
 });
 
 const WebHooksData = mongoose.model('WebHooksData', webHooksData);

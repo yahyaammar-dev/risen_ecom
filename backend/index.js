@@ -73,20 +73,21 @@ mongoose.connect('mongodb://127.0.0.1:27017/ecom_db')
         });
 
 
-        app.post('/webhook', (req, res) => {
+        app.post('/webhook', async (req, res) => {
             const webhookData = req.body;
             console.log('Received webhook data:', webhookData);
-
-            // const newData = new WebHooksData({
-            //     deviceId,
-            //     locationId,
-            //     staffId,
-            //     type,
-            //     json
-            // });
-
-            res.status(200).send('Webhook received successfully');
-        });
+            try {
+              // Create a new document using the WebhookData model
+              const newWebhookData = new WebhookData(...webhookData);
+              // Save the document to MongoDB
+              await newWebhookData.save();
+              console.log('Webhook data inserted into MongoDB');
+              res.status(200).send('Webhook received successfully');
+            } catch (error) {
+              console.error('Error inserting data into MongoDB:', error);
+              res.status(500).send('Internal Server Error');
+            }
+          });
 
 
         app.post('/store-wollette-data', async (req, res) => {
