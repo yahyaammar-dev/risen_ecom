@@ -64,6 +64,7 @@ const Section = require('./models/Section')
 
 // connecting to db
 const mongoose = require('mongoose');
+const WolletteData = require('./models/WolleteData');
 mongoose.connect('mongodb://127.0.0.1:27017/ecom_db')
     .then(async () => {
         // Routes
@@ -71,6 +72,45 @@ mongoose.connect('mongodb://127.0.0.1:27017/ecom_db')
             console.log(`Server is running on port ${PORT}`);
         });
 
+
+        app.post('/store-wollette-data', async (req, res) => {
+            try {
+                const { deviceId, locationId, staffId, customerId, type, json } = req.body;
+                const newData = new WolletteData({
+                    deviceId,
+                    locationId,
+                    staffId,
+                    type,
+                    json
+                });
+                await newData.save();
+                res.status(200).json({ message: 'Data stored successfully' });
+                return
+            } catch (error) {
+                console.error('Error Storing Data:', error);
+                res.status(500).json({ message: 'Error Storing Data', error: error.message });
+                return
+            }
+        })
+
+
+        app.post('/get-wollette-data', async (req, res) => {
+            try {
+              const { deviceId, locationId, staffId } = req.body;
+              
+              // Search for the data based on the provided deviceId, locationId, and staffId
+              const storedData = await WolletteData.find({ deviceId, locationId, staffId });
+          
+              if (storedData) {
+                res.status(200).json({ message: 'Data retrieved successfully', data: storedData });
+              } else {
+                res.status(404).json({ message: 'Data not found' });
+              }
+            } catch (error) {
+              console.error('Error Retrieving Data:', error);
+              res.status(500).json({ message: 'Error Retrieving Data', error: error.message });
+            }
+          });
 
 
         // Update Branch API
@@ -1885,6 +1925,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/ecom_db')
                 res.status(500).json({ message: 'Error creating ticket' });
             }
         });
+
 
 
 
