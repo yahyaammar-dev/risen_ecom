@@ -96,7 +96,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/ecom_db')
             console.log('Received webhook data:', webhookData);
             try {
                 // Create a new document using the WebhookData model
-                const newWebhookData = new WebhookData(...webhookData);
+                const newWebhookData = new WebHooksData(...webhookData);
                 // Save the document to MongoDB
                 await newWebhookData.save();
                 console.log('Webhook data inserted into MongoDB');
