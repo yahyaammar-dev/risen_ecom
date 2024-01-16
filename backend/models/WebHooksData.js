@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const webHooksData = new mongoose.Schema({
-  data: String,
+  data: mongoose.Schema.Types.Mixed,
 });
 
 const WebHooksData = mongoose.model('WebHooksData', webHooksData);
