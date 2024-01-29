@@ -709,7 +709,6 @@ axios.get('http://localhost:8888/get-all-categories')
                         let price = parseFloat(response.data?.price).toFixed(2)
                         let image = 'http://localhost:8888/' + response.data.images[0]
 
-
                         let html = `<div
                     class="p-10 mb-8 bg-white rounded-md shadow dark:bg-gray-800 sm:flex sm:items-center xl:py-5 xl:px-12">
                     <a href="#" class="mr-6 md:mr-12">
@@ -752,7 +751,7 @@ axios.get('http://localhost:8888/get-all-categories')
             if(Total == 0){
                 document.getElementById("totalp").innerText = 7000
                 document.getElementById("ship").innerText = 0
-                
+                Total = 7000
             }
             else{
                 document.getElementById("totalp").innerText = Total;
@@ -783,7 +782,7 @@ axios.get('http://localhost:8888/get-all-categories')
             if (price > 2000) {
                 amount = price;
             } else {
-                amount = amount + 200;
+                amount = price + 200;
             }
 
             console.log(amount, branchId, products, user)

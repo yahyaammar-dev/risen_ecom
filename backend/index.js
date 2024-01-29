@@ -72,6 +72,236 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         });
 
 
+        app.get('/search-product', async (req, res) => {
+            try {
+                const searchQuery = req.query.data;
+                console.log(searchQuery);
+
+                let filter;
+
+                if (searchQuery) {
+                    filter = {
+                        $or: [
+                            { name: { $regex: searchQuery, $options: 'i' } }, // 'i' makes it case-insensitive
+                            { barcodeId: { $regex: searchQuery, $options: 'i' } },
+                            { promoCode: { $regex: searchQuery, $options: 'i' } }
+                        ]
+                    };
+                } else {
+                    // If searchQuery is empty, return all products
+                    filter = {};
+                }
+
+                const products = await Product.find(filter).populate("category");
+
+                if (products.length > 0) {
+                    res.status(200).json({ products });
+                } else {
+                    res.status(404).json({ message: 'No matching entries found' });
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                res.status(500).json({ message: 'Internal server error' });
+            }
+
+
+        });
+
+        app.get('/search-branch', async (req, res) => {
+            try {
+                const searchQuery = req.query.data;
+                console.log(searchQuery);
+
+                let filter;
+
+                if (searchQuery) {
+                    filter = {
+                        $or: [
+                            { name: { $regex: searchQuery, $options: 'i' } }, // 'i' makes it case-insensitive
+                            { address: { $regex: searchQuery, $options: 'i' } },
+                            { latitude: { $regex: searchQuery, $options: 'i' } },
+                            { longitude: { $regex: searchQuery, $options: 'i' } }
+                        ]
+                    };
+                } else {
+                    // If searchQuery is empty, return all products
+                    filter = {};
+                }
+
+                const branches = await Store.find(filter);
+
+                if (branches.length > 0) {
+                    res.status(200).json({ branches });
+                } else {
+                    res.status(404).json({ message: 'No matching entries found' });
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                res.status(500).json({ message: 'Internal server error' });
+            }
+
+
+        });
+
+        app.get('/search-user', async (req, res) => {
+            try {
+                const searchQuery = req.query.data;
+                console.log(searchQuery);
+
+                let filter;
+
+                if (searchQuery) {
+                    filter = {
+                        $or: [
+                            { name: { $regex: searchQuery, $options: 'i' } }, // 'i' makes it case-insensitive
+                            { email: { $regex: searchQuery, $options: 'i' } },
+                            { phone: { $regex: searchQuery, $options: 'i' } }
+                        ]
+                    };
+                } else {
+                    // If searchQuery is empty, return all products
+                    filter = {};
+                }
+
+                const users = await User.find(filter)
+
+                if (users.length > 0) {
+                    res.status(200).json({ users });
+                } else {
+                    res.status(404).json({ message: 'No matching entries found' });
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                res.status(500).json({ message: 'Internal server error' });
+            }
+
+
+        });
+
+        app.get('/search-category', async (req, res) => {
+            try {
+                const searchQuery = req.query.data;
+                console.log(searchQuery);
+
+                let filter;
+
+                if (searchQuery) {
+                    filter = {
+                        $or: [
+                            { name: { $regex: searchQuery, $options: 'i' } }
+                        ]
+                    };
+                } else {
+                    // If searchQuery is empty, return all products
+                    filter = {};
+                }
+
+                const categories = await Category.find(filter);
+
+                if (categories.length > 0) {
+                    res.status(200).json({ categories });
+                } else {
+                    res.status(404).json({ message: 'No matching entries found' });
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                res.status(500).json({ message: 'Internal server error' });
+            }
+
+
+        });
+
+        app.get('/search-subcategory', async (req, res) => {
+            try {
+                const searchQuery = req.query.data;
+                console.log(searchQuery);
+
+                let filter;
+
+                if (searchQuery) {
+                    filter = {
+                        $or: [
+                            { subCategoryName: { $regex: searchQuery, $options: 'i' } }
+                        ]
+                    };
+                } else {
+                    // If searchQuery is empty, return all products
+                    filter = {};
+                }
+
+                const subcategories = await SubCategory.find(filter);
+
+                if (subcategories.length > 0) {
+                    res.status(200).json({ subcategories });
+                } else {
+                    res.status(404).json({ message: 'No matching entries found' });
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                res.status(500).json({ message: 'Internal server error' });
+            }
+
+
+        });
+        app.get('/search-section', async (req, res) => {
+            try {
+                const searchQuery = req.query.data;
+                console.log(searchQuery);
+
+                let filter;
+
+                if (searchQuery) {
+                    filter = {
+                        $or: [
+                            { name: { $regex: searchQuery, $options: 'i' } }
+                        ]
+                    };
+                } else {
+                    // If searchQuery is empty, return all products
+                    filter = {};
+                }
+
+                const sections = await Section.find(filter);
+
+                if (sections.length > 0) {
+                    res.status(200).json({ sections });
+                } else {
+                    res.status(404).json({ message: 'No matching entries found' });
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                res.status(500).json({ message: 'Internal server error' });
+            }
+
+
+        });
+
+        app.get('/product-by-category', async (req, res) => {
+            try {
+                const categoryId = req.query.id;
+                console.log(categoryId)
+                const products = await Product.find({ category: categoryId }).populate('category');
+                res.status(200).json({ products });
+            } catch (error) {
+                console.error('Error:', error);
+                throw error; // You may want to handle this error in a more specific way in your application
+            }
+        });
+
+
+        app.get('/subcategory-by-category', async (req, res) => {
+            try {
+                const categoryId = req.query.id;
+                console.log(categoryId)
+                const subcategories = await SubCategory.find({ parentCategoryId : categoryId }).populate('parentCategoryId');
+                res.status(200).json({ subcategories });
+            } catch (error) {
+                console.error('Error:', error);
+                throw error; // You may want to handle this error in a more specific way in your application
+            }
+        });
+
+
 
         // Update Branch API
         app.put('/update-branch/:branchId', async (req, res) => {
@@ -79,6 +309,41 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 const branchId = req.params.branchId;
                 const { branchName, address, latitude, longitude } = req.body;
 
+                // Check if branchId is provided
+                if (!branchId) {
+                    return res.status(400).json({ message: 'Branch ID is required for updating a branch' });
+                }
+
+                // Find the branch by ID
+                const existingBranch = await Store.findById(branchId);
+
+                // Check if the branch exists
+                if (!existingBranch) {
+                    return res.status(404).json({ message: 'Branch not found' });
+                }
+
+                // Update the branch properties
+                existingBranch.name = branchName;
+                existingBranch.address = address;
+                existingBranch.latitude = latitude;
+                existingBranch.longitude = longitude;
+
+                // Save the updated branch to the database
+                await existingBranch.save();
+
+                res.status(200).json({ message: 'Branch updated successfully', branch: existingBranch });
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ message: 'Internal server error' });
+            }
+        });
+
+        app.put('/update-branches', async (req, res) => {
+            try {
+                const branchId = req.query.id;
+                console.log(req.query.id)
+                const { branchName, address, latitude, longitude } = req.body;
+                console.log(req.body)
                 // Check if branchId is provided
                 if (!branchId) {
                     return res.status(400).json({ message: 'Branch ID is required for updating a branch' });
@@ -1288,8 +1553,9 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
 
                 if (!branch) {
                     const orders = await Order.find()
-                        .populate('user', 'name email')  // Assuming 'name' and 'email' are fields in the User model
-                        .populate('products', 'name description');  // Assuming 'name' and 'description' are fields in the Product model
+                        .populate('products', 'name description')
+                        .populate('user', 'name email'); // Assuming 'name' and 'email' are fields in the User model
+                    // Assuming 'name' and 'description' are fields in the Product model
 
                     res.json({ orders });
                     return

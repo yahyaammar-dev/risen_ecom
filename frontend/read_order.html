@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles/homepage.css">
+    <link rel="stylesheet" href="./animation/animation.css">
     <script src="./libs/jspdf.umd.js"></script>
     <script src="./dist/jspdf.plugin.autotable.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -64,19 +65,28 @@
 
 <body>
     <!-- Admin Dashboard -->
-    <div class="bg-gray-100  dark:bg-gray-800">
+    <div class="loading-container" id="loadingContainer">
+        <div class="loader">
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--text"></div>
+        </div>
+    </div>
+    <div class="container bg-gray-100  dark:bg-gray-800" id="contentContainer">
         <div class="body-content" x-data="{ open: true }">
             <div class="relative lg:block navbar-menu">
                 <nav x-bind:class="! open ? 'w-0' : 'w-[280px]'"
                     class="fixed top-0 transition-all lg:mt-0 z-40 mt-16 left-0 dark:bg-gray-900 bottom-0 flex flex-col w-[280px] lg:border-none border-r border-gray-200 dark:border-gray-800 bg-gray-50 overflow-hidden "
                     id="sidenav">
                     <div class="flex items-center w-full px-4 pt-4 pb-4 border-b border-gray-200 dark:border-gray-700">
-                        <a href="#">
-                            <div class="flex items-center ml-2">
-                                <h2 class="ml-3 text-lg font-bold text-gray-700 dark:text-gray-400 whitespace-nowrap">
-                                    Your Logo </h2>
-                            </div>
-                        </a>
+                        <div class="flex items-center ml-2">
+                            <img src="./images/logo.png" alt="logo" width="50">
+                    </div>
                     </div>
                     <div>
                         <div class="overflow-hidden ">
@@ -90,8 +100,8 @@
                         </div>
                         <div class="flex justify-center ">
                             <div>
-                                <h2 class="text-xl font-semibold dark:text-gray-300 ">John Doe</h2>
-                                <span class="text-sm font-medium text-gray-600">john@gmail.com</span>
+                                <h2 class="text-xl font-semibold dark:text-gray-300" id="usernamex">John Doe</h2>
+                                <span class="text-sm font-medium text-gray-600" id="emailx">john@gmail.com</span>
                             </div>
                         </div>
                     </div>
@@ -223,7 +233,7 @@
                     <nav class="relative">
                         <div class="flex items-center justify-between">
                             <div>
-                                <button x-on:click="open = ! open"
+                                <button x-on:click="open = !open"
                                     class="px-2 py-3 text-blue-500 bg-blue-100 rounded dark:text-gray-400 dark:bg-gray-800">
                                     <svg width="18" height="10" viewBox="0 0 18 10" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -234,7 +244,7 @@
                                 </button>
                             </div>
                             <div class="flex items-center">
-                                <div class="justify-center hidden mr-4 md:flex">
+                                <!-- <div class="justify-center hidden mr-4 md:flex">
                                     <div class=" xl:w-96">
                                         <div class="relative flex flex-wrap items-center w-full ">
                                             <input type="search"
@@ -251,8 +261,8 @@
                                             </button>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="relative mr-4 ">
+                                </div> -->
+                                <!-- <div class="relative mr-4 ">
                                     <span>
                                         <svg mlns="http://www.w3.org/2000/svg" width="20" height="20"
                                             fill="currentColor" class="text-gray-400" viewBox="0 0 16 16">
@@ -262,15 +272,15 @@
                                                 d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
                                         </svg>
                                     </span>
-                                </div>
-                                <div class="block mr-4 md:hidden">
+                                </div> -->
+                                <!-- <div class="block mr-4 md:hidden">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                         class="text-gray-400" viewBox="0 0 16 16">
                                         <path
                                             d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                                     </svg>
-                                </div>
-                                <div class="relative mr-4 ">
+                                </div> -->
+                                <!-- <div class="relative mr-4 ">
                                     <span>
                                         <div class="absolute top-0 right-0 w-2 h-2 bg-red-400 rounded-full">
                                         </div>
@@ -280,12 +290,12 @@
                                                 d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
                                         </svg>
                                     </span>
-                                </div>
+                                </div> -->
                                 <div class="relative text-left lg:inline-block" x-data="{ open: false }">
-                                    <div class="lg:block" @click="open = ! open">
+                                    <div class="lg:block" @click="open = !open">
                                         <button class="flex items-center">
                                             <div class="hidden mr-3 text-right md:block">
-                                                <p class="text-sm font-bold text-black dark:text-gray-400"> John Doe
+                                                <p class="text-sm font-bold text-black dark:text-gray-400" id="usernamex1">John Doe
                                                 </p>
                                             </div>
                                             <div class="mr-2">
@@ -319,7 +329,7 @@
                                                 </svg>
                                                 Account
                                             </a>
-                                            <a href="#"
+                                            <a href="admin_login.html" onclick="logout()"
                                                 class="flex px-4 py-2 text-sm text-gray-700 dark:hover:bg-gray-800 dark:text-gray-400 hover:bg-gray-100">
                                                 <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="18"
                                                     height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -340,20 +350,20 @@
                 <section class="px-4 py-6">
                     <div class="grid grid-cols-1 gap-6 lg:grid-cols-1 ">
                         <div>
-                            <button class="bg-blue-200 px-4 py-2 border rounded-md hover:bg-blue-300"
+                            <button class="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                                 onclick="generateReport()">Generate Report</button>
                         </div>
                         <div class="overflow-x-auto rounded shadow dark:bg-gray-900 bg-white">
                             <table class="w-full table-auto">
-                                <thead class="bg-lightGray-50">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                     <tr
                                         class="text-xs text-left text-gray-500 border-b border-gray-200 dark:border-gray-800">
-                                        <th class="flex items-center py-4 pl-6 font-medium dark:text-gray-400">
+                                        <th class="flex items-center py-4 pl-6 font-xl dark:text-gray-400">
                                             <span>Name</span>
                                         </th>
-                                        <th class="px-6 py-4 font-medium dark:text-gray-400">Amount</th>
-                                        <th class="px-6 py-4 font-medium dark:text-gray-400">Products</th>
-                                        <th class="px-6 py-4 font-medium dark:text-gray-400">Actions</th>
+                                        <th class="px-6 py-4 font-xl dark:text-gray-400">Amount</th>
+                                        <th class="px-6 py-4 font-xl dark:text-gray-400">Products</th>
+                                        <th class="px-6 py-4 font-xl dark:text-gray-400">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody id="datahastobehereid">
@@ -372,6 +382,13 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
+        function logout() {
+            window.localStorage.setItem('admin', JSON.stringify(undefined))
+        }
+        let item = window.localStorage.getItem('admin')
+        document.getElementById("usernamex").innerHTML = JSON.parse(item).name;
+        document.getElementById("usernamex1").innerHTML = JSON.parse(item).name;
+        document.getElementById("emailx").innerHTML = JSON.parse(item).email;
         // Replace 'your-api-endpoint' with the actual endpoint you want to call
         let data = [];
         function generatepdf(data) {
@@ -423,7 +440,12 @@
         }
 
 
-
+        window.addEventListener("DOMContentLoaded", function(){
+            setTimeout(() => {
+                document.getElementById('loadingContainer').style.display = 'none';
+                document.getElementById('contentContainer').style.display = 'block';
+            }, 2000);
+        })
 
 
         const editItem = (item) => {
@@ -468,10 +490,8 @@
                 }).join('')}
                 </td>
                 <td class="px-6">
-                    <div class="flex ">
-                        <button class="editBtn bg-blue-200 px-4 py-2 mr-4 text-sm text-blue-600 rounded-md dark:bg-blue-600 dark:text-blue-400 dark:hover:bg-blue-800 hover:bg-blue-300"
-                              onclick='editItem(${JSON.stringify(item)})'>Edit</button>    
-                              <button class="editBtn bg-blue-200 px-4 py-2 mr-4 text-sm text-blue-600 rounded-md dark:bg-blue-600 dark:text-blue-400 dark:hover:bg-blue-800 hover:bg-blue-300"
+                    <div class="flex ">   
+                              <button class="editBtn py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                               onclick='generateSingleRowPdf(${JSON.stringify(item)})'>Print</button>    
                     </div>
                 </td>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles/homepage.css">
+    <link rel="stylesheet" href="./animation/animation.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -64,24 +65,37 @@
             height: 30rem;
             overflow: auto;
         }
+        #allorder {
+            height: 30rem;
+            overflow: auto;
+        }
     </style>
 </head>
 
 <body>
     <!-- Admin Dashboard -->
-    <div class="bg-gray-100  dark:bg-gray-800">
+    <div class="loading-container" id="loadingContainer">
+        <div class="loader">
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--dot"></div>
+            <div class="loader--text"></div>
+        </div>
+    </div>
+    <div class="container bg-gray-100  dark:bg-gray-800" id="contentContainer">
         <div class="body-content" x-data="{ open: true }">
             <div class="relative lg:block navbar-menu">
                 <nav x-bind:class="! open ? 'w-0' : 'w-[280px]'"
                     class="fixed top-0 transition-all lg:mt-0 z-40 mt-16 left-0 dark:bg-gray-900 bottom-0 flex flex-col w-[280px] lg:border-none border-r border-gray-200 dark:border-gray-800 bg-gray-50 overflow-hidden "
                     id="sidenav">
                     <div class="flex items-center w-full px-4 pt-4 pb-4 border-b border-gray-200 dark:border-gray-700">
-                        <a href="#">
-                            <div class="flex items-center ml-2">
-                                <h2 class="ml-3 text-lg font-bold text-gray-700 dark:text-gray-400 whitespace-nowrap">
-                                    Your Logo </h2>
-                            </div>
-                        </a>
+                        <div class="flex items-center ml-2">
+                                <img src="./images/logo.png" alt="logo" width="50">
+                        </div>
                     </div>
                     <div>
                         <div class="overflow-hidden ">
@@ -95,8 +109,8 @@
                         </div>
                         <div class="flex justify-center ">
                             <div>
-                                <h2 class="text-xl font-semibold dark:text-gray-300 ">John Doe</h2>
-                                <span class="text-sm font-medium text-gray-600">john@gmail.com</span>
+                                <h2 class="text-xl font-semibold dark:text-gray-300" id="usernamex">John Doe</h2>
+                                <span class="text-sm font-medium text-gray-600" id="emailx">john@gmail.com</span>
                             </div>
                         </div>
                     </div>
@@ -239,7 +253,7 @@
                                 </button>
                             </div>
                             <div class="flex items-center">
-                                <div class="justify-center hidden mr-4 md:flex">
+                                <!-- <div class="justify-center hidden mr-4 md:flex">
                                     <div class=" xl:w-96">
                                         <div class="relative flex flex-wrap items-center w-full ">
                                             <input type="search"
@@ -256,8 +270,8 @@
                                             </button>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="relative mr-4 ">
+                                </div> -->
+                                <!-- <div class="relative mr-4 ">
                                     <span>
                                         <svg mlns="http://www.w3.org/2000/svg" width="20" height="20"
                                             fill="currentColor" class="text-gray-400" viewBox="0 0 16 16">
@@ -267,15 +281,15 @@
                                                 d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
                                         </svg>
                                     </span>
-                                </div>
-                                <div class="block mr-4 md:hidden">
+                                </div> -->
+                                <!-- <div class="block mr-4 md:hidden">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                         class="text-gray-400" viewBox="0 0 16 16">
                                         <path
                                             d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                                     </svg>
-                                </div>
-                                <div class="relative mr-4 ">
+                                </div> -->
+                                <!-- <div class="relative mr-4 ">
                                     <span>
                                         <div class="absolute top-0 right-0 w-2 h-2 bg-red-400 rounded-full">
                                         </div>
@@ -285,12 +299,12 @@
                                                 d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
                                         </svg>
                                     </span>
-                                </div>
+                                </div> -->
                                 <div class="relative text-left lg:inline-block" x-data="{ open: false }">
                                     <div class="lg:block" @click="open = !open">
                                         <button class="flex items-center">
                                             <div class="hidden mr-3 text-right md:block">
-                                                <p class="text-sm font-bold text-black dark:text-gray-400"> John Doe
+                                                <p class="text-sm font-bold text-black dark:text-gray-400" id="usernamex1">John Doe
                                                 </p>
                                             </div>
                                             <div class="mr-2">
@@ -312,19 +326,7 @@
                                         class="absolute right-0 w-48 mt-3 origin-top-right bg-white rounded shadow dark:bg-gray-800 dark:text-gray-100 dark:bg-gray-700"
                                         style="display: none;">
                                         <div class="py-1">
-                                            <a href="#"
-                                                class="flex px-4 py-2 text-sm text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 hover:bg-gray-100">
-                                                <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="18"
-                                                    height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <circle cx="12" cy="12" r="3"></circle>
-                                                    <path
-                                                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
-                                                    </path>
-                                                </svg>
-                                                Account
-                                            </a>
-                                            <a href="#"
+                                            <a href="admin_login.html" onclick="logout()"
                                                 class="flex px-4 py-2 text-sm text-gray-700 dark:hover:bg-gray-800 dark:text-gray-400 hover:bg-gray-100">
                                                 <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="18"
                                                     height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -370,6 +372,28 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <div class="p-4 bg-white rounded-lg shadow hover:shadow-xl dark:bg-gray-900">
+                            <div class="flex flex-row items-center">
+                                <div class="flex-1 text-left md:text-left">
+                                    <h2 class="mb-2 text-lg font-bold text-gray-600 uppercase dark:text-gray-400">
+                                        Last Week</h2>
+                                    <p class="mb-2 text-lg font-medium text-gray-600 dark:text-gray-400" id="lastweek">
+                                        2310 </p>
+                                    <p class="text-sm font-medium text-gray-400 dark:text-gray-400">Last Week Sales
+                                    </p>
+                                </div>
+                                <div class="flex-shrink">
+                                    <a href="#" class="flex items-center px-8 py-4 text-gray-400 dark:text-gray-400 ">
+                                        <span class="inline-block mr-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
+                                            </svg>                                              
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                         <div class="p-4 bg-white rounded-lg shadow hover:shadow-xl dark:bg-gray-900">
                             <div class="flex flex-row items-center">
                                 <div class="flex-1 text-left md:text-left">
@@ -394,44 +418,17 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-4 bg-white rounded-lg shadow hover:shadow-xl dark:bg-gray-900">
-                            <div class="flex flex-row items-center">
-                                <div class="flex-1 text-left md:text-left">
-                                    <h2 class="mb-2 text-lg font-bold text-gray-600 uppercase dark:text-gray-400">
-                                        Last Week</h2>
-                                    <p class="mb-2 text-lg font-medium text-gray-600 dark:text-gray-400" id="lastweek">
-                                        2310 </p>
-                                    <p class="text-sm font-medium text-gray-400 dark:text-gray-400">Last Week Sales
-                                    </p>
-                                </div>
-                                <div class="flex-shrink">
-                                    <a href="#" class="flex items-center px-8 py-4 text-gray-400 dark:text-gray-400 ">
-                                        <span class="inline-block mr-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="w-10 h-10 bi bi-people" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" />
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </section>
                 <section class="px-4 py-6">
                     <div class="grid grid-cols-1 gap-6 lg:grid-cols-2 ">
-                        <div class="p-4 bg-white rounded-md shadow md:p-6 dark:bg-gray-900 ">
+                        <div class="p-4 bg-white rounded-md shadow md:p-6 dark:bg-gray-900">
                             <h2 class="pb-4 text-xl font-bold border-b dark:border-gray-700 dark:text-gray-400">Latest
                                 Orders</h2>
                             <div class="px-4 py-3 text-xs font-medium">
                                 <div class="flex px-4 mb-3 text-gray-500 dark:text-gray-400">
                                     <h2 class="mr-auto">Order Details</h2>
-                                    <!-- <h2>Action</h2> -->
                                 </div>
-
-
-
                                 <div id="allorder">
                                 </div>
 
@@ -444,15 +441,8 @@
                                 Latest Users</h2>
 
 
-
-
-
-
                             <div id="userContainer">
                             </div>
-
-
-
                         </div>
                     </div>
                 </section>
@@ -464,18 +454,19 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script>
-        function logout() {
-            window.localStorage.setItem('admin', JSON.stringify(undefined))
-        }
-        // Replace 'your-api-endpoint' with the actual endpoint you want to call
         var apiEndpoint = 'http://localhost:8888/calculateamount';
         const topUsersEndpoint = 'http://localhost:8888/get-all-users';
         const topOrdersEndpoint = 'http://localhost:8888/get-all-orders';
-
+        function logout() {
+            window.localStorage.setItem('admin', JSON.stringify(undefined))
+        }
         let item = window.localStorage.getItem('admin')
+        document.getElementById("usernamex").innerHTML = JSON.parse(item).name;
+        document.getElementById("usernamex1").innerHTML = JSON.parse(item).name;
+        document.getElementById("emailx").innerHTML = JSON.parse(item).email;
 
         if (!item) {
-            window.location.href = 'file:///home/madmachine/projects/ecommerce-app-risen/frontend/admin_login.html'
+            window.location.href = 'admin_login.html'
         } else {
             item = JSON.parse(item)
             const data = {
@@ -503,11 +494,12 @@
             // Make the API call to fetch top users
             axios.get(topUsersEndpoint, { params: { branchId } })
                 .then(function (response) {
+                    
                     // Handle the API response here for top users
                     var topUsersData = response.data;
                     let userContainer = document.getElementById('userContainer')
                     topUsersData?.users?.forEach(element => {
-                        let html = `   <div class="flex flex-wrap mb-6">
+                        let html = `<div class="flex">
             <div class="px-4 ">
                 <img class="object-cover w-20 h-20 p-2 rounded-full"
                     src="https://i.postimg.cc/RhQYkKYk/pexels-italo-melo-2379005.jpg">
@@ -533,12 +525,14 @@
             // Make the API call to fetch top orders
             axios.get(topOrdersEndpoint, { params: { branchId } })
                 .then(function (response) {
+                    
                     // Handle the API response here for top orders
                     var topOrdersData = response.data;
+                    console.log("topOrdersData",topOrdersData)
                     let ordersContainer = document.getElementById('allorder')
                     topOrdersData?.orders.forEach(element => {
                         let html = `<div class="flex justify-between p-4 mb-4 bg-gray-100 rounded dark:bg-gray-800">
-                                    <div class="flex ">
+                                    <div class="flex">
                                         <span
                                             class="inline-flex items-center justify-center w-8 h-8 mr-2 text-blue-600 rounded dark:text-gray-400 dark:bg-gray-700 bg-blue-50">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -548,8 +542,8 @@
                                             </svg>
                                         </span>
                                         <div class="text-xs">
-                                            <p class="font-medium dark:text-gray-400">${element?.user?.name}</p>
-                                            <p class="text-gray-500 dark:text-gray-400">${element?.user?.email}</p>
+                                            <p class="font-medium dark:text-gray-400">${element?.user?.name ? element?.user?.name : "John doe" }</p>
+                                            <p class="text-gray-500 dark:text-gray-400">${element?.products?.name ? element?.products?.name : "soap"}</p>
                                         </div>
                                     </div>
                                     <div class="flex">
@@ -563,7 +557,13 @@
                     console.error('Error fetching top orders:', error);
                 });
         }
+        window.addEventListener("DOMContentLoaded", function(){
+            setTimeout(() => {
+                document.getElementById('loadingContainer').style.display = 'none';
+                document.getElementById('contentContainer').style.display = 'block';
+            }, 2000);
+        })
+        
     </script>
 </body>
-
 </html>

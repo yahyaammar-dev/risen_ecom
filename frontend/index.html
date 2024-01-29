@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles/homepage.css">
+    <link rel="stylesheet" href="./animation/animation.css">
     <link rel="stylesheet" href="./styles/badge.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./animation/animation.js"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -480,808 +482,803 @@
 
 
     <!-- type of order   -->
-    <div class="flex mx-auto gap-5 mb-5 w-full flex-wrap md:flex-nowrap">
-        <div class="first flex items-center md:w-1/2 w-full  p-3 rounded-lg shadow-md sm:w-full  justify-between"
-            id="element1" onclick="toggleBackgroundColor(this,'deliver')">
-            <div class="flex gap-10 w-full justify-between">
-                <div class="item flex gap-2 items-center">
-                    <svg data-testid="StandardTab" viewBox="0 0 32 32" height="auto" width="24px" class="css-1oteowz">
-                        <mask id="mask0_852_165018" maskUnits="userSpaceOnUse" x="2" y="6" width="28" height="21">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M2.66602 6.66675H29.3324V26.6665H2.66602V6.66675Z" fill="white"></path>
-                        </mask>
-                        <g mask="url(#mask0_852_165018)">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M28.4404 21.9938L27.0893 23.4937H25.3616C25.366 23.4273 25.3727 23.3608 25.3727 23.2934C25.3727 21.4582 23.7749 19.9656 21.8105 19.9656C21.2493 19.9656 20.7193 20.0912 20.2471 20.3081V17.7972L28.4404 17.7463V21.9938ZM21.814 25.7905C20.3407 25.7905 19.1418 24.6705 19.1418 23.2931C19.1418 21.9156 20.3407 20.7957 21.814 20.7957C23.2884 20.7957 24.4873 21.9156 24.4873 23.2931C24.4873 24.6705 23.2884 25.7905 21.814 25.7905ZM11.3551 20.7911V20.8419C10.7218 20.3001 9.88176 19.9669 8.95732 19.9669C8.06288 19.9669 7.2451 20.2794 6.61954 20.7911H3.55733V7.4965H19.7062L23.4229 11.1751H19.8084C19.5629 11.1751 19.364 11.3609 19.364 11.5903V20.7184C19.364 20.7433 19.3673 20.7672 19.3717 20.7911H11.3551ZM18.2524 23.2955C18.2524 23.3422 18.258 23.3889 18.2591 23.4356H12.5091C12.5113 23.3889 12.5169 23.3422 12.5169 23.2955C12.5169 22.5045 12.218 21.779 11.7235 21.207H19.0457C18.5502 21.779 18.2524 22.5045 18.2524 23.2955ZM8.95443 25.7905C7.48109 25.7905 6.28221 24.6705 6.28221 23.2931C6.28221 21.9156 7.48109 20.7957 8.95443 20.7957C10.4289 20.7957 11.6278 21.9156 11.6278 23.2931C11.6278 24.6705 10.4289 25.7905 8.95443 25.7905ZM5.39621 23.2959C5.39621 23.3633 5.40288 23.4298 5.40732 23.4962H3.55733V21.2074H6.18843C5.69399 21.7794 5.39621 22.5049 5.39621 23.2959ZM28.0261 16.9213L20.2528 16.969V12.0054H24.2273L28.0261 16.9213ZM29.2482 17.0869L24.8115 11.3468C24.8004 11.3323 24.786 11.3198 24.7727 11.3074L24.7749 11.3053L20.2193 6.79729C20.1349 6.71425 20.0182 6.6665 19.896 6.6665H3.11046C2.8649 6.6665 2.66602 6.85334 2.66602 7.0817V23.9106C2.66602 24.14 2.8649 24.3258 3.11046 24.3258H5.57046C5.86379 25.1625 6.50157 25.8527 7.32823 26.2513H4.75935V26.6665H9.0149V26.6198C10.5427 26.5959 11.8371 25.67 12.316 24.3871H18.4538C18.756 25.1957 19.3815 25.8631 20.1871 26.2513H17.5582V26.6665H21.8449V26.6208C23.4093 26.6084 24.736 25.6493 25.1993 24.3258H27.2993C27.4304 24.3258 27.5549 24.2719 27.6393 24.1784L29.2282 22.4139C29.296 22.3402 29.3326 22.2447 29.3326 22.1471V17.3308C29.3326 17.2436 29.3026 17.1585 29.2482 17.0869Z"
-                                fill="#0E5AA7"></path>
-                        </g>
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M21.8117 22.4268C21.2984 22.4268 20.8828 22.816 20.8828 23.2945C20.8828 23.7741 21.2984 24.1633 21.8117 24.1633C22.325 24.1633 22.7406 23.7741 22.7406 23.2945C22.7406 22.816 22.325 22.4268 21.8117 22.4268Z"
-                            fill="#0E5AA7"></path>
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M8.95428 22.4268C8.44095 22.4268 8.02539 22.816 8.02539 23.2945C8.02539 23.7741 8.44095 24.1633 8.95428 24.1633C9.46761 24.1633 9.88317 23.7741 9.88317 23.2945C9.88317 22.816 9.46761 22.4268 8.95428 22.4268Z"
-                            fill="#0E5AA7"></path>
-                        <mask id="mask1_852_165018" maskUnits="userSpaceOnUse" x="2" y="6" width="28" height="21">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M2.66602 26.6667H29.3327V6.66675H2.66602V26.6667Z" fill="white"></path>
-                        </mask>
-                        <g mask="url(#mask1_852_165018)">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M21.2773 19.0242H22.5362V18.609H21.2773V19.0242Z" fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M3.61914 10.2552H18.7569V9.83996H3.61914V10.2552Z" fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M14.3633 17.6009H18.6199V16.7705H14.3633V17.6009Z" fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M11.9258 19.1996H13.5447V18.3692H11.9258V19.1996Z" fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M5.90625 23.2955C5.90625 21.7219 7.2718 20.4473 8.95514 20.4473C10.6385 20.4473 12.004 21.7219 12.004 23.2955C12.004 24.8681 10.6385 26.1438 8.95514 26.1438C7.2718 26.1438 5.90625 24.8681 5.90625 23.2955Z"
-                                fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M8.02539 23.295C8.02539 22.8155 8.44206 22.4272 8.95428 22.4272C9.46761 22.4272 9.88317 22.8155 9.88317 23.295C9.88317 23.7746 9.46761 24.1628 8.95428 24.1628C8.44206 24.1628 8.02539 23.7746 8.02539 23.295Z"
-                                fill="white"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M18.7656 23.2955C18.7656 21.7219 20.1312 20.4473 21.8145 20.4473C23.4978 20.4473 24.8634 21.7219 24.8634 23.2955C24.8634 24.8681 23.4978 26.1438 21.8145 26.1438C20.1312 26.1438 18.7656 24.8681 18.7656 23.2955Z"
-                                fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M20.9746 23.295C20.9746 22.8155 21.3913 22.4272 21.9035 22.4272C22.4168 22.4272 22.8335 22.8155 22.8335 23.295C22.8335 23.7746 22.4168 24.1628 21.9035 24.1628C21.3913 24.1628 20.9746 23.7746 20.9746 23.295Z"
-                                fill="white"></path>
-                        </g>
-                    </svg>
-                    <h4 id="text">Deliver</h4>
-                </div>
-
-                <div class="item flex flex-col items-center justify-center">
-                    <svg data-testid="information-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                        xmlns="http://www.w3.org/2000/svg" class="css-1oh7a03">
-                        <path
-                            d="M10 0.25C8.07164 0.25 6.18657 0.821828 4.58319 1.89317C2.97982 2.96451 1.73013 4.48726 0.992179 6.26884C0.254225 8.05042 0.061142 10.0108 0.437348 11.9021C0.813554 13.7934 1.74215 15.5307 3.10571 16.8943C4.46928 18.2579 6.20656 19.1865 8.09787 19.5627C9.98919 19.9389 11.9496 19.7458 13.7312 19.0078C15.5127 18.2699 17.0355 17.0202 18.1068 15.4168C19.1782 13.8134 19.75 11.9284 19.75 10C19.7471 7.41504 18.7189 4.93679 16.8911 3.10894C15.0632 1.28109 12.585 0.252926 10 0.25ZM9.81256 4.75003C10.0351 4.75003 10.2526 4.81601 10.4376 4.93963C10.6226 5.06325 10.7668 5.23895 10.8519 5.44452C10.9371 5.65008 10.9593 5.87628 10.9159 6.09451C10.8725 6.31274 10.7654 6.5132 10.608 6.67053C10.4507 6.82786 10.2503 6.93501 10.032 6.97842C9.8138 7.02183 9.5876 6.99955 9.38204 6.9144C9.17647 6.82925 9.00077 6.68506 8.87715 6.50005C8.75354 6.31505 8.68756 6.09754 8.68756 5.87503C8.68756 5.57667 8.80608 5.29052 9.01706 5.07954C9.22804 4.86856 9.51419 4.75003 9.81256 4.75003ZM10.75 15.25H10C9.8011 15.25 9.61034 15.171 9.46969 15.0303C9.32904 14.8897 9.25002 14.6989 9.25001 14.5V10C9.0511 10 8.86033 9.92098 8.71968 9.78033C8.57903 9.63968 8.50001 9.44891 8.50001 9.25C8.50001 9.05109 8.57903 8.86032 8.71968 8.71967C8.86033 8.57902 9.0511 8.5 9.25001 8.5H10C10.1989 8.50001 10.3897 8.57903 10.5303 8.71968C10.671 8.86033 10.75 9.05109 10.75 9.25V13.75C10.9489 13.75 11.1397 13.829 11.2803 13.9697C11.421 14.1103 11.5 14.3011 11.5 14.5C11.5 14.6989 11.421 14.8897 11.2803 15.0303C11.1397 15.171 10.9489 15.25 10.75 15.25Z"
-                            fill="#0E5AA7"></path>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        <div class="second md:w-1/2 w-full p-3 shadow-md rounded-lg sm:w-full" id="element2"
-            onclick="toggleBackgroundColor(this, 'takeway')">
-            <div class="flex gap-10 w-full justify-between">
-                <div class="item flex gap-2 items-center">
-                    <svg data-testid="StandardTab" viewBox="0 0 32 32" height="auto" width="24px" class="css-1oteowz">
-                        <mask id="mask0_852_165018" maskUnits="userSpaceOnUse" x="2" y="6" width="28" height="21">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M2.66602 6.66675H29.3324V26.6665H2.66602V6.66675Z" fill="white"></path>
-                        </mask>
-                        <g mask="url(#mask0_852_165018)">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M28.4404 21.9938L27.0893 23.4937H25.3616C25.366 23.4273 25.3727 23.3608 25.3727 23.2934C25.3727 21.4582 23.7749 19.9656 21.8105 19.9656C21.2493 19.9656 20.7193 20.0912 20.2471 20.3081V17.7972L28.4404 17.7463V21.9938ZM21.814 25.7905C20.3407 25.7905 19.1418 24.6705 19.1418 23.2931C19.1418 21.9156 20.3407 20.7957 21.814 20.7957C23.2884 20.7957 24.4873 21.9156 24.4873 23.2931C24.4873 24.6705 23.2884 25.7905 21.814 25.7905ZM11.3551 20.7911V20.8419C10.7218 20.3001 9.88176 19.9669 8.95732 19.9669C8.06288 19.9669 7.2451 20.2794 6.61954 20.7911H3.55733V7.4965H19.7062L23.4229 11.1751H19.8084C19.5629 11.1751 19.364 11.3609 19.364 11.5903V20.7184C19.364 20.7433 19.3673 20.7672 19.3717 20.7911H11.3551ZM18.2524 23.2955C18.2524 23.3422 18.258 23.3889 18.2591 23.4356H12.5091C12.5113 23.3889 12.5169 23.3422 12.5169 23.2955C12.5169 22.5045 12.218 21.779 11.7235 21.207H19.0457C18.5502 21.779 18.2524 22.5045 18.2524 23.2955ZM8.95443 25.7905C7.48109 25.7905 6.28221 24.6705 6.28221 23.2931C6.28221 21.9156 7.48109 20.7957 8.95443 20.7957C10.4289 20.7957 11.6278 21.9156 11.6278 23.2931C11.6278 24.6705 10.4289 25.7905 8.95443 25.7905ZM5.39621 23.2959C5.39621 23.3633 5.40288 23.4298 5.40732 23.4962H3.55733V21.2074H6.18843C5.69399 21.7794 5.39621 22.5049 5.39621 23.2959ZM28.0261 16.9213L20.2528 16.969V12.0054H24.2273L28.0261 16.9213ZM29.2482 17.0869L24.8115 11.3468C24.8004 11.3323 24.786 11.3198 24.7727 11.3074L24.7749 11.3053L20.2193 6.79729C20.1349 6.71425 20.0182 6.6665 19.896 6.6665H3.11046C2.8649 6.6665 2.66602 6.85334 2.66602 7.0817V23.9106C2.66602 24.14 2.8649 24.3258 3.11046 24.3258H5.57046C5.86379 25.1625 6.50157 25.8527 7.32823 26.2513H4.75935V26.6665H9.0149V26.6198C10.5427 26.5959 11.8371 25.67 12.316 24.3871H18.4538C18.756 25.1957 19.3815 25.8631 20.1871 26.2513H17.5582V26.6665H21.8449V26.6208C23.4093 26.6084 24.736 25.6493 25.1993 24.3258H27.2993C27.4304 24.3258 27.5549 24.2719 27.6393 24.1784L29.2282 22.4139C29.296 22.3402 29.3326 22.2447 29.3326 22.1471V17.3308C29.3326 17.2436 29.3026 17.1585 29.2482 17.0869Z"
-                                fill="#0E5AA7"></path>
-                        </g>
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M21.8117 22.4268C21.2984 22.4268 20.8828 22.816 20.8828 23.2945C20.8828 23.7741 21.2984 24.1633 21.8117 24.1633C22.325 24.1633 22.7406 23.7741 22.7406 23.2945C22.7406 22.816 22.325 22.4268 21.8117 22.4268Z"
-                            fill="#0E5AA7"></path>
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M8.95428 22.4268C8.44095 22.4268 8.02539 22.816 8.02539 23.2945C8.02539 23.7741 8.44095 24.1633 8.95428 24.1633C9.46761 24.1633 9.88317 23.7741 9.88317 23.2945C9.88317 22.816 9.46761 22.4268 8.95428 22.4268Z"
-                            fill="#0E5AA7"></path>
-                        <mask id="mask1_852_165018" maskUnits="userSpaceOnUse" x="2" y="6" width="28" height="21">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M2.66602 26.6667H29.3327V6.66675H2.66602V26.6667Z" fill="white"></path>
-                        </mask>
-                        <g mask="url(#mask1_852_165018)">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M21.2773 19.0242H22.5362V18.609H21.2773V19.0242Z" fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M3.61914 10.2552H18.7569V9.83996H3.61914V10.2552Z" fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M14.3633 17.6009H18.6199V16.7705H14.3633V17.6009Z" fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M11.9258 19.1996H13.5447V18.3692H11.9258V19.1996Z" fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M5.90625 23.2955C5.90625 21.7219 7.2718 20.4473 8.95514 20.4473C10.6385 20.4473 12.004 21.7219 12.004 23.2955C12.004 24.8681 10.6385 26.1438 8.95514 26.1438C7.2718 26.1438 5.90625 24.8681 5.90625 23.2955Z"
-                                fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M8.02539 23.295C8.02539 22.8155 8.44206 22.4272 8.95428 22.4272C9.46761 22.4272 9.88317 22.8155 9.88317 23.295C9.88317 23.7746 9.46761 24.1628 8.95428 24.1628C8.44206 24.1628 8.02539 23.7746 8.02539 23.295Z"
-                                fill="white"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M18.7656 23.2955C18.7656 21.7219 20.1312 20.4473 21.8145 20.4473C23.4978 20.4473 24.8634 21.7219 24.8634 23.2955C24.8634 24.8681 23.4978 26.1438 21.8145 26.1438C20.1312 26.1438 18.7656 24.8681 18.7656 23.2955Z"
-                                fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M20.9746 23.295C20.9746 22.8155 21.3913 22.4272 21.9035 22.4272C22.4168 22.4272 22.8335 22.8155 22.8335 23.295C22.8335 23.7746 22.4168 24.1628 21.9035 24.1628C21.3913 24.1628 20.9746 23.7746 20.9746 23.295Z"
-                                fill="white"></path>
-                        </g>
-                    </svg>
-                    <h4 id="text">TakeAway</h4>
-                </div>
-
-                <div class="item flex flex-col items-center justify-center">
-                    <svg data-testid="information-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                        xmlns="http://www.w3.org/2000/svg" class="css-1oh7a03">
-                        <path
-                            d="M10 0.25C8.07164 0.25 6.18657 0.821828 4.58319 1.89317C2.97982 2.96451 1.73013 4.48726 0.992179 6.26884C0.254225 8.05042 0.061142 10.0108 0.437348 11.9021C0.813554 13.7934 1.74215 15.5307 3.10571 16.8943C4.46928 18.2579 6.20656 19.1865 8.09787 19.5627C9.98919 19.9389 11.9496 19.7458 13.7312 19.0078C15.5127 18.2699 17.0355 17.0202 18.1068 15.4168C19.1782 13.8134 19.75 11.9284 19.75 10C19.7471 7.41504 18.7189 4.93679 16.8911 3.10894C15.0632 1.28109 12.585 0.252926 10 0.25ZM9.81256 4.75003C10.0351 4.75003 10.2526 4.81601 10.4376 4.93963C10.6226 5.06325 10.7668 5.23895 10.8519 5.44452C10.9371 5.65008 10.9593 5.87628 10.9159 6.09451C10.8725 6.31274 10.7654 6.5132 10.608 6.67053C10.4507 6.82786 10.2503 6.93501 10.032 6.97842C9.8138 7.02183 9.5876 6.99955 9.38204 6.9144C9.17647 6.82925 9.00077 6.68506 8.87715 6.50005C8.75354 6.31505 8.68756 6.09754 8.68756 5.87503C8.68756 5.57667 8.80608 5.29052 9.01706 5.07954C9.22804 4.86856 9.51419 4.75003 9.81256 4.75003ZM10.75 15.25H10C9.8011 15.25 9.61034 15.171 9.46969 15.0303C9.32904 14.8897 9.25002 14.6989 9.25001 14.5V10C9.0511 10 8.86033 9.92098 8.71968 9.78033C8.57903 9.63968 8.50001 9.44891 8.50001 9.25C8.50001 9.05109 8.57903 8.86032 8.71968 8.71967C8.86033 8.57902 9.0511 8.5 9.25001 8.5H10C10.1989 8.50001 10.3897 8.57903 10.5303 8.71968C10.671 8.86033 10.75 9.05109 10.75 9.25V13.75C10.9489 13.75 11.1397 13.829 11.2803 13.9697C11.421 14.1103 11.5 14.3011 11.5 14.5C11.5 14.6989 11.421 14.8897 11.2803 15.0303C11.1397 15.171 10.9489 15.25 10.75 15.25Z"
-                            fill="#0E5AA7"></path>
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Deliver type -->
-    <div class="flex mx-auto gap-5 w-full flex-wrap md:flex-nowrap">
-        <div class="first md:w-1/2 w-full p-3 rounded-lg shadow-md  justify-between sm:w-full" id="element3"
-            onclick="toggleBackgroundColor2(this, 'scheduled')">
-            <div class="flex gap-10 w-full justify-between flex-wrap">
-                <div class="item flex gap-2 items-center">
-                    <svg data-testid="StandardTab" viewBox="0 0 32 32" height="auto" width="24px" class="css-1oteowz">
-                        <mask id="mask0_852_165018" maskUnits="userSpaceOnUse" x="2" y="6" width="28" height="21">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M2.66602 6.66675H29.3324V26.6665H2.66602V6.66675Z" fill="white"></path>
-                        </mask>
-                        <g mask="url(#mask0_852_165018)">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M28.4404 21.9938L27.0893 23.4937H25.3616C25.366 23.4273 25.3727 23.3608 25.3727 23.2934C25.3727 21.4582 23.7749 19.9656 21.8105 19.9656C21.2493 19.9656 20.7193 20.0912 20.2471 20.3081V17.7972L28.4404 17.7463V21.9938ZM21.814 25.7905C20.3407 25.7905 19.1418 24.6705 19.1418 23.2931C19.1418 21.9156 20.3407 20.7957 21.814 20.7957C23.2884 20.7957 24.4873 21.9156 24.4873 23.2931C24.4873 24.6705 23.2884 25.7905 21.814 25.7905ZM11.3551 20.7911V20.8419C10.7218 20.3001 9.88176 19.9669 8.95732 19.9669C8.06288 19.9669 7.2451 20.2794 6.61954 20.7911H3.55733V7.4965H19.7062L23.4229 11.1751H19.8084C19.5629 11.1751 19.364 11.3609 19.364 11.5903V20.7184C19.364 20.7433 19.3673 20.7672 19.3717 20.7911H11.3551ZM18.2524 23.2955C18.2524 23.3422 18.258 23.3889 18.2591 23.4356H12.5091C12.5113 23.3889 12.5169 23.3422 12.5169 23.2955C12.5169 22.5045 12.218 21.779 11.7235 21.207H19.0457C18.5502 21.779 18.2524 22.5045 18.2524 23.2955ZM8.95443 25.7905C7.48109 25.7905 6.28221 24.6705 6.28221 23.2931C6.28221 21.9156 7.48109 20.7957 8.95443 20.7957C10.4289 20.7957 11.6278 21.9156 11.6278 23.2931C11.6278 24.6705 10.4289 25.7905 8.95443 25.7905ZM5.39621 23.2959C5.39621 23.3633 5.40288 23.4298 5.40732 23.4962H3.55733V21.2074H6.18843C5.69399 21.7794 5.39621 22.5049 5.39621 23.2959ZM28.0261 16.9213L20.2528 16.969V12.0054H24.2273L28.0261 16.9213ZM29.2482 17.0869L24.8115 11.3468C24.8004 11.3323 24.786 11.3198 24.7727 11.3074L24.7749 11.3053L20.2193 6.79729C20.1349 6.71425 20.0182 6.6665 19.896 6.6665H3.11046C2.8649 6.6665 2.66602 6.85334 2.66602 7.0817V23.9106C2.66602 24.14 2.8649 24.3258 3.11046 24.3258H5.57046C5.86379 25.1625 6.50157 25.8527 7.32823 26.2513H4.75935V26.6665H9.0149V26.6198C10.5427 26.5959 11.8371 25.67 12.316 24.3871H18.4538C18.756 25.1957 19.3815 25.8631 20.1871 26.2513H17.5582V26.6665H21.8449V26.6208C23.4093 26.6084 24.736 25.6493 25.1993 24.3258H27.2993C27.4304 24.3258 27.5549 24.2719 27.6393 24.1784L29.2282 22.4139C29.296 22.3402 29.3326 22.2447 29.3326 22.1471V17.3308C29.3326 17.2436 29.3026 17.1585 29.2482 17.0869Z"
-                                fill="#0E5AA7"></path>
-                        </g>
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M21.8117 22.4268C21.2984 22.4268 20.8828 22.816 20.8828 23.2945C20.8828 23.7741 21.2984 24.1633 21.8117 24.1633C22.325 24.1633 22.7406 23.7741 22.7406 23.2945C22.7406 22.816 22.325 22.4268 21.8117 22.4268Z"
-                            fill="#0E5AA7"></path>
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M8.95428 22.4268C8.44095 22.4268 8.02539 22.816 8.02539 23.2945C8.02539 23.7741 8.44095 24.1633 8.95428 24.1633C9.46761 24.1633 9.88317 23.7741 9.88317 23.2945C9.88317 22.816 9.46761 22.4268 8.95428 22.4268Z"
-                            fill="#0E5AA7"></path>
-                        <mask id="mask1_852_165018" maskUnits="userSpaceOnUse" x="2" y="6" width="28" height="21">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M2.66602 26.6667H29.3327V6.66675H2.66602V26.6667Z" fill="white"></path>
-                        </mask>
-                        <g mask="url(#mask1_852_165018)">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M21.2773 19.0242H22.5362V18.609H21.2773V19.0242Z" fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M3.61914 10.2552H18.7569V9.83996H3.61914V10.2552Z" fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M14.3633 17.6009H18.6199V16.7705H14.3633V17.6009Z" fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M11.9258 19.1996H13.5447V18.3692H11.9258V19.1996Z" fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M5.90625 23.2955C5.90625 21.7219 7.2718 20.4473 8.95514 20.4473C10.6385 20.4473 12.004 21.7219 12.004 23.2955C12.004 24.8681 10.6385 26.1438 8.95514 26.1438C7.2718 26.1438 5.90625 24.8681 5.90625 23.2955Z"
-                                fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M8.02539 23.295C8.02539 22.8155 8.44206 22.4272 8.95428 22.4272C9.46761 22.4272 9.88317 22.8155 9.88317 23.295C9.88317 23.7746 9.46761 24.1628 8.95428 24.1628C8.44206 24.1628 8.02539 23.7746 8.02539 23.295Z"
-                                fill="white"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M18.7656 23.2955C18.7656 21.7219 20.1312 20.4473 21.8145 20.4473C23.4978 20.4473 24.8634 21.7219 24.8634 23.2955C24.8634 24.8681 23.4978 26.1438 21.8145 26.1438C20.1312 26.1438 18.7656 24.8681 18.7656 23.2955Z"
-                                fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M20.9746 23.295C20.9746 22.8155 21.3913 22.4272 21.9035 22.4272C22.4168 22.4272 22.8335 22.8155 22.8335 23.295C22.8335 23.7746 22.4168 24.1628 21.9035 24.1628C21.3913 24.1628 20.9746 23.7746 20.9746 23.295Z"
-                                fill="white"></path>
-                        </g>
-                    </svg>
-                    <h4>Scheduled</h4>
-                </div>
-                <div class="item flex flex-col items-center justify-center">
-                    <p>Delivery Time</p>
-                    <p><b id="timing1"></b></p>
-                </div>
-                <div class="item flex flex-col items-center justify-center">
-                    <p>Delivery Time</p>
-                    <p><b id="timing2"></b></p>
-                </div>
-                <div class="item flex flex-col items-center justify-center">
-                    <p>Delivery Time</p>
-                    <p><b id="timing3"></b></p>
-                </div>
-                <div class="item flex flex-col items-center justify-center">
-                    <svg data-testid="information-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                        xmlns="http://www.w3.org/2000/svg" class="css-1oh7a03">
-                        <path
-                            d="M10 0.25C8.07164 0.25 6.18657 0.821828 4.58319 1.89317C2.97982 2.96451 1.73013 4.48726 0.992179 6.26884C0.254225 8.05042 0.061142 10.0108 0.437348 11.9021C0.813554 13.7934 1.74215 15.5307 3.10571 16.8943C4.46928 18.2579 6.20656 19.1865 8.09787 19.5627C9.98919 19.9389 11.9496 19.7458 13.7312 19.0078C15.5127 18.2699 17.0355 17.0202 18.1068 15.4168C19.1782 13.8134 19.75 11.9284 19.75 10C19.7471 7.41504 18.7189 4.93679 16.8911 3.10894C15.0632 1.28109 12.585 0.252926 10 0.25ZM9.81256 4.75003C10.0351 4.75003 10.2526 4.81601 10.4376 4.93963C10.6226 5.06325 10.7668 5.23895 10.8519 5.44452C10.9371 5.65008 10.9593 5.87628 10.9159 6.09451C10.8725 6.31274 10.7654 6.5132 10.608 6.67053C10.4507 6.82786 10.2503 6.93501 10.032 6.97842C9.8138 7.02183 9.5876 6.99955 9.38204 6.9144C9.17647 6.82925 9.00077 6.68506 8.87715 6.50005C8.75354 6.31505 8.68756 6.09754 8.68756 5.87503C8.68756 5.57667 8.80608 5.29052 9.01706 5.07954C9.22804 4.86856 9.51419 4.75003 9.81256 4.75003ZM10.75 15.25H10C9.8011 15.25 9.61034 15.171 9.46969 15.0303C9.32904 14.8897 9.25002 14.6989 9.25001 14.5V10C9.0511 10 8.86033 9.92098 8.71968 9.78033C8.57903 9.63968 8.50001 9.44891 8.50001 9.25C8.50001 9.05109 8.57903 8.86032 8.71968 8.71967C8.86033 8.57902 9.0511 8.5 9.25001 8.5H10C10.1989 8.50001 10.3897 8.57903 10.5303 8.71968C10.671 8.86033 10.75 9.05109 10.75 9.25V13.75C10.9489 13.75 11.1397 13.829 11.2803 13.9697C11.421 14.1103 11.5 14.3011 11.5 14.5C11.5 14.6989 11.421 14.8897 11.2803 15.0303C11.1397 15.171 10.9489 15.25 10.75 15.25Z"
-                            fill="#0E5AA7"></path>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        <div class="second md:w-1/2 w-full p-3 shadow-md rounded-lg sm:w-full" id="element4"
-            onclick="toggleBackgroundColor2(this, 'express')">
-            <div class="flex gap-10 w-full justify-between">
-                <div class="item flex gap-2 items-center">
-                    <svg data-testid="StandardTab" viewBox="0 0 32 32" height="auto" width="24px" class="css-1oteowz">
-                        <mask id="mask0_852_165018" maskUnits=bg-blue-100"userSpaceOnUse" x="2" y="6" width="28"
-                            height="21">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M2.66602 6.66675H29.3324V26.6665H2.66602V6.66675Z" fill="white"></path>
-                        </mask>
-                        <g mask="url(#mask0_852_165018)">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M28.4404 21.9938L27.0893 23.4937H25.3616C25.366 23.4273 25.3727 23.3608 25.3727 23.2934C25.3727 21.4582 23.7749 19.9656 21.8105 19.9656C21.2493 19.9656 20.7193 20.0912 20.2471 20.3081V17.7972L28.4404 17.7463V21.9938ZM21.814 25.7905C20.3407 25.7905 19.1418 24.6705 19.1418 23.2931C19.1418 21.9156 20.3407 20.7957 21.814 20.7957C23.2884 20.7957 24.4873 21.9156 24.4873 23.2931C24.4873 24.6705 23.2884 25.7905 21.814 25.7905ZM11.3551 20.7911V20.8419C10.7218 20.3001 9.88176 19.9669 8.95732 19.9669C8.06288 19.9669 7.2451 20.2794 6.61954 20.7911H3.55733V7.4965H19.7062L23.4229 11.1751H19.8084C19.5629 11.1751 19.364 11.3609 19.364 11.5903V20.7184C19.364 20.7433 19.3673 20.7672 19.3717 20.7911H11.3551ZM18.2524 23.2955C18.2524 23.3422 18.258 23.3889 18.2591 23.4356H12.5091C12.5113 23.3889 12.5169 23.3422 12.5169 23.2955C12.5169 22.5045 12.218 21.779 11.7235 21.207H19.0457C18.5502 21.779 18.2524 22.5045 18.2524 23.2955ZM8.95443 25.7905C7.48109 25.7905 6.28221 24.6705 6.28221 23.2931C6.28221 21.9156 7.48109 20.7957 8.95443 20.7957C10.4289 20.7957 11.6278 21.9156 11.6278 23.2931C11.6278 24.6705 10.4289 25.7905 8.95443 25.7905ZM5.39621 23.2959C5.39621 23.3633 5.40288 23.4298 5.40732 23.4962H3.55733V21.2074H6.18843C5.69399 21.7794 5.39621 22.5049 5.39621 23.2959ZM28.0261 16.9213L20.2528 16.969V12.0054H24.2273L28.0261 16.9213ZM29.2482 17.0869L24.8115 11.3468C24.8004 11.3323 24.786 11.3198 24.7727 11.3074L24.7749 11.3053L20.2193 6.79729C20.1349 6.71425 20.0182 6.6665 19.896 6.6665H3.11046C2.8649 6.6665 2.66602 6.85334 2.66602 7.0817V23.9106C2.66602 24.14 2.8649 24.3258 3.11046 24.3258H5.57046C5.86379 25.1625 6.50157 25.8527 7.32823 26.2513H4.75935V26.6665H9.0149V26.6198C10.5427 26.5959 11.8371 25.67 12.316 24.3871H18.4538C18.756 25.1957 19.3815 25.8631 20.1871 26.2513H17.5582V26.6665H21.8449V26.6208C23.4093 26.6084 24.736 25.6493 25.1993 24.3258H27.2993C27.4304 24.3258 27.5549 24.2719 27.6393 24.1784L29.2282 22.4139C29.296 22.3402 29.3326 22.2447 29.3326 22.1471V17.3308C29.3326 17.2436 29.3026 17.1585 29.2482 17.0869Z"
-                                fill="#0E5AA7"></path>
-                        </g>
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M21.8117 22.4268C21.2984 22.4268 20.8828 22.816 20.8828 23.2945C20.8828 23.7741 21.2984 24.1633 21.8117 24.1633C22.325 24.1633 22.7406 23.7741 22.7406 23.2945C22.7406 22.816 22.325 22.4268 21.8117 22.4268Z"
-                            fill="#0E5AA7"></path>
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M8.95428 22.4268C8.44095 22.4268 8.02539 22.816 8.02539 23.2945C8.02539 23.7741 8.44095 24.1633 8.95428 24.1633C9.46761 24.1633 9.88317 23.7741 9.88317 23.2945C9.88317 22.816 9.46761 22.4268 8.95428 22.4268Z"
-                            fill="#0E5AA7"></path>
-                        <mask id="mask1_852_165018" maskUnits="userSpaceOnUse" x="2" y="6" width="28" height="21">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M2.66602 26.6667H29.3327V6.66675H2.66602V26.6667Z" fill="white"></path>
-                        </mask>
-                        <g mask="url(#mask1_852_165018)">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M21.2773 19.0242H22.5362V18.609H21.2773V19.0242Z" fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M3.61914 10.2552H18.7569V9.83996H3.61914V10.2552Z" fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M14.3633 17.6009H18.6199V16.7705H14.3633V17.6009Z" fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M11.9258 19.1996H13.5447V18.3692H11.9258V19.1996Z" fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M5.90625 23.2955C5.90625 21.7219 7.2718 20.4473 8.95514 20.4473C10.6385 20.4473 12.004 21.7219 12.004 23.2955C12.004 24.8681 10.6385 26.1438 8.95514 26.1438C7.2718 26.1438 5.90625 24.8681 5.90625 23.2955Z"
-                                fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M8.02539 23.295C8.02539 22.8155 8.44206 22.4272 8.95428 22.4272C9.46761 22.4272 9.88317 22.8155 9.88317 23.295C9.88317 23.7746 9.46761 24.1628 8.95428 24.1628C8.44206 24.1628 8.02539 23.7746 8.02539 23.295Z"
-                                fill="white"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M18.7656 23.2955C18.7656 21.7219 20.1312 20.4473 21.8145 20.4473C23.4978 20.4473 24.8634 21.7219 24.8634 23.2955C24.8634 24.8681 23.4978 26.1438 21.8145 26.1438C20.1312 26.1438 18.7656 24.8681 18.7656 23.2955Z"
-                                fill="#0E5AA7"></path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M20.9746 23.295C20.9746 22.8155 21.3913 22.4272 21.9035 22.4272C22.4168 22.4272 22.8335 22.8155 22.8335 23.295C22.8335 23.7746 22.4168 24.1628 21.9035 24.1628C21.3913 24.1628 20.9746 23.7746 20.9746 23.295Z"
-                                fill="white"></path>
-                        </g>
-                    </svg>
-                    <h4>Express</h4>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-
-
-
-    <!-- Banner -->
-    <div class="mx-auto mt-10">
-        <div id="default-carousel" class="relative w-full" data-carousel="slide">
-            <!-- Carousel wrapper -->
-            <div class="relative h-48 overflow-hidden rounded-lg ">
-                <!-- Item 1 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="https://cdnprod.mafretailproxy.com/assets/images/cheaper_app_slim_hb_e7357bde86.png"
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                </div>
-                <!-- Item 2 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="https://cdnprod.mafretailproxy.com/assets/images/app_pepsico_banner_1f139a1f52.png"
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                </div>
-                <!-- Item 3 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="https://cdnprod.mafretailproxy.com/assets/images/cheaper_app_slim_hb_e7357bde86.png"
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                </div>
-                <!-- Item 4 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="https://cdnprod.mafretailproxy.com/assets/images/cheaper_app_slim_hb_e7357bde86.png"
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                </div>
-                <!-- Item 5 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="https://cdnprod.mafretailproxy.com/assets/images/cheaper_app_slim_hb_e7357bde86.png"
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                </div>
-            </div>
-            <!-- Slider indicators -->
-            <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
-                    data-carousel-slide-to="0"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
-                    data-carousel-slide-to="1"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
-                    data-carousel-slide-to="2"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4"
-                    data-carousel-slide-to="3"></button>
-                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5"
-                    data-carousel-slide-to="4"></button>
-            </div>
-            <!-- Slider controls -->
-            <button type="button"
-                class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                data-carousel-prev>
-                <span
-                    class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5 1 1 5l4 4" />
-                    </svg>
-                    <span class="sr-only">Previous</span>
-                </span>
-            </button>
-            <button type="button"
-                class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                data-carousel-next>
-                <span
-                    class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m1 9 4-4-4-4" />
-                    </svg>
-                    <span class="sr-only">Next</span>
-                </span>
-            </button>
-        </div>
-    </div>
-
-
-
-    <!-- Tabs -->
-    <div class="css-z7kpob mt-10">
-        <div class="css-1cc7kk0">
-            <div class="css-q98w96 sm:w-full">
-                <div class="css-bq9wbh">
-                    <div title="Top Categories" class="css-l3rx45">
-                        <h3 data-testid="trolly-text" font-size="3,,,6" font-family="Teshrin AR LT" class="css-1rjm86d"
-                            color="copy">Top Categories</h3>
-                    </div>
-                    <div title="Top Categories" class="css-l3rx45 mt-5">
-                        <div class="css-1vgknhh flex flex-wrap">
-                            <div radius="104px" class="css-1qy7g6h" id="subcat_container">
-                                <div radius="104px" id="undefined_7249" class="css-3wkdtx">
-                                    <div radius="104px" data-testid="image-circle-1" class="css-mxvkng">
-                                        <a href="https://www.carrefour.pk/mafpak/en/c/Singles_Deals">
-                                            <div radius="104px" class="css-15lamc8"><img height="auto" width="100%"
-                                                    src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/Singles_Week_78f6795b45.png"
-                                                    alt="Singles Week" class="css-ziidzl"></div>
-                                            <div font-size="12px" data-testid="title" class="css-1sc22zy">Singles
-                                                Week
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div radius="104px" id="undefined_7243" class="css-3wkdtx">
-                                    <div radius="104px" data-testid="image-circle-2" class="css-mxvkng">
-                                        <a href="https://www.carrefour.pk/mafpak/en/c/Offer_Lowest_Price">
-                                            <div radius="104px" class="css-15lamc8"><img height="auto" width="100%"
-                                                    src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/Lowest_Prices_EN_2x_d1a2a241a5.png"
-                                                    alt="Lowest Prices" class="css-ziidzl"></div>
-                                            <div font-size="12px" data-testid="title" class="css-1sc22zy">Lowest
-                                                Prices
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div radius="104px" id="undefined_7251" class="css-3wkdtx">
-                                    <div radius="104px" data-testid="image-circle-3" class="css-mxvkng">
-                                        <a href="https://www.carrefour.pk/mafpak/en/c/Big_Deal">
-                                            <div radius="104px" class="css-15lamc8"><img height="auto" width="100%"
-                                                    src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/it_s_big_deal_circle_d38a254a22.png"
-                                                    alt="It&#39;s A Big Deal" class="css-ziidzl"></div>
-                                            <div font-size="12px" data-testid="title" class="css-1sc22zy">It's A Big
-                                                Deal</div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div radius="104px" id="undefined_7247" class="css-3wkdtx">
-                                    <div radius="104px" data-testid="image-circle-4" class="css-mxvkng">
-                                        <a href="https://www.carrefour.pk/mafpak/en/c/Offers01_Hot_Corner">
-                                            <div radius="104px" class="css-15lamc8"><img height="auto" width="100%"
-                                                    src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/food_to_go_65445c38bd.gif"
-                                                    alt="Food to go" class="css-ziidzl"></div>
-                                            <div font-size="12px" data-testid="title" class="css-1sc22zy">Food to go
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div radius="104px" id="undefined_7237" class="css-3wkdtx">
-                                    <div radius="104px" data-testid="image-circle-5" class="css-mxvkng">
-                                        <a
-                                            href="https://www.carrefour.pk/mafpak/en/c/FPAK1660000?currentPage=0&amp;filter=expressNow%3A">
-                                            <div radius="104px" class="css-15lamc8"><img height="auto" width="100%"
-                                                    src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/fresh_7c5145f013.png"
-                                                    alt="Fruits &amp; Vegetables" class="css-ziidzl">
-                                            </div>
-                                            <div font-size="12px" data-testid="title" class="css-1sc22zy">Fruits
-                                                &amp;
-                                                Vegetables</div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div radius="104px" id="undefined_7239" class="css-3wkdtx">
-                                    <div radius="104px" data-testid="image-circle-6" class="css-mxvkng">
-                                        <a
-                                            href="https://www.carrefour.pk/mafpak/en/c/FPAK1670000?currentPage=0&amp;filter=&amp;nextPageOffset=0&amp;pageSize=60&amp;sortBy=relevance">
-                                            <div radius="104px" class="css-15lamc8"><img height="auto" width="100%"
-                                                    src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/meat_and_poultry_393accb9e2.png"
-                                                    alt="Meat &amp; Poultry" class="css-ziidzl"></div>
-                                            <div font-size="12px" data-testid="title" class="css-1sc22zy">Meat &amp;
-                                                Poultry</div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div radius="104px" id="undefined_7241" class="css-3wkdtx">
-                                    <div radius="104px" data-testid="image-circle-7" class="css-mxvkng">
-                                        <a
-                                            href="https://www.carrefour.pk/mafpak/en/c/FPAK1630000?&amp;currentPage=0&amp;filter=expressNow%3Atrue">
-                                            <div radius="104px" class="css-15lamc8"><img height="auto" width="100%"
-                                                    src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/dairy_eggs_57e01ff7d5.png"
-                                                    alt="Dairy &amp; Eggs" class="css-ziidzl"></div>
-                                            <div font-size="12px" data-testid="title" class="css-1sc22zy">Dairy
-                                                &amp;
-                                                Eggs</div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div radius="104px" id="undefined_7245" class="css-3wkdtx">
-                                    <div radius="104px" data-testid="image-circle-8" class="css-mxvkng">
-                                        <a
-                                            href="https://www.carrefour.pk/mafpak/en/c/FPAK1760000?&amp;currentPage=0&amp;filter=expressNow%3A">
-                                            <div radius="104px" class="css-15lamc8"><img height="auto" width="100%"
-                                                    src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/Microsoft_Teams_image_152_ee182f3932.png"
-                                                    alt="Cooking Ingredients" class="css-ziidzl"></div>
-                                            <div font-size="12px" data-testid="title" class="css-1sc22zy">Cooking
-                                                Ingredients</div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div radius="104px" id="undefined_7245" class="css-3wkdtx">
-                                    <div radius="104px" data-testid="image-circle-8" class="css-mxvkng">
-                                        <a
-                                            href="https://www.carrefour.pk/mafpak/en/c/FPAK1760000?&amp;currentPage=0&amp;filter=expressNow%3A">
-                                            <div radius="104px" class="css-15lamc8"><img height="auto" width="100%"
-                                                    src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/Microsoft_Teams_image_152_ee182f3932.png"
-                                                    alt="Cooking Ingredients" class="css-ziidzl"></div>
-                                            <div font-size="12px" data-testid="title" class="css-1sc22zy">Cooking
-                                                Ingredients</div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div radius="104px" id="undefined_7245" class="css-3wkdtx">
-                                    <div radius="104px" data-testid="image-circle-8" class="css-mxvkng">
-                                        <a
-                                            href="https://www.carrefour.pk/mafpak/en/c/FPAK1760000?&amp;currentPage=0&amp;filter=expressNow%3A">
-                                            <div radius="104px" class="css-15lamc8"><img height="auto" width="100%"
-                                                    src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/Microsoft_Teams_image_152_ee182f3932.png"
-                                                    alt="Cooking Ingredients" class="css-ziidzl"></div>
-                                            <div font-size="12px" data-testid="title" class="css-1sc22zy">Cooking
-                                                Ingredients</div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div radius="104px" id="undefined_7245" class="css-3wkdtx">
-                                    <div radius="104px" data-testid="image-circle-8" class="css-mxvkng">
-                                        <a
-                                            href="https://www.carrefour.pk/mafpak/en/c/FPAK1760000?&amp;currentPage=0&amp;filter=expressNow%3A">
-                                            <div radius="104px" class="css-15lamc8"><img height="auto" width="100%"
-                                                    src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/Microsoft_Teams_image_152_ee182f3932.png"
-                                                    alt="Cooking Ingredients" class="css-ziidzl"></div>
-                                            <div font-size="12px" data-testid="title" class="css-1sc22zy">Cooking
-                                                Ingredients</div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div radius="104px" id="undefined_7245" class="css-3wkdtx">
-                                    <div radius="104px" data-testid="image-circle-8" class="css-mxvkng">
-                                        <a
-                                            href="https://www.carrefour.pk/mafpak/en/c/FPAK1760000?&amp;currentPage=0&amp;filter=expressNow%3A">
-                                            <div radius="104px" class="css-15lamc8"><img height="auto" width="100%"
-                                                    src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/Microsoft_Teams_image_152_ee182f3932.png"
-                                                    alt="Cooking Ingredients" class="css-ziidzl"></div>
-                                            <div font-size="12px" data-testid="title" class="css-1sc22zy">Cooking
-                                                Ingredients</div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div radius="104px" id="undefined_7245" class="css-3wkdtx">
-                                    <div radius="104px" data-testid="image-circle-8" class="css-mxvkng">
-                                        <a
-                                            href="https://www.carrefour.pk/mafpak/en/c/FPAK1760000?&amp;currentPage=0&amp;filter=expressNow%3A">
-                                            <div radius="104px" class="css-15lamc8"><img height="auto" width="100%"
-                                                    src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/Microsoft_Teams_image_152_ee182f3932.png"
-                                                    alt="Cooking Ingredients" class="css-ziidzl"></div>
-                                            <div font-size="12px" data-testid="title" class="css-1sc22zy">Cooking
-                                                Ingredients</div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div radius="104px" id="undefined_7245" class="css-3wkdtx">
-                                    <div radius="104px" data-testid="image-circle-8" class="css-mxvkng">
-                                        <a
-                                            href="https://www.carrefour.pk/mafpak/en/c/FPAK1760000?&amp;currentPage=0&amp;filter=expressNow%3A">
-                                            <div radius="104px" class="css-15lamc8"><img height="auto" width="100%"
-                                                    src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/Microsoft_Teams_image_152_ee182f3932.png"
-                                                    alt="Cooking Ingredients" class="css-ziidzl"></div>
-                                            <div font-size="12px" data-testid="title" class="css-1sc22zy">Cooking
-                                                Ingredients</div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Promotions
-    <div class="sm-w-full mx-auto p-relative my-20">
-        <h3 data-testid="trolly-text" font-size="3,,,6" font-family="Teshrin AR LT" class="css-1rjm86d" color="copy">
-            Promotions</h3>
-        <div class="swiper-container">
-            <div class="swiper-wrapper sm:w-full md:w-full">
-                <div class="swiper-slide">
-                    <img src="https://cdnprod.mafretailproxy.com/assets/images/loreal_promotional_card_76a975379a.png"
-                        alt="Image 1" class="w-[14rem] h-[22rem] object-cover rounded-xl">
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://cdnprod.mafretailproxy.com/assets/images/loreal_promotional_card_76a975379a.png"
-                        alt="Image 1" class="w-[14rem] h-[22rem] object-cover rounded-xl">
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://cdnprod.mafretailproxy.com/assets/images/loreal_promotional_card_76a975379a.png"
-                        alt="Image 1" class="w-[14rem] h-[22rem] object-cover rounded-xl">
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://cdnprod.mafretailproxy.com/assets/images/loreal_promotional_card_76a975379a.png"
-                        alt="Image 1" class="w-[14rem] h-[22rem] object-cover rounded-xl">
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://cdnprod.mafretailproxy.com/assets/images/loreal_promotional_card_76a975379a.png"
-                        alt="Image 1" class="w-[14rem] h-[22rem] object-cover rounded-xl">
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://cdnprod.mafretailproxy.com/assets/images/loreal_promotional_card_76a975379a.png"
-                        alt="Image 1" class="w-[14rem] h-[22rem] object-cover rounded-xl">
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://cdnprod.mafretailproxy.com/assets/images/loreal_promotional_card_76a975379a.png"
-                        alt="Image 1" class="w-[14rem] h-[22rem] object-cover rounded-xl">
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://cdnprod.mafretailproxy.com/assets/images/loreal_promotional_card_76a975379a.png"
-                        alt="Image 1" class="w-[14rem] h-[22rem] object-cover rounded-xl">
-                </div>
-            </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
-    </div> -->
-
-    <!-- Products to be added to cart -->
-    <div class="mx-auto p-relative py-5">
-        <h3 data-testid="trolly-text" font-size="3,,,6" font-family="Teshrin AR LT" class="css-1rjm86d" color="copy">Top
-            Products
-        </h3>
-        <div>
-
-        </div>
-
-        <div class="outermost__contianer">
-            <div class="swiper-container2">
-                <div class="swiper-wrapper" id="productContainer">
-                </div>
-                <div class="mt-14 lg:mt-6"></div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-        </div>
-
-
-    </div>
-
-
-    <div id="chump">
-    </div>
-
-    <!-- Four Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 sm:grid-cols-3 sm:grid-cols-4 sm:w-full gap-5 mx-auto mt-20">
-        <div class="item">
-            <img src="https://cdnprod.mafretailproxy.com/assets/images/web_4in1_01_62b73684e4.png" class="rounded-xl"
-                alt="">
-        </div>
-        <div class="item">
-            <img src="https://cdnprod.mafretailproxy.com/assets/images/web_4in1_01_62b73684e4.png" class="rounded-xl"
-                alt="">
-        </div>
-        <div class="item">
-            <img src="https://cdnprod.mafretailproxy.com/assets/images/web_4in1_01_62b73684e4.png" class="rounded-xl"
-                alt="">
-        </div>
-        <div class="item">
-            <img src="https://cdnprod.mafretailproxy.com/assets/images/web_4in1_01_62b73684e4.png" class="rounded-xl"
-                alt="">
-        </div>
-    </div>
-
-
-    <!-- Two Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-1 sm:grid-cols-2 sm:grid-cols-2 sm:w-full gap-5 mx-auto mt-10">
-        <div class="item">
-            <img src="https://cdnprod.mafretailproxy.com/assets/images/2in1_web_1_5717859f3d.png" class="rounded-xl"
-                alt="">
-        </div>
-        <div class="item">
-            <img src="https://cdnprod.mafretailproxy.com/assets/images/2in1_web_1_5717859f3d.png" class="rounded-xl"
-                alt="">
-        </div>
-    </div>
-
-
-    <!-- Full card -->
-    <div class="flex sm:w-full gap-5 mx-auto mt-10">
-        <div class="item">
-            <img src="https://cdnprod.mafretailproxy.com/assets/images/web_strip_imported_63c834cd4e.png"
-                class="rounded-xl" alt="">
-        </div>
-    </div>
-
-    </div>
-
-
-    <!-- Favorite Brands -->
-
-    <!-- Overlay and Popup content -->
-    <div id="overlay" class="overlay">
-
-    </div>
-    <div id="popupx" class="popupx">
-        <div class="relative  w-full  max-h-full">
-            <!-- Modal content -->
-            <div class="relative bg-white rounded-lg  dark:bg-gray-700">
-                <!-- Modal header -->
-                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                        Select Location
-                    </h3>
-                    <button type="button" onclick="closePopup()"
-                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                        data-modal-toggle="crud-modal">
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                        </svg>
-                        <span class="sr-only">Close modal</span>
-                    </button>
-                </div>
-                <!-- Modal body -->
-                <div class="p-4 md:p-5">
-                    <div class="grid gap-4 mb-4 grid-cols-1">
-                        <div class="col-span-2 sm:col-span-1">
-                            <label for="category"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stores</label>
-                            <select id="locationSelect"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option selected disabled>Select Location</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button onclick="closePopup()"
-                        class="justify-center w-full text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-center">
-                        Choose the area
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- Footer -->
-    <div class="bg-gray-100">
-        <div class="sm:w-full mx-auto mt-20">
-            <footer class="bg-gray-100 dark:bg-gray-900">
-                <div class="mx-auto w-full p-4 py-6 lg:py-8">
-                    <div class="md:flex md:justify-between">
-                        <div class="mb-6 md:mb-0">
-                            <a href="https://flowbite.com/" class="flex items-center">
-                                <img src="./images/logo.png" class="w-[15%]" alt="FlowBite Logo" />
-                                <!-- <span
-                                    class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span> -->
-                            </a>
-                        </div>
-                        <div class="grid grid-cols-2 gap-[8rem] sm:gap-[8rem] sm:grid-cols-2">
-                            <div>
-                                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Important
-                                    Links
-                                </h2>
-                                <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                                    <li class="mb-4">
-                                        <a href="https://flowbite.com/" class="hover:underline">Register</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://tailwindcss.com/" class="hover:underline">Login</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us
-                                </h2>
-                                <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                                    <li class="mb-4">
-                                        <a href="https://github.com/themesberg/flowbite"
-                                            class="hover:underline ">Facebook</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Instagram</a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
-                    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-                    <div class="sm:flex sm:items-center sm:justify-between">
-                        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a
-                                href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
-                        </span>
-                        <div class="flex mt-4 sm:justify-center sm:mt-0">
-                            <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    fill="currentColor" viewBox="0 0 8 19">
-                                    <path fill-rule="evenodd"
-                                        d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z"
-                                        clip-rule="evenodd" />
+    <div class="">
+        <div class="container-inner">
+            <div class="main-content">
+                <div class="flex mx-auto gap-5 mb-5 w-full flex-wrap md:flex-nowrap">
+                    <div class="first flex items-center md:w-1/2 w-full  p-3 rounded-lg shadow-md sm:w-full  justify-between"
+                        id="element1" onclick="toggleBackgroundColor(this,'deliver')">
+                        <div class="flex gap-10 w-full justify-between">
+                            <div class="item flex gap-2 items-center">
+                                <svg data-testid="StandardTab" viewBox="0 0 32 32" height="auto" width="24px"
+                                    class="css-1oteowz">
+                                    <mask id="mask0_852_165018" maskUnits="userSpaceOnUse" x="2" y="6" width="28"
+                                        height="21">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M2.66602 6.66675H29.3324V26.6665H2.66602V6.66675Z" fill="white"></path>
+                                    </mask>
+                                    <g mask="url(#mask0_852_165018)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M28.4404 21.9938L27.0893 23.4937H25.3616C25.366 23.4273 25.3727 23.3608 25.3727 23.2934C25.3727 21.4582 23.7749 19.9656 21.8105 19.9656C21.2493 19.9656 20.7193 20.0912 20.2471 20.3081V17.7972L28.4404 17.7463V21.9938ZM21.814 25.7905C20.3407 25.7905 19.1418 24.6705 19.1418 23.2931C19.1418 21.9156 20.3407 20.7957 21.814 20.7957C23.2884 20.7957 24.4873 21.9156 24.4873 23.2931C24.4873 24.6705 23.2884 25.7905 21.814 25.7905ZM11.3551 20.7911V20.8419C10.7218 20.3001 9.88176 19.9669 8.95732 19.9669C8.06288 19.9669 7.2451 20.2794 6.61954 20.7911H3.55733V7.4965H19.7062L23.4229 11.1751H19.8084C19.5629 11.1751 19.364 11.3609 19.364 11.5903V20.7184C19.364 20.7433 19.3673 20.7672 19.3717 20.7911H11.3551ZM18.2524 23.2955C18.2524 23.3422 18.258 23.3889 18.2591 23.4356H12.5091C12.5113 23.3889 12.5169 23.3422 12.5169 23.2955C12.5169 22.5045 12.218 21.779 11.7235 21.207H19.0457C18.5502 21.779 18.2524 22.5045 18.2524 23.2955ZM8.95443 25.7905C7.48109 25.7905 6.28221 24.6705 6.28221 23.2931C6.28221 21.9156 7.48109 20.7957 8.95443 20.7957C10.4289 20.7957 11.6278 21.9156 11.6278 23.2931C11.6278 24.6705 10.4289 25.7905 8.95443 25.7905ZM5.39621 23.2959C5.39621 23.3633 5.40288 23.4298 5.40732 23.4962H3.55733V21.2074H6.18843C5.69399 21.7794 5.39621 22.5049 5.39621 23.2959ZM28.0261 16.9213L20.2528 16.969V12.0054H24.2273L28.0261 16.9213ZM29.2482 17.0869L24.8115 11.3468C24.8004 11.3323 24.786 11.3198 24.7727 11.3074L24.7749 11.3053L20.2193 6.79729C20.1349 6.71425 20.0182 6.6665 19.896 6.6665H3.11046C2.8649 6.6665 2.66602 6.85334 2.66602 7.0817V23.9106C2.66602 24.14 2.8649 24.3258 3.11046 24.3258H5.57046C5.86379 25.1625 6.50157 25.8527 7.32823 26.2513H4.75935V26.6665H9.0149V26.6198C10.5427 26.5959 11.8371 25.67 12.316 24.3871H18.4538C18.756 25.1957 19.3815 25.8631 20.1871 26.2513H17.5582V26.6665H21.8449V26.6208C23.4093 26.6084 24.736 25.6493 25.1993 24.3258H27.2993C27.4304 24.3258 27.5549 24.2719 27.6393 24.1784L29.2282 22.4139C29.296 22.3402 29.3326 22.2447 29.3326 22.1471V17.3308C29.3326 17.2436 29.3026 17.1585 29.2482 17.0869Z"
+                                            fill="#0E5AA7"></path>
+                                    </g>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M21.8117 22.4268C21.2984 22.4268 20.8828 22.816 20.8828 23.2945C20.8828 23.7741 21.2984 24.1633 21.8117 24.1633C22.325 24.1633 22.7406 23.7741 22.7406 23.2945C22.7406 22.816 22.325 22.4268 21.8117 22.4268Z"
+                                        fill="#0E5AA7"></path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M8.95428 22.4268C8.44095 22.4268 8.02539 22.816 8.02539 23.2945C8.02539 23.7741 8.44095 24.1633 8.95428 24.1633C9.46761 24.1633 9.88317 23.7741 9.88317 23.2945C9.88317 22.816 9.46761 22.4268 8.95428 22.4268Z"
+                                        fill="#0E5AA7"></path>
+                                    <mask id="mask1_852_165018" maskUnits="userSpaceOnUse" x="2" y="6" width="28"
+                                        height="21">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M2.66602 26.6667H29.3327V6.66675H2.66602V26.6667Z" fill="white"></path>
+                                    </mask>
+                                    <g mask="url(#mask1_852_165018)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M21.2773 19.0242H22.5362V18.609H21.2773V19.0242Z" fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M3.61914 10.2552H18.7569V9.83996H3.61914V10.2552Z" fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M14.3633 17.6009H18.6199V16.7705H14.3633V17.6009Z" fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M11.9258 19.1996H13.5447V18.3692H11.9258V19.1996Z" fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M5.90625 23.2955C5.90625 21.7219 7.2718 20.4473 8.95514 20.4473C10.6385 20.4473 12.004 21.7219 12.004 23.2955C12.004 24.8681 10.6385 26.1438 8.95514 26.1438C7.2718 26.1438 5.90625 24.8681 5.90625 23.2955Z"
+                                            fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M8.02539 23.295C8.02539 22.8155 8.44206 22.4272 8.95428 22.4272C9.46761 22.4272 9.88317 22.8155 9.88317 23.295C9.88317 23.7746 9.46761 24.1628 8.95428 24.1628C8.44206 24.1628 8.02539 23.7746 8.02539 23.295Z"
+                                            fill="white"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M18.7656 23.2955C18.7656 21.7219 20.1312 20.4473 21.8145 20.4473C23.4978 20.4473 24.8634 21.7219 24.8634 23.2955C24.8634 24.8681 23.4978 26.1438 21.8145 26.1438C20.1312 26.1438 18.7656 24.8681 18.7656 23.2955Z"
+                                            fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M20.9746 23.295C20.9746 22.8155 21.3913 22.4272 21.9035 22.4272C22.4168 22.4272 22.8335 22.8155 22.8335 23.295C22.8335 23.7746 22.4168 24.1628 21.9035 24.1628C21.3913 24.1628 20.9746 23.7746 20.9746 23.295Z"
+                                            fill="white"></path>
+                                    </g>
                                 </svg>
-                                <span class="sr-only">Facebook page</span>
-                            </a>
-                            <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
-                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    fill="currentColor" viewBox="0 0 21 16">
+                                <h4 id="text">Deliver</h4>
+                            </div>
+
+                            <div class="item flex flex-col items-center justify-center">
+                                <svg data-testid="information-icon" width="20" height="20" viewBox="0 0 20 20"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg" class="css-1oh7a03">
                                     <path
-                                        d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z" />
+                                        d="M10 0.25C8.07164 0.25 6.18657 0.821828 4.58319 1.89317C2.97982 2.96451 1.73013 4.48726 0.992179 6.26884C0.254225 8.05042 0.061142 10.0108 0.437348 11.9021C0.813554 13.7934 1.74215 15.5307 3.10571 16.8943C4.46928 18.2579 6.20656 19.1865 8.09787 19.5627C9.98919 19.9389 11.9496 19.7458 13.7312 19.0078C15.5127 18.2699 17.0355 17.0202 18.1068 15.4168C19.1782 13.8134 19.75 11.9284 19.75 10C19.7471 7.41504 18.7189 4.93679 16.8911 3.10894C15.0632 1.28109 12.585 0.252926 10 0.25ZM9.81256 4.75003C10.0351 4.75003 10.2526 4.81601 10.4376 4.93963C10.6226 5.06325 10.7668 5.23895 10.8519 5.44452C10.9371 5.65008 10.9593 5.87628 10.9159 6.09451C10.8725 6.31274 10.7654 6.5132 10.608 6.67053C10.4507 6.82786 10.2503 6.93501 10.032 6.97842C9.8138 7.02183 9.5876 6.99955 9.38204 6.9144C9.17647 6.82925 9.00077 6.68506 8.87715 6.50005C8.75354 6.31505 8.68756 6.09754 8.68756 5.87503C8.68756 5.57667 8.80608 5.29052 9.01706 5.07954C9.22804 4.86856 9.51419 4.75003 9.81256 4.75003ZM10.75 15.25H10C9.8011 15.25 9.61034 15.171 9.46969 15.0303C9.32904 14.8897 9.25002 14.6989 9.25001 14.5V10C9.0511 10 8.86033 9.92098 8.71968 9.78033C8.57903 9.63968 8.50001 9.44891 8.50001 9.25C8.50001 9.05109 8.57903 8.86032 8.71968 8.71967C8.86033 8.57902 9.0511 8.5 9.25001 8.5H10C10.1989 8.50001 10.3897 8.57903 10.5303 8.71968C10.671 8.86033 10.75 9.05109 10.75 9.25V13.75C10.9489 13.75 11.1397 13.829 11.2803 13.9697C11.421 14.1103 11.5 14.3011 11.5 14.5C11.5 14.6989 11.421 14.8897 11.2803 15.0303C11.1397 15.171 10.9489 15.25 10.75 15.25Z"
+                                        fill="#0E5AA7"></path>
                                 </svg>
-                                <span class="sr-only">Discord community</span>
-                            </a>
-                            <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
-                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    fill="currentColor" viewBox="0 0 20 17">
-                                    <path fill-rule="evenodd"
-                                        d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z"
-                                        clip-rule="evenodd" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="second md:w-1/2 w-full p-3 shadow-md rounded-lg sm:w-full" id="element2"
+                        onclick="toggleBackgroundColor(this, 'takeway')">
+                        <div class="flex gap-10 w-full justify-between">
+                            <div class="item flex gap-2 items-center">
+                                <svg data-testid="StandardTab" viewBox="0 0 32 32" height="auto" width="24px"
+                                    class="css-1oteowz">
+                                    <mask id="mask0_852_165018" maskUnits="userSpaceOnUse" x="2" y="6" width="28"
+                                        height="21">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M2.66602 6.66675H29.3324V26.6665H2.66602V6.66675Z" fill="white"></path>
+                                    </mask>
+                                    <g mask="url(#mask0_852_165018)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M28.4404 21.9938L27.0893 23.4937H25.3616C25.366 23.4273 25.3727 23.3608 25.3727 23.2934C25.3727 21.4582 23.7749 19.9656 21.8105 19.9656C21.2493 19.9656 20.7193 20.0912 20.2471 20.3081V17.7972L28.4404 17.7463V21.9938ZM21.814 25.7905C20.3407 25.7905 19.1418 24.6705 19.1418 23.2931C19.1418 21.9156 20.3407 20.7957 21.814 20.7957C23.2884 20.7957 24.4873 21.9156 24.4873 23.2931C24.4873 24.6705 23.2884 25.7905 21.814 25.7905ZM11.3551 20.7911V20.8419C10.7218 20.3001 9.88176 19.9669 8.95732 19.9669C8.06288 19.9669 7.2451 20.2794 6.61954 20.7911H3.55733V7.4965H19.7062L23.4229 11.1751H19.8084C19.5629 11.1751 19.364 11.3609 19.364 11.5903V20.7184C19.364 20.7433 19.3673 20.7672 19.3717 20.7911H11.3551ZM18.2524 23.2955C18.2524 23.3422 18.258 23.3889 18.2591 23.4356H12.5091C12.5113 23.3889 12.5169 23.3422 12.5169 23.2955C12.5169 22.5045 12.218 21.779 11.7235 21.207H19.0457C18.5502 21.779 18.2524 22.5045 18.2524 23.2955ZM8.95443 25.7905C7.48109 25.7905 6.28221 24.6705 6.28221 23.2931C6.28221 21.9156 7.48109 20.7957 8.95443 20.7957C10.4289 20.7957 11.6278 21.9156 11.6278 23.2931C11.6278 24.6705 10.4289 25.7905 8.95443 25.7905ZM5.39621 23.2959C5.39621 23.3633 5.40288 23.4298 5.40732 23.4962H3.55733V21.2074H6.18843C5.69399 21.7794 5.39621 22.5049 5.39621 23.2959ZM28.0261 16.9213L20.2528 16.969V12.0054H24.2273L28.0261 16.9213ZM29.2482 17.0869L24.8115 11.3468C24.8004 11.3323 24.786 11.3198 24.7727 11.3074L24.7749 11.3053L20.2193 6.79729C20.1349 6.71425 20.0182 6.6665 19.896 6.6665H3.11046C2.8649 6.6665 2.66602 6.85334 2.66602 7.0817V23.9106C2.66602 24.14 2.8649 24.3258 3.11046 24.3258H5.57046C5.86379 25.1625 6.50157 25.8527 7.32823 26.2513H4.75935V26.6665H9.0149V26.6198C10.5427 26.5959 11.8371 25.67 12.316 24.3871H18.4538C18.756 25.1957 19.3815 25.8631 20.1871 26.2513H17.5582V26.6665H21.8449V26.6208C23.4093 26.6084 24.736 25.6493 25.1993 24.3258H27.2993C27.4304 24.3258 27.5549 24.2719 27.6393 24.1784L29.2282 22.4139C29.296 22.3402 29.3326 22.2447 29.3326 22.1471V17.3308C29.3326 17.2436 29.3026 17.1585 29.2482 17.0869Z"
+                                            fill="#0E5AA7"></path>
+                                    </g>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M21.8117 22.4268C21.2984 22.4268 20.8828 22.816 20.8828 23.2945C20.8828 23.7741 21.2984 24.1633 21.8117 24.1633C22.325 24.1633 22.7406 23.7741 22.7406 23.2945C22.7406 22.816 22.325 22.4268 21.8117 22.4268Z"
+                                        fill="#0E5AA7"></path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M8.95428 22.4268C8.44095 22.4268 8.02539 22.816 8.02539 23.2945C8.02539 23.7741 8.44095 24.1633 8.95428 24.1633C9.46761 24.1633 9.88317 23.7741 9.88317 23.2945C9.88317 22.816 9.46761 22.4268 8.95428 22.4268Z"
+                                        fill="#0E5AA7"></path>
+                                    <mask id="mask1_852_165018" maskUnits="userSpaceOnUse" x="2" y="6" width="28"
+                                        height="21">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M2.66602 26.6667H29.3327V6.66675H2.66602V26.6667Z" fill="white"></path>
+                                    </mask>
+                                    <g mask="url(#mask1_852_165018)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M21.2773 19.0242H22.5362V18.609H21.2773V19.0242Z" fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M3.61914 10.2552H18.7569V9.83996H3.61914V10.2552Z" fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M14.3633 17.6009H18.6199V16.7705H14.3633V17.6009Z" fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M11.9258 19.1996H13.5447V18.3692H11.9258V19.1996Z" fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M5.90625 23.2955C5.90625 21.7219 7.2718 20.4473 8.95514 20.4473C10.6385 20.4473 12.004 21.7219 12.004 23.2955C12.004 24.8681 10.6385 26.1438 8.95514 26.1438C7.2718 26.1438 5.90625 24.8681 5.90625 23.2955Z"
+                                            fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M8.02539 23.295C8.02539 22.8155 8.44206 22.4272 8.95428 22.4272C9.46761 22.4272 9.88317 22.8155 9.88317 23.295C9.88317 23.7746 9.46761 24.1628 8.95428 24.1628C8.44206 24.1628 8.02539 23.7746 8.02539 23.295Z"
+                                            fill="white"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M18.7656 23.2955C18.7656 21.7219 20.1312 20.4473 21.8145 20.4473C23.4978 20.4473 24.8634 21.7219 24.8634 23.2955C24.8634 24.8681 23.4978 26.1438 21.8145 26.1438C20.1312 26.1438 18.7656 24.8681 18.7656 23.2955Z"
+                                            fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M20.9746 23.295C20.9746 22.8155 21.3913 22.4272 21.9035 22.4272C22.4168 22.4272 22.8335 22.8155 22.8335 23.295C22.8335 23.7746 22.4168 24.1628 21.9035 24.1628C21.3913 24.1628 20.9746 23.7746 20.9746 23.295Z"
+                                            fill="white"></path>
+                                    </g>
                                 </svg>
-                                <span class="sr-only">Twitter page</span>
-                            </a>
-                            <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
-                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z"
-                                        clip-rule="evenodd" />
+                                <h4 id="text">TakeAway</h4>
+                            </div>
+
+                            <div class="item flex flex-col items-center justify-center">
+                                <svg data-testid="information-icon" width="20" height="20" viewBox="0 0 20 20"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg" class="css-1oh7a03">
+                                    <path
+                                        d="M10 0.25C8.07164 0.25 6.18657 0.821828 4.58319 1.89317C2.97982 2.96451 1.73013 4.48726 0.992179 6.26884C0.254225 8.05042 0.061142 10.0108 0.437348 11.9021C0.813554 13.7934 1.74215 15.5307 3.10571 16.8943C4.46928 18.2579 6.20656 19.1865 8.09787 19.5627C9.98919 19.9389 11.9496 19.7458 13.7312 19.0078C15.5127 18.2699 17.0355 17.0202 18.1068 15.4168C19.1782 13.8134 19.75 11.9284 19.75 10C19.7471 7.41504 18.7189 4.93679 16.8911 3.10894C15.0632 1.28109 12.585 0.252926 10 0.25ZM9.81256 4.75003C10.0351 4.75003 10.2526 4.81601 10.4376 4.93963C10.6226 5.06325 10.7668 5.23895 10.8519 5.44452C10.9371 5.65008 10.9593 5.87628 10.9159 6.09451C10.8725 6.31274 10.7654 6.5132 10.608 6.67053C10.4507 6.82786 10.2503 6.93501 10.032 6.97842C9.8138 7.02183 9.5876 6.99955 9.38204 6.9144C9.17647 6.82925 9.00077 6.68506 8.87715 6.50005C8.75354 6.31505 8.68756 6.09754 8.68756 5.87503C8.68756 5.57667 8.80608 5.29052 9.01706 5.07954C9.22804 4.86856 9.51419 4.75003 9.81256 4.75003ZM10.75 15.25H10C9.8011 15.25 9.61034 15.171 9.46969 15.0303C9.32904 14.8897 9.25002 14.6989 9.25001 14.5V10C9.0511 10 8.86033 9.92098 8.71968 9.78033C8.57903 9.63968 8.50001 9.44891 8.50001 9.25C8.50001 9.05109 8.57903 8.86032 8.71968 8.71967C8.86033 8.57902 9.0511 8.5 9.25001 8.5H10C10.1989 8.50001 10.3897 8.57903 10.5303 8.71968C10.671 8.86033 10.75 9.05109 10.75 9.25V13.75C10.9489 13.75 11.1397 13.829 11.2803 13.9697C11.421 14.1103 11.5 14.3011 11.5 14.5C11.5 14.6989 11.421 14.8897 11.2803 15.0303C11.1397 15.171 10.9489 15.25 10.75 15.25Z"
+                                        fill="#0E5AA7"></path>
                                 </svg>
-                                <span class="sr-only">GitHub account</span>
-                            </a>
-                            <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
-                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM8 1.707a8.821 8.821 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.758 45.758 0 0 0 8 1.707ZM1.642 8.262a8.57 8.57 0 0 1 4.73-5.981A53.998 53.998 0 0 1 9.54 7.222a32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.64 31.64 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM10 18.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 13.113 11a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                <span class="sr-only">Dribbble account</span>
-                            </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </footer>
+
+                <div class="flex mx-auto gap-5 w-full flex-wrap md:flex-nowrap">
+                    <div class="first md:w-1/2 w-full p-3 rounded-lg shadow-md  justify-between sm:w-full" id="element3"
+                        onclick="toggleBackgroundColor2(this, 'scheduled')">
+                        <div class="flex gap-10 w-full justify-between flex-wrap">
+                            <div class="item flex gap-2 items-center">
+                                <svg data-testid="StandardTab" viewBox="0 0 32 32" height="auto" width="24px"
+                                    class="css-1oteowz">
+                                    <mask id="mask0_852_165018" maskUnits="userSpaceOnUse" x="2" y="6" width="28"
+                                        height="21">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M2.66602 6.66675H29.3324V26.6665H2.66602V6.66675Z" fill="white"></path>
+                                    </mask>
+                                    <g mask="url(#mask0_852_165018)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M28.4404 21.9938L27.0893 23.4937H25.3616C25.366 23.4273 25.3727 23.3608 25.3727 23.2934C25.3727 21.4582 23.7749 19.9656 21.8105 19.9656C21.2493 19.9656 20.7193 20.0912 20.2471 20.3081V17.7972L28.4404 17.7463V21.9938ZM21.814 25.7905C20.3407 25.7905 19.1418 24.6705 19.1418 23.2931C19.1418 21.9156 20.3407 20.7957 21.814 20.7957C23.2884 20.7957 24.4873 21.9156 24.4873 23.2931C24.4873 24.6705 23.2884 25.7905 21.814 25.7905ZM11.3551 20.7911V20.8419C10.7218 20.3001 9.88176 19.9669 8.95732 19.9669C8.06288 19.9669 7.2451 20.2794 6.61954 20.7911H3.55733V7.4965H19.7062L23.4229 11.1751H19.8084C19.5629 11.1751 19.364 11.3609 19.364 11.5903V20.7184C19.364 20.7433 19.3673 20.7672 19.3717 20.7911H11.3551ZM18.2524 23.2955C18.2524 23.3422 18.258 23.3889 18.2591 23.4356H12.5091C12.5113 23.3889 12.5169 23.3422 12.5169 23.2955C12.5169 22.5045 12.218 21.779 11.7235 21.207H19.0457C18.5502 21.779 18.2524 22.5045 18.2524 23.2955ZM8.95443 25.7905C7.48109 25.7905 6.28221 24.6705 6.28221 23.2931C6.28221 21.9156 7.48109 20.7957 8.95443 20.7957C10.4289 20.7957 11.6278 21.9156 11.6278 23.2931C11.6278 24.6705 10.4289 25.7905 8.95443 25.7905ZM5.39621 23.2959C5.39621 23.3633 5.40288 23.4298 5.40732 23.4962H3.55733V21.2074H6.18843C5.69399 21.7794 5.39621 22.5049 5.39621 23.2959ZM28.0261 16.9213L20.2528 16.969V12.0054H24.2273L28.0261 16.9213ZM29.2482 17.0869L24.8115 11.3468C24.8004 11.3323 24.786 11.3198 24.7727 11.3074L24.7749 11.3053L20.2193 6.79729C20.1349 6.71425 20.0182 6.6665 19.896 6.6665H3.11046C2.8649 6.6665 2.66602 6.85334 2.66602 7.0817V23.9106C2.66602 24.14 2.8649 24.3258 3.11046 24.3258H5.57046C5.86379 25.1625 6.50157 25.8527 7.32823 26.2513H4.75935V26.6665H9.0149V26.6198C10.5427 26.5959 11.8371 25.67 12.316 24.3871H18.4538C18.756 25.1957 19.3815 25.8631 20.1871 26.2513H17.5582V26.6665H21.8449V26.6208C23.4093 26.6084 24.736 25.6493 25.1993 24.3258H27.2993C27.4304 24.3258 27.5549 24.2719 27.6393 24.1784L29.2282 22.4139C29.296 22.3402 29.3326 22.2447 29.3326 22.1471V17.3308C29.3326 17.2436 29.3026 17.1585 29.2482 17.0869Z"
+                                            fill="#0E5AA7"></path>
+                                    </g>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M21.8117 22.4268C21.2984 22.4268 20.8828 22.816 20.8828 23.2945C20.8828 23.7741 21.2984 24.1633 21.8117 24.1633C22.325 24.1633 22.7406 23.7741 22.7406 23.2945C22.7406 22.816 22.325 22.4268 21.8117 22.4268Z"
+                                        fill="#0E5AA7"></path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M8.95428 22.4268C8.44095 22.4268 8.02539 22.816 8.02539 23.2945C8.02539 23.7741 8.44095 24.1633 8.95428 24.1633C9.46761 24.1633 9.88317 23.7741 9.88317 23.2945C9.88317 22.816 9.46761 22.4268 8.95428 22.4268Z"
+                                        fill="#0E5AA7"></path>
+                                    <mask id="mask1_852_165018" maskUnits="userSpaceOnUse" x="2" y="6" width="28"
+                                        height="21">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M2.66602 26.6667H29.3327V6.66675H2.66602V26.6667Z" fill="white"></path>
+                                    </mask>
+                                    <g mask="url(#mask1_852_165018)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M21.2773 19.0242H22.5362V18.609H21.2773V19.0242Z" fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M3.61914 10.2552H18.7569V9.83996H3.61914V10.2552Z" fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M14.3633 17.6009H18.6199V16.7705H14.3633V17.6009Z" fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M11.9258 19.1996H13.5447V18.3692H11.9258V19.1996Z" fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M5.90625 23.2955C5.90625 21.7219 7.2718 20.4473 8.95514 20.4473C10.6385 20.4473 12.004 21.7219 12.004 23.2955C12.004 24.8681 10.6385 26.1438 8.95514 26.1438C7.2718 26.1438 5.90625 24.8681 5.90625 23.2955Z"
+                                            fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M8.02539 23.295C8.02539 22.8155 8.44206 22.4272 8.95428 22.4272C9.46761 22.4272 9.88317 22.8155 9.88317 23.295C9.88317 23.7746 9.46761 24.1628 8.95428 24.1628C8.44206 24.1628 8.02539 23.7746 8.02539 23.295Z"
+                                            fill="white"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M18.7656 23.2955C18.7656 21.7219 20.1312 20.4473 21.8145 20.4473C23.4978 20.4473 24.8634 21.7219 24.8634 23.2955C24.8634 24.8681 23.4978 26.1438 21.8145 26.1438C20.1312 26.1438 18.7656 24.8681 18.7656 23.2955Z"
+                                            fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M20.9746 23.295C20.9746 22.8155 21.3913 22.4272 21.9035 22.4272C22.4168 22.4272 22.8335 22.8155 22.8335 23.295C22.8335 23.7746 22.4168 24.1628 21.9035 24.1628C21.3913 24.1628 20.9746 23.7746 20.9746 23.295Z"
+                                            fill="white"></path>
+                                    </g>
+                                </svg>
+                                <h4>Scheduled</h4>
+                            </div>
+                            <div class="item flex flex-col items-center justify-center">
+                                <p>Delivery Time</p>
+                                <p><b id="timing1"></b></p>
+                            </div>
+                            <div class="item flex flex-col items-center justify-center">
+                                <p>Delivery Time</p>
+                                <p><b id="timing2"></b></p>
+                            </div>
+                            <div class="item flex flex-col items-center justify-center">
+                                <p>Delivery Time</p>
+                                <p><b id="timing3"></b></p>
+                            </div>
+                            <div class="item flex flex-col items-center justify-center">
+                                <svg data-testid="information-icon" width="20" height="20" viewBox="0 0 20 20"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg" class="css-1oh7a03">
+                                    <path
+                                        d="M10 0.25C8.07164 0.25 6.18657 0.821828 4.58319 1.89317C2.97982 2.96451 1.73013 4.48726 0.992179 6.26884C0.254225 8.05042 0.061142 10.0108 0.437348 11.9021C0.813554 13.7934 1.74215 15.5307 3.10571 16.8943C4.46928 18.2579 6.20656 19.1865 8.09787 19.5627C9.98919 19.9389 11.9496 19.7458 13.7312 19.0078C15.5127 18.2699 17.0355 17.0202 18.1068 15.4168C19.1782 13.8134 19.75 11.9284 19.75 10C19.7471 7.41504 18.7189 4.93679 16.8911 3.10894C15.0632 1.28109 12.585 0.252926 10 0.25ZM9.81256 4.75003C10.0351 4.75003 10.2526 4.81601 10.4376 4.93963C10.6226 5.06325 10.7668 5.23895 10.8519 5.44452C10.9371 5.65008 10.9593 5.87628 10.9159 6.09451C10.8725 6.31274 10.7654 6.5132 10.608 6.67053C10.4507 6.82786 10.2503 6.93501 10.032 6.97842C9.8138 7.02183 9.5876 6.99955 9.38204 6.9144C9.17647 6.82925 9.00077 6.68506 8.87715 6.50005C8.75354 6.31505 8.68756 6.09754 8.68756 5.87503C8.68756 5.57667 8.80608 5.29052 9.01706 5.07954C9.22804 4.86856 9.51419 4.75003 9.81256 4.75003ZM10.75 15.25H10C9.8011 15.25 9.61034 15.171 9.46969 15.0303C9.32904 14.8897 9.25002 14.6989 9.25001 14.5V10C9.0511 10 8.86033 9.92098 8.71968 9.78033C8.57903 9.63968 8.50001 9.44891 8.50001 9.25C8.50001 9.05109 8.57903 8.86032 8.71968 8.71967C8.86033 8.57902 9.0511 8.5 9.25001 8.5H10C10.1989 8.50001 10.3897 8.57903 10.5303 8.71968C10.671 8.86033 10.75 9.05109 10.75 9.25V13.75C10.9489 13.75 11.1397 13.829 11.2803 13.9697C11.421 14.1103 11.5 14.3011 11.5 14.5C11.5 14.6989 11.421 14.8897 11.2803 15.0303C11.1397 15.171 10.9489 15.25 10.75 15.25Z"
+                                        fill="#0E5AA7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="second md:w-1/2 w-full p-3 shadow-md rounded-lg sm:w-full" id="element4"
+                        onclick="toggleBackgroundColor2(this, 'express')">
+                        <div class="flex gap-10 w-full justify-between">
+                            <div class="item flex gap-2 items-center">
+                                <svg data-testid="StandardTab" viewBox="0 0 32 32" height="auto" width="24px"
+                                    class="css-1oteowz">
+                                    <mask id="mask0_852_165018" maskUnits="userSpaceOnUse" x="2" y="6" width="28"
+                                        height="21">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M2.66602 6.66675H29.3324V26.6665H2.66602V6.66675Z" fill="white"></path>
+                                    </mask>
+                                    <g mask="url(#mask0_852_165018)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M28.4404 21.9938L27.0893 23.4937H25.3616C25.366 23.4273 25.3727 23.3608 25.3727 23.2934C25.3727 21.4582 23.7749 19.9656 21.8105 19.9656C21.2493 19.9656 20.7193 20.0912 20.2471 20.3081V17.7972L28.4404 17.7463V21.9938ZM21.814 25.7905C20.3407 25.7905 19.1418 24.6705 19.1418 23.2931C19.1418 21.9156 20.3407 20.7957 21.814 20.7957C23.2884 20.7957 24.4873 21.9156 24.4873 23.2931C24.4873 24.6705 23.2884 25.7905 21.814 25.7905ZM11.3551 20.7911V20.8419C10.7218 20.3001 9.88176 19.9669 8.95732 19.9669C8.06288 19.9669 7.2451 20.2794 6.61954 20.7911H3.55733V7.4965H19.7062L23.4229 11.1751H19.8084C19.5629 11.1751 19.364 11.3609 19.364 11.5903V20.7184C19.364 20.7433 19.3673 20.7672 19.3717 20.7911H11.3551ZM18.2524 23.2955C18.2524 23.3422 18.258 23.3889 18.2591 23.4356H12.5091C12.5113 23.3889 12.5169 23.3422 12.5169 23.2955C12.5169 22.5045 12.218 21.779 11.7235 21.207H19.0457C18.5502 21.779 18.2524 22.5045 18.2524 23.2955ZM8.95443 25.7905C7.48109 25.7905 6.28221 24.6705 6.28221 23.2931C6.28221 21.9156 7.48109 20.7957 8.95443 20.7957C10.4289 20.7957 11.6278 21.9156 11.6278 23.2931C11.6278 24.6705 10.4289 25.7905 8.95443 25.7905ZM5.39621 23.2959C5.39621 23.3633 5.40288 23.4298 5.40732 23.4962H3.55733V21.2074H6.18843C5.69399 21.7794 5.39621 22.5049 5.39621 23.2959ZM28.0261 16.9213L20.2528 16.969V12.0054H24.2273L28.0261 16.9213ZM29.2482 17.0869L24.8115 11.3468C24.8004 11.3323 24.786 11.3198 24.7727 11.3074L24.7749 11.3053L20.2193 6.79729C20.1349 6.71425 20.0182 6.6665 19.896 6.6665H3.11046C2.8649 6.6665 2.66602 6.85334 2.66602 7.0817V23.9106C2.66602 24.14 2.8649 24.3258 3.11046 24.3258H5.57046C5.86379 25.1625 6.50157 25.8527 7.32823 26.2513H4.75935V26.6665H9.0149V26.6198C10.5427 26.5959 11.8371 25.67 12.316 24.3871H18.4538C18.756 25.1957 19.3815 25.8631 20.1871 26.2513H17.5582V26.6665H21.8449V26.6208C23.4093 26.6084 24.736 25.6493 25.1993 24.3258H27.2993C27.4304 24.3258 27.5549 24.2719 27.6393 24.1784L29.2282 22.4139C29.296 22.3402 29.3326 22.2447 29.3326 22.1471V17.3308C29.3326 17.2436 29.3026 17.1585 29.2482 17.0869Z"
+                                            fill="#0E5AA7"></path>
+                                    </g>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M21.8117 22.4268C21.2984 22.4268 20.8828 22.816 20.8828 23.2945C20.8828 23.7741 21.2984 24.1633 21.8117 24.1633C22.325 24.1633 22.7406 23.7741 22.7406 23.2945C22.7406 22.816 22.325 22.4268 21.8117 22.4268Z"
+                                        fill="#0E5AA7"></path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M8.95428 22.4268C8.44095 22.4268 8.02539 22.816 8.02539 23.2945C8.02539 23.7741 8.44095 24.1633 8.95428 24.1633C9.46761 24.1633 9.88317 23.7741 9.88317 23.2945C9.88317 22.816 9.46761 22.4268 8.95428 22.4268Z"
+                                        fill="#0E5AA7"></path>
+                                    <mask id="mask1_852_165018" maskUnits="userSpaceOnUse" x="2" y="6" width="28"
+                                        height="21">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M2.66602 26.6667H29.3327V6.66675H2.66602V26.6667Z" fill="white"></path>
+                                    </mask>
+                                    <g mask="url(#mask1_852_165018)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M21.2773 19.0242H22.5362V18.609H21.2773V19.0242Z" fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M3.61914 10.2552H18.7569V9.83996H3.61914V10.2552Z" fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M14.3633 17.6009H18.6199V16.7705H14.3633V17.6009Z" fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M11.9258 19.1996H13.5447V18.3692H11.9258V19.1996Z" fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M5.90625 23.2955C5.90625 21.7219 7.2718 20.4473 8.95514 20.4473C10.6385 20.4473 12.004 21.7219 12.004 23.2955C12.004 24.8681 10.6385 26.1438 8.95514 26.1438C7.2718 26.1438 5.90625 24.8681 5.90625 23.2955Z"
+                                            fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M8.02539 23.295C8.02539 22.8155 8.44206 22.4272 8.95428 22.4272C9.46761 22.4272 9.88317 22.8155 9.88317 23.295C9.88317 23.7746 9.46761 24.1628 8.95428 24.1628C8.44206 24.1628 8.02539 23.7746 8.02539 23.295Z"
+                                            fill="white"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M18.7656 23.2955C18.7656 21.7219 20.1312 20.4473 21.8145 20.4473C23.4978 20.4473 24.8634 21.7219 24.8634 23.2955C24.8634 24.8681 23.4978 26.1438 21.8145 26.1438C20.1312 26.1438 18.7656 24.8681 18.7656 23.2955Z"
+                                            fill="#0E5AA7"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M20.9746 23.295C20.9746 22.8155 21.3913 22.4272 21.9035 22.4272C22.4168 22.4272 22.8335 22.8155 22.8335 23.295C22.8335 23.7746 22.4168 24.1628 21.9035 24.1628C21.3913 24.1628 20.9746 23.7746 20.9746 23.295Z"
+                                            fill="white"></path>
+                                    </g>
+                                </svg>
+                                <h4>Express</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <!-- Banner -->
+                <div class="mx-auto mt-10">
+                    <div id="default-carousel" class="relative w-full" data-carousel="slide">
+                        <!-- Carousel wrapper -->
+                        <div class="relative h-48 overflow-hidden rounded-lg ">
+                            <!-- Item 1 -->
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img src="https://cdnprod.mafretailproxy.com/assets/images/cheaper_app_slim_hb_e7357bde86.png"
+                                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                    alt="...">
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img src="https://cdnprod.mafretailproxy.com/assets/images/app_pepsico_banner_1f139a1f52.png"
+                                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                    alt="...">
+                            </div>
+                            <!-- Item 3 -->
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img src="https://cdnprod.mafretailproxy.com/assets/images/cheaper_app_slim_hb_e7357bde86.png"
+                                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                    alt="...">
+                            </div>
+                            <!-- Item 4 -->
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img src="https://cdnprod.mafretailproxy.com/assets/images/cheaper_app_slim_hb_e7357bde86.png"
+                                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                    alt="...">
+                            </div>
+                            <!-- Item 5 -->
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img src="https://cdnprod.mafretailproxy.com/assets/images/cheaper_app_slim_hb_e7357bde86.png"
+                                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                    alt="...">
+                            </div>
+                        </div>
+                        <!-- Slider indicators -->
+                        <div
+                            class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+                            <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
+                                data-carousel-slide-to="0"></button>
+                            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
+                                data-carousel-slide-to="1"></button>
+                            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
+                                data-carousel-slide-to="2"></button>
+                            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4"
+                                data-carousel-slide-to="3"></button>
+                            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5"
+                                data-carousel-slide-to="4"></button>
+                        </div>
+                        <!-- Slider controls -->
+                        <button type="button"
+                            class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                            data-carousel-prev>
+                            <span
+                                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="M5 1 1 5l4 4" />
+                                </svg>
+                                <span class="sr-only">Previous</span>
+                            </span>
+                        </button>
+                        <button type="button"
+                            class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                            data-carousel-next>
+                            <span
+                                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 9 4-4-4-4" />
+                                </svg>
+                                <span class="sr-only">Next</span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+
+
+                <!-- Tabs -->
+                <div class="css-z7kpob mt-10">
+                    <div class="css-1cc7kk0">
+                        <div class="css-q98w96 sm:w-full">
+                            <div class="css-bq9wbh">
+                                <div title="Top Categories" class="css-l3rx45">
+                                    <h3 data-testid="trolly-text" font-size="3,,,6" font-family="Teshrin AR LT"
+                                        class="css-1rjm86d" color="copy">Top Categories</h3>
+                                </div>
+                                <div title="Top Categories" class="css-l3rx45 mt-5">
+                                    <div class="css-1vgknhh flex flex-wrap">
+                                        <div radius="104px" class="css-1qy7g6h" id="subcat_container">
+                                            <div radius="104px" id="undefined_7249" class="css-3wkdtx">
+                                                <div radius="104px" data-testid="image-circle-1" class="css-mxvkng">
+                                                    <a href="https://www.carrefour.pk/mafpak/en/c/Singles_Deals">
+                                                        <div radius="104px" class="css-15lamc8"><img height="auto"
+                                                                width="100%"
+                                                                src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/Singles_Week_78f6795b45.png"
+                                                                alt="Singles Week" class="css-ziidzl"></div>
+                                                        <div font-size="12px" data-testid="title" class="css-1sc22zy">
+                                                            Singles
+                                                            Week
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div radius="104px" id="undefined_7243" class="css-3wkdtx">
+                                                <div radius="104px" data-testid="image-circle-2" class="css-mxvkng">
+                                                    <a href="https://www.carrefour.pk/mafpak/en/c/Offer_Lowest_Price">
+                                                        <div radius="104px" class="css-15lamc8"><img height="auto"
+                                                                width="100%"
+                                                                src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/Lowest_Prices_EN_2x_d1a2a241a5.png"
+                                                                alt="Lowest Prices" class="css-ziidzl"></div>
+                                                        <div font-size="12px" data-testid="title" class="css-1sc22zy">
+                                                            Lowest
+                                                            Prices
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div radius="104px" id="undefined_7251" class="css-3wkdtx">
+                                                <div radius="104px" data-testid="image-circle-3" class="css-mxvkng">
+                                                    <a href="https://www.carrefour.pk/mafpak/en/c/Big_Deal">
+                                                        <div radius="104px" class="css-15lamc8"><img height="auto"
+                                                                width="100%"
+                                                                src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/it_s_big_deal_circle_d38a254a22.png"
+                                                                alt="It&#39;s A Big Deal" class="css-ziidzl"></div>
+                                                        <div font-size="12px" data-testid="title" class="css-1sc22zy">
+                                                            It's A
+                                                            Big
+                                                            Deal</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div radius="104px" id="undefined_7247" class="css-3wkdtx">
+                                                <div radius="104px" data-testid="image-circle-4" class="css-mxvkng">
+                                                    <a href="https://www.carrefour.pk/mafpak/en/c/Offers01_Hot_Corner">
+                                                        <div radius="104px" class="css-15lamc8"><img height="auto"
+                                                                width="100%"
+                                                                src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/food_to_go_65445c38bd.gif"
+                                                                alt="Food to go" class="css-ziidzl"></div>
+                                                        <div font-size="12px" data-testid="title" class="css-1sc22zy">
+                                                            Food
+                                                            to go
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div radius="104px" id="undefined_7237" class="css-3wkdtx">
+                                                <div radius="104px" data-testid="image-circle-5" class="css-mxvkng">
+                                                    <a
+                                                        href="https://www.carrefour.pk/mafpak/en/c/FPAK1660000?currentPage=0&amp;filter=expressNow%3A">
+                                                        <div radius="104px" class="css-15lamc8"><img height="auto"
+                                                                width="100%"
+                                                                src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/fresh_7c5145f013.png"
+                                                                alt="Fruits &amp; Vegetables" class="css-ziidzl">
+                                                        </div>
+                                                        <div font-size="12px" data-testid="title" class="css-1sc22zy">
+                                                            Fruits
+                                                            &amp;
+                                                            Vegetables</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div radius="104px" id="undefined_7239" class="css-3wkdtx">
+                                                <div radius="104px" data-testid="image-circle-6" class="css-mxvkng">
+                                                    <a
+                                                        href="https://www.carrefour.pk/mafpak/en/c/FPAK1670000?currentPage=0&amp;filter=&amp;nextPageOffset=0&amp;pageSize=60&amp;sortBy=relevance">
+                                                        <div radius="104px" class="css-15lamc8"><img height="auto"
+                                                                width="100%"
+                                                                src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/meat_and_poultry_393accb9e2.png"
+                                                                alt="Meat &amp; Poultry" class="css-ziidzl"></div>
+                                                        <div font-size="12px" data-testid="title" class="css-1sc22zy">
+                                                            Meat
+                                                            &amp;
+                                                            Poultry</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div radius="104px" id="undefined_7241" class="css-3wkdtx">
+                                                <div radius="104px" data-testid="image-circle-7" class="css-mxvkng">
+                                                    <a
+                                                        href="https://www.carrefour.pk/mafpak/en/c/FPAK1630000?&amp;currentPage=0&amp;filter=expressNow%3Atrue">
+                                                        <div radius="104px" class="css-15lamc8"><img height="auto"
+                                                                width="100%"
+                                                                src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/dairy_eggs_57e01ff7d5.png"
+                                                                alt="Dairy &amp; Eggs" class="css-ziidzl"></div>
+                                                        <div font-size="12px" data-testid="title" class="css-1sc22zy">
+                                                            Dairy
+                                                            &amp;
+                                                            Eggs</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div radius="104px" id="undefined_7245" class="css-3wkdtx">
+                                                <div radius="104px" data-testid="image-circle-8" class="css-mxvkng">
+                                                    <a
+                                                        href="https://www.carrefour.pk/mafpak/en/c/FPAK1760000?&amp;currentPage=0&amp;filter=expressNow%3A">
+                                                        <div radius="104px" class="css-15lamc8"><img height="auto"
+                                                                width="100%"
+                                                                src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/Microsoft_Teams_image_152_ee182f3932.png"
+                                                                alt="Cooking Ingredients" class="css-ziidzl"></div>
+                                                        <div font-size="12px" data-testid="title" class="css-1sc22zy">
+                                                            Cooking
+                                                            Ingredients</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div radius="104px" id="undefined_7245" class="css-3wkdtx">
+                                                <div radius="104px" data-testid="image-circle-8" class="css-mxvkng">
+                                                    <a
+                                                        href="https://www.carrefour.pk/mafpak/en/c/FPAK1760000?&amp;currentPage=0&amp;filter=expressNow%3A">
+                                                        <div radius="104px" class="css-15lamc8"><img height="auto"
+                                                                width="100%"
+                                                                src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/Microsoft_Teams_image_152_ee182f3932.png"
+                                                                alt="Cooking Ingredients" class="css-ziidzl"></div>
+                                                        <div font-size="12px" data-testid="title" class="css-1sc22zy">
+                                                            Cooking
+                                                            Ingredients</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div radius="104px" id="undefined_7245" class="css-3wkdtx">
+                                                <div radius="104px" data-testid="image-circle-8" class="css-mxvkng">
+                                                    <a
+                                                        href="https://www.carrefour.pk/mafpak/en/c/FPAK1760000?&amp;currentPage=0&amp;filter=expressNow%3A">
+                                                        <div radius="104px" class="css-15lamc8"><img height="auto"
+                                                                width="100%"
+                                                                src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/Microsoft_Teams_image_152_ee182f3932.png"
+                                                                alt="Cooking Ingredients" class="css-ziidzl"></div>
+                                                        <div font-size="12px" data-testid="title" class="css-1sc22zy">
+                                                            Cooking
+                                                            Ingredients</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div radius="104px" id="undefined_7245" class="css-3wkdtx">
+                                                <div radius="104px" data-testid="image-circle-8" class="css-mxvkng">
+                                                    <a
+                                                        href="https://www.carrefour.pk/mafpak/en/c/FPAK1760000?&amp;currentPage=0&amp;filter=expressNow%3A">
+                                                        <div radius="104px" class="css-15lamc8"><img height="auto"
+                                                                width="100%"
+                                                                src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/Microsoft_Teams_image_152_ee182f3932.png"
+                                                                alt="Cooking Ingredients" class="css-ziidzl"></div>
+                                                        <div font-size="12px" data-testid="title" class="css-1sc22zy">
+                                                            Cooking
+                                                            Ingredients</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div radius="104px" id="undefined_7245" class="css-3wkdtx">
+                                                <div radius="104px" data-testid="image-circle-8" class="css-mxvkng">
+                                                    <a
+                                                        href="https://www.carrefour.pk/mafpak/en/c/FPAK1760000?&amp;currentPage=0&amp;filter=expressNow%3A">
+                                                        <div radius="104px" class="css-15lamc8"><img height="auto"
+                                                                width="100%"
+                                                                src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/Microsoft_Teams_image_152_ee182f3932.png"
+                                                                alt="Cooking Ingredients" class="css-ziidzl"></div>
+                                                        <div font-size="12px" data-testid="title" class="css-1sc22zy">
+                                                            Cooking
+                                                            Ingredients</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div radius="104px" id="undefined_7245" class="css-3wkdtx">
+                                                <div radius="104px" data-testid="image-circle-8" class="css-mxvkng">
+                                                    <a
+                                                        href="https://www.carrefour.pk/mafpak/en/c/FPAK1760000?&amp;currentPage=0&amp;filter=expressNow%3A">
+                                                        <div radius="104px" class="css-15lamc8"><img height="auto"
+                                                                width="100%"
+                                                                src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/Microsoft_Teams_image_152_ee182f3932.png"
+                                                                alt="Cooking Ingredients" class="css-ziidzl"></div>
+                                                        <div font-size="12px" data-testid="title" class="css-1sc22zy">
+                                                            Cooking
+                                                            Ingredients</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div radius="104px" id="undefined_7245" class="css-3wkdtx">
+                                                <div radius="104px" data-testid="image-circle-8" class="css-mxvkng">
+                                                    <a
+                                                        href="https://www.carrefour.pk/mafpak/en/c/FPAK1760000?&amp;currentPage=0&amp;filter=expressNow%3A">
+                                                        <div radius="104px" class="css-15lamc8"><img height="auto"
+                                                                width="100%"
+                                                                src="../temp/Carrefour Express Online Shopping - Buy on Carrefour Pakistan_files/Microsoft_Teams_image_152_ee182f3932.png"
+                                                                alt="Cooking Ingredients" class="css-ziidzl"></div>
+                                                        <div font-size="12px" data-testid="title" class="css-1sc22zy">
+                                                            Cooking
+                                                            Ingredients</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-auto p-relative py-5">
+                    <h3 data-testid="trolly-text" font-size="3,,,6" font-family="Teshrin AR LT" class="css-1rjm86d"
+                        color="copy">Top
+                        Products
+                    </h3>
+                    <div>
+
+                    </div>
+
+                    <div class="outermost__contianer">
+                        <div class="swiper-container2">
+                            <div class="swiper-wrapper" id="productContainer">
+                            </div>
+                            <div class="mt-14 lg:mt-6"></div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div id="chump">
+                </div>
+
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 sm:grid-cols-3 sm:grid-cols-4 sm:w-full gap-5 mx-auto mt-20">
+                    <div class="item">
+                        <img src="https://cdnprod.mafretailproxy.com/assets/images/web_4in1_01_62b73684e4.png"
+                            class="rounded-xl" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="https://cdnprod.mafretailproxy.com/assets/images/web_4in1_01_62b73684e4.png"
+                            class="rounded-xl" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="https://cdnprod.mafretailproxy.com/assets/images/web_4in1_01_62b73684e4.png"
+                            class="rounded-xl" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="https://cdnprod.mafretailproxy.com/assets/images/web_4in1_01_62b73684e4.png"
+                            class="rounded-xl" alt="">
+                    </div>
+                </div>
+
+
+                <!-- Two Cards -->
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-1 sm:grid-cols-2 sm:grid-cols-2 sm:w-full gap-5 mx-auto mt-10">
+                    <div class="item">
+                        <img src="https://cdnprod.mafretailproxy.com/assets/images/2in1_web_1_5717859f3d.png"
+                            class="rounded-xl" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="https://cdnprod.mafretailproxy.com/assets/images/2in1_web_1_5717859f3d.png"
+                            class="rounded-xl" alt="">
+                    </div>
+                </div>
+
+
+                <div class="flex sm:w-full gap-5 mx-auto mt-10">
+                    <div class="item">
+                        <img src="https://cdnprod.mafretailproxy.com/assets/images/web_strip_imported_63c834cd4e.png"
+                            class="rounded-xl" alt="">
+                    </div>
+                </div>
+
+                <div id="overlay" class="overlay">
+
+                </div>
+                <div id="popupx" class="popupx">
+                    <div class="relative  w-full  max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg  dark:bg-gray-700">
+                            <!-- Modal header -->
+                            <div
+                                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                                    Select Location
+                                </h3>
+                                <button type="button" onclick="closePopup()"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                    data-modal-toggle="crud-modal">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="p-4 md:p-5">
+                                <div class="grid gap-4 mb-4 grid-cols-1">
+                                    <div class="col-span-2 sm:col-span-1">
+                                        <label for="category"
+                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stores</label>
+                                        <select id="locationSelect"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                            <option selected disabled>Select Location</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button onclick="closePopup()"
+                                    class="justify-center w-full text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 text-center">
+                                    Choose the area
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="bg-gray-100">
+                    <div class="sm:w-full mx-auto mt-20">
+                        <footer class="bg-gray-100 dark:bg-gray-900">
+                            <div class="mx-auto w-full p-4 py-6 lg:py-8">
+                                <div class="md:flex md:justify-between">
+                                    <div class="mb-6 md:mb-0">
+                                        <a href="https://flowbite.com/" class="flex items-center">
+                                            <img src="./images/logo.png" class="w-[15%]" alt="FlowBite Logo" />
+                                            <!-- <span
+                                    class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span> -->
+                                        </a>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-[8rem] sm:gap-[8rem] sm:grid-cols-2">
+                                        <div>
+                                            <h2
+                                                class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                                                Important
+                                                Links
+                                            </h2>
+                                            <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                                                <li class="mb-4">
+                                                    <a href="https://flowbite.com/" class="hover:underline">Register</a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://tailwindcss.com/" class="hover:underline">Login</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h2
+                                                class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                                                Follow us
+                                            </h2>
+                                            <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                                                <li class="mb-4">
+                                                    <a href="https://github.com/themesberg/flowbite"
+                                                        class="hover:underline ">Facebook</a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://discord.gg/4eeurUVvTy"
+                                                        class="hover:underline">Instagram</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                                <div class="sm:flex sm:items-center sm:justify-between">
+                                    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a
+                                            href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All
+                                        Rights
+                                        Reserved.
+                                    </span>
+                                    <div class="flex mt-4 sm:justify-center sm:mt-0">
+                                        <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                                            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 8 19">
+                                                <path fill-rule="evenodd"
+                                                    d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                            <span class="sr-only">Facebook page</span>
+                                        </a>
+                                        <a href="#"
+                                            class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                                            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 21 16">
+                                                <path
+                                                    d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z" />
+                                            </svg>
+                                            <span class="sr-only">Discord community</span>
+                                        </a>
+                                        <a href="#"
+                                            class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                                            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 17">
+                                                <path fill-rule="evenodd"
+                                                    d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                            <span class="sr-only">Twitter page</span>
+                                        </a>
+                                        <a href="#"
+                                            class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                                            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd"
+                                                    d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                            <span class="sr-only">GitHub account</span>
+                                        </a>
+                                        <a href="#"
+                                            class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                                            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd"
+                                                    d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM8 1.707a8.821 8.821 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.758 45.758 0 0 0 8 1.707ZM1.642 8.262a8.57 8.57 0 0 1 4.73-5.981A53.998 53.998 0 0 1 9.54 7.222a32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.64 31.64 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM10 18.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 13.113 11a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                            <span class="sr-only">Dribbble account</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-
-
-    <!-- Popup for selecting location -->
-    <!-- Main modal -->
-    <!-- <div id="crud-modal" tabindex="-1" aria-hidden="true"
-        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        
-    </div> -->
-
-
-
-
-    <!-- Cart Drawer -->
-
-
-    <!-- drawer init and toggle -->
-    <!-- drawer component -->
     <div id="drawer-right-example"
         class="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-80 dark:bg-gray-800"
         tabindex="-1" aria-labelledby="drawer-right-label">
@@ -1303,7 +1300,6 @@
 
 
         <div id="cartContent">
-            <!-- all content goes here -->
         </div>
 
         <div class="grid grid-cols-2 gap-4">
@@ -1312,11 +1308,13 @@
             </div>
             <a href="#"
                 class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Move
-                To Checkout <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                To Checkout
+                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M1 5h12m0 0L9 1m4 4L9 9" />
-                </svg></a>
+                </svg>
+            </a>
         </div>
     </div>
 
@@ -1343,7 +1341,6 @@
 
 
         <div id="favoritieContent">
-            <!-- all content goes here -->
         </div>
 
         <div class="grid grid-cols-2 gap-4">
@@ -1398,7 +1395,7 @@
             try {
                 const response = await fetch('http://localhost:8888/get-all-products');
                 const products = await response.json();
-            
+
                 // Populate products in the specified ID
                 populateProducts(products, 'productContainer');
             } catch (error) {
@@ -1716,7 +1713,7 @@
                     cartItemElement.classList.add('cart-item');
                     // Create HTML content for each item (customize this based on your needs)
                     cartItemElement.innerHTML = `<div class="my-4" class="cart-item-image">
-                        <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                        <a href="" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${productDetails.name}</h5>
                             <p class="font-normal text-gray-700 dark:text-gray-400">${productDetails.description}</p>
                            
@@ -1827,48 +1824,46 @@
             const productElement = document.createElement('div');
             productElement.className = 'swiper-slide';
             productElement.innerHTML = `
-            <div class="relative overflow-hidden bg-white shadow rounded-xl dark:bg-gray-700" style="height: 400px;">
-            <!-- ... (Product details) ... -->
-            <img class="object-cover w-full mx-auto transition-all rounded h-72 hover:scale-110" src="${imageUrl}" />
-            <button class="absolute top-0 left-0 p-3 bg-blue-500 rounded-l-none hover:bg-blue-600 rounded-b-xl h-8">
-                <!-- ... (Add to Cart icon) ... -->
-            </button>
-    
-            <a class="flex justify-between">
-                <h3 class="w-7/8 px-5 mb-4 text-lg font-bold dark:text-white truncate">${product?.name}</h3>
-                <div class="w-1/8 cursor-pointer">
+        <div class="w-46 bg-white shadow-md rounded-xl" style="height: 420px;">
+        <a>
+            <img class="duration-500 hover:scale-105 hover:shadow-xl h-72" src="${imageUrl}"
+                    alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
+            <div class="px-4 py-3 w-46">
+                <a class="flex justify-between">
+                    <p class="text-lg font-bold text-black truncate block capitalize">${product?.name}</p>
+                    <div class="w-1/8 cursor-pointer">
                     ${favoriteSVG}
+                    </div>
+                </a>
+                <div class="flex items-center">
+                    <p class="text-lg font-semibold text-black cursor-auto my-3">$${parseInt(product?.price).toFixed(2)}</p>
+                    <del>
+                        <p class="text-sm text-gray-600 cursor-auto ml-2">$199</p>
+                    </del>
                 </div>
-            </a>
-            <div class="flex">
-                <div class="w-1/2 px-5 pb-2">
-                    <p class="text-lg font-bold text-blue-500 dark:text-blue-300">
-                        $${parseInt(product?.price).toFixed(2)}
-                    </p>
-                    <span class="block -mt-1 text-xs font-semibold text-gray-400 line-through">$399.99</span>
-                </div>
-
-                    <div class="w-1/2 flex justify-end">
+                    <div class="ml-auto">
                         ${existingCart?.some(item => item.productId === product._id) ?
-                            `<div class="flex items-center">
-                        <button data-product-id="${product?._id}" class="flex-none text-sm text-white transition-all bg-blue-500 rounded-l-xl hover:bg-blue-600 p-2 h-8">
-                            -
+                    `<div class="flex items-center">
+                            <button data-product-id="${product?._id}" class="flex-none text-sm text-white transition-all bg-blue-500 rounded-l-xl hover:bg-blue-600 p-2 h-8">
+                                -
+                            </button>
+                            <input type="text" class="flex-1 text-center text-sm bg-white rounded-none p-2 w-[2rem] h-8"  value="${existingCart.find(item => item.productId === product._id)?.quantity || 0}"> 
+                            <button data-product-id="${product?._id}" class="flex-none text-sm text-white transition-all bg-blue-500 rounded-r-xl hover:bg-blue-600 p-2 add-to-cart-button h-8">
+                                +   
+                            </button>
+                        </div>` :
+                    `<button data-product-id="${product?._id}" class="flex-1 text-sm text-white transition-all bg-blue-500  hover:bg-blue-600 rounded-xl add-to-cart-button h-8 w-32">
+                            Add To Cart
                         </button>
-                        <input type="text" class="flex-1 text-center text-sm bg-white rounded-none p-2 w-[2rem] h-8"  value="${existingCart.find(item => item.productId === product._id)?.quantity || 0}"> 
-                        <button data-product-id="${product?._id}" class="flex-none text-sm text-white transition-all bg-blue-500 rounded-r-xl hover:bg-blue-600 p-2 add-to-cart-button h-8">
-                            +   
-                        </button>
-                    </div>` :
-                            `<button data-product-id="${product?._id}" class="flex-1 text-sm text-white transition-all bg-blue-500  hover:bg-blue-600 rounded-xl add-to-cart-button h-8">
-                        Add To Cart
-                    </button>
-                   </div>
+                    </div>
 
             </div>
             `
                 }  
+                </div>
+            </div>
+        </a>
     </div>
-</div>
 
         `;
             return productElement;
@@ -1912,7 +1907,7 @@
                     const response = await fetch('http://localhost:8888/get-all-products');
                     const products = await response.json();
 
-                   
+
 
                     // Populate products in the specified ID
                     populateProducts(products, 'productContainer');
@@ -2036,7 +2031,7 @@
                         <div class="">
                             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-10">
                             ${item.products.map(element => {
-                                const imageUrl = element.images && element.images.length > 0
+                            const imageUrl = element.images && element.images.length > 0
                                 ? `http://localhost:8888/${element.images[0]}`
                                 : 'https://cdnprod.mafretailproxy.com/assets/images/loreal_promotional_card_76a975379a.png';
 
@@ -2060,7 +2055,7 @@
                                     </div>
 
                                     ${existingCart?.some(item => item.productId === element._id) ?
-                                        `<div class="flex items-center">
+                                    `<div class="flex items-center">
                                             <button data-product-id="${element?._id}" class="flex-none text-sm text-white transition-all bg-blue-500 rounded-l-xl hover:bg-blue-600 p-2 h-8">
                                                 -
                                             </button>
@@ -2069,10 +2064,10 @@
                                                 +   
                                             </button>
                                         </div>` :
-                                        `<button data-product-id="${element?._id}" class="flex-2 text-xs text-white transition-all bg-blue-500 rounded-r-none hover:bg-blue-600 rounded-t-lg add-to-cart-button h-8 min-w-1/2">
+                                    `<button data-product-id="${element?._id}" class="flex-2 text-xs text-white transition-all bg-blue-500 rounded-r-none hover:bg-blue-600 rounded-t-lg add-to-cart-button h-8 min-w-1/2">
                                             Add To Cart
                                         </button>`
-                                                }  
+                                }  
                                 </div>
                                 <p>${element?.name}</p>
                             </div>
