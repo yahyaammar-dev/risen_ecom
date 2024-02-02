@@ -2055,7 +2055,7 @@
         document.getElementById("emailx").innerHTML = JSON.parse(item).email;
 
         async function getStores() {
-            axios.get('http://localhost:8888/get-all-stores')
+            axios.get('https://creativematrixstudios.co.uk/api/get-all-stores')
                 .then(response => {
                     const branches = response.data.stores;
                     const selectElement = document.getElementById('branch');
@@ -2108,7 +2108,7 @@
 
                 // data is here with all fields filled
 
-                axios.post('http://localhost:8888/create-branch', data)
+                axios.post('https://creativematrixstudios.co.uk/api/create-branch', data)
                     .then((res) => {
 
                         console.log('Response', res.data)
@@ -2244,7 +2244,7 @@
         console.log('table body is::: ', tableBody)
 
     }
-    axios.get('http://localhost:8888/get-all-branches')
+    axios.get('https://creativematrixstudios.co.uk/api/get-all-branches')
         .then(function (response) {
             renderBranches(response?.data?.branches);
         })
@@ -2285,7 +2285,7 @@
             }
             // data is here with all fields filled
 
-            axios.post('http://localhost:8888/dublicate-product', data)
+            axios.post('https://creativematrixstudios.co.uk/api/dublicate-product', data)
                 .then((res) => {
                     console.log('Response', res.data)
                     alert("product dublicated!")
@@ -2332,7 +2332,7 @@
 
 
     function deleteproduct(item) {
-        fetch(`http://localhost:8888/delete-branches?id=${item._id}`, {
+        fetch(`https://creativematrixstudios.co.uk/api/delete-branches?id=${item._id}`, {
             method: 'DELETE',
         })
             .then(response => {

@@ -537,7 +537,7 @@
 
 
 
-        axios.get('http://localhost:8888/get-all-stores')
+        axios.get('https://creativematrixstudios.co.uk/api/get-all-stores')
             .then(response => {
                 const branches = response.data.stores;
                 const selectElement = document.getElementById('branch');
@@ -569,7 +569,7 @@
             });
 
             // Make an API call using Axios
-            axios.post('http://localhost:8888/users', jsonData)
+            axios.post('https://creativematrixstudios.co.uk/api/users', jsonData)
                 .then(response => {
                     alert("Admin has been created")
                     console.log('API response:', response.data);

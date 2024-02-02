@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
     <title>Document</title>
     <link rel="stylesheet" href="./styles/homepage.css">
     <link rel="stylesheet" href="./animation/animation.css">
@@ -95,6 +96,51 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
     <style>
+        @media screen and (max-width: 450px) {
+            body {
+                width: 90% !important;
+                margin: 0 auto !important;
+            }
+
+            .logolink {
+                width: 100%;
+                margin-top: 0.5rem;
+            }
+
+            .css-4xhjn0 {
+                display: flex;
+                justify-content: center;
+            }
+
+            .css-15ffgiy {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-top: 1rem;
+
+            }
+
+            .css-1c19nm1 {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .css-1qx9phl {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-top: 1rem;
+            }
+
+            .flexed {
+                display: flex;
+                justify-content: space-around;
+                padding: 0 1rem;
+                width: 100%;
+            }
+        }
+
+
         *,
         html {
             -webkit-box-sizing: border-box;
@@ -278,6 +324,10 @@
         .badge.green {
             background: #b4bd00;
         }
+
+        .flexed {
+            display: flex;
+        }
     </style>
     <style>
         .overlay {
@@ -360,6 +410,11 @@
             margin: 0 auto;
             overflow: hidden;
         }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 25px !important;
+        }
     </style>
 </head>
 
@@ -372,7 +427,7 @@
 
     <div data-testid="main-pane" class="css-15zwyk6">
         <div class="flex justify-between items-center sm:flex-nowrap  flex-wrap">
-            <a data-testid="" href="" class="">
+            <a data-testid="" href="" class="logolink">
                 <div class="css-4xhjn0">
                     <img class="css-4xhjn0-img" src="./images/logo.png" />
                 </div>
@@ -438,30 +493,36 @@
                             <span class="css-y6db74">Login &amp; Register</span></a></nav>
                 </div>
 
-                <nav data-testid="miniCart" class="css-lmlqao">
-                    <a href="#" data-drawer-target="drawer-right-example" data-drawer-show="drawer-right-example"
-                        data-drawer-placement="right" aria-controls="drawer-right-example" class="css-1sqkjz4">
-                        <svg data-testid="CartInverse" viewBox="0 0 24 24" class="css-ekjjru">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M5.75 20C6.7165 20 7.5 20.7835 7.5 21.75C7.5 22.7165 6.7165 23.5 5.75 23.5C4.7835 23.5 4 22.7165 4 21.75C4 20.7835 4.7835 20 5.75 20ZM19.75 20C20.7165 20 21.5 20.7835 21.5 21.75C21.5 22.7165 20.7165 23.5 19.75 23.5C18.7835 23.5 18 22.7165 18 21.75C18 20.7835 18.7835 20 19.75 20ZM4.5 0V4H21.7106L19.3356 13.5H4.5V14.75C4.5 15.3972 4.99187 15.9295 5.62219 15.9935L5.75 16H22.5V17.5H5.75C4.28747 17.5 3.0916 16.3583 3.00502 14.9175L3 14.75V1.5H0V0H4.5ZM19.789 5.5H4.5V12H18.164L19.789 5.5Z"
-                                fill="#0E5AA7"></path>
-                        </svg>
-                    </a>
-                </nav>
-                <div class="favourite" data-testid="miniCart2" class="css-lmlqao"><a href="#"
-                        data-drawer-target="drawer-right-example2" data-drawer-show="drawer-right-example2"
-                        data-drawer-placement="right" aria-controls="drawer-right-example2" class="css-1sqkjz4">
-                        <button onclick="getFav()" class="favourite">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+
+                <div class="flexed">
+                    <nav data-testid="miniCart" class="css-lmlqao">
+                        <a href="#" data-drawer-target="drawer-right-example" data-drawer-show="drawer-right-example"
+                            data-drawer-placement="right" aria-controls="drawer-right-example" class="css-1sqkjz4">
+                            <svg data-testid="CartInverse" viewBox="0 0 24 24" class="css-ekjjru">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.75 20C6.7165 20 7.5 20.7835 7.5 21.75C7.5 22.7165 6.7165 23.5 5.75 23.5C4.7835 23.5 4 22.7165 4 21.75C4 20.7835 4.7835 20 5.75 20ZM19.75 20C20.7165 20 21.5 20.7835 21.5 21.75C21.5 22.7165 20.7165 23.5 19.75 23.5C18.7835 23.5 18 22.7165 18 21.75C18 20.7835 18.7835 20 19.75 20ZM4.5 0V4H21.7106L19.3356 13.5H4.5V14.75C4.5 15.3972 4.99187 15.9295 5.62219 15.9935L5.75 16H22.5V17.5H5.75C4.28747 17.5 3.0916 16.3583 3.00502 14.9175L3 14.75V1.5H0V0H4.5ZM19.789 5.5H4.5V12H18.164L19.789 5.5Z"
+                                    fill="#0E5AA7"></path>
                             </svg>
-                        </button>
-                    </a>
-                    <div id="favouriteDiv">
+                        </a>
+                    </nav>
+                    <div class="favourite" data-testid="miniCart2" class="css-lmlqao"><a href="#"
+                            data-drawer-target="drawer-right-example2" data-drawer-show="drawer-right-example2"
+                            data-drawer-placement="right" aria-controls="drawer-right-example2" class="css-1sqkjz4">
+                            <button onclick="getFav()" class="favourite">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                                </svg>
+                            </button>
+                        </a>
+                        <div id="favouriteDiv">
+                        </div>
                     </div>
                 </div>
+
+
+
             </div>
         </div>
     </div>
@@ -1288,7 +1349,7 @@
                 viewBox="0 0 20 20">
                 <path
                     d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-            </svg>Right drawer</h5>
+            </svg>Cart</h5>
         <button type="button" data-drawer-hide="drawer-right-example" aria-controls="drawer-right-example"
             class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -1302,7 +1363,7 @@
         <div id="cartContent">
         </div>
 
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 gap-4">
             <div>
 
             </div>
@@ -1375,7 +1436,12 @@
 
 
 
-            axios.get('http://localhost:8888/get-last-schedule')
+            axios.get('https://creativematrixstudios.co.uk/api/get-last-schedule', {
+                headers: {
+                    'ngrok-skip-browser-warning': 'true',
+                    'Content-Type': 'application/json',  // Adjust as needed
+                }
+            })
                 .then(function (response) {
                     areas = response.data;
 
@@ -1393,7 +1459,27 @@
                 });
             // Fetch products from the API
             try {
-                const response = await fetch('http://localhost:8888/get-all-products');
+                
+
+
+                axios.get("https://creativematrixstudios.co.uk/api/get-all-products", {
+                    headers: {
+                    'ngrok-skip-browser-warning': 'true',
+                    'Content-Type': 'application/json',  // Adjust as needed
+                }
+                })
+                .then((res)=>{
+                    console.log("response is", res.data)
+                    populateProducts(res.data.products, 'productContainer');
+                })
+                .catch((err)=>{
+                    console.log("error is", err)
+                })
+
+
+
+
+                const response = await fetch('https://creativematrixstudios.co.uk/api/get-all-products');
                 const products = await response.json();
 
                 // Populate products in the specified ID
@@ -1406,14 +1492,18 @@
         document.addEventListener('DOMContentLoaded', ppp());
 
         async function populateProducts(products, containerId) {
+
             const container = document.getElementById(containerId);
             container.innerHTML = '';
             try {
-                const Response = await axios.get('http://localhost:8888/get-favourite', { params: { id: id1 } });
+                const Response = await axios.get('https://creativematrixstudios.co.uk/api/get-favourite', { params: { id: id1 },    headers: {
+      'ngrok-skip-browser-warning': 'true',
+      'Content-Type': 'application/json',  // Adjust as needed
+    },    }, );
                 if (Response.status == 200) {
                     const fav = Response.data.map(item => item.product);
-                    products.products = products.products.slice(-10)
-                    products.products.forEach(product => {
+                    products = products.slice(-10)
+                    products.forEach(product => {
                         const isFavorite = fav.includes(product._id.trim());
                         const productElement = createProductElement(product, isFavorite);
                         container.appendChild(productElement);
@@ -1522,7 +1612,12 @@
         let products = null
         let areas = null
 
-        axios.get('http://localhost:8888/get-areas')
+        axios.get('https://creativematrixstudios.co.uk/api/get-areas', {
+                headers: {
+                    'ngrok-skip-browser-warning': 'true',
+                    'Content-Type': 'application/json',  // Adjust as needed
+                }
+            })
             .then(function (response) {
                 areas = response.data;
                 const locationSelect = document.getElementById('locationSelect');
@@ -1543,12 +1638,17 @@
 
 
         // let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
-        axios.get('http://localhost:8888/get-all-categories')
+        axios.get('https://creativematrixstudios.co.uk/api/get-all-categories',{
+                headers: {
+                    'ngrok-skip-browser-warning': 'true',
+                    'Content-Type': 'application/json',  // Adjust as needed
+                }
+            })
             .then(async function (response) {
                 let mydata = new Map()
                 let temp = response.data.categories
                 for (const category of temp) {
-                    const subcategoriesResponse = await axios.post('http://localhost:8888/get-subcategories', {
+                    const subcategoriesResponse = await axios.post('https://creativematrixstudios.co.uk/api/get-subcategories', {
                         parentCategoryId: category._id,
                     });
                     // subcats.push(...subcategoriesResponse.data)
@@ -1634,7 +1734,7 @@
             });
 
         var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 20,
             breakpoints: {
                 480: {
@@ -1662,7 +1762,7 @@
 
 
         var swiper2 = new Swiper('.swiper-container2', {
-            slidesPerView: 1,
+            slidesPerView: 1.3,
             spaceBetween: 20,
             navigation: {
                 nextEl: '.swiper-button-next',
@@ -1692,6 +1792,7 @@
         document.addEventListener('DOMContentLoaded', cartContent)
 
         function cartContent() {
+
             existingCart = JSON.parse(localStorage.getItem("cart"))
             if (existingCart?.length > 0) {
 
@@ -1701,10 +1802,10 @@
 
                 // Loop through each item in the cart and append it to the cartContent element
                 existingCart?.forEach(async (item) => {
-
+                    console.log("item is", item.productId)
                     // fetch the product here /product-details/:productId from where id is in item.productId
-                    const response = await fetch(`http:localhost:8888/product-details/${item.productId}`);
-                    const productDetails = await response.json()
+                    const response = await fetch(`https://creativematrixstudios.co.uk/api/product-details/${item.productId}`);
+                    const productDetails = await response.json();
 
                     console.log("item is", productDetails, item)
 
@@ -1716,14 +1817,15 @@
                         <a href="" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${productDetails.name}</h5>
                             <p class="font-normal text-gray-700 dark:text-gray-400">${productDetails.description}</p>
-                           
-                            <button data-product-id="${item?.productId}" class="flex-none text-sm text-white transition-all bg-blue-500 rounded-l-xl hover:bg-blue-600 p-2 h-8">
-                                -   
-                            </button>
-                            <p class="font-normal text-gray-700 dark:text-gray-400">${item.quantity}</p> 
-                            <button data-product-id="${item?.productId}" class="flex-none text-sm text-white transition-all bg-blue-500 rounded-r-xl hover:bg-blue-600 p-2 add-to-cart-button h-8">
-                                +   
-                            </button>
+                            <div class="flex items-center gap-[0.5rem]">
+                                <button data-product-id="${item?.productId}" class="flex-none text-sm text-white transition-all bg-blue-500 rounded-l-xl hover:bg-blue-600 p-2 h-8">
+                                    -   
+                                </button>
+                                <p class="font-normal text-gray-700 dark:text-gray-400">${item.quantity}</p> 
+                                <button data-product-id="${item?.productId}" class="flex-none text-sm text-white transition-all bg-blue-500 rounded-r-xl hover:bg-blue-600 p-2 add-to-cart-button h-8">
+                                    +   
+                                </button>
+                            </div>
                         </a>
                         </div>`;
                     // Append the cart item element to the #cartContent element
@@ -1788,7 +1890,7 @@
 
         function createProductElement(product, isFavorite) {
             const imageUrl = product.images && product.images.length > 0
-                ? `http://localhost:8888/${product.images[0]}`
+                ? `https://creativematrixstudios.co.uk/api/${product.images[0]}`
                 : 'https://cdnprod.mafretailproxy.com/assets/images/Fresh_Savers_of_the_week_a781e0f2b6.png';
 
             console.log("pro", product.images)
@@ -1877,7 +1979,9 @@
             const existingItemIndex = existingCart.findIndex(item => item.productId === productId);
             if (existingItemIndex !== -1) {
                 // If the item exists, increase its quantity
-
+                if (existingCart[existingItemIndex].quantity >= 10) {
+                    return
+                }
                 existingCart[existingItemIndex].quantity += 1;
             } else {
                 // If the item doesn't exist, add it with a quantity of 1
@@ -1892,7 +1996,7 @@
         if (id) {
             id = JSON.parse(id);
         }
-        let id1 = id._id;
+        let id1 = id?._id;
         async function favouriteClick(productId) {
             const data = {
                 favourite: true,
@@ -1900,11 +2004,11 @@
                 user: id1
             }
             try {
-                const Response = await axios.post('http://localhost:8888/favourite', {
+                const Response = await axios.post('https://creativematrixstudios.co.uk/api/favourite', {
                     data: data,
                 });
                 if (Response.status == 200) {
-                    const response = await fetch('http://localhost:8888/get-all-products');
+                    const response = await fetch('https://creativematrixstudios.co.uk/api/get-all-products');
                     const products = await response.json();
 
 
@@ -1924,9 +2028,9 @@
 
         async function favDelete(id) {
             try {
-                const res = await axios.delete('http://localhost:8888/delete-favourite', { params: { id: id } })
+                const res = await axios.delete('https://creativematrixstudios.co.uk/api/delete-favourite', { params: { id: id } })
                 if (res.status == 200) {
-                    const response = await fetch('http://localhost:8888/get-all-products');
+                    const response = await fetch('https://creativematrixstudios.co.uk/api/get-all-products');
                     const products = await response.json();
 
                     // Populate products in the specified ID
@@ -1946,14 +2050,14 @@
             const id1 = id._id;
             try {
                 let count = 0;
-                const Response = await axios.get('http://localhost:8888/get-favourite', { params: { id: id1 } })
+                const Response = await axios.get('https://creativematrixstudios.co.uk/api/get-favourite', { params: { id: id1 } })
                 if (Response.status == 200) {
                     const favouriteDiv = document.getElementById('favouriteDiv');
                     // Loop through the data and create <p> tags to display each item
                     Response.data.forEach(async (item) => {
                         let favs = document.getElementById('favoritieContent')
                         favs.innerHTML = '';
-                        const response = await fetch(`http://localhost:8888/product-details/${item.product}`);
+                        const response = await fetch(`https://creativematrixstudios.co.uk/api/product-details/${item.product}`);
                         const productDetails = await response.json()
                         console.log("The details of product are", productDetails)
                         const cartItemElement = document.createElement('div');
@@ -2019,12 +2123,17 @@
 
 
         function fetchSection() {
-            axios.get('http://localhost:8888/sections')
+            axios.get('https://creativematrixstudios.co.uk/api/sections', {
+                headers: {
+                    'ngrok-skip-browser-warning': 'true',
+                    'Content-Type': 'application/json',  // Adjust as needed
+                }
+            })
                 .then((res) => {
                     let abc_ = document.getElementById('chump');
                     let sections = res.data.sections;
                     sections.forEach((item) => {
-                        let html = `
+                        let html = `<div class="mt-10">
                         <h3 data-testid="trolly-text" my-20 font-size="" font-family="Teshrin AR LT" class="css-1rjm86d" color="copy">${item.name}</h3>
                     <div class="sm:w-full mx-auto p-relative " >
                         
@@ -2036,23 +2145,15 @@
                                 : 'https://cdnprod.mafretailproxy.com/assets/images/loreal_promotional_card_76a975379a.png';
 
                             return `
-                            <div class="">
+                            <div class="shadow-md">
                                 <div>
                                     <div class="badge-overlay">
                                         <span class="top-left badge blue">Sale 50% Off</span>
                                     </div>
                                     <figure>
-                                        <img width="250" height="300" class="proImage" src="${imageUrl}" />
+                                        <img  height="300" class="proImage w-full" src="${imageUrl}" />
                                     </figure>
-                                    
                                 </div>
-                                <div class="flex pt-2 ">
-                                    <div class="flex-1 px-2">
-                                        <p class="text-lg font-bold text-blue-500 dark:text-blue-300">
-                                            $${parseInt(element?.price).toFixed(2)}
-                                        </p>
-                                        <span class="block -mt-1 text-xs font-semibold text-gray-400 line-through">$399.99</span>
-                                    </div>
 
                                     ${existingCart?.some(item => item.productId === element._id) ?
                                     `<div class="flex items-center">
@@ -2069,12 +2170,11 @@
                                         </button>`
                                 }  
                                 </div>
-                                <p>${element?.name}</p>
-                            </div>
                                     `;
                         }).join('')}
                             </div>
                         </div>
+                    </div>
                     </div>
                 `;
 

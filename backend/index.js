@@ -64,7 +64,9 @@ const Section = require('./models/Section')
 
 // connecting to db
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/ecom_db')
+const WolletteData = require('./models/WolleteData');
+const WebHooksData = require('./models/WebHooksData');
+mongoose.connect('mongodb://127.0.0.1:27017/ecom_db')
     .then(async () => {
         // Routes
         app.listen(PORT, () => {
@@ -303,6 +305,79 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
 
 
 
+        app.get('/get-webhook-data', async (req, res) => {
+            try {
+                const storedData = await WebHooksData.find({});
+                if (storedData) {
+                    res.status(200).json({ message: 'Data retrieved successfully', data: storedData });
+                } else {
+                    res.status(404).json({ message: 'Data not found' });
+                }
+            } catch (error) {
+                console.error('Error inserting data into MongoDB:', error);
+                res.status(500).send('Internal Server Error');
+            }
+        });
+
+
+
+        app.post('/webhook', async (req, res) => {
+            const webhookData = req.body;
+            console.log('Received webhook data:', webhookData);
+            try {
+                // Create a new document using the WebhookData model
+                const newWebhookData = new WebHooksData({data: webhookData});
+                // Save the document to MongoDB
+                await newWebhookData.save();
+                console.log('Webhook data inserted into MongoDB');
+                res.status(200).send('Webhook received successfully');
+            } catch (error) {
+                console.error('Error inserting data into MongoDB:', error);
+                res.status(500).send('Internal Server Error');
+            }
+        });
+
+
+        app.post('/store-wollette-data', async (req, res) => {
+            try {
+                const { deviceId, locationId, staffId, customerId, type, json } = req.body;
+                const newData = new WolletteData({
+                    deviceId,
+                    locationId,
+                    staffId,
+                    type,
+                    json
+                });
+                await newData.save();
+                res.status(200).json({ message: 'Data stored successfully' });
+                return
+            } catch (error) {
+                console.error('Error Storing Data:', error);
+                res.status(500).json({ message: 'Error Storing Data', error: error.message });
+                return
+            }
+        })
+
+
+        app.post('/get-wollette-data', async (req, res) => {
+            try {
+                const { deviceId, locationId, staffId } = req.body;
+
+                // Search for the data based on the provided deviceId, locationId, and staffId
+                const storedData = await WolletteData.find({ deviceId, locationId, staffId });
+
+                if (storedData) {
+                    res.status(200).json({ message: 'Data retrieved successfully', data: storedData });
+                } else {
+                    res.status(404).json({ message: 'Data not found' });
+                }
+            } catch (error) {
+                console.error('Error Retrieving Data:', error);
+                res.status(500).json({ message: 'Error Retrieving Data', error: error.message });
+            }
+        });
+
+
         // Update Branch API
         app.put('/update-branch/:branchId', async (req, res) => {
             try {
@@ -457,6 +532,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
         app.get('/get-locations', async (req, res) => {
             try {
                 const loc = await Location.find({});
+                console.log("locations are", loc)
                 res.status(200).json(loc);
             } catch (error) {
                 res.status(500).json({ error: 'Internal Server Error' });
@@ -1789,6 +1865,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
 
         // Create Order here it is
         app.post('/create-order', async (req, res) => {
+            console.log(req.body)
             const { amount, branchId, products, user } = req.body;
 
             try {
@@ -2150,6 +2227,7 @@ mongoose.connect('mongodb://localhost:27017/ecom_db')
                 res.status(500).json({ message: 'Error creating ticket' });
             }
         });
+
 
 
 

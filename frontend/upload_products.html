@@ -508,7 +508,7 @@
             var file = fileInput.files[0];
             var formData = new FormData();
             formData.append('file', file);
-            axios.post('http://localhost:8888/upload-products', formData)
+            axios.post('https://creativematrixstudios.co.uk/api/upload-products', formData)
                 .then((res) => {
                     console.log(res.data);
                     alert("Updated Product List successfully")

@@ -878,7 +878,7 @@
 
         let areas = null
 
-        axios.get('http://localhost:8888/get-areas')
+        axios.get('https://creativematrixstudios.co.uk/api/get-areas')
             .then(function (response) {
                 areas = response.data;
                 const locationSelect = document.getElementById('locationSelect');
@@ -898,14 +898,14 @@
             try {
 
                 let count = 0;
-                const Response = await axios.get('http://localhost:8888/get-favourite', { params: { id: id1 } })
+                const Response = await axios.get('https://creativematrixstudios.co.uk/api/get-favourite', { params: { id: id1 } })
                 if (Response.status == 200) {
                     const favouriteDiv = document.getElementById('favouriteDiv');
                     // Loop through the data and create <p> tags to display each item
                     Response.data.forEach(async (item) => {
                         let favs = document.getElementById('favoritieContent')
                         favs.innerHTML = '';
-                        const response = await fetch(`http://localhost:8888/product-details/${item.product}`);
+                        const response = await fetch(`https://creativematrixstudios.co.uk/api/product-details/${item.product}`);
                         const productDetails = await response.json()
                         console.log("The details of product are", productDetails)
                         const cartItemElement = document.createElement('div');
@@ -939,12 +939,12 @@
 
 
         // let branchId = JSON.parse(window.localStorage.getItem('admin'))?.branch
-        axios.get('http://localhost:8888/get-all-categories')
+        axios.get('https://creativematrixstudios.co.uk/api/get-all-categories')
             .then(async function (response) {
                 let mydata = new Map()
                 let temp = response.data.categories
                 for (const category of temp) {
-                    const subcategoriesResponse = await axios.post('http://localhost:8888/get-subcategories', {
+                    const subcategoriesResponse = await axios.post('https://creativematrixstudios.co.uk/api/get-subcategories', {
                         parentCategoryId: category._id,
                     });
                     // subcats.push(...subcategoriesResponse.data)
@@ -1035,7 +1035,7 @@
 
         // branch
         let branch = window.localStorage.getItem("branch")
-        let apiEndpoint = `http://localhost:8888/product-details/${id}`;
+        let apiEndpoint = `https://creativematrixstudios.co.uk/api/product-details/${id}`;
 
         // Make a GET request using Axios
         axios.get(apiEndpoint)
@@ -1045,7 +1045,7 @@
                 document.getElementById('productname').innerText = response.data.name
                 document.getElementById('sale_price').innerText = parseFloat(response.data?.price).toFixed(2)
                 document.getElementById('price').innerText = parseFloat(response.data?.sale_price).toFixed(2)
-                document.getElementById('image01').src = 'http://localhost:8888/' + response.data.images[0]
+                document.getElementById('image01').src = 'https://creativematrixstudios.co.uk/api/' + response.data.images[0]
                 let image_container = document.getElementById('image_container')
 
                 response.data.images.forEach((item, index) => {
@@ -1054,7 +1054,7 @@
                                 <a class="block border border-gray-200 hover:border-blue-400 dark:border-gray-700 dark:hover:border-blue-300"
                                     href="#">
                                     <img class="object-contain w-full lg:h-28"
-                                        src="${'http://localhost:8888/' + response.data.images[index]}" alt="">
+                                        src="${'https://creativematrixstudios.co.uk/api/' + response.data.images[index]}" alt="">
                                 </a>
                             </div>`
 
